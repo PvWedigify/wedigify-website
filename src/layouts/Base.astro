@@ -11,6 +11,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Icon from '@/components/Icon.astro';
 import { getSite, getTeam, getDiensten, dienstUrl, pijlerLabel } from '@/lib/site';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   titel: string;
@@ -146,6 +147,7 @@ const ldJson = [organisatie, ...(isHome ? [website] : []), webpagina, ...schema]
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+    <Analytics />
   </head>
   <body>
     <a href="#inhoud" class="sr-only z-50 rounded-knop bg-paars px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
