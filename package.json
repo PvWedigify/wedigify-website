@@ -23,6 +23,7 @@
     "@keystatic/astro": "^6.0.0",
     "@keystatic/core": "^0.6.9",
     "@tailwindcss/vite": "^4.3.3",
+    "@vercel/speed-insights": "^2.0.0",
     "astro": "^7.3.7",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
