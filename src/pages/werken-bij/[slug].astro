@@ -1,0 +1,54 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { getSite } from '@/lib/site';
+
+export async function getStaticPaths() {
+  const vacatures = await getCollection('vacatures', (v) => v.data.actief);
+  return vacatures.map((v) => ({ params: { slug: v.id }, props: { vacature: v } }));
+}
+interface Props {
+  vacature: CollectionEntry<'vacatures'>;
+}
+const { vacature } = Astro.props;
+const { Content } = await render(vacature);
+const site = await getSite();
+const v = vacature.data;
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: v.titel,
+    description: `<p>${v.intro}</p>`,
+    datePosted: (v.geplaatst ?? new Date()).toISOString().slice(0, 10),
+    validThrough: new Date((v.geplaatst ?? new Date()).getTime() + 90 * 864e5).toISOString(),
+    employmentType: /(^|\D)(3[6-9]|40)/.test(v.uren) ? 'FULL_TIME' : 'PART_TIME',
+    industry: 'E-commerce',
+    directApply: false,
+    hiringOrganization: { '@type': 'Organization', '@id': `${Astro.site}#organisatie`, name: 'Wedigify', sameAs: Astro.site?.toString(), logo: new URL('/wedigify-navy.svg', Astro.site).toString() },
+    jobLocation: {
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', streetAddress: site.straat, postalCode: site.postcode, addressLocality: site.plaats, addressRegion: 'Zuid-Holland', addressCountry: 'NL' },
+    },
+    url: new URL(Astro.url.pathname, Astro.site).toString(),
+  },
+];
+---
+
+<Base titel={`Vacature: ${v.titel} (${v.uren})`} omschrijving={v.intro} schema={schema}>
+  <PageHero
+    eyebrow={`${v.uren} · ${v.locatie}`}
+    titel={v.titel}
+    intro={v.intro}
+    kruimels={[{ label: 'Werken bij', href: '/werken-bij/' }, { label: v.titel }]}
+  >
+    <Fragment slot="acties">
+      {site.email && <a href={`mailto:${site.email}?subject=${encodeURIComponent(`Sollicitatie ${v.titel}`)}`} class="knop-paars">Solliciteer direct</a>}
+    </Fragment>
+  </PageHero>
+  <article class="container-w sectie-s">
+    <div class="prose-w max-w-[720px]"><Content /></div>
+    {site.email && <a href={`mailto:${site.email}?subject=${encodeURIComponent(`Sollicitatie ${v.titel}`)}`} class="knop-paars mt-12">Solliciteer direct</a>}
+  </article>
+</Base>

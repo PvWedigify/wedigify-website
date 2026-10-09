@@ -1,0 +1,245 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import { magentoVersies, versiesBijgewerkt, datumKort, versieStatus, statusKleur } from '@/data/magentoVersies';
+
+const bijgewerkt = versiesBijgewerkt;
+const versies = magentoVersies;
+const nl = datumKort;
+const status = (v: (typeof versies)[number]) => versieStatus(v);
+const badge = statusKleur;
+const nieuwste = versies[0];
+
+const uitleg = [
+  { icoon: 'schild', titel: 'Reguliere support', tekst: 'Adobe brengt security patches en kwaliteitsfixes uit voor de versie. Dit geldt voor Adobe Commerce én Magento Open Source.' },
+  { icoon: 'klok', titel: 'Extended support', tekst: 'Een extra periode met alleen security patches, uitsluitend voor Adobe Commerce klanten. Magento Open Source krijgt geen extended support.' },
+  { icoon: 'waarschuwing', titel: 'Einde support', tekst: 'Geen patches meer. Nieuwe kwetsbaarheden blijven open, extensies en hosting stoppen op termijn met ondersteuning, en PCI eisen komen in gevaar.' },
+];
+
+const faq = [
+  { vraag: 'Wat is de nieuwste versie van Magento?', antwoord: `De nieuwste release is Magento Open Source en Adobe Commerce ${nieuwste.versie}, uitgebracht op ${nl(nieuwste.release)}. Deze versie krijgt reguliere support tot ${nl(nieuwste.regulier)}. Daarnaast verschijnen er regelmatig patchreleases met security fixes.` },
+  { vraag: 'Hoe zie ik welke Magento versie mijn webshop draait?', antwoord: 'In de Magento admin staat de versie rechtsonder in de footer. Je developer kan het ook zien in composer.lock of met het commando bin/magento --version. Twijfel je? Vraag een Magento scan aan, dan kijken we het voor je na.' },
+  { vraag: 'Krijgt Magento Open Source extended support?', antwoord: 'Nee. Extended support met security patches is alleen beschikbaar voor Adobe Commerce klanten. Voor Magento Open Source is het einde van de reguliere support ook echt het einde van de patches voor die versie.' },
+  { vraag: 'Wat gebeurt er als mijn Magento versie niet meer ondersteund wordt?', antwoord: 'Je webshop blijft gewoon werken, maar er verschijnen geen security patches meer. Nieuwe kwetsbaarheden blijven open, extensies en hosting stoppen op termijn met ondersteuning en je loopt risico op datalekken en problemen met PCI compliance. Plan daarom op tijd een update.' },
+  { vraag: 'Hoe lang duurt een update naar de nieuwste Magento versie?', antwoord: 'Dat hangt af van het aantal extensies, het maatwerk en hoeveel versies je achterloopt. Een update binnen de 2.4 reeks is meestal een kwestie van weken, geen maanden. Na een scan geven we je een concrete planning.' },
+  { vraag: 'Draai ik nog Magento 1, wat nu?', antwoord: 'Magento 1 wordt sinds juni 2020 niet meer ondersteund. Dat is een serieus veiligheidsrisico. Een migratie naar Magento 2 of een ander platform is dan de enige verantwoorde stap.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Magento en Adobe Commerce versies en end of support data',
+    description: 'Overzicht van Magento Open Source en Adobe Commerce 2.4 releases met releasedatum, einde reguliere support en einde extended support.',
+    dateModified: bijgewerkt,
+    inLanguage: 'nl-NL',
+    creator: { '@id': `${Astro.site}#organisatie` },
+    isBasedOn: 'https://experienceleague.adobe.com/en/docs/commerce-operations/release/planning/lifecycle-policy',
+  },
+];
+---
+
+<Base
+  titel="Magento versies en end of support data (2026)"
+  omschrijving={`Alle Magento 2.4 versies met releasedatum, einde support en extended support. Nieuwste versie: ${nieuwste.versie}. Check of jouw versie nog ondersteund wordt.`}
+  schema={schema}
+>
+  <PageHero
+    eyebrow="Magento versies"
+    titel="Magento versies en"
+    accent="end of support data."
+    intro="Welke Magento versie is de nieuwste, en hoe lang krijgt jouw versie nog security patches? Hier vind je het actuele overzicht van alle Magento Open Source en Adobe Commerce 2.4 releases."
+    kruimels={[{ label: 'Magento', href: '/magento/' }, { label: 'Magento versies' }]}
+  />
+
+  <!-- Snelle check -->
+  <section class="container-w -mt-10 relative z-10 md:-mt-14">
+    <div class="grid gap-8 rounded-[18px] border border-lijn bg-white p-6 shadow-[0_30px_70px_-40px_rgb(10_13_49/0.35)] md:p-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
+      <div>
+        <p class="eyebrow mb-3">Snelle check</p>
+        <h2 class="text-[26px] leading-tight tracking-kop md:text-[30px]">Wordt jouw Magento versie nog ondersteund?</h2>
+        <p class="mt-3 text-tekst">Kies je versie en je ziet direct waar je staat.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <label class="sr-only" for="versiekeuze">Magento versie</label>
+          <select id="versiekeuze" class="min-w-[220px] flex-1 rounded-knop border border-grijs-lijn bg-white px-4 py-3.5 text-base text-navy focus:border-paars focus:ring-2 focus:ring-paars-200 focus:outline-none" data-versiekeuze>
+            <option value="">Kies je versie</option>
+            {versies.map((v) => <option value={v.versie}>Magento {v.versie}</option>)}
+            <option value="oud">Magento 2.4.3 of ouder</option>
+            <option value="m1">Magento 1</option>
+            <option value="weet-niet">Ik weet het niet</option>
+          </select>
+        </div>
+      </div>
+      <div class="min-h-[150px] rounded-[14px] bg-lavendel p-6" aria-live="polite" data-checkuitslag>
+        <p class="text-tekst">De nieuwste versie is <strong class="text-navy">Magento {nieuwste.versie}</strong>, met reguliere support tot {nl(nieuwste.regulier)}.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabel -->
+  <section class="container-w sectie">
+    <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow mb-3">Overzicht</p>
+        <h2 class="kop-2">Supportdata per versie</h2>
+      </div>
+      <p class="text-sm text-tekst">Laatst gecontroleerd op <time datetime={bijgewerkt}>{nl(bijgewerkt)}</time></p>
+    </div>
+    <div class="overflow-x-auto rounded-[14px] border border-lijn">
+      <table class="w-full min-w-[760px] text-left text-[15px]">
+        <thead class="bg-navy text-white">
+          <tr>
+            <th scope="col" class="px-5 py-4 font-semibold">Versie</th>
+            <th scope="col" class="px-5 py-4 font-semibold">Release</th>
+            <th scope="col" class="px-5 py-4 font-semibold">Einde reguliere support</th>
+            <th scope="col" class="px-5 py-4 font-semibold">Einde extended support <span class="font-normal text-white/60">(alleen Adobe Commerce)</span></th>
+            <th scope="col" class="px-5 py-4 font-semibold">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {versies.map((v, i) => {
+            const s = status(v);
+            return (
+              <tr class:list={['border-t border-lijn', i % 2 === 1 && 'bg-grijs/60']}>
+                <th scope="row" class="px-5 py-4 text-base font-semibold text-navy">{v.versie}{i === 0 && <span class="ml-2 rounded-full bg-paars px-2 py-0.5 align-middle text-[11px] font-semibold text-white">Nieuwste</span>}</th>
+                <td class="px-5 py-4"><time datetime={v.release}>{nl(v.release)}</time></td>
+                <td class="px-5 py-4 font-medium text-navy"><time datetime={v.regulier}>{nl(v.regulier)}</time></td>
+                <td class="px-5 py-4">{v.extended ? <time datetime={v.extended}>{nl(v.extended)}</time> : v.extendedTekst}</td>
+                <td class="px-5 py-4">
+                  <span class:list={['inline-flex rounded-full px-3 py-1 text-[13px] font-semibold whitespace-nowrap', badge[s.code as keyof typeof badge]]} data-status={v.versie}>{s.label}</span>
+                </td>
+              </tr>
+            );
+          })}
+          <tr class="border-t border-lijn">
+            <th scope="row" class="px-5 py-4 text-base font-semibold text-navy">2.4.3 en ouder</th>
+            <td class="px-5 py-4">2021 of eerder</td>
+            <td class="px-5 py-4">Verlopen</td>
+            <td class="px-5 py-4">Verlopen</td>
+            <td class="px-5 py-4"><span class:list={['inline-flex rounded-full px-3 py-1 text-[13px] font-semibold whitespace-nowrap', badge.eol]}>Niet meer ondersteund</span></td>
+          </tr>
+          <tr class="border-t border-lijn bg-grijs/60">
+            <th scope="row" class="px-5 py-4 text-base font-semibold text-navy">Magento 1</th>
+            <td class="px-5 py-4">2008</td>
+            <td class="px-5 py-4">30 juni 2020</td>
+            <td class="px-5 py-4">Niet van toepassing</td>
+            <td class="px-5 py-4"><span class:list={['inline-flex rounded-full px-3 py-1 text-[13px] font-semibold whitespace-nowrap', badge.eol]}>Niet meer ondersteund</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 max-w-[860px] text-sm leading-relaxed text-tekst">
+      Bron: de <a href="https://experienceleague.adobe.com/en/docs/commerce-operations/release/planning/lifecycle-policy" rel="noopener" target="_blank" class="font-medium text-paars underline underline-offset-2">Adobe Commerce software lifecycle policy</a>. Release en reguliere supportdata gelden voor Adobe Commerce en Magento Open Source. Voor Adobe Commerce 2.4.4 tot en met 2.4.6 geldt daarnaast een tijdelijke overgangsperiode met alleen security patches. Adobe kan data aanpassen; wij werken dit overzicht bij zodra dat gebeurt.
+    </p>
+  </section>
+
+  <!-- Uitleg -->
+  <section class="bg-grijs">
+    <div class="container-w sectie">
+      <div class="mb-10 max-w-[720px]">
+        <p class="eyebrow mb-3">Zo werkt het</p>
+        <h2 class="kop-2">Reguliere support, extended support en end of life</h2>
+        <p class="lead mt-4">Adobe ondersteunt elke nieuwe 2.4 release ongeveer drie jaar. In die periode verschijnen er patchreleases (zoals 2.4.8 p3) met security fixes. Daarna houdt het op, en voor Open Source gebruikers betekent dat: geen patches meer.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {uitleg.map((u) => (
+          <div class="rounded-kaart border border-lijn bg-white p-7">
+            <span class="inline-flex size-12 items-center justify-center rounded-knop bg-paars-50 text-paars"><LijnIcoon naam={u.icoon} /></span>
+            <h3 class="mt-5 text-xl font-semibold tracking-kop">{u.titel}</h3>
+            <p class="mt-2 leading-relaxed text-tekst">{u.tekst}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Wat te doen -->
+  <section class="container-w sectie">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      <div>
+        <p class="eyebrow mb-3">Wat nu?</p>
+        <h2 class="kop-2">Wat moet je doen met je versie?</h2>
+        <p class="lead mt-4">De juiste stap hangt af van hoe ver je achterloopt. Dit is wat we in de praktijk adviseren.</p>
+      </div>
+      <ol class="space-y-4">
+        {[
+          { titel: 'Je draait 2.4.8 of 2.4.9', tekst: 'Je zit goed. Installeer nieuwe patchreleases zodra ze verschijnen en plan de volgende update ruim voor het einde van de support.', href: '/magento/security-patches/', link: 'Security patches' },
+          { titel: 'Je draait 2.4.7', tekst: `De reguliere support stopt op ${nl('2027-05-31')}. Plan een update naar ${nieuwste.versie} in de komende maanden, dan hoef je straks niet te haasten.`, href: '/magento/updates/', link: 'Magento updates' },
+          { titel: 'Je draait 2.4.6 of ouder', tekst: 'Je krijgt als Open Source gebruiker geen security patches meer. Een update naar de nieuwste versie heeft nu prioriteit. Vaak is dit ook hét moment om naar Hyvä over te stappen.', href: '/magento/updates/', link: 'Magento updates' },
+          { titel: 'Je draait nog Magento 1', tekst: 'Magento 1 is al jaren niet meer veilig. Een migratie naar Magento 2 of een ander platform is de enige verantwoorde stap.', href: '/magento/migraties/', link: 'Magento migraties' },
+        ].map((s, i) => (
+          <li class="flex gap-5 rounded-kaart border border-lijn p-6">
+            <span class="text-[15px] font-semibold text-paars">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="text-xl font-semibold tracking-kop">{s.titel}</h3>
+              <p class="mt-2 leading-relaxed text-tekst">{s.tekst}</p>
+              <a href={s.href} class="mt-3 inline-flex items-center gap-2 font-semibold text-paars">{s.link} <Icon name="pijl" size={16} /></a>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-grijs">
+    <div class="container-w sectie">
+      <div class="mb-10 max-w-[720px]">
+        <p class="eyebrow mb-3">Veelgestelde vragen</p>
+        <h2 class="kop-2">Vragen over Magento versies</h2>
+      </div>
+      <Faq items={faq} kolommen={2} />
+    </div>
+  </section>
+
+  <CtaBand titel="Twijfel je over je Magento versie?" intro="Vraag een vrijblijvende Magento scan aan. We checken je versie, patches, extensies en snelheid, en vertellen eerlijk wat er nodig is." label="Vraag een Magento scan aan" href="/magento-scan/" />
+</Base>
+
+<script define:vars={{ versies, bijgewerkt }}>
+  // Status opnieuw berekenen met de datum van vandaag, zodat het overzicht niet veroudert
+  const nl = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  const nu = new Date();
+  const status = (v) => {
+    const reg = new Date(v.regulier + 'T23:59:59Z');
+    const ext = v.extended ? new Date(v.extended + 'T23:59:59Z') : null;
+    if (nu <= reg) {
+      const m = (reg.getUTCFullYear() - nu.getUTCFullYear()) * 12 + reg.getUTCMonth() - nu.getUTCMonth();
+      return m <= 9 ? ['bijna', 'Ondersteund, einde nadert'] : ['ok', 'Ondersteund'];
+    }
+    if (ext && nu <= ext) return ['ext', 'Alleen extended support'];
+    return ['eol', 'Niet meer ondersteund'];
+  };
+  const kleuren = { ok: 'bg-[#e7f7ee] text-[#137a43]', bijna: 'bg-[#fff4dc] text-[#8a5a00]', ext: 'bg-[#ffe9dc] text-[#9a3d00]', eol: 'bg-[#fde7ea] text-[#b4232f]' };
+  if (nu > new Date(bijgewerkt)) {
+    versies.forEach((v) => {
+      const el = document.querySelector(`[data-status="${v.versie}"]`);
+      if (!el) return;
+      const [code, label] = status(v);
+      el.className = 'inline-flex rounded-full px-3 py-1 text-[13px] font-semibold whitespace-nowrap ' + kleuren[code];
+      el.textContent = label;
+    });
+  }
+  const keuze = document.querySelector('[data-versiekeuze]');
+  const uit = document.querySelector('[data-checkuitslag]');
+  const cta = (tekst, href) => `<a href="${href}" class="knop-paars knop-klein mt-5">${tekst} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`;
+  const kop = (code, tekst) => `<span class="inline-flex rounded-full px-3 py-1 text-[13px] font-semibold ${kleuren[code]}">${tekst}</span>`;
+  keuze?.addEventListener('change', () => {
+    const w = keuze.value;
+    if (!w) return;
+    const v = versies.find((x) => x.versie === w);
+    let html = '';
+    if (v) {
+      const [code, label] = status(v);
+      if (code === 'ok') html = `${kop(code, label)}<p class="mt-3 text-navy">Magento ${v.versie} krijgt reguliere support tot <strong>${nl(v.regulier)}</strong>. Blijf patchreleases installeren, dan zit je goed.</p>${cta('Laat ons je patches regelen', '/magento/security-patches/')}`;
+      else if (code === 'bijna') html = `${kop(code, label)}<p class="mt-3 text-navy">De reguliere support voor Magento ${v.versie} stopt op <strong>${nl(v.regulier)}</strong>. Plan je update nu, dan hoef je straks niet te haasten.</p>${cta('Plan je update', '/magento/updates/')}`;
+      else if (code === 'ext') html = `${kop(code, label)}<p class="mt-3 text-navy">Alleen Adobe Commerce klanten krijgen nog security patches, tot ${nl(v.extended)}. <strong>Op Magento Open Source krijg je geen patches meer.</strong> Een update heeft prioriteit.</p>${cta('Vraag een Magento scan aan', '/magento-scan/')}`;
+      else html = `${kop(code, label)}<p class="mt-3 text-navy">Magento ${v.versie} krijgt geen security patches meer. Dat is een reëel risico voor je webshop en je klantdata.</p>${cta('Vraag een Magento scan aan', '/magento-scan/')}`;
+    } else if (w === 'oud') html = `${kop('eol', 'Niet meer ondersteund')}<p class="mt-3 text-navy">Deze versies krijgen al jaren geen security patches meer. Een update naar de nieuwste versie heeft prioriteit.</p>${cta('Vraag een Magento scan aan', '/magento-scan/')}`;
+    else if (w === 'm1') html = `${kop('eol', 'Niet meer ondersteund')}<p class="mt-3 text-navy">Magento 1 wordt sinds juni 2020 niet meer ondersteund. Een migratie is de enige verantwoorde stap.</p>${cta('Bekijk Magento migraties', '/magento/migraties/')}`;
+    else html = `<p class="text-navy">Geen probleem. Je vindt de versie rechtsonder in de footer van je Magento admin. Of laat ons kijken: in de Magento scan checken we je versie, patches en extensies.</p>${cta('Vraag een Magento scan aan', '/magento-scan/')}`;
+    uit.innerHTML = html;
+  });
+</script>

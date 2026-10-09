@@ -1,0 +1,52 @@
+---
+/** Compact versieoverzicht met link naar /magento/versies/ (data uit src/data/magentoVersies.ts). */
+import Icon from './Icon.astro';
+import { magentoVersies, datumKort, versieStatus, statusKleur } from '@/data/magentoVersies';
+
+const rijen = magentoVersies.slice(0, 5);
+const nieuwste = magentoVersies[0];
+---
+
+<section class="relative isolate overflow-hidden bg-lavendel">
+  <div class="raster pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
+  <div class="container-w sectie relative grid items-center gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+    <div data-reveal>
+      <p class="eyebrow mb-4">Magento versies</p>
+      <h2 class="kop-2">Wordt jouw Magento versie <span class="text-paars">nog ondersteund?</span></h2>
+      <p class="lead mt-6 max-w-[480px]">
+        De nieuwste versie is Magento {nieuwste.versie}. Draai je een versie zonder support, dan krijg je geen security patches meer. Dat is een reëel risico voor je webshop en je klantdata.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="/magento/versies/" class="knop-paars">Bekijk alle versies <Icon name="pijl" size={18} /></a>
+        <a href="/magento/updates/" class="knop-rand bg-white/60">Plan een update</a>
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-[14px] border border-lijn bg-white shadow-[0_30px_70px_-40px_rgb(10_13_49/0.35)]" data-reveal style="--vertraging:120ms">
+      <table class="w-full text-left text-[15px]">
+        <caption class="sr-only">Magento versies en einde reguliere support</caption>
+        <thead class="bg-navy text-[13px] text-white">
+          <tr>
+            <th scope="col" class="px-5 py-4 font-semibold">Versie</th>
+            <th scope="col" class="px-5 py-4 font-semibold max-sm:hidden">Einde support</th>
+            <th scope="col" class="px-5 py-4 font-semibold">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rijen.map((v) => {
+            const s = versieStatus(v);
+            return (
+              <tr class="border-b border-lijn last:border-0">
+                <th scope="row" class="px-5 py-4 text-base font-semibold text-navy">Magento {v.versie}</th>
+                <td class="px-5 py-4 text-tekst max-sm:hidden"><time datetime={v.regulier}>{datumKort(v.regulier)}</time></td>
+                <td class="px-5 py-4"><span class:list={['inline-flex rounded-full px-3 py-1 text-[13px] font-semibold whitespace-nowrap', statusKleur[s.code]]}>{s.label}</span></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <a href="/magento/versies/" class="flex items-center justify-between gap-3 border-t border-lijn bg-paars-50 px-5 py-4 text-[15px] font-semibold text-paars hover:bg-paars hover:text-white">
+        Check direct jouw versie <Icon name="pijl" size={16} />
+      </a>
+    </div>
+  </div>
+</section>

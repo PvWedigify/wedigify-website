@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import TeamCollage from '@/components/TeamCollage.astro';
+import { getSite } from '@/lib/site';
+
+const site = await getSite();
+const vacatures = await getCollection('vacatures', (v) => v.data.actief);
+const redenen = [
+  { icoon: 'raket', titel: 'Ruimte om te groeien', tekst: 'We groeien als bureau, en jij groeit mee. Je pakt verantwoordelijkheid zodra je er klaar voor bent.' },
+  { icoon: 'code', titel: 'Inhoudelijke diepgang', tekst: 'Je werkt aan serieuze webshops met echte uitdagingen: Magento, Hyvä, koppelingen, data en groei.' },
+  { icoon: 'team', titel: 'Korte lijnen', tekst: 'Geen lagen management. Je werkt direct samen met collega’s uit andere disciplines en met de klant.' },
+  { icoon: 'sparkle', titel: 'Leren van elkaar', tekst: 'Kennis delen hoort erbij: code reviews, kennissessies en sparren over nieuwe technieken zoals AI.' },
+  { icoon: 'doel', titel: 'Werk dat ertoe doet', tekst: 'Je ziet direct wat je werk oplevert voor de klant, in omzet, snelheid en tevreden gebruikers.' },
+  { icoon: 'locatie', titel: 'Kantoor in Rotterdam', tekst: 'Een plek aan de Posthoornstraat waar we samenwerken, met de Rotterdamse mentaliteit: niet lullen, maar poetsen.' },
+];
+const procedure = [
+  { titel: 'Solliciteer', tekst: 'Stuur je cv en een korte motivatie. Een open sollicitatie mag ook.' },
+  { titel: 'Kennismaking', tekst: 'Een eerste gesprek om elkaar te leren kennen, op kantoor of online.' },
+  { titel: 'Verdieping', tekst: 'Een tweede gesprek met je toekomstige collega’s, vaak met een praktijkcase.' },
+  { titel: 'Welkom', tekst: 'Klikt het? Dan maken we een voorstel en zorgen we voor een goede start.' },
+];
+---
+
+<Base titel="Werken bij Wedigify in Rotterdam" omschrijving="Werken bij een compact e-commercebureau met korte lijnen, inhoudelijke diepgang en ruimte om je eigen rol te pakken. Bekijk de vacatures van Wedigify.">
+  <PageHero
+    eyebrow="Werken bij"
+    titel="Werken bij Wedigify"
+    accent="in Rotterdam."
+    intro="Bij Wedigify werk je in een compact team met korte lijnen, inhoudelijke diepgang en ruimte om je eigen rol te pakken. Of je nu in development, strategie of online marketing zit: je krijgt de vrijheid en het vertrouwen om te doen waar je goed in bent."
+    kruimels={[{ label: 'Werken bij' }]}
+  />
+
+  <section class="container-w sectie-s">
+    <div class="grid items-center gap-x-16 gap-y-16 lg:grid-cols-2">
+      <div data-reveal>
+        <p class="eyebrow mb-4">Wie we zijn</p>
+        <h2 class="kop-2 mb-6">Een team dat <span class="text-paars">samen bouwt.</span></h2>
+        <p class="mb-4 text-[17px] leading-[1.75] text-tekst">Wedigify is een e-commerce bureau met Magento als fundament. Developers, marketeers en strategen werken samen aan webshops van ambitieuze merken, zoals ZINZI, Krale, Tacstack en Greenfield Fashion.</p>
+        <p class="text-[17px] leading-[1.75] text-tekst">We zijn nuchter, direct en houden van resultaat. Wat we beloven, maken we waar. En we geven elkaar de ruimte om te doen waar we goed in zijn.</p>
+      </div>
+      <div data-reveal style="--vertraging:120ms"><TeamCollage tekst="Collega’s in development, marketing en strategie." /></div>
+    </div>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s">
+      <h2 class="kop-2 mb-12" data-reveal>Waarom werken bij Wedigify?</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          redenen.map((r, i) => (
+            <li class="flex flex-col gap-3 rounded-[14px] border border-lijn bg-white p-7" data-reveal style={`--vertraging:${(i % 3) * 80}ms`}>
+              <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam={r.icoon} /></span>
+              <h3 class="text-xl font-semibold">{r.titel}</h3>
+              <p class="leading-relaxed text-tekst">{r.tekst}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="vacatures" class="container-w sectie-s scroll-mt-24">
+    <h2 class="kop-2 mb-10">Vacatures</h2>
+    {
+      vacatures.length > 0 ? (
+        <ul class="border-t-2 border-navy">
+          {vacatures.map((v) => (
+            <li>
+              <a href={`/werken-bij/${v.id}/`} class="group flex flex-wrap items-center gap-x-8 gap-y-2 border-b border-grijs-lijn py-6 hover:text-navy">
+                <span class="flex-[1_1_280px] text-[clamp(1.4rem,2.4vw,2rem)] font-semibold tracking-kop group-hover:text-paars">{v.data.titel}</span>
+                <span class="flex-[1_1_200px] text-tekst">{v.data.uren} · {v.data.locatie}</span>
+                <span class="inline-flex size-10 items-center justify-center rounded-knop border-[1.5px] border-navy group-hover:border-paars group-hover:bg-paars group-hover:text-white" aria-hidden="true">
+                  <Icon name="pijl" size={18} />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="lead">Er staan op dit moment geen vacatures open.</p>
+      )
+    }
+    <div class="mt-12 rounded-kaart border border-lijn bg-lavendel p-7 md:p-10">
+      <h3 class="mb-2 text-2xl tracking-kop">Geen passende vacature?</h3>
+      <p class="mb-5 text-tekst">Stuur een open sollicitatie. Goede mensen maken altijd het verschil.</p>
+      {site.email && <a href={`mailto:${site.email}?subject=Open%20sollicitatie`} class="knop-paars">Stuur een open sollicitatie</a>}
+    </div>
+  </section>
+
+  <section class="border-t border-lijn">
+    <div class="container-w sectie-s">
+      <h2 class="kop-2 mb-12" data-reveal>Zo verloopt je sollicitatie.</h2>
+      <ol class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          procedure.map((p, i) => (
+            <li class="flex flex-col gap-2 border-t-[3px] border-paars pt-6" data-reveal style={`--vertraging:${i * 90}ms`}>
+              <span class="text-[13px] font-semibold text-paars">Stap {i + 1}</span>
+              <h3 class="text-xl font-semibold">{p.titel}</h3>
+              <p class="leading-relaxed text-tekst">{p.tekst}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</Base>

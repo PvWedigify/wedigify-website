@@ -1,0 +1,21 @@
+---
+import Base from '@/layouts/Base.astro';
+import PixelCluster from '@/components/PixelCluster.astro';
+import Icon from '@/components/Icon.astro';
+---
+
+<Base titel="Pagina niet gevonden" omschrijving="Deze pagina bestaat niet (meer)." noindex>
+  <section class="bg-lavendel">
+    <div class="container-w relative py-24 md:py-36">
+      <PixelCluster class="absolute top-12 right-4 md:right-12" />
+      <p class="eyebrow mb-6">404</p>
+      <h1 class="kop-1 max-w-[900px]">Pagina <span class="text-paars">niet gevonden.</span></h1>
+      <p class="lead mt-6 max-w-[540px]">De pagina die je zoekt bestaat niet (meer). Misschien helpt een van deze routes.</p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="/" class="knop-paars">Naar de homepage <Icon name="pijl" size={18} /></a>
+        <a href="/magento/" class="knop-rand">Magento diensten</a>
+        <a href="/contact/" class="knop-rand">Contact</a>
+      </div>
+    </div>
+  </section>
+</Base>

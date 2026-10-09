@@ -1,0 +1,192 @@
+titel: Webshop laten maken
+pijler: magento
+volgorde: 1
+opHome: true
+kort: Een nieuwe Magento webshop, op maat gebouwd en klaar om te groeien.
+eyebrow: Magento development
+heroTitel: Magento webshop laten maken
+heroAccent: door specialisten.
+intro: >-
+  Een Magento webshop die snel is, goed converteert en meegroeit met je organisatie. Onze senior developers
+  bouwen op Magento Open Source of Adobe Commerce, met Hyvä als frontend en koppelingen met je ERP, PIM
+  en voorraadsystemen.
+wat:
+- Nieuwe Magento shops
+- Maatwerkmodules en functionaliteit
+- Performance optimalisatie
+- Code reviews en QA
+case: zinzi
+specialist: ievgenii
+uitleg:
+- titel: Waarom kiezen voor een Magento webshop?
+  tekst: >-
+    Magento is gemaakt voor webshops die serieus willen groeien. Grote catalogi, meerdere winkels of talen,
+    B2B prijzen en complexe koppelingen zijn standaard mogelijk. Je zit niet vast aan de grenzen van een
+    SaaS platform: alles is aan te passen aan jouw processen.
+- titel: B2B webshop op Magento
+  tekst: >-
+    Magento is sterk in B2B: klantspecifieke prijzen en assortimenten, bestellen op rekening, snelle herhaalorders
+    en koppelingen met je ERP. Adobe Commerce heeft een uitgebreide B2B module ingebouwd; op Magento Open
+    Source realiseren we dit met bewezen extensies en maatwerk.
+- titel: Wat kost een Magento webshop laten maken?
+  tekst: >-
+    De kosten hangen af van het ontwerp, de hoeveelheid maatwerk, het aantal koppelingen en storeviews,
+    en of je kiest voor Open Source of Adobe Commerce. Na een groeisessie krijg je een onderbouwde begroting
+    per onderdeel, zodat je precies weet waar je in investeert.
+faq:
+- vraag: Hoe lang duurt het om een Magento webshop te laten maken?
+  antwoord: >-
+    Dat hangt af van de omvang. Een webshop op Magento met Hyvä kan in enkele maanden live staan; Tacstack
+    ging zelfs binnen 8 weken van design naar livegang. In de planning houden we rekening met jouw deadlines.
+- vraag: Kies ik voor Magento Open Source of Adobe Commerce?
+  antwoord: >-
+    Magento Open Source is gratis en voor de meeste webshops ruim voldoende. Adobe Commerce voegt onder
+    meer B2B functionaliteit en cloudhosting toe, tegen licentiekosten. We adviseren op basis van je business
+    case, niet op basis van wat wij willen verkopen.
+- vraag: Magento of Shopify, wat past beter?
+  antwoord: >-
+    Shopify is snel en eenvoudig voor standaard webshops. Magento is beter als je veel maatwerk, B2B,
+    meerdere winkels of complexe koppelingen nodig hebt. In ons kennisartikel zetten we de verschillen
+    op een rij.
+- vraag: Kan ik de webshop daarna zelf beheren?
+  antwoord: >-
+    Ja. Producten, content en acties beheer je zelf in de Magento backend. Wij zorgen voor onderhoud,
+    updates en doorontwikkeling.
+- vraag: Kan ik mijn bestaande data en SEO meenemen?
+  antwoord: >-
+    Ja. Producten, klanten, orders en content migreren we mee, en met een volledige redirectlijst behoud
+    je je posities in Google.
+artikelen:
+- magento-vs-woocommerce
+- magento-alternatieven
+- magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes
+- magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf
+- webshop-lanceren-7-tips
+- magento-consultancy-door-wedigify-strategie-succes-voor-jouw-magento-webshop
+ctaTitel: Wat wil je laten bouwen?
+ctaLabel: Plan een kennismaking
+seoTitel: Magento webshop laten maken | Magento bureau Wedigify
+seoOmschrijving: Magento webshop laten maken door een vast team van specialisten. Hyvä frontend, B2B en koppelingen met ERP en PIM. Magento bureau uit Rotterdam.
+visual: code
+visualBadge:
+  titel: Gebouwd om mee te groeien
+  tekst: Magento Open Source of Adobe Commerce.
+  icoon: raket
+watIs:
+  titel: Een Magento webshop die past bij je organisatie
+  tekst: >-
+    Magento is het platform voor webshops die serieus willen groeien: grote catalogi, B2B en B2C in één
+    omgeving, meerdere winkels en talen, en koppelingen met je ERP, PIM en logistiek. Wij ontwerpen en
+    bouwen je webshop vanaf de business case, zodat elke functie bijdraagt aan omzet en efficiëntie.
+  punten:
+  - Maatwerk waar het waarde toevoegt, standaard waar het kan
+  - Hyvä frontend voor snelheid en conversie
+  - Schaalbaar voor groei in assortiment, landen en kanalen
+  - Technisch documentatie en overdraagbare code
+  visual: lighthouse
+voordelen:
+- icoon: lagen
+  titel: Schaalbaar
+  tekst: Van duizend tot honderdduizenden producten, zonder van platform te wisselen.
+- icoon: bliksem
+  titel: Snel
+  tekst: Hyvä en goede hosting zorgen voor laadtijden die converteren.
+- icoon: module
+  titel: Flexibel
+  tekst: Elke werkwijze, prijsstructuur of koppeling is te bouwen.
+- icoon: slot
+  titel: Eigenaarschap
+  tekst: Jij bent eigenaar van je platform en je data. Geen vendor lock-in.
+waarom:
+  titel: Waarom kiezen voor Magento?
+  tekst: >-
+    SaaS platforms zijn snel live, maar lopen vast zodra je processen complexer worden: B2B prijzen, meerdere
+    magazijnen, configureerbare producten of een eigen checkout. Magento geeft je die ruimte wel, en je
+    bepaalt zelf waar je webshop draait en wie eraan werkt.
+
+
+    De keerzijde is dat Magento vakmanschap vraagt. Daarom bouwen wij met een vast team van senior developers,
+    met code reviews, testomgevingen en een releaseproces dat je shop stabiel houdt.
+onderdelenTitel: Wat we voor je bouwen
+onderdelen:
+- icoon: winkel
+  label: Nieuwe webshops
+- icoon: koffer
+  label: B2B portalen
+- icoon: wereld
+  label: Multistore en meertalig
+- icoon: module
+  label: Maatwerk modules
+- icoon: betalen
+  label: Checkout en betalen
+- icoon: stekker
+  label: ERP en PIM koppelingen
+- icoon: zoek
+  label: Zoeken en filteren
+- icoon: bliksem
+  label: Performance
+- icoon: pen
+  label: UX en design
+- icoon: label
+  label: Productconfigurators
+- icoon: gebruiker
+  label: Klantaccounts
+- icoon: grafiek
+  label: Tracking en analytics
+wanneer:
+- Je huidige platform beperkt je groei
+- Je verkoopt B2B, B2C of beide
+- Je hebt complexe producten, prijzen of processen
+- Je wilt koppelen met ERP, PIM of WMS
+- Je wilt eigenaar zijn van je platform en data
+stappen:
+- label: Week 1 tot 3
+  titel: Business case en ontwerp
+  tekst: We vertalen je doelen naar functionaliteit, UX en een technische architectuur.
+- label: Sprints
+  titel: Bouwen en testen
+  tekst: In sprints van twee weken bouwen we zichtbaar door, met een eigen testomgeving.
+- label: Livegang
+  titel: Lanceren en doorgroeien
+  tekst: Gecontroleerde livegang met redirects en monitoring, daarna optimaliseren we door.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: bliksem
+  richting: op
+  titel: Snelheid
+  tekst: Snellere laadtijden met Hyvä.
+- icoon: doel
+  richting: op
+  titel: Conversie
+  tekst: Een soepelere klantreis.
+- icoon: klok
+  richting: neer
+  titel: Handwerk
+  tekst: Minder handmatig werk door koppelingen.
+- icoon: lagen
+  richting: op
+  titel: Schaalbaarheid
+  tekst: Ruimte voor nieuwe landen en kanalen.
+- icoon: euro
+  richting: neer
+  titel: Licentiekosten
+  tekst: Open Source waar het kan.
+- icoon: schild
+  richting: op
+  titel: Stabiliteit
+  tekst: Betrouwbare releases en uptime.
+ctaIntro: >-
+  Vertel ons over je plannen. We denken mee over platform, functionaliteit en planning, en geven een eerlijk
+  beeld van wat het kost.

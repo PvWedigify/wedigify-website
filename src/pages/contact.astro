@@ -1,0 +1,165 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ContactKaart from '@/components/ContactKaart.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import Faq from '@/components/Faq.astro';
+import { getSite } from '@/lib/site';
+
+const site = await getSite();
+const persoon = site.contactpersoon ? await getEntry(site.contactpersoon) : null;
+// Formulier endpoint (Formspree, Basin, HubSpot, eigen API ...). Zie .env.example en README.
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const onderwerpen = [
+  { value: 'groeisessie', label: 'Ik wil een groeisessie plannen' },
+  { value: 'scan', label: 'Ik wil mijn Magento shop laten scannen' },
+  { value: 'overstap', label: 'Ik wil overstappen van bureau' },
+  { value: 'spoed', label: 'Mijn shop heeft nu een probleem' },
+  { value: 'anders', label: 'Iets anders' },
+];
+const verwachting = [
+  { icoon: 'chat', titel: 'We nemen contact op', tekst: 'Een specialist belt of mailt je zo snel mogelijk om je vraag te bespreken.' },
+  { icoon: 'kalender', titel: 'Kennismaking', tekst: 'Op kantoor in Rotterdam of online. We kijken samen naar je webshop, cijfers en ambities.' },
+  { icoon: 'document', titel: 'Concreet voorstel', tekst: 'Je krijgt een helder advies met aanpak, planning en kosten. Zonder kleine lettertjes.' },
+];
+const faq = [
+  { vraag: 'Is een kennismaking echt vrijblijvend?', antwoord: 'Ja. Een kennismaking of groeisessie kost je niets en verplicht je tot niets. We geven je eerlijk advies, ook als we niet de juiste partij voor je zijn.' },
+  { vraag: 'Werken jullie alleen met Magento webshops?', antwoord: 'Magento is ons fundament. Voor marketing, CRO en strategie werken we ook voor webshops op andere platforms, en we adviseren je graag over een overstap.' },
+  { vraag: 'Wat neem ik mee naar de kennismaking?', antwoord: 'Niets verplicht. Handig zijn je belangrijkste cijfers (omzet, conversie, marges) en de vragen of uitdagingen waar je nu tegenaan loopt.' },
+  { vraag: 'Mijn webshop heeft nu een probleem. Wat moet ik doen?', antwoord: 'Bel ons direct. Bij een storing of hack kijken we meteen mee, ook als je nog geen klant bent.' },
+];
+const routeUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${site.straat}, ${site.postcode} ${site.plaats}`)}`;
+const veld = 'w-full rounded-knop border border-grijs-lijn bg-white px-4 py-3.5 text-base text-navy placeholder:text-stil focus:border-paars focus:outline-none focus:ring-2 focus:ring-paars-200';
+---
+
+<Base paginaType="ContactPage" titel="Contact: plan een kennismaking" omschrijving={`Plan een kennismaking of groeisessie met Wedigify. Bel ${site.telefoon} of kom langs aan de ${site.straat} in ${site.plaats}.`}>
+  <PageHero eyebrow="Contact" titel="Neem contact op" accent="met Wedigify." intro="Plan een vrijblijvende kennismaking, vraag een Magento scan aan of stel je vraag. We denken graag met je mee." kruimels={[{ label: 'Contact' }]} />
+
+  <section class="container-w sectie-s flex flex-wrap gap-x-16 gap-y-12">
+    <div class="min-w-0 flex-[2_1_520px]">
+      <h2 class="kop-2 mb-3">Plan een kennismaking</h2>
+      <p class="lead mb-10">Vertel kort waar je staat, dan nemen we zo snel mogelijk contact met je op.</p>
+
+      <form action={endpoint || undefined} method="POST" class="grid gap-5 sm:grid-cols-2" data-formulier novalidate>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <div class="sm:col-span-2">
+          <label for="onderwerp" class="mb-2 block text-sm font-semibold">Waar kunnen we mee helpen?</label>
+          <select id="onderwerp" name="onderwerp" class={veld}>
+            {onderwerpen.map((o) => <option value={o.value}>{o.label}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="naam" class="mb-2 block text-sm font-semibold">Naam *</label>
+          <input id="naam" name="naam" type="text" autocomplete="name" required class={veld} />
+        </div>
+        <div>
+          <label for="bedrijf" class="mb-2 block text-sm font-semibold">Bedrijf / webshop</label>
+          <input id="bedrijf" name="bedrijf" type="text" autocomplete="organization" class={veld} />
+        </div>
+        <div>
+          <label for="email" class="mb-2 block text-sm font-semibold">Zakelijk e-mailadres *</label>
+          <input id="email" name="email" type="email" autocomplete="email" required class={veld} />
+        </div>
+        <div>
+          <label for="telefoon" class="mb-2 block text-sm font-semibold">Telefoonnummer</label>
+          <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" class={veld} />
+        </div>
+        <div class="sm:col-span-2">
+          <label for="bericht" class="mb-2 block text-sm font-semibold">Bericht</label>
+          <textarea id="bericht" name="bericht" rows="5" class={veld}></textarea>
+        </div>
+        <div class="flex gap-3 sm:col-span-2">
+          <input id="privacy" name="privacy" type="checkbox" required class="mt-1 size-5 shrink-0 accent-paars" />
+          <label for="privacy" class="text-sm text-tekst">Ik ga akkoord met de <a href="/privacy/" class="font-medium text-paars underline">privacyverklaring</a>. *</label>
+        </div>
+        <div class="flex flex-wrap items-center gap-5 sm:col-span-2">
+          <button type="submit" class="knop-paars" data-verstuur>Verstuur <Icon name="pijl" size={18} /></button>
+          <p class="text-sm text-tekst" role="status" aria-live="polite" data-status></p>
+        </div>
+      </form>
+    </div>
+
+    <aside class="flex min-w-0 flex-[1_1_320px] flex-col gap-6">
+      <ContactKaart persoon={persoon} />
+      <div class="rounded-kaart border border-lijn p-6">
+        <h2 class="mb-4 text-lg font-semibold">Direct contact</h2>
+        <ul class="flex flex-col gap-3">
+          {site.telefoon && <li><a href={`tel:${site.telefoonLink}`} class="flex items-center gap-3 font-medium hover:text-paars"><Icon name="telefoon" class="text-paars" /> {site.telefoon}</a></li>}
+          {site.email && <li><a href={`mailto:${site.email}`} class="flex items-center gap-3 font-medium hover:text-paars"><Icon name="mail" class="text-paars" /> {site.email}</a></li>}
+          <li>
+            <a href={routeUrl} class="flex items-start gap-3 font-medium hover:text-paars" rel="noopener">
+              <Icon name="locatie" class="mt-0.5 text-paars" />
+              <span>{site.straat}<br />{site.postcode} {site.plaats}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="rounded-kaart bg-navy p-6 text-white">
+        <h2 class="mb-2 text-lg font-semibold">Shop plat of gehackt?</h2>
+        <p class="mb-4 text-navy-tekst">Bel ons direct, dan kijken we meteen mee.</p>
+        {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="knop-paars knop-klein">Bel {site.telefoon}</a>}
+      </div>
+    </aside>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s">
+      <h2 class="kop-2 mb-12" data-reveal>Wat kun je verwachten?</h2>
+      <ol class="grid gap-4 md:grid-cols-3">
+        {
+          verwachting.map((v, i) => (
+            <li class="flex flex-col gap-3 rounded-[14px] border border-lijn bg-white p-7" data-reveal style={`--vertraging:${i * 90}ms`}>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam={v.icoon} /></span>
+                <span class="text-4xl font-bold text-paars-200">{i + 1}</span>
+              </div>
+              <h3 class="text-xl font-semibold">{v.titel}</h3>
+              <p class="leading-relaxed text-tekst">{v.tekst}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s flex flex-wrap gap-12">
+    <h2 class="kop-2 flex-[1_1_300px]" data-reveal>Veelgestelde vragen</h2>
+    <div class="flex-[2_1_520px]" data-reveal><Faq items={faq} /></div>
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-formulier]');
+  const status = document.querySelector<HTMLElement>('[data-status]');
+  const select = document.querySelector<HTMLSelectElement>('#onderwerp');
+  const gekozen = new URLSearchParams(location.search).get('onderwerp');
+  if (select && gekozen && [...select.options].some((o) => o.value === gekozen)) select.value = gekozen;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const knop = form.querySelector<HTMLButtonElement>('[data-verstuur]');
+    if (!form.action || form.action === location.href) {
+      if (status) status.textContent = 'Formulier is nog niet gekoppeld (PUBLIC_FORM_ENDPOINT). Mail of bel ons gerust.';
+      return;
+    }
+    knop?.setAttribute('disabled', '');
+    if (status) status.textContent = 'Versturen...';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      if (status) status.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
+    } catch {
+      if (status) status.textContent = 'Er ging iets mis. Bel of mail ons gerust.';
+    } finally {
+      knop?.removeAttribute('disabled');
+    }
+  });
+</script>

@@ -1,0 +1,105 @@
+naam: Groothandel en industrie
+kort: >-
+  B2B webshops voor groothandels, fabrikanten en technische leveranciers. Klantprijzen, grote
+  catalogi en koppelingen met je ERP.
+icoon: koffer
+heroTitel: Magento voor groothandel
+heroAccent: en industrie.
+intro: >-
+  Zakelijke klanten bestellen anders dan consumenten. Ze verwachten hun eigen prijzen, snel
+  nabestellen op artikelnummer, inkoop op rekening en een webshop die precies weet wat er in je ERP
+  staat. We bouwen Magento B2B webshops voor groothandels, fabrikanten en technische leveranciers.
+heroPunten:
+  - B2B en B2C vanuit één platform
+  - Koppelingen met AFAS, Exact en Business Central
+  - Grote, technische catalogi overzichtelijk
+uitdagingenIntro: >-
+  Een B2B webshop is meer dan een webshop met een inlogscherm. Dit zijn de uitdagingen waar
+  groothandels en fabrikanten tegenaan lopen.
+uitdagingen:
+  - icoon: euro
+    titel: Klantspecifieke prijzen en afspraken
+    tekst: >-
+      Elke klant zijn eigen prijsafspraken, staffels, kortingen en assortiment. Dat moet in de webshop
+      precies hetzelfde zijn als in je ERP.
+  - icoon: database
+    titel: Grote, technische catalogi
+    tekst: >-
+      Duizenden artikelen met specificaties, documentatie en alternatieven. Klanten moeten snel het
+      juiste artikel vinden.
+  - icoon: team
+    titel: Meerdere inkopers per bedrijf
+    tekst: >-
+      Bedrijfsaccounts met meerdere gebruikers, budgetten, goedkeuringen en inkoop op rekening.
+  - icoon: stekker
+    titel: Alles hangt aan je ERP
+    tekst: >-
+      Voorraad, prijzen, orders, facturen en klantdata staan in je ERP. Handmatig overtypen kost tijd en
+      leidt tot fouten.
+oplossingen:
+  - icoon: gebruiker
+    titel: Bedrijfsaccounts en eigen prijzen
+    tekst: >-
+      Klantspecifieke prijzen, assortimenten en kortingen, met meerdere gebruikers en rollen per bedrijf.
+  - icoon: winkelwagen
+    titel: Snel bestellen
+    tekst: >-
+      Bestellen op artikelnummer, bestellijsten, eerdere orders herhalen en CSV uploads. Zo bestelt je
+      klant in een paar klikken.
+  - icoon: stekker
+    titel: ERP koppelingen
+    tekst: >-
+      Betrouwbare koppelingen met AFAS, Exact Online, Business Central en andere systemen, bewaakt en
+      onderhouden.
+  - icoon: document
+    titel: Offertes en documentatie
+    tekst: >-
+      Offerteaanvragen vanuit de webshop, en technische documentatie, certificaten en datasheets bij elk
+      product.
+  - icoon: filters
+    titel: Zoeken en filteren op specificaties
+    tekst: >-
+      Filters op technische eigenschappen en een zoekfunctie die artikelnummers en synoniemen begrijpt.
+  - icoon: wereld
+    titel: Marketplaces en internationaal
+    tekst: >-
+      Verkopen via marketplaces en in meerdere landen, vanuit één omgeving met één voorraad.
+cases: []
+diensten:
+  - b2b-webshop
+  - integraties
+  - afas-koppeling
+  - exact-online-koppeling
+  - business-central-koppeling
+  - strategie-data
+reviewBedrijven:
+  - Dugros
+artikelen:
+  - adobe-commerce-vs-magento-open-source
+  - het-belang-van-een-businesscase-en-kpis-voor-e-commerce-succes
+  - magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf
+faq:
+  - vraag: Is Magento geschikt voor B2B?
+    antwoord: >-
+      Ja, Magento is een van de sterkste platforms voor B2B. Klantprijzen, bedrijfsaccounts, snel
+      bestellen en ERP koppelingen zijn goed te realiseren. Adobe Commerce heeft veel B2B functies
+      ingebouwd, en met Magento Open Source realiseer je ze met extensies en maatwerk.
+  - vraag: Kunnen B2B en B2C in één webshop?
+    antwoord: >-
+      Ja. Vanuit één Magento omgeving bedien je zowel consumenten als zakelijke klanten, met eigen
+      prijzen, assortiment en checkout per klantgroep.
+  - vraag: Met welke ERP systemen kunnen jullie koppelen?
+    antwoord: >-
+      We hebben veel ervaring met AFAS, Exact Online en Microsoft Dynamics 365 Business Central. Ook
+      andere ERP, PIM en WMS systemen koppelen we via hun API.
+  - vraag: Hoe lang duurt het bouwen van een B2B webshop?
+    antwoord: >-
+      Dat hangt af van het aantal koppelingen en de complexiteit van je prijsafspraken. Na een
+      kennismaking en analyse geven we je een realistische planning, vaak in fases zodat je snel live
+      kunt.
+ctaTitel: Je B2B webshop naar een hoger niveau?
+volgorde: 3
+seoTitel: Magento voor groothandel en industrie (B2B)
+seoOmschrijving: >-
+  Magento B2B webshop voor groothandels en fabrikanten: klantprijzen, bedrijfsaccounts, snel bestellen
+  en koppelingen met AFAS, Exact en Business Central.

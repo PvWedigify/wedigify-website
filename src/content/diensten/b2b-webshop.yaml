@@ -1,0 +1,171 @@
+titel: B2B webshop
+pijler: magento
+volgorde: 2
+kort: Een Magento B2B webshop met klantprijzen, bestellen op rekening en ERP koppeling.
+eyebrow: Magento B2B
+heroTitel: Magento B2B webshop
+heroAccent: voor groothandels en fabrikanten.
+intro: >-
+  Zakelijke klanten verwachten online hetzelfde gemak als consumenten, met hun eigen prijzen, assortiment
+  en betaalvoorwaarden. Wij bouwen B2B webshops op Magento die aansluiten op je ERP en je verkoopproces.
+visual: koppeling
+visualBadge:
+  titel: B2B en B2C in één platform
+  tekst: Eigen prijzen, assortiment en voorwaarden per klant.
+  icoon: koffer
+watIs:
+  titel: Wat maakt een B2B webshop anders?
+  tekst: >-
+    In B2B koopt een klant niet één keer, maar structureel. Hij heeft afgesproken prijzen, een eigen assortiment,
+    meerdere inkopers en betaalt op rekening. Een goede B2B webshop maakt dat proces makkelijk en koppelt
+    alles aan je ERP. Magento is daar sterk in: met Adobe Commerce zijn veel B2B functies standaard aanwezig,
+    en op Magento Open Source realiseren we ze met bewezen extensies en maatwerk.
+  punten:
+  - Klantspecifieke prijzen, staffels en kortingen
+  - Eigen assortiment en catalogus per klant of groep
+  - Bestellen op rekening, offertes en snel herbestellen
+  - Meerdere gebruikers en rollen per bedrijfsaccount
+  visual: dashboard
+voordelen:
+- icoon: klok
+  titel: Minder orderinvoer
+  tekst: Klanten bestellen zelf, je binnendienst krijgt tijd voor advies.
+- icoon: euro
+  titel: Hogere orderwaarde
+  tekst: Aanbevelingen en snel herbestellen verhogen de omzet per klant.
+- icoon: stekker
+  titel: Gekoppeld aan je ERP
+  tekst: Prijzen, voorraad en orders altijd in sync.
+- icoon: lagen
+  titel: Schaalbaar
+  tekst: B2B en B2C, meerdere merken en landen op één platform.
+waarom:
+  titel: Waarom Magento voor B2B?
+  tekst: >-
+    B2B processen zijn zelden standaard. Prijsafspraken, levervoorwaarden, goedkeuringsflows en koppelingen
+    verschillen per bedrijf. SaaS platforms lopen daar snel op vast, terwijl Magento de ruimte geeft om
+    je webshop precies op je processen af te stemmen.
+
+
+    Onze developers bouwen de B2B functionaliteit en koppelingen, onze strategen helpen je om de webshop
+    te laten adopteren door je klanten en je buitendienst. Zo wordt de webshop een echt verkoopkanaal
+    in plaats van een digitale catalogus.
+onderdelenTitel: B2B functionaliteit die we bouwen
+onderdelen:
+- icoon: euro
+  label: Klantprijzen en staffels
+- icoon: raster
+  label: Eigen assortiment
+- icoon: team
+  label: Bedrijfsaccounts en rollen
+- icoon: document
+  label: Offertes
+- icoon: betalen
+  label: Op rekening bestellen
+- icoon: herhaal
+  label: Snel herbestellen
+- icoon: zoek
+  label: Zoeken op artikelnummer
+- icoon: winkelwagen
+  label: Bestellijsten
+- icoon: stekker
+  label: ERP koppeling
+- icoon: route
+  label: Orderhistorie en tracking
+- icoon: wereld
+  label: Meertalig en multistore
+- icoon: sleutel
+  label: Afgeschermde catalogus
+wanneer:
+- Je verkoopt aan zakelijke klanten met eigen prijsafspraken
+- Je binnendienst verwerkt veel orders handmatig
+- Je wilt B2B en B2C combineren in één platform
+- Je werkt met een ERP zoals AFAS, Exact of Business Central
+- Je huidige B2B portal is verouderd of wordt slecht gebruikt
+stappen:
+- label: Week 1 tot 4
+  titel: Processen en business case
+  tekst: We brengen je klanten, prijsstructuren en ERP processen in kaart.
+- label: Sprints
+  titel: Bouwen en koppelen
+  tekst: B2B functionaliteit en ERP koppeling in sprints, met een eigen testomgeving.
+- label: Livegang
+  titel: Lanceren en adopteren
+  tekst: Gefaseerde livegang en ondersteuning om klanten online te laten bestellen.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Orderinvoer
+  tekst: Minder handmatig werk voor de binnendienst.
+- icoon: euro
+  richting: op
+  titel: Orderwaarde
+  tekst: Meer omzet per klant.
+- icoon: herhaal
+  richting: op
+  titel: Herbestellingen
+  tekst: Klanten bestellen vaker online.
+- icoon: waarschuwing
+  richting: neer
+  titel: Fouten
+  tekst: Juiste prijzen en voorraad.
+- icoon: hart
+  richting: op
+  titel: Klanttevredenheid
+  tekst: 24/7 bestellen en inzicht.
+- icoon: lagen
+  richting: op
+  titel: Schaalbaarheid
+  tekst: Groei zonder extra personeel.
+faq:
+- vraag: Heb ik Adobe Commerce nodig voor een B2B webshop?
+  antwoord: >-
+    Niet per se. Adobe Commerce heeft veel B2B functies standaard, maar kent licentiekosten. Op Magento
+    Open Source realiseren we de meeste B2B functionaliteit met extensies en maatwerk. We adviseren op
+    basis van je business case.
+- vraag: Kan ik B2B en B2C in één Magento webshop combineren?
+  antwoord: >-
+    Ja. Met aparte storeviews of klantgroepen kun je zakelijke en particuliere klanten bedienen vanuit
+    één platform, met eigen prijzen, assortiment en checkout.
+- vraag: Kan de B2B webshop gekoppeld worden aan ons ERP?
+  antwoord: >-
+    Ja. We koppelen onder meer met AFAS, Exact Online en Business Central, en andere ERP systemen via
+    de API. Zo komen prijzen, voorraad en orders automatisch overeen.
+- vraag: Hoe krijgen we onze klanten zover dat ze online bestellen?
+  antwoord: >-
+    Met een goede onboarding, voordelen voor online bestellen en betrokkenheid van je buitendienst. Onze
+    strategen helpen je bij die adoptie.
+- vraag: Wat kost een Magento B2B webshop?
+  antwoord: >-
+    Dat hangt af van de functionaliteit, het aantal koppelingen en de keuze tussen Open Source en Adobe
+    Commerce. Na een kennismaking krijg je een onderbouwde begroting.
+- vraag: Hoe lang duurt het bouwen van een B2B webshop?
+  antwoord: >-
+    Een B2B webshop met ERP koppeling staat meestal binnen enkele maanden live. We werken in sprints,
+    zodat je tussentijds resultaten ziet.
+case: tacstack
+specialist: ievgenii
+artikelen:
+- magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes
+ctaTitel: Je B2B verkoop naar een hoger niveau?
+ctaIntro: >-
+  Plan een gesprek. We kijken naar je klanten, prijsstructuren en ERP, en laten zien wat een Magento B2B
+  webshop voor je kan betekenen.
+ctaLabel: Plan een gesprek
+seoTitel: Magento B2B webshop laten maken | Wedigify
+seoOmschrijving: >-
+  Een Magento B2B webshop met klantspecifieke prijzen, eigen assortiment, bestellen op rekening en koppeling
+  met AFAS, Exact of Business Central.

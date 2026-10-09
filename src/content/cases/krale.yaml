@@ -1,0 +1,40 @@
+klant: Krale
+titel: Van Adobe Commerce naar Open Source,
+titelAccent: €90K per jaar bespaard.
+branche: Airsoft, schietsport & jacht
+tags: [Migratie, Hosting, Performance]
+diensten: [migraties, webshop-laten-maken]
+hoofdcijfer: €90K
+hoofdcijferLabel: Jaarlijkse besparing op licentiekosten.
+kort: Weg van de Adobe Commerce licentie, zonder in te leveren. Binnen drie maanden terugverdiend.
+resultaten:
+  - waarde: €90K
+    label: jaarlijkse besparing
+  - waarde: 3 maanden
+    label: investering terugverdiend
+  - waarde: +15%
+    label: conversie door betere performance
+uitdaging: >-
+  Krale groeide hard, maar de Adobe Commerce licentie woog steeds zwaarder op
+  de begroting, terwijl veel functionaliteit ook in Magento Open Source
+  beschikbaar is. De wens: behouden wat werkt, afscheid nemen van wat kost en
+  ruimte maken voor groei.
+aanpak: >-
+  We begonnen met een volledige analyse van de bestaande omgeving en kozen
+  bewust voor een gefaseerde migratie, samen met hostingpartner Hypernode.
+aanpakPunten:
+  - Featurecheck van alle Adobe Commerce Cloud functionaliteit
+  - Kritisch maatwerk behouden of herbouwd
+  - Koppelingen en integraties compatibel gemaakt
+  - Elke functionaliteit getest op staging, keuzes onderbouwd met impactanalyses
+  - Toekomstbestendige hosting bij Hypernode
+resultaat: >-
+  Krale draait nu op Magento Open Source, bespaart €90K per jaar aan
+  licentiekosten en had de investering binnen drie maanden terugverdiend.
+  Dankzij betere performance steeg de conversie met 15%.
+stack: [Magento Open Source, Hypernode]
+afbeelding: /images/cases/krale.jpg
+datum: 2023-03-20
+volgorde: 3
+seoTitel: 'Krale case: €90K per jaar bespaard met Open Source'
+seoOmschrijving: Krale stapte over van Adobe Commerce naar Magento Open Source en bespaart €90K per jaar aan licentiekosten, met behoud van alle functionaliteit.

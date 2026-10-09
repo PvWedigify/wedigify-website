@@ -1,0 +1,193 @@
+titel: Migraties
+pijler: magento
+volgorde: 4
+opHome: true
+kort: Naar Magento 2, naar Open Source of naar een nieuw domein. Zonder verlies.
+eyebrow: Magento migraties
+heroTitel: Magento migratie
+heroAccent: zonder verlies van data, SEO of omzet.
+intro: >-
+  Overstappen naar Magento 2, weg van dure Adobe Commerce licenties of van een ander platform naar Magento?
+  We migreren je producten, klanten, orders en SEO waarde zorgvuldig, met een strak draaiboek voor de
+  livegang.
+feiten:
+- label: Krale
+  waarde: €90K per jaar bespaard
+- label: Terugverdiend
+  waarde: binnen 3 maanden
+- label: De Bommel
+  waarde: 0% verlies organisch verkeer
+voorWie:
+- titel: Je licentie wordt te duur
+  tekst: >-
+    Veel Adobe Commerce functionaliteit zit ook in Open Source. Wij checken wat je echt nodig hebt.
+- titel: Je platform houdt je tegen
+  tekst: Verouderde versie of ander platform? We migreren naar een schaalbare Magento basis.
+- titel: Je wisselt van domein
+  tekst: 'Duizenden redirects, tracking en feeds: we coördineren het hele traject.'
+wat:
+- Featurecheck van je huidige omgeving
+- Migratieplan met risico- en impactanalyse
+- Data-, maatwerk- en koppelingsmigratie
+- Redirectstrategie en SEO monitoring
+stappen:
+- label: Fase 1
+  titel: Featurecheck
+  tekst: Alle functies, koppelingen en maatwerk in kaart.
+- label: Fase 2
+  titel: Plan & staging
+  tekst: Gefaseerde migratie, alles getest op een veilige omgeving.
+- label: Fase 3
+  titel: Livegang
+  tekst: Strak draaiboek, met alle partijen aan boord.
+- label: Fase 4
+  titel: Nazorg
+  tekst: Monitoring van performance, SEO en data.
+case: krale
+specialist: oleksandr
+uitleg:
+- titel: Overstappen naar Magento 2
+  tekst: >-
+    Magento 1 wordt sinds juni 2020 niet meer ondersteund met beveiligingsupdates. Draai je nog op Magento
+    1 of op een sterk verouderde Magento 2 versie, dan is migreren de veiligste route. We zetten data,
+    maatwerk en koppelingen over naar een actuele Magento 2 installatie.
+- titel: Van Adobe Commerce naar Magento Open Source
+  tekst: >-
+    Veel webshops betalen voor Adobe Commerce functionaliteit die ze niet gebruiken. Met een featurecheck
+    brengen we in kaart wat je echt nodig hebt. Krale bespaart na de overstap €90K per jaar en had de
+    investering binnen drie maanden terugverdiend.
+- titel: Van WooCommerce, Shopify of Lightspeed naar Magento
+  tekst: >-
+    Groeit je webshop uit zijn platform? We migreren producten, klanten en orders naar Magento en zorgen
+    dat je URL structuur en Google posities behouden blijven.
+- titel: Domeinmigratie
+  tekst: >-
+    Een nieuw domein raakt SEO, advertenties, tracking en integraties. Voor De Bommel coördineerden we
+    de complete overstap naar bommelwonen.nl, zonder verlies van organisch verkeer.
+faq:
+- vraag: Hoe lang duurt een Magento 2 migratie?
+  antwoord: >-
+    Dat hangt af van de hoeveelheid data, maatwerk en koppelingen. Na de featurecheck krijg je een planning
+    met vaste mijlpalen.
+- vraag: Blijven mijn klant- en ordergegevens behouden?
+  antwoord: >-
+    Ja. Producten, klanten, orders en reviews migreren we mee. Alles wordt eerst op een testomgeving gecontroleerd
+    voordat de nieuwe webshop live gaat.
+- vraag: Verlies ik mijn posities in Google?
+  antwoord: >-
+    Niet als de migratie goed wordt voorbereid. We crawlen de huidige site, maken een één-op-één redirectplan
+    en monitoren Search Console na livegang.
+- vraag: Verlies ik functionaliteit als ik van Adobe Commerce afstap?
+  antwoord: Dat checken we vooraf in de featurecheck. Wat cruciaal is, behouden of herbouwen we.
+artikelen:
+- adobe-commerce-vs-magento-open-source
+- magento-alternatieven
+- de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices
+- magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf
+- >-
+  composable-commerce-het-buzzwoord-waar-menig-ondernemer-en-e-commerce-manager-fomo-van-krijgt
+ctaTitel: Hoeveel bespaar jij op je licentie?
+ctaLabel: Plan een featurecheck
+seoTitel: Magento 2 migratie & overstappen naar Magento | Wedigify
+seoOmschrijving: Magento migratie naar Magento 2 of Open Source zonder verlies van data, SEO of omzet. Van Magento 1, Adobe Commerce, WooCommerce of Shopify.
+visual: migratie
+visualBadge:
+  titel: Zonder dataverlies
+  tekst: Producten, klanten, orders en SEO mee.
+  icoon: database
+watIs:
+  titel: Wat komt er kijken bij een migratie?
+  tekst: >-
+    Een migratie is meer dan data overzetten. Je verhuist je producten, klanten en orderhistorie, maar
+    ook je SEO waarde, koppelingen en werkprocessen. Wij migreren van Magento 1, Adobe Commerce, WooCommerce,
+    Shopify of Lightspeed naar Magento 2, met een plan dat elk risico vooraf benoemt.
+  punten:
+  - Volledige data inventarisatie en mapping
+  - Redirectplan per URL om je posities te behouden
+  - Proefmigraties op een testomgeving
+  - Livegang met monitoring en terugvalplan
+  visual: checklist
+voordelen:
+- icoon: database
+  titel: Alle data mee
+  tekst: Producten, klanten, orders en content, gecontroleerd overgezet.
+- icoon: zoek
+  titel: SEO behouden
+  tekst: Redirects en metadata zodat je posities blijven staan.
+- icoon: euro
+  titel: Lagere kosten
+  tekst: Van Adobe Commerce naar Open Source scheelt licentiekosten.
+- icoon: schild
+  titel: Geen verrassingen
+  tekst: Proefmigraties en een vast draaiboek voor de livegang.
+waarom:
+  titel: Waarom migreren naar Magento 2?
+  tekst: >-
+    Een verouderd platform kost je elke maand geld: in beveiligingsrisico’s, trage pagina’s, dure workarounds
+    en gemiste functionaliteit. Een migratie is het moment om dat op te lossen en tegelijk een betere
+    basis voor groei neer te zetten.
+
+
+    Krale stapte met ons over van Adobe Commerce naar Magento Open Source en bespaart daarmee jaarlijks
+    €90K aan licentiekosten, met behoud van alle functionaliteit.
+onderdelenTitel: Wat we voor je migreren
+onderdelen:
+- icoon: label
+  label: Producten en attributen
+- icoon: gebruiker
+  label: Klanten en accounts
+- icoon: document
+  label: Orders en facturen
+- icoon: pen
+  label: Content en CMS
+- icoon: route
+  label: URL’s en redirects
+- icoon: stekker
+  label: Koppelingen
+wanneer:
+- Je draait nog op Magento 1 of een verouderde versie
+- Je betaalt hoge licentiekosten voor Adobe Commerce
+- Je bent uitgegroeid aan WooCommerce, Shopify of Lightspeed
+- Je wilt je SEO posities behouden bij de overstap
+- Je wilt tegelijk naar een snelle Hyvä frontend
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: euro
+  richting: neer
+  titel: Licentiekosten
+  tekst: 'Krale: €90K per jaar bespaard.'
+- icoon: zoek
+  richting: op
+  titel: SEO waarde
+  tekst: Posities behouden na livegang.
+- icoon: bliksem
+  richting: op
+  titel: Snelheid
+  tekst: Moderne techniek en hosting.
+- icoon: schild
+  richting: op
+  titel: Veiligheid
+  tekst: Weer volledig ondersteund en gepatcht.
+- icoon: klok
+  richting: neer
+  titel: Downtime
+  tekst: Livegang buiten piekmomenten.
+- icoon: lagen
+  richting: op
+  titel: Groeiruimte
+  tekst: Een platform dat weer mee kan.
+ctaIntro: >-
+  Plan een gesprek over je migratie. We brengen risico’s, planning en kosten in kaart voordat er één regel
+  code geschreven is.

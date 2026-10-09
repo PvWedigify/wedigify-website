@@ -1,0 +1,26 @@
+---
+import Base from '@/layouts/Base.astro';
+import PijlerOverzicht from '@/components/PijlerOverzicht.astro';
+---
+
+<Base
+  titel="Online marketing voor webshops: SEO, SEA en CRO | Wedigify"
+  omschrijving="Een specialist per discipline en een digitale strateeg die alles samenbrengt in één business case. SEO, SEA, social, e-mail, CRO en data."
+>
+  <PijlerOverzicht
+    pijler="groei"
+    visual="dashboard"
+    badge={{ titel: 'Eén groeiplan', tekst: 'Een specialist per kanaal.', icoon: 'doel' }}
+    eyebrow="E-commerce marketing"
+    titel="Online marketing voor webshops,"
+    accent="vanuit één groeiplan."
+    intro="SEO, Google Ads, social, e-mail, CRO en data, uitgevoerd door een specialist per discipline. Onze digitale strateeg stuurt alles vanuit één business case, zodat elke euro bijdraagt aan omzet."
+    ctaTitel="Welke knop levert jou het meest op?"
+    uitleg={[
+      { titel: 'Techniek en marketing in één team', tekst: 'Omdat we je Magento webshop technisch kennen, lossen we problemen op die een los marketingbureau niet ziet: trage pagina\'s, haperende tracking of een checkout die conversie kost.' },
+      { titel: 'Eén business case voor alle kanalen', tekst: 'Onze digitale strateeg bepaalt per kanaal waar de grootste kansen liggen, online én offline. Zo investeer je eerst in de knop die het meeste oplevert. <a class="font-medium text-paars underline" href="/aanpak/">Bekijk onze werkwijze</a>.' },
+      { titel: 'Sturen op omzet en marge', tekst: 'We rapporteren niet op klikken of vertoningen, maar op omzet, ROAS en marge. Elke maand zie je wat er is gedaan en wat het heeft opgeleverd.' },
+    ]}
+    artikelSlugs={['het-belang-van-een-businesscase-en-kpis-voor-e-commerce-succes', 'conversie-optimalisatie-webshop', 'onmisbare-automated-e-mail-flows-voor-je-webshop']}
+  />
+</Base>

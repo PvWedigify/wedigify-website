@@ -1,0 +1,150 @@
+titel: Support
+pijler: magento
+volgorde: 7
+kort: Vaste developers, duidelijke afspraken over reactietijd.
+eyebrow: Magento support
+heroTitel: Magento support en onderhoud
+heroAccent: door een vast team.
+intro: >-
+  Geen ticketnummer, maar een team dat je shop kent. Met duidelijke afspraken over reactietijd en een
+  vaste contactpersoon.
+wat:
+- Vast supportteam
+- Afspraken over reactietijden
+- Monitoring van je shop
+- Maandelijks overzicht van uren en werk
+case: shuz
+specialist: mike
+uitleg:
+- titel: Wat valt onder Magento support?
+  tekst: >-
+    Denk aan het oplossen van bugs, installeren van patches en updates, monitoring van je webshop en kleine
+    doorontwikkelingen. Je werkt met een vast team dat je webshop kent, en je krijgt elke maand inzicht
+    in wat er is gedaan.
+faq:
+- vraag: Werken jullie met een strippenkaart of een vast contract?
+  antwoord: >-
+    Beide is mogelijk. We stemmen de vorm af op de omvang van je webshop en hoeveel doorontwikkeling je
+    verwacht.
+- vraag: Wat kost Magento support?
+  antwoord: >-
+    Dat hangt af van de omvang van je webshop en het aantal uren dat je per maand nodig hebt. We werken
+    met vaste maandbundels, zodat je kosten voorspelbaar zijn.
+- vraag: Kunnen jullie ook support leveren op een shop die een ander bureau bouwde?
+  antwoord: >-
+    Ja. We starten met een technische audit, zodat we je shop goed kennen voordat we het onderhoud overnemen.
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+ctaTitel: Wil je support die je shop kent?
+ctaLabel: Bespreek een supportafspraak
+seoTitel: Magento support en onderhoud | Managed Magento | Wedigify
+seoOmschrijving: 'Magento support en onderhoud door een vast team: monitoring, security patches, updates en doorontwikkeling met heldere afspraken en reactietijden.'
+visual: schild
+visualBadge:
+  titel: Vast team
+  tekst: Developers die je shop kennen.
+  icoon: team
+watIs:
+  titel: Wat houdt Magento support en onderhoud in?
+  tekst: >-
+    Een webshop is nooit af. Met een vaste supportafspraak heb je een team van Magento developers dat
+    je shop kent, storingen oplost, kleine wensen oppakt en zorgt dat updates en patches op tijd gebeuren.
+    Jij focust op verkopen, wij op een stabiele en snelle webshop.
+  punten:
+  - Vaste developers die je shop kennen
+  - Monitoring van uptime, snelheid en fouten
+  - Security patches en updates inbegrepen
+  - Doorontwikkeling op basis van een roadmap
+  visual: code
+voordelen:
+- icoon: team
+  titel: Vaste gezichten
+  tekst: Geen ticket in een wachtrij, maar mensen die je kennen.
+- icoon: oog
+  titel: Proactief
+  tekst: We zien problemen vaak voordat jij ze merkt.
+- icoon: kalender
+  titel: Voorspelbaar
+  tekst: Vaste afspraken over uren en reactietijden.
+- icoon: grafiek
+  titel: Doorontwikkeling
+  tekst: Elke maand een stap vooruit.
+waarom:
+  titel: Managed Magento, zonder zorgen
+  tekst: >-
+    Webshops die stilstaan, gaan achteruit: in snelheid, veiligheid en conversie. Met een vaste supportafspraak
+    voorkom je achterstallig onderhoud en dure inhaalslagen.
+
+
+    Onze developers werken dagelijks met Magento en hebben korte lijnen met Hypernode. Zo kunnen we snel
+    schakelen als er iets is, en structureel bouwen aan je webshop als alles goed loopt.
+onderdelenTitel: Wat er in onze support zit
+onderdelen:
+- icoon: oog
+  label: Monitoring
+- icoon: schild
+  label: Security patches
+- icoon: herhaal
+  label: Updates
+- icoon: chat
+  label: Vragen en tickets
+- icoon: code
+  label: Kleine aanpassingen
+- icoon: database
+  label: Back-ups
+wanneer:
+- Je hebt geen eigen Magento developer in huis
+- Storingen worden traag opgelost
+- Updates en patches lopen achter
+- Je wilt doorlopend kleine verbeteringen
+- Je wilt één vast aanspreekpunt
+stappen:
+- label: Start
+  titel: Onboarding
+  tekst: We leren je shop kennen met een technische audit.
+- label: Maandelijks
+  titel: Onderhoud en support
+  tekst: Patches, updates, monitoring en jouw vragen.
+- label: Elk kwartaal
+  titel: Evaluatie
+  tekst: Samen terugkijken en de roadmap bijstellen.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: schild
+  richting: op
+  titel: Uptime
+  tekst: Een stabiele webshop.
+- icoon: klok
+  richting: neer
+  titel: Reactietijd
+  tekst: Snel geholpen door je vaste team.
+- icoon: waarschuwing
+  richting: neer
+  titel: Storingen
+  tekst: Problemen voorkomen.
+- icoon: bliksem
+  richting: op
+  titel: Snelheid
+  tekst: Performance bewaakt.
+- icoon: euro
+  richting: op
+  titel: Voorspelbaar
+  tekst: Duidelijke kosten per maand.
+- icoon: grafiek
+  richting: op
+  titel: Groei
+  tekst: Doorlopend verbeteren.
+ctaIntro: >-
+  Vertel ons over je webshop. We stellen een supportafspraak voor die past bij je omvang en ambities.

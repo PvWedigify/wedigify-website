@@ -1,0 +1,152 @@
+titel: Security patches
+pijler: magento
+volgorde: 10
+opHome: true
+kort: Patches op tijd geïnstalleerd en getest. Jij hoeft er niet aan te denken.
+eyebrow: Magento security
+heroTitel: Magento security patches,
+heroAccent: op tijd en getest.
+intro: >-
+  Adobe brengt regelmatig security patches uit voor Magento. Wij installeren ze snel, testen ze op staging
+  en zetten ze live zonder dat je shop eronder lijdt.
+wat:
+- Monitoring van nieuwe Magento releases
+- Installatie en test op staging
+- Livegang buiten piekuren
+- Controle van extensies op kwetsbaarheden
+specialist: mike
+uitleg:
+- titel: Waarom security patches zo belangrijk zijn
+  tekst: >-
+    Magento is een populair doelwit voor aanvallen, omdat webshops betaalgegevens en klantdata verwerken.
+    Adobe brengt daarom regelmatig beveiligingsupdates uit. Hoe sneller die zijn geïnstalleerd, hoe kleiner
+    het risico op datalekken en skimming.
+faq:
+- vraag: Kunnen patches mijn webshop breken?
+  antwoord: >-
+    Daarom testen we elke patch eerst op een testomgeving, inclusief je extensies en maatwerk. Pas als
+    alles werkt, gaat de patch live.
+- vraag: Hoe vaak komen er security patches uit?
+  antwoord: >-
+    Adobe brengt meerdere keren per jaar geplande security releases uit, met tussendoor soms een spoedpatch
+    voor een kritiek lek.
+- vraag: Kan een patch mijn webshop breken?
+  antwoord: >-
+    Dat kan, vooral bij veel maatwerk of modules van derden. Daarom testen we elke patch eerst op een
+    staging omgeving.
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+ctaTitel: Loopt je shop achter met patches?
+ctaLabel: Laat je shop checken
+seoTitel: Magento security patches laten installeren | Wedigify
+seoOmschrijving: Magento security patches op tijd en getest geïnstalleerd. Zo blijft je webshop veilig en voorkom je hacks en datalekken. Door Wedigify uit Rotterdam.
+visual: schild
+visualBadge:
+  titel: Altijd up to date
+  tekst: Patches getest en op tijd geïnstalleerd.
+  icoon: schild
+watIs:
+  titel: Wat zijn Magento security patches?
+  tekst: >-
+    Adobe brengt regelmatig beveiligingsupdates uit voor Magento. Ze dichten lekken waarmee aanvallers
+    betaalgegevens kunnen stelen of je webshop kunnen overnemen. Wij installeren deze patches op tijd,
+    testen ze eerst op een aparte omgeving en zetten ze daarna gecontroleerd live.
+  punten:
+  - Monitoring van nieuwe security releases
+  - Testen op een staging omgeving
+  - Installatie buiten piekmomenten
+  - Controle van modules en afhankelijkheden
+  visual: code
+voordelen:
+- icoon: slot
+  titel: Veilig
+  tekst: Bekende lekken zijn gedicht voordat ze misbruikt worden.
+- icoon: vink
+  titel: Getest
+  tekst: Elke patch eerst op staging, zodat er niets breekt.
+- icoon: kalender
+  titel: Op tijd
+  tekst: Vaste planning, zodat je nooit achterloopt.
+- icoon: betalen
+  titel: PCI bewust
+  tekst: Beter beschermd tegen skimming van betaalgegevens.
+waarom:
+  titel: Waarom patchen niet kan wachten
+  tekst: >-
+    Zodra een lek bekend is, zoeken aanvallers automatisch naar webshops die nog niet gepatcht zijn. Een
+    achterstand van een paar weken is dan al genoeg om getroffen te worden.
+
+
+    Met een vaste patchprocedure blijft je shop veilig zonder dat jij er omkijken naar hebt. We combineren
+    dit graag met monitoring en support in één onderhoudsafspraak.
+onderdelenTitel: Wat we controleren
+onderdelen:
+- icoon: schild
+  label: Security patches
+- icoon: module
+  label: Modules
+- icoon: server
+  label: PHP en server
+- icoon: slot
+  label: Toegang en 2FA
+- icoon: oog
+  label: Malware scan
+- icoon: database
+  label: Back-ups
+wanneer:
+- Je weet niet welke Magento versie je draait
+- Patches worden nu niet of laat geïnstalleerd
+- Je wilt voldoen aan PCI DSS eisen
+- Je hebt veel modules van derden
+- Je wilt onderhoud uit handen geven
+stappen:
+- label: Release
+  titel: Beoordelen
+  tekst: We bekijken de nieuwe patch en de impact op jouw shop.
+- label: Staging
+  titel: Testen
+  tekst: Installatie en test van de belangrijkste flows op een testomgeving.
+- label: Live
+  titel: Uitrollen
+  tekst: Gecontroleerde livegang en controle achteraf.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: slot
+  richting: op
+  titel: Veiligheid
+  tekst: Bekende lekken gedicht.
+- icoon: waarschuwing
+  richting: neer
+  titel: Risico
+  tekst: Kleinere kans op een hack.
+- icoon: schild
+  richting: op
+  titel: Stabiliteit
+  tekst: Getest voordat het live gaat.
+- icoon: klok
+  richting: neer
+  titel: Zorgen
+  tekst: Geen omkijken meer naar.
+- icoon: hart
+  richting: op
+  titel: Vertrouwen
+  tekst: Veilig winkelen voor klanten.
+- icoon: vink
+  richting: op
+  titel: Compliance
+  tekst: Basis voor PCI DSS.
+ctaIntro: >-
+  Laat ons je huidige versie en patchniveau checken. Je krijgt een helder overzicht van risico’s en wat
+  er nodig is.

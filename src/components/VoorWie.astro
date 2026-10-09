@@ -1,0 +1,33 @@
+---
+/** Klantsegmenten: voor wie Wedigify werkt. */
+import LijnIcoon from './LijnIcoon.astro';
+import Icon from './Icon.astro';
+const segmenten = [
+  { icoon: 'raket', titel: 'Groeiende merken', tekst: 'Merken die online hun belangrijkste verkoopkanaal hebben en willen opschalen in assortiment, landen of kanalen.', link: { label: 'Webshop laten maken', href: '/magento/webshop-laten-maken/' } },
+  { icoon: 'koffer', titel: 'B2B en groothandel', tekst: 'Klantspecifieke prijzen en assortimenten, bestellen op rekening en koppelingen met ERP, PIM en WMS.', link: { label: 'Magento koppelingen', href: '/magento/integraties/' } },
+  { icoon: 'winkel', titel: 'Retail met winkels', tekst: 'Retailers die online en offline willen laten samenwerken, van voorraad tot klantdata en marketing.', link: { label: 'Strategie en data', href: '/groei/strategie-data/' } },
+  { icoon: 'wereld', titel: 'Internationale webshops', tekst: 'Meerdere storeviews, talen en valuta, met lokale SEO en campagnes per markt.', link: { label: 'SEO voor webshops', href: '/groei/seo/' } },
+];
+---
+
+<section class="container-w sectie-s">
+  <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+    <div>
+      <p class="eyebrow mb-4">Voor wie we werken</p>
+      <h2 class="kop-2 max-w-[640px]">Gebouwd voor webshops <span class="text-paars">met ambitie.</span></h2>
+    </div>
+    <p class="max-w-[460px] text-lg leading-relaxed text-tekst">We werken voor ambitieuze MKB bedrijven waarvoor de webshop bedrijfskritisch is. Vaak met een groot assortiment, meerdere systemen en duidelijke groeidoelen.</p>
+  </div>
+  <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      segmenten.map((s, i) => (
+        <li class="group flex flex-col rounded-[14px] border border-lijn bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)]" data-reveal style={`--vertraging:${i * 80}ms`}>
+          <span class="mb-6 inline-flex size-12 items-center justify-center rounded-full bg-navy text-paars-licht transition-colors group-hover:bg-paars group-hover:text-white"><LijnIcoon naam={s.icoon} /></span>
+          <h3 class="mb-2 text-xl font-semibold">{s.titel}</h3>
+          <p class="mb-6 leading-relaxed text-tekst">{s.tekst}</p>
+          <a href={s.link.href} class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-paars">{s.link.label} <Icon name="pijl" size={16} /></a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

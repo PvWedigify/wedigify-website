@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import { dienstUrl, type Dienst } from '@/lib/site';
+interface Props {
+  diensten: Dienst[];
+}
+const { diensten } = Astro.props;
+---
+
+<ul class="border-t-2 border-navy">
+  {
+    diensten.map((d, i) => (
+      <li data-reveal style={`--vertraging:${i * 60}ms`}>
+        <a href={dienstUrl(d)} class="group relative flex flex-wrap items-center gap-x-8 gap-y-2 border-b border-grijs-lijn py-6 transition-[padding] duration-300 hover:text-navy md:hover:px-5">
+          <span class="absolute inset-0 -z-0 origin-left scale-x-0 rounded-kaart bg-white transition-transform duration-300 group-hover:scale-x-100 max-md:hidden" aria-hidden="true" />
+          <span class="relative w-10 text-[15px] font-semibold text-paars">{String(i + 1).padStart(2, '0')}</span>
+          <span class="relative flex-[1_1_240px] text-[clamp(1.5rem,2.6vw,2.125rem)] font-semibold tracking-kop group-hover:text-paars">{d.data.titel}</span>
+          <span class="relative flex-[1_1_300px] text-base text-tekst">{d.data.kort}</span>
+          <span class="relative inline-flex size-10 items-center justify-center rounded-knop border-[1.5px] border-navy transition-colors group-hover:border-paars group-hover:bg-paars group-hover:text-white" aria-hidden="true">
+            <Icon name="pijl" size={18} />
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

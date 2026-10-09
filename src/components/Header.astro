@@ -1,0 +1,240 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import LijnIcoon from './LijnIcoon.astro';
+import { getSite, getDiensten, getCases, dienstUrl, caseUrl, bestaat, hoofdmenu, srcset } from '@/lib/site';
+
+const site = await getSite();
+const pad = Astro.url.pathname;
+const actief = (href: string) => pad.startsWith(href);
+const cases = (await getCases()).filter((c) => bestaat(c.data.afbeelding));
+const kies = (id: string) => cases.find((c) => c.id === id) ?? cases[0];
+
+const mega = {
+  '/magento/': {
+    titel: 'Magento',
+    intro: 'Bouwen, beheren en doorontwikkelen van Magento en Hyvä webshops door ons eigen team.',
+    diensten: await getDiensten('magento'),
+    uitgelicht: kies('krale'),
+  },
+  '/groei/': {
+    titel: 'Groei',
+    intro: 'Een specialist per kanaal en een digitale strateeg die alles samenbrengt in één business case.',
+    diensten: await getDiensten('groei'),
+    uitgelicht: kies('greenfield-fashion'),
+  },
+} as Record<string, { titel: string; intro: string; diensten: Awaited<ReturnType<typeof getDiensten>>; uitgelicht?: (typeof cases)[number] }>;
+const iconVoor: Record<string, string> = {
+  'webshop-laten-maken': 'winkel', 'b2b-webshop': 'koffer', hosting: 'server', hyva: 'bliksem', migraties: 'herhaal', overname: 'sleutel', recovery: 'waarschuwing', 'security-patches': 'schild',
+  updates: 'lagen', integraties: 'stekker', support: 'team', 'strategie-data': 'doel', seo: 'zoek', sea: 'euro',
+  'social-advertising': 'megafoon', 'e-mailmarketing': 'mail', cro: 'grafiek', content: 'pen', ai: 'sparkle',
+};
+const partners = site.partners.map((p) => `${p.naam} ${p.label}`.trim());
+---
+
+<header class="sticky top-0 z-40" data-header>
+  <!-- Topbalk -->
+  <div class="hidden bg-navy text-[13px] text-navy-tekst md:block">
+    <div class="container-w flex h-9 items-center justify-between gap-6">
+      <ul class="flex items-center gap-5">
+        {
+          partners.slice(0, 3).map((p) => (
+            <li class="flex items-center gap-1.5"><Icon name="check" size={14} class="text-paars-licht" />{p}</li>
+          ))
+        }
+      </ul>
+      <div class="flex items-center gap-5">
+        <a href="/werken-bij/" class="hover:text-white">Werken bij</a>
+        {site.email && <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>}
+        {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="font-medium text-white hover:text-paars-licht">{site.telefoon}</a>}
+      </div>
+    </div>
+  </div>
+
+  <div class="relative border-b border-lijn bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
+    <div class="container-w flex items-center justify-between gap-6 py-3.5">
+      <a href="/" class="shrink-0 text-navy hover:text-navy" aria-label="Wedigify, naar de homepage">
+        <Logo class="h-6 w-auto sm:h-7" />
+      </a>
+
+      <nav aria-label="Hoofdmenu" class="hidden lg:block">
+        <ul class="flex items-center gap-1 text-[15px] font-medium">
+          {
+            hoofdmenu.map((item) => {
+              const m = mega[item.href];
+              return m ? (
+                <li class="group/mega -my-3.5 py-3.5" data-mega>
+                  <button
+                    type="button"
+                    class:list={['inline-flex items-center gap-1.5 rounded-knop px-3 py-2 hover:text-paars', actief(item.href) && 'text-paars']}
+                    aria-expanded="false"
+                    aria-controls={`mega-${m.titel}`}
+                    data-mega-knop
+                  >
+                    {item.label}
+                    <Icon name="chevron" size={16} class="transition-transform duration-200 group-hover/mega:rotate-180 group-[.open]/mega:rotate-180" />
+                  </button>
+                  <div
+                    id={`mega-${m.titel}`}
+                    class="invisible absolute inset-x-0 top-full border-b border-lijn bg-white opacity-0 shadow-[0_30px_60px_-30px_rgb(10_13_49/0.3)] transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-[.open]/mega:visible group-[.open]/mega:opacity-100"
+                    data-mega-paneel
+                  >
+                    <div class="container-w grid grid-cols-[minmax(0,0.75fr)_minmax(0,2.6fr)_minmax(0,0.85fr)] gap-10 py-10">
+                      <div>
+                        <p class="eyebrow mb-3">{m.titel}</p>
+                        <p class="mb-6 text-[15px] leading-relaxed font-normal text-tekst">{m.intro}</p>
+                        <a href={item.href} class="knop-rand knop-klein">Alles over {m.titel} <Icon name="pijl" size={16} /></a>
+                        {item.href === '/magento/' && (
+                          <a href="/magento-scan/" class="mt-6 flex items-center gap-3 rounded-[10px] bg-lavendel p-4 text-[14px] hover:text-navy">
+                            <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam="oog" size={18} /></span>
+                            <span><span class="block font-semibold">Magento scan</span><span class="font-normal text-tekst">Vrijblijvend inzicht in je webshop</span></span>
+                          </a>
+                          <a href="/magento/versies/" class="mt-3 flex items-center gap-3 rounded-[10px] border border-lijn p-4 text-[14px] hover:border-paars hover:text-navy">
+                            <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-paars-50 text-paars"><LijnIcoon naam="klok" size={18} /></span>
+                            <span><span class="block font-semibold">Magento versies</span><span class="font-normal text-tekst">Wordt jouw versie nog ondersteund?</span></span>
+                          </a>
+                        )}
+                      </div>
+                      <ul class="grid grid-cols-2 gap-x-6 gap-y-1 xl:grid-cols-3">
+                        {m.diensten.map((d) => (
+                          <li>
+                            <a href={dienstUrl(d)} class="group/item flex gap-3 rounded-[10px] p-3 transition-colors hover:bg-lavendel hover:text-navy">
+                              <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-[8px] bg-paars-50 text-paars transition-colors group-hover/item:bg-paars group-hover/item:text-white"><LijnIcoon naam={iconVoor[d.id] ?? 'vink'} size={18} /></span>
+                              <span class="min-w-0">
+                                <span class="block text-[15px] font-semibold">{d.data.titel}</span>
+                                <span class="mt-0.5 line-clamp-2 block text-[13px] leading-snug font-normal text-tekst">{d.data.kort}</span>
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                      {m.uitgelicht && (
+                        <a href={caseUrl(m.uitgelicht)} class="group/case relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-[12px] bg-navy p-5 text-white hover:text-white">
+                          <img src={m.uitgelicht.data.afbeelding} srcset={srcset(m.uitgelicht.data.afbeelding)} sizes="320px" alt="" loading="lazy" class="absolute inset-0 size-full object-cover opacity-60 transition-transform duration-700 group-hover/case:scale-105" />
+                          <span class="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+                          <span class="relative text-[12px] font-semibold text-paars-licht uppercase">Uitgelichte case · {m.uitgelicht.data.klant}</span>
+                          <span class="relative mt-1 text-3xl font-bold">{m.uitgelicht.data.hoofdcijfer}</span>
+                          <span class="relative mt-1 text-[13px] font-normal text-white/80">{m.uitgelicht.data.hoofdcijferLabel}</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={['inline-flex rounded-knop px-3 py-2 hover:text-paars', actief(item.href) && 'text-paars']}
+                    aria-current={actief(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="/contact/" class="knop-paars knop-klein hidden sm:inline-flex">Plan een kennismaking</a>
+        <button
+          type="button"
+          class="inline-flex size-11 items-center justify-center rounded-knop border-[1.5px] border-navy lg:hidden"
+          aria-controls="mobiel-menu"
+          aria-expanded="false"
+          data-menu-knop
+        >
+          <span class="sr-only">Menu openen</span>
+          <Icon name="menu" data-icoon-open />
+          <Icon name="sluit" class="hidden" data-icoon-dicht />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobiel-menu" class="hidden max-h-[calc(100dvh-64px)] overflow-y-auto border-b border-lijn bg-white lg:hidden" data-menu>
+    <nav aria-label="Mobiel menu" class="container-w py-4">
+      <ul class="flex flex-col">
+        {
+          hoofdmenu.map((item) => {
+            const m = mega[item.href];
+            return m ? (
+              <li class="border-b border-lijn">
+                <details class="group">
+                  <summary class="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+                    {item.label}
+                    <Icon name="chevron" class="text-paars transition-transform group-open:rotate-180" />
+                  </summary>
+                  <ul class="flex flex-col gap-1 pb-4">
+                    <li><a href={item.href} class="block py-2 font-semibold text-paars">Alles over {m.titel}</a></li>
+                    {m.diensten.map((d) => <li><a href={dienstUrl(d)} class="flex items-center gap-3 py-2 text-tekst"><LijnIcoon naam={iconVoor[d.id] ?? 'vink'} size={18} class="text-paars" />{d.data.titel}</a></li>)}
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a href={item.href} class:list={['flex items-center justify-between border-b border-lijn py-4 text-lg font-semibold', actief(item.href) && 'text-paars']}>
+                  {item.label}
+                  <Icon name="pijl" size={18} class="text-paars" />
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="mt-6 flex flex-col gap-3">
+        <a href="/contact/" class="knop-paars">Plan een kennismaking</a>
+        {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="knop-rand">Bel {site.telefoon}</a>}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const knop = document.querySelector<HTMLButtonElement>('[data-menu-knop]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+  if (knop && menu) {
+    knop.addEventListener('click', () => {
+      const open = knop.getAttribute('aria-expanded') === 'true';
+      knop.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('hidden', open);
+      knop.querySelector('[data-icoon-open]')?.classList.toggle('hidden', !open);
+      knop.querySelector('[data-icoon-dicht]')?.classList.toggle('hidden', open);
+      knop.querySelector('.sr-only')!.textContent = open ? 'Menu openen' : 'Menu sluiten';
+    });
+  }
+
+  // Megamenu: hover via CSS, klik en toetsenbord via deze toggle.
+  const items = document.querySelectorAll<HTMLElement>('[data-mega]');
+  const sluitAlles = (behalve?: HTMLElement) =>
+    items.forEach((li) => {
+      if (li === behalve) return;
+      li.classList.remove('open');
+      li.querySelector('[data-mega-knop]')?.setAttribute('aria-expanded', 'false');
+    });
+  items.forEach((li) => {
+    const b = li.querySelector<HTMLButtonElement>('[data-mega-knop]');
+    b?.addEventListener('click', () => {
+      const open = !li.classList.contains('open');
+      sluitAlles(li);
+      li.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', String(open));
+    });
+    li.addEventListener('mouseleave', () => {
+      li.classList.remove('open');
+      b?.setAttribute('aria-expanded', 'false');
+    });
+    li.addEventListener('focusout', (e) => {
+      if (!li.contains(e.relatedTarget as Node)) {
+        li.classList.remove('open');
+        b?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    sluitAlles();
+    if (knop?.getAttribute('aria-expanded') === 'true') knop.click();
+  });
+</script>

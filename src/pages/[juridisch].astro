@@ -1,0 +1,24 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { datumNL } from '@/lib/site';
+
+export async function getStaticPaths() {
+  const paginas = await getCollection('paginas');
+  return paginas.map((p) => ({ params: { juridisch: p.id }, props: { pagina: p } }));
+}
+interface Props {
+  pagina: CollectionEntry<'paginas'>;
+}
+const { pagina } = Astro.props;
+const { Content } = await render(pagina);
+---
+
+<Base titel={pagina.data.titel} omschrijving={pagina.data.omschrijving}>
+  <PageHero titel={pagina.data.titel} kruimels={[{ label: pagina.data.titel }]} />
+  <article class="container-w sectie-s">
+    {pagina.data.bijgewerkt && <p class="mb-8 text-sm text-tekst">Laatst bijgewerkt: {datumNL(pagina.data.bijgewerkt)}</p>}
+    <div class="prose-w max-w-[760px]"><Content /></div>
+  </article>
+</Base>

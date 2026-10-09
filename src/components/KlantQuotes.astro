@@ -1,0 +1,62 @@
+---
+/** Echte klantreviews (uit site-instellingen). Optioneel gefilterd op dienst. */
+import { getSite, initialen, bestaat } from '@/lib/site';
+import Icon from './Icon.astro';
+interface Props {
+  dienst?: string;
+  /** Toon alleen reviews van deze bedrijven */
+  bedrijven?: string[];
+  titel?: string;
+  achtergrond?: 'wit' | 'lavendel';
+}
+const { dienst, bedrijven, titel = 'Wat klanten zeggen.', achtergrond = 'wit' } = Astro.props;
+const site = await getSite();
+const alle = site.reviews ?? [];
+const reviews = bedrijven ? alle.filter((r) => bedrijven.includes(r.bedrijf)) : dienst ? alle.filter((r) => r.diensten.includes(dienst)).slice(0, 2) : alle;
+const logoVan = (bedrijf: string) => site.klanten.find((k) => bedrijf.toLowerCase().includes(k.naam.toLowerCase().split(' ')[0]))?.logo;
+---
+
+{
+  reviews.length > 0 && (
+    <section class:list={['relative isolate overflow-hidden', achtergrond === 'lavendel' && 'bg-lavendel']}>
+      {achtergrond === 'lavendel' && <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />}
+      <div class="container-w sectie-s">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-6" data-reveal>
+          <div>
+            <p class="eyebrow mb-4">Klanten aan het woord</p>
+            <h2 class="kop-2">{titel}</h2>
+          </div>
+        </div>
+        <ul class:list={['grid gap-4', reviews.length > 1 && 'md:grid-cols-2', reviews.length > 2 && 'lg:grid-cols-3']}>
+          {reviews.map((r, i) => {
+            const logo = logoVan(r.bedrijf);
+            return (
+              <li data-reveal style={`--vertraging:${i * 90}ms`}>
+                <figure class="flex h-full flex-col rounded-[14px] border border-lijn bg-white p-7 md:p-8">
+                  <div class="mb-5 flex gap-1 text-paars" aria-hidden="true">
+                    <span class="text-5xl leading-[0.5] font-bold">“</span>
+                  </div>
+                  <blockquote class="flex-1 text-[17px] leading-[1.7] text-navy">{r.tekst}</blockquote>
+                  <figcaption class="mt-7 flex items-center gap-4 border-t border-lijn pt-5">
+                    {bestaat(logo) ? (
+                      <span class="flex h-11 w-16 shrink-0 items-center justify-center rounded-[8px] border border-lijn bg-white p-1.5"><img src={logo} alt="" class="max-h-full max-w-full object-contain" loading="lazy" /></span>
+                    ) : (
+                      <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-paars-50 text-sm font-bold text-paars">{initialen(r.naam)}</span>
+                    )}
+                    <span class="min-w-0">
+                      <span class="block font-semibold">{r.naam}</span>
+                      <span class="block text-sm text-tekst">{r.bedrijf}</span>
+                    </span>
+                    {r.case && (
+                      <a href={`/cases/${r.case}/`} class="ml-auto inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-paars">Case <Icon name="pijl" size={14} /></a>
+                    )}
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  )
+}

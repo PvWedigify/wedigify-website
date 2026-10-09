@@ -1,0 +1,147 @@
+---
+import Achtergrond from './Achtergrond.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import DienstVisual from './DienstVisual.astro';
+import WaaromWedigify from './WaaromWedigify.astro';
+import Werkwijze from './Werkwijze.astro';
+import Zekerheid from './Zekerheid.astro';
+import KlantQuotes from './KlantQuotes.astro';
+import Icon from './Icon.astro';
+import CaseKaart from './CaseKaart.astro';
+import CtaBand from './CtaBand.astro';
+import Faq from './Faq.astro';
+import KennisKaart from './KennisKaart.astro';
+import { getEntries } from 'astro:content';
+import { getDiensten, getCases, dienstUrl, pijlerLabel } from '@/lib/site';
+
+interface Props {
+  pijler: 'magento' | 'groei';
+  eyebrow: string;
+  titel: string;
+  accent: string;
+  intro: string;
+  ctaTitel: string;
+  uitleg?: { titel: string; tekst: string }[];
+  faq?: { vraag: string; antwoord: string }[];
+  artikelSlugs?: string[];
+  visual?: string;
+  badge?: { titel: string; tekst?: string; icoon?: string };
+}
+const { pijler, eyebrow, titel, accent, intro, ctaTitel, uitleg = [], faq = [], artikelSlugs = [], visual = 'dashboard', badge } = Astro.props;
+const artikelen = (await getEntries(artikelSlugs.map((id) => ({ collection: 'kennis' as const, id })))).filter(Boolean);
+const diensten = await getDiensten(pijler);
+const ids = new Set(diensten.map((d) => d.id));
+const cases = (await getCases()).filter((c) => c.data.diensten.some((r) => ids.has(r.id))).slice(0, 3);
+---
+
+<section class="relative isolate overflow-hidden bg-lavendel">
+  <Achtergrond />
+  <div class="container-w relative pt-8 pb-20 md:pb-24 lg:pb-28">
+    <Breadcrumbs items={[{ label: pijlerLabel[pijler] }]} />
+    <div class="grid items-center gap-x-14 gap-y-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+      <div class="min-w-0">
+        <p class="eyebrow mb-5">{eyebrow}</p>
+        <h1 class="text-[clamp(2.3rem,4.6vw,3.9rem)] leading-[1.05] tracking-strak">{titel} <span class="block text-paars">{accent}</span></h1>
+        <p class="lead mt-6 max-w-[580px]">{intro}</p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">Plan een gesprek <Icon name="pijl" size={18} /></a>
+          <a href="/aanpak/" class="knop-rand bg-white/60">Onze aanpak</a>
+        </div>
+      </div>
+      <div class="min-w-0">
+        <DienstVisual type={visual} badge={badge} class="mx-auto max-w-[560px] lg:mr-0" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-w sectie-s">
+  <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      diensten.map((d, i) => (
+        <li data-reveal style={`--vertraging:${(i % 3) * 90}ms`}>
+          <a href={dienstUrl(d)} class="group relative flex h-full flex-col gap-3 overflow-hidden rounded-[14px] border border-lijn bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:text-navy hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)] md:p-8">
+            <span class="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-paars transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
+            <span class="text-[15px] font-semibold text-paars">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="text-2xl font-semibold tracking-kop group-hover:text-paars">{d.data.titel}</h2>
+            <p class="leading-relaxed text-tekst">{d.data.kort}</p>
+            <span class="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-paars">
+              Meer over {d.data.titel} <Icon name="pijl" size={16} />
+            </span>
+          </a>
+        </li>
+      ))
+    }
+    <slot name="extra-tegel" />
+  </ul>
+</section>
+
+<slot name="na-diensten" />
+
+<WaaromWedigify variant={pijler} />
+
+
+{
+  cases.length > 0 && (
+    <section class="bg-grijs">
+      <div class="container-w sectie-s">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <h2 class="kop-2">Resultaten</h2>
+          <a href="/cases/" class="link-onderstreept">Alle cases</a>
+        </div>
+        <div class="grid gap-5 md:grid-cols-3">
+          {cases.map((c, i) => <div data-reveal style={`--vertraging:${i * 90}ms`}><CaseKaart item={c} /></div>)}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  uitleg.length > 0 && (
+    <section class="container-w sectie-s">
+      <div class="grid gap-x-16 gap-y-10 lg:grid-cols-3">
+        {uitleg.map((u, i) => (
+          <article class="border-t-[3px] border-paars pt-6" data-reveal style={`--vertraging:${i * 90}ms`}>
+            <h2 class="mb-3 text-[24px] leading-snug tracking-kop">{u.titel}</h2>
+            <p class="leading-[1.75] text-tekst" set:html={u.tekst} />
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<KlantQuotes />
+
+<Werkwijze achtergrond="lavendel" />
+
+{pijler === 'magento' && <Zekerheid />}
+
+{
+  faq.length > 0 && (
+    <section class="relative isolate overflow-hidden bg-lavendel">
+      <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-70" aria-hidden="true" />
+      <div class="container-w sectie-s flex flex-wrap gap-12">
+        <h2 class="kop-2 flex-[1_1_300px]" data-reveal>Veelgestelde vragen</h2>
+        <div class="flex-[2_1_520px]" data-reveal><Faq items={faq} kolommen={1} /></div>
+      </div>
+    </section>
+  )
+}
+
+{
+  artikelen.length > 0 && (
+    <section class="container-w sectie-s">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+        <h2 class="kop-2">Lees ook</h2>
+        <a href="/kennis/" class="link-onderstreept">Alle kennisartikelen</a>
+      </div>
+      <ul class="grid gap-5 md:grid-cols-3">
+        {artikelen.map((a, i) => <li data-reveal style={`--vertraging:${i * 90}ms`}><KennisKaart artikel={a} /></li>)}
+      </ul>
+    </section>
+  )
+}
+
+<CtaBand titel={ctaTitel} />

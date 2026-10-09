@@ -1,0 +1,42 @@
+klant: UV-Fashions
+titel: 'Slimmer, sneller, stijlvoller:'
+titelAccent: de Hyvä launch.
+branche: UV beschermende kleding
+tags: [Hyvä, Internationaal, Performance]
+diensten: [hyva, webshop-laten-maken]
+hoofdcijfer: +15%
+hoofdcijferLabel: Conversiegroei na livegang van Hyvä.
+kort: Europa's grootste aanbieder van UV beschermende kleding op een razendsnelle Hyvä frontend, in meerdere landen.
+resultaten:
+  - waarde: +15%
+    label: conversie na livegang
+  - waarde: +20%
+    label: performance en laadtijd
+  - waarde: 1 platform
+    label: internationale uitrol
+uitdaging: >-
+  De bestaande Magento 2 frontend was complex, traag en moeilijk te
+  onderhouden. De mobiele ervaring voldeed niet meer en de kosten voor
+  doorontwikkeling liepen op, in een markt waar snelheid direct conversie is.
+aanpak: >-
+  Een Hyvä implementatie bovenop de bestaande Magento Open Source installatie,
+  in drie fases: analyse en planning, bouw, en uitrol per land.
+aanpakPunten:
+  - Volledige herbouw van de frontend op Hyvä
+  - Responsive redesign met focus op conversie
+  - Meertaligheid en valuta voor meerdere landen
+  - Bestaande modules en maatwerk geïntegreerd
+resultaat: >-
+  Een snellere shop met 15% hogere conversie, 20% betere performance en lagere
+  onderhoudskosten, binnen de geplande doorlooptijd.
+stack: [Magento Open Source, Hyvä]
+afbeelding: /images/cases/uv-fashions.jpg
+datum: 2025-11-10
+volgorde: 6
+quoteTekst: >-
+  Wedigify heeft onze webshop flink onder handen genomen en we zijn weer helemaal up-to-date met de
+  nieuwste Magento-versie en het alom geprezen Hyvä-template. Kennis van zaken; en zoals ze in
+  Rotterdam zeggen: niet lullen maar poetsen!
+quoteNaam: Sjoerd Muijser
+seoTitel: 'UV-Fashions case: +15% conversie met Hyvä'
+seoOmschrijving: De nieuwe Hyvä webshop van UV-Fashions leverde 15% meer conversie op. Een update naar de nieuwste Magento versie met een snelle Hyvä frontend.

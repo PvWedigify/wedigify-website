@@ -1,0 +1,10 @@
+---
+interface Props {
+  level: number;
+  id?: string;
+}
+const { level, id } = Astro.props;
+const Tag = `h${Math.min(6, Math.max(2, level))}` as 'h2';
+---
+
+<Tag id={id}><slot /></Tag>

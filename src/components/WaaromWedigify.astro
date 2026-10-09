@@ -1,0 +1,51 @@
+---
+/** "Waarom Wedigify": zes onderscheidende punten op navy, herbruikbaar per pagina. */
+import Achtergrond from './Achtergrond.astro';
+import LijnIcoon from './LijnIcoon.astro';
+import { getTeam } from '@/lib/site';
+
+interface Props {
+  titel?: string;
+  accent?: string;
+  intro?: string;
+  variant?: 'algemeen' | 'magento' | 'groei';
+}
+const { titel = 'Waarom webshops kiezen', accent = 'voor Wedigify.', intro, variant = 'algemeen' } = Astro.props;
+const aantal = (await getTeam()).length;
+
+const basis = [
+  { icoon: 'team', titel: `Vast team van ${aantal} specialisten`, tekst: 'Developers, marketeers en strategen onder één dak in Rotterdam. Je werkt met vaste gezichten die je webshop kennen.' },
+  { icoon: 'code', titel: 'Magento is ons vak', tekst: 'Onze developers werken elke dag met Magento en Hyvä, in eigen huis. Geen uitbesteding, geen junior die het uitzoekt.' },
+  { icoon: 'doel', titel: 'Eén business case', tekst: 'We starten bij je doelen en marges. Elk kanaal en elke sprint draagt bij aan dezelfde targets.' },
+  { icoon: 'staaf', titel: 'Transparant over resultaat', tekst: 'Elke maand zie je wat er gebouwd, getest en verdiend is. Geen rapporten om de rapporten.' },
+  { icoon: 'schild', titel: 'Gecertificeerd', tekst: 'Hypernode Gold Partner, Hyvä Partner en Google Partner. Korte lijnen met de partijen achter je webshop.' },
+  { icoon: 'bliksem', titel: 'Proactief', tekst: 'We bellen voordat jij het merkt. Monitoring, patches en verbeteringen pakken we zelf op.' },
+];
+const extra = {
+  magento: { icoon: 'server', titel: 'Stabiel en veilig', tekst: 'Code reviews, testomgevingen, vaste releaseprocedures en security patches op tijd.' },
+  groei: { icoon: 'route', titel: 'Online en offline', tekst: 'We kijken naar de hele klantreis, van Google tot de winkelvloer, en sturen op marge.' },
+  algemeen: null,
+}[variant];
+const punten = extra ? [...basis.slice(0, 5), extra] : basis;
+---
+
+<section class="relative isolate overflow-hidden bg-navy text-white">
+  <Achtergrond variant="donker" />
+  <div class="container-w sectie-s relative">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <h2 class="kop-2 max-w-[720px] text-white">{titel} <span class="text-paars-licht">{accent}</span></h2>
+      {intro && <p class="max-w-[440px] text-lg leading-relaxed text-navy-tekst">{intro}</p>}
+    </div>
+    <ul class="grid gap-px overflow-hidden rounded-[14px] border border-navy-600 bg-navy-600 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        punten.map((p, i) => (
+          <li class="group flex flex-col gap-4 bg-navy p-7 transition-colors duration-300 hover:bg-navy-700 md:p-9" data-reveal style={`--vertraging:${(i % 3) * 90}ms`}>
+            <span class="inline-flex size-12 items-center justify-center rounded-[10px] bg-paars/15 text-paars-licht transition-colors group-hover:bg-paars group-hover:text-white"><LijnIcoon naam={p.icoon} /></span>
+            <h3 class="text-xl font-semibold text-white">{p.titel}</h3>
+            <p class="leading-relaxed text-navy-tekst">{p.tekst}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

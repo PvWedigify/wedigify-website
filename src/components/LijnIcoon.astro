@@ -1,0 +1,14 @@
+---
+/** Uitgebreide set lijn-iconen voor dienstpagina's (stroke = currentColor). */
+import { iconen } from '@/lib/iconen';
+
+interface Props {
+  naam: string;
+  class?: string;
+  size?: number;
+}
+const { naam, class: className = '', size = 24 } = Astro.props;
+const pad = (iconen as Record<string, string>)[naam] ?? iconen.vink;
+---
+
+<svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={pad} />

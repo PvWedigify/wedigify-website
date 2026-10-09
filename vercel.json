@@ -1,0 +1,411 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/magento-webshop/",
+      "destination": "/magento/",
+      "permanent": true
+    },
+    {
+      "source": "/magento/development/",
+      "destination": "/magento/webshop-laten-maken/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/uploads/2026/06/Wedigify-B.V.-Algemene-Voorwaarden-NL-2026.pdf",
+      "destination": "/documenten/wedigify-algemene-voorwaarden-2026.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/magento/",
+      "permanent": true
+    },
+    {
+      "source": "/support/",
+      "destination": "/magento/support/",
+      "permanent": true
+    },
+    {
+      "source": "/feature-audit/",
+      "destination": "/magento/migraties/",
+      "permanent": true
+    },
+    {
+      "source": "/feature-check/",
+      "destination": "/magento/migraties/",
+      "permanent": true
+    },
+    {
+      "source": "/aca-shopify-koppeling/",
+      "destination": "/magento/integraties/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/",
+      "destination": "/groei/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/seo/",
+      "destination": "/groei/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/sea/",
+      "destination": "/groei/sea/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/social-advertising/",
+      "destination": "/groei/social-advertising/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/e-mailmarketing/",
+      "destination": "/groei/e-mailmarketing/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/marketing-automation/",
+      "destination": "/groei/e-mailmarketing/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/conversie-optimalisatie-cro/",
+      "destination": "/groei/cro/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing/content-creatie/",
+      "destination": "/groei/content/",
+      "permanent": true
+    },
+    {
+      "source": "/strategie-en-data/",
+      "destination": "/groei/strategie-data/",
+      "permanent": true
+    },
+    {
+      "source": "/artificial-intelligence-ai/",
+      "destination": "/groei/ai/",
+      "permanent": true
+    },
+    {
+      "source": "/onze-werkwijze/",
+      "destination": "/aanpak/",
+      "permanent": true
+    },
+    {
+      "source": "/waarom-wedigify/",
+      "destination": "/over-ons/",
+      "permanent": true
+    },
+    {
+      "source": "/team/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/kennis/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/blog/",
+      "destination": "/kennis/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/case-studies/",
+      "destination": "/cases/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/author/admin/",
+      "destination": "/kennis/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wedigify-bekroond-met-fonk150-award-erkenning-voor-creativiteit-impact-en-klanttevredenheid/",
+      "destination": "/over-ons/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/conversie-optimalisatie-in-2024-zo-haal-je-meer-uit-je-webshop/",
+      "destination": "/kennis/conversie-optimalisatie-webshop/",
+      "permanent": true
+    },
+    {
+      "source": "/kennis/conversie-optimalisatie-in-2024-zo-haal-je-meer-uit-je-webshop/",
+      "destination": "/kennis/conversie-optimalisatie-webshop/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/met-deze-acht-tips-adverteer-je-succesvol-op-facebook/",
+      "destination": "/kennis/webshop-lanceren-7-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/kennis/met-deze-acht-tips-adverteer-je-succesvol-op-facebook/",
+      "destination": "/kennis/webshop-lanceren-7-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/team/patrick/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/marc/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/dmytro/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/pavel/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/oleksandr/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/oleksandr-2/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/anastasiia/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/marina/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/jay/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/mike/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/iris/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/ievgenii/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/wouter/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/michelle/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/loyd/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/team/giulia/",
+      "destination": "/over-ons/team/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/magento-consultancy-door-wedigify-strategie-succes-voor-jouw-magento-webshop/",
+      "destination": "/kennis/magento-consultancy-door-wedigify-strategie-succes-voor-jouw-magento-webshop/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/over-optimalisatie-van-processen-in-softwareontwikkeling/",
+      "destination": "/kennis/over-optimalisatie-van-processen-in-softwareontwikkeling/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/het-belang-van-een-businesscase-en-kpis-voor-e-commerce-succes/",
+      "destination": "/kennis/het-belang-van-een-businesscase-en-kpis-voor-e-commerce-succes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/composable-commerce-het-buzzwoord-waar-menig-ondernemer-en-e-commerce-manager-fomo-van-krijgt/",
+      "destination": "/kennis/composable-commerce-het-buzzwoord-waar-menig-ondernemer-en-e-commerce-manager-fomo-van-krijgt/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/het-belang-van-magento-support-voor-jouw-e-commerce-succes/",
+      "destination": "/kennis/het-belang-van-magento-support-voor-jouw-e-commerce-succes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/de-transformatie-van-e-commerce-door-ai-kansen-en-uitdagingen/",
+      "destination": "/kennis/de-transformatie-van-e-commerce-door-ai-kansen-en-uitdagingen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/maar-hoe-zet-je-social-media-succesvol-in-voor-jouw-bedrijf-wij-helpen-je-op-weg/",
+      "destination": "/kennis/maar-hoe-zet-je-social-media-succesvol-in-voor-jouw-bedrijf-wij-helpen-je-op-weg/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes/",
+      "destination": "/kennis/magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf/",
+      "destination": "/kennis/magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices/",
+      "destination": "/kennis/de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alles-wat-je-moet-weten-over-googles-helpful-content-update/",
+      "destination": "/kennis/alles-wat-je-moet-weten-over-googles-helpful-content-update/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/google-analytics-4-alles-wat-je-moet-weten/",
+      "destination": "/kennis/google-analytics-4-alles-wat-je-moet-weten/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zo-zet-je-google-search-console-in-om-seo-te-verbeteren/",
+      "destination": "/kennis/zo-zet-je-google-search-console-in-om-seo-te-verbeteren/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/generative-ai-praktische-toepassingen-binnen-e-commerce/",
+      "destination": "/kennis/generative-ai-praktische-toepassingen-binnen-e-commerce/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hyperpersonalisatie-in-e-commerce-voorbij-de-voornaam-in-je-nieuwsbrief/",
+      "destination": "/kennis/hyperpersonalisatie-in-e-commerce-voorbij-de-voornaam-in-je-nieuwsbrief/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/onmisbare-automated-e-mail-flows-voor-je-webshop/",
+      "destination": "/kennis/onmisbare-automated-e-mail-flows-voor-je-webshop/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/van-idee-tot-gold-partner-het-verhaal-van-wedigify/",
+      "destination": "/kennis/van-idee-tot-gold-partner-het-verhaal-van-wedigify/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/budgetplan-van-dalende-omzet-naar-structurele-groei-in-6-weken/",
+      "destination": "/cases/budgetplan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hyva-launch-voor-tacstack-van-design-tot-livegang-in-8-weken/",
+      "destination": "/cases/tacstack/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/slim-besparen-zonder-in-te-leveren-de-succesvolle-migratie-van-krale-naar-magento-open-source/",
+      "destination": "/cases/krale/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/krales-successful-migration-to-magento-open-source/",
+      "destination": "/cases/krale/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/persoonlijk-stijlvol-en-uniek-de-custom-graveermodule-van-zinzi/",
+      "destination": "/cases/zinzi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/slimmer-sneller-stijlvoller-de-hyva-launch-van-uv-fashions/",
+      "destination": "/cases/uv-fashions/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/slim-groeien-met-seo-cro-de-hefboomstrategie-voor-greenfield-fashion/",
+      "destination": "/cases/greenfield-fashion/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strategisch-optimaliseren-met-resultaat-de-succesvolle-samenwerking-tussen-shuz-wedigify/",
+      "destination": "/cases/shuz/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/domeinmigratie-voor-de-bommel-van-debommelmeubelen-nl-naar-bommelwonen-nl/",
+      "destination": "/cases/de-bommel/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ]
+}

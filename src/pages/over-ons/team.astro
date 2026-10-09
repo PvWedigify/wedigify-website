@@ -1,0 +1,161 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Avatar from '@/components/Avatar.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getTeam, afdelingLabel } from '@/lib/site';
+
+const team = await getTeam();
+const afdelingen = [...new Set(team.map((t) => t.data.afdeling))];
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Het team van Wedigify',
+    itemListElement: team.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Person',
+        '@id': new URL(`/over-ons/team/#${t.id}`, Astro.site).toString(),
+        name: t.data.naam,
+        jobTitle: t.data.rol,
+        worksFor: { '@id': `${Astro.site}#organisatie` },
+        ...(t.data.foto ? { image: new URL(t.data.foto, Astro.site).toString() } : {}),
+        ...(t.data.linkedin ? { sameAs: [t.data.linkedin] } : {}),
+      },
+    })),
+  },
+];
+const uitleg: Record<string, { icoon: string; tekst: string }> = {
+  directie: { icoon: 'koffer', tekst: 'Houdt de koers vast en is betrokken bij elke klant. Kort en direct bereikbaar.' },
+  strategie: { icoon: 'doel', tekst: 'Vertaalt je ambities naar een business case, roadmap en targets per kanaal.' },
+  development: { icoon: 'code', tekst: 'Magento en Hyvä developers die bouwen, koppelen, updaten en optimaliseren.' },
+  marketing: { icoon: 'megafoon', tekst: 'Specialisten in SEO, SEA, social, e-mail en content die sturen op rendement.' },
+  support: { icoon: 'schild', tekst: 'Houdt je webshop stabiel, veilig en snel, en pakt vragen direct op.' },
+};
+const klantteam = [
+  { icoon: 'doel', rol: 'Digitale strateeg', tekst: 'Je sparringpartner voor de business case en de roadmap.' },
+  { icoon: 'code', rol: 'Vaste Magento developer', tekst: 'Kent je webshop door en door en bouwt elke sprint door.' },
+  { icoon: 'megafoon', rol: 'Specialist per kanaal', tekst: 'Voor elk kanaal in je groeiplan een expert, geen generalist.' },
+  { icoon: 'chat', rol: 'Eén aanspreekpunt', tekst: 'Korte lijnen, één plek voor al je vragen.' },
+];
+---
+
+<Base paginaType="AboutPage" schema={schema} titel="Het team van Wedigify: Magento specialisten in Rotterdam" omschrijving="Ontmoet de Magento developers, marketeers en strategen van Wedigify in Rotterdam. Een dedicated klantteam met korte lijnen.">
+  <PageHero
+    eyebrow="Team"
+    titel="Het team van Wedigify:"
+    accent={`${team.length} e-commercespecialisten.`}
+    intro="Bij Wedigify werk je met een dedicated klantteam: developers, strategen en marketeers die samen aan jouw project bouwen. Korte lijnen, minder afstemming, meer focus."
+    kruimels={[{ label: 'Over ons', href: '/over-ons/' }, { label: 'Team' }]}
+  />
+
+  <section class="container-w sectie-s">
+    <div class="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filter op afdeling">
+      <button type="button" class="rounded-knop bg-navy px-4 py-2.5 text-sm font-medium text-white" aria-pressed="true" data-afd="alle">Iedereen</button>
+      {
+        afdelingen.map((a) => (
+          <button type="button" class="rounded-knop bg-grijs px-4 py-2.5 text-sm font-medium hover:bg-paars-100" aria-pressed="false" data-afd={a}>
+            {afdelingLabel[a]}
+          </button>
+        ))
+      }
+    </div>
+    <ul class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        team.map((t) => (
+          <li id={t.id} class="group flex scroll-mt-28 flex-col gap-1.5" data-lid={t.data.afdeling} data-reveal>
+            <div class="overflow-hidden rounded-kaart"><Avatar naam={t.data.naam} foto={t.data.foto} formaat="portret" class="transition-transform duration-500 group-hover:scale-[1.04]" /></div>
+            <span class="mt-2 text-lg font-semibold">{t.data.naam}</span>
+            <span class="text-sm text-tekst">{t.data.rol}</span>
+            {t.data.linkedin && (
+              <a href={t.data.linkedin} class="mt-1 inline-flex w-fit items-center gap-1.5 text-sm text-paars" aria-label={`${t.data.naam} op LinkedIn`}>
+                <Icon name="linkedin" size={16} /> LinkedIn
+              </a>
+            )}
+          </li>
+        ))
+      }
+      <li class="flex flex-col gap-1.5">
+        <a href="/werken-bij/" class="flex aspect-[4/5] w-full items-center justify-center rounded-kaart bg-paars p-6 text-center text-2xl font-bold text-white hover:bg-paars-donker hover:text-white">
+          En jij?
+        </a>
+        <span class="mt-2 text-lg font-semibold">Werken bij Wedigify</span>
+        <a href="/werken-bij/" class="text-sm font-medium text-paars">Bekijk vacatures</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-4">Hoe we zijn opgebouwd</p>
+          <h2 class="kop-2 max-w-[640px]">Elke discipline <span class="text-paars">in eigen huis.</span></h2>
+        </div>
+        <p class="max-w-[440px] text-lg leading-relaxed text-tekst">Geen uitbesteding en geen freelancers die steeds wisselen. Iedereen werkt vanuit ons kantoor aan de Posthoornstraat in Rotterdam.</p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          afdelingen.map((a, i) => (
+            <li class="flex flex-col gap-3 rounded-[14px] border border-lijn bg-white p-6" data-reveal style={`--vertraging:${i * 70}ms`}>
+              <span class="inline-flex size-11 items-center justify-center rounded-full bg-paars-50 text-paars"><LijnIcoon naam={uitleg[a]?.icoon ?? 'team'} /></span>
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="text-lg font-semibold">{afdelingLabel[a]}</h3>
+                <span class="text-2xl font-bold text-paars">{team.filter((t) => t.data.afdeling === a).length}</span>
+              </div>
+              <p class="text-[15px] leading-relaxed text-tekst">{uitleg[a]?.tekst}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s">
+    <div class="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
+      <div data-reveal>
+        <p class="eyebrow mb-4">Jouw klantteam</p>
+        <h2 class="kop-2 mb-6">Vaste gezichten die je webshop kennen.</h2>
+        <p class="text-[17px] leading-[1.75] text-tekst">Elke klant krijgt een vast team, samengesteld op basis van de business case. Zo hoef je niet steeds opnieuw uit te leggen hoe je webshop werkt, en schakelen we snel als er iets moet gebeuren.</p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {
+          klantteam.map((k, i) => (
+            <li class="flex gap-4 rounded-[14px] border border-lijn p-6" data-reveal style={`--vertraging:${i * 80}ms`}>
+              <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam={k.icoon} /></span>
+              <div>
+                <h3 class="text-lg font-semibold">{k.rol}</h3>
+                <p class="mt-1 text-[15px] leading-relaxed text-tekst">{k.tekst}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand titel="Kennismaken met het team?" intro="Kom langs in Rotterdam of plan een online kennismaking. We vertellen je graag hoe we jouw webshop verder helpen." label="Plan een kennismaking" punten={['Vrijblijvend', 'Persoonlijk', 'Op kantoor of online']} />
+</Base>
+
+<script>
+  const knoppen = document.querySelectorAll<HTMLButtonElement>('[data-afd]');
+  const leden = document.querySelectorAll<HTMLElement>('[data-lid]');
+  knoppen.forEach((k) =>
+    k.addEventListener('click', () => {
+      const afd = k.dataset.afd;
+      leden.forEach((l) => (l.hidden = afd !== 'alle' && l.dataset.lid !== afd));
+      knoppen.forEach((b) => {
+        const actief = b === k;
+        b.setAttribute('aria-pressed', String(actief));
+        b.classList.toggle('bg-navy', actief);
+        b.classList.toggle('text-white', actief);
+        b.classList.toggle('bg-grijs', !actief);
+      });
+    }),
+  );
+</script>

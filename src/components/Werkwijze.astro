@@ -1,0 +1,46 @@
+---
+/** Vier stappen van kennismaking tot doorlopende groei. */
+import LijnIcoon from './LijnIcoon.astro';
+import Icon from './Icon.astro';
+interface Props {
+  titel?: string;
+  intro?: string;
+  achtergrond?: 'wit' | 'lavendel';
+}
+const { titel = 'Zo werken we samen.', intro = 'Geen losse opdrachten, maar een vast ritme waarin techniek en marketing samen naar dezelfde targets werken.', achtergrond = 'wit' } = Astro.props;
+const stappen = [
+  { icoon: 'chat', titel: 'Kennismaking', tekst: 'We leren je webshop, je organisatie en je ambities kennen. Vrijblijvend en zonder verkooppraatje.' },
+  { icoon: 'doel', titel: 'Business case', tekst: 'Onze digitale strateeg brengt per kanaal de kansen in kaart en vertaalt die naar meetbare targets.' },
+  { icoon: 'route', titel: 'Roadmap', tekst: 'Samen bepalen we de prioriteiten per kwartaal voor development, marketing en data.' },
+  { icoon: 'herhaal', titel: 'Uitvoeren en bijsturen', tekst: 'Specialisten per discipline voeren uit. Maandelijks rapporteren we, elk kwartaal sturen we bij.' },
+];
+---
+
+<section class:list={['relative isolate overflow-hidden', achtergrond === 'lavendel' && 'bg-lavendel']}>
+  {achtergrond === 'lavendel' && <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />}
+  <div class="container-w sectie-s">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <div>
+        <p class="eyebrow mb-4">Werkwijze</p>
+        <h2 class="kop-2 max-w-[640px]">{titel}</h2>
+      </div>
+      <p class="max-w-[440px] text-lg leading-relaxed text-tekst">{intro}</p>
+    </div>
+    <ol class="relative grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+      <span class="absolute top-7 right-[12%] left-[12%] hidden h-px border-t-2 border-dashed border-paars-200 lg:block" aria-hidden="true"></span>
+      {
+        stappen.map((s, i) => (
+          <li class="relative flex flex-col gap-3" data-reveal style={`--vertraging:${i * 100}ms`}>
+            <span class="relative z-10 inline-flex size-14 items-center justify-center rounded-full bg-paars text-white shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)] ring-8 ring-white">
+              <LijnIcoon naam={s.icoon} />
+            </span>
+            <span class="mt-2 text-[13px] font-semibold text-paars">Stap {i + 1}</span>
+            <h3 class="text-xl font-semibold">{s.titel}</h3>
+            <p class="leading-relaxed text-tekst">{s.tekst}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <a href="/aanpak/" class="link-onderstreept mt-12 inline-flex items-center gap-2" data-reveal>Lees meer over onze aanpak <Icon name="pijl" size={16} /></a>
+  </div>
+</section>

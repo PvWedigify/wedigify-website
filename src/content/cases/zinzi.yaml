@@ -1,0 +1,37 @@
+klant: ZINZI
+titel: 'Persoonlijk en uniek:'
+titelAccent: een eigen graveermodule.
+branche: Sieraden
+tags: [Maatwerk, Development, UX]
+diensten: [webshop-laten-maken]
+hoofdcijfer: 3 maanden
+hoofdcijferLabel: Investering terugverdiend.
+kort: Klanten zien hun gravure in realtime op het sieraad, volledig geïntegreerd in Magento.
+resultaten:
+  - waarde: 3 maanden
+    label: investering terugverdiend
+  - waarde: Realtime
+    label: preview van tekst en symbolen
+  - waarde: Per product
+    label: instelbaar door ZINZI zelf
+uitdaging: >-
+  ZINZI wilde klanten hun sieraad laten personaliseren zonder in te leveren op
+  gebruiksgemak of snelheid. De bestaande shop kon gravures niet visueel tonen,
+  terwijl juist dat de koopbeslissing maakt.
+aanpak: >-
+  Samen met het team van ZINZI bouwden we een maatwerkmodule binnen Magento die
+  design, interactie en beheerbaarheid combineert.
+aanpakPunten:
+  - Realtime gravureweergave op de productafbeelding
+  - Tekst (1 tot 4 regels), symbolen en combinaties
+  - Automatische positionering per producttype
+  - Per product aan of uit te zetten in de beheeromgeving
+resultaat: >-
+  Een intuïtieve graveerervaring in de huisstijl van ZINZI, die binnen drie
+  maanden was terugverdiend.
+stack: [Magento 2, Maatwerkmodule]
+afbeelding: /images/cases/zinzi.jpg
+datum: 2025-11-10
+volgorde: 7
+seoTitel: 'ZINZI case: graveermodule binnen 3 maanden terugverdiend'
+seoOmschrijving: Voor ZINZI bouwden we een custom graveermodule in Magento die zichzelf binnen drie maanden terugverdiende. Maatwerk dat direct omzet oplevert.

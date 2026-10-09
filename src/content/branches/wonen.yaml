@@ -1,0 +1,106 @@
+naam: Wonen en interieur
+kort: >-
+  Meubels, keukens en tuin. Grote aankopen met een lange oriëntatie, levertijden en bezorging die
+  moeten kloppen.
+icoon: huis
+heroTitel: Magento voor wonen
+heroAccent: en interieur webshops.
+intro: >-
+  Een bank, keuken of tuinset koop je niet zomaar. Klanten oriënteren lang, vergelijken veel en
+  willen precies weten wanneer en hoe hun aankoop wordt bezorgd. We bouwen Magento webshops voor
+  wonen, keukens en tuin die vertrouwen geven en verkopen.
+heroPunten:
+  - Ervaring met meubels, keukens en tuin
+  - Sterk in SEO en migraties zonder verlies
+  - Koppelingen met ERP, leveranciers en logistiek
+uitdagingenIntro: >-
+  Webshops in wonen en interieur hebben hun eigen uitdagingen. Dit zijn de vragen die we het vaakst
+  horen.
+uitdagingen:
+  - icoon: klok
+    titel: Lange oriëntatie
+    tekst: >-
+      Klanten bezoeken je webshop vaak meerdere keren voordat ze kopen. Je moet ze vasthouden en op het
+      juiste moment terugbrengen.
+  - icoon: route
+    titel: Levertijden en bezorging
+    tekst: >-
+      Grote producten, leveranciersvoorraad en bezorging op afspraak. Onduidelijkheid over levertijd is
+      een van de grootste redenen om af te haken.
+  - icoon: lagen
+    titel: Varianten en opties
+    tekst: >-
+      Stoffen, kleuren, maten en samenstellingen. Producten met veel opties moeten overzichtelijk blijven
+      en de prijs moet direct kloppen.
+  - icoon: winkel
+    titel: Showroom en webshop
+    tekst: >-
+      Veel klanten willen een product eerst zien en voelen. Webshop en showroom moeten elkaar versterken.
+oplossingen:
+  - icoon: zoek
+    titel: Vindbaar op productzoektermen
+    tekst: >-
+      Technische SEO en sterke categoriepagina's, zodat je gevonden wordt in de oriëntatiefase. En bij een
+      migratie behoud je al je posities.
+  - icoon: kalender
+    titel: Heldere levertijden
+    tekst: >-
+      Levertijd per product en per variant, gekoppeld aan voorraad en leveranciers, zodat de klant weet
+      waar hij aan toe is.
+  - icoon: stekker
+    titel: Koppelingen met ERP en leveranciers
+    tekst: >-
+      Voorraad, prijzen en orders automatisch gesynchroniseerd met je ERP en leveranciers. Minder
+      handwerk, minder fouten.
+  - icoon: doel
+    titel: Conversie op grote aankopen
+    tekst: >-
+      Vertrouwen opbouwen met reviews, duidelijke informatie en een checkout die geen vragen oproept.
+  - icoon: mail
+    titel: Terugbrengen met e-mail en ads
+    tekst: >-
+      Retargeting en e-mailflows die klanten tijdens hun oriëntatie op het juiste moment terugbrengen.
+  - icoon: bliksem
+    titel: Snel ondanks veel beeld
+    tekst: >-
+      Grote, mooie foto's zonder dat je webshop traag wordt, dankzij een moderne frontend en goede hosting.
+cases:
+  - de-bommel
+  - budgetplan
+diensten:
+  - webshop-laten-maken
+  - migraties
+  - overname
+  - seo
+  - sea
+  - integraties
+reviewBedrijven:
+  - Van der Garde Tuinmeubelen
+artikelen:
+  - de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices
+  - conversie-optimalisatie-webshop
+  - onmisbare-automated-e-mail-flows-voor-je-webshop
+faq:
+  - vraag: Is Magento geschikt voor een meubel of keukenwebshop?
+    antwoord: >-
+      Ja. Magento kan goed overweg met producten met veel opties, leverancierskoppelingen en grote
+      catalogi. En omdat je alles kunt aanpassen, sluit de webshop aan op jouw processen voor levering en
+      montage.
+  - vraag: Kunnen jullie levertijden per product tonen?
+    antwoord: >-
+      Ja. We koppelen voorraad en leverancierslevertijden aan Magento, zodat je per product en per
+      variant een actuele levertijd toont.
+  - vraag: We willen van domein wisselen of migreren. Verliezen we dan onze posities in Google?
+    antwoord: >-
+      Niet als het goed wordt gedaan. Bij De Bommel voerden we een complete domeinswitch uit met duizenden
+      redirects, zonder verlies van SEO, advertenties of trackingdata.
+  - vraag: Onze webshop zit bij een ander bureau. Kunnen jullie hem overnemen?
+    antwoord: >-
+      Ja. We beginnen met een audit en nemen daarna het onderhoud en de doorontwikkeling over. Bij
+      Budgetplan draaiden we de dalende omzet binnen zes weken om.
+ctaTitel: Meer omzet uit je woonwebshop?
+volgorde: 2
+seoTitel: Magento voor wonen, meubels en keukens
+seoOmschrijving: >-
+  Magento bureau voor meubels, keukens, tuin en interieur. Webshops met heldere levertijden,
+  leverancierskoppelingen en SEO die verkoopt. Bekijk onze cases.

@@ -1,0 +1,150 @@
+titel: Updates
+pijler: magento
+volgorde: 9
+kort: Magento en extensies actueel, zonder verrassingen.
+eyebrow: Magento updates
+heroTitel: Magento 2 updates en upgrades,
+heroAccent: zonder verrassingen.
+intro: >-
+  Achterlopen op Magento versies maakt elke volgende stap duurder. Wij plannen updates van Magento, PHP
+  en extensies, testen ze en zetten ze gecontroleerd live.
+wat:
+- Versie- en compatibiliteitscheck
+- Update van Magento, PHP en extensies
+- Regressietests op staging
+- Gecontroleerde livegang
+specialist: dmytro
+uitleg:
+- titel: Waarom je Magento actueel houdt
+  tekst: >-
+    Elke Magento versie heeft een eindige ondersteuning, net als de PHP versie waarop hij draait. Wie
+    te lang wacht, krijgt een steeds grotere en duurdere upgrade. Door regelmatig bij te werken blijft
+    je webshop veilig, snel en compatibel met nieuwe extensies.
+faq:
+- vraag: Hoe vaak moet ik Magento updaten?
+  antwoord: >-
+    We adviseren security patches direct en versie-updates een paar keer per jaar te plannen. Zo blijven
+    upgrades klein en voorspelbaar.
+- vraag: Hoe lang duurt een Magento upgrade?
+  antwoord: >-
+    Een kleine update is vaak binnen enkele dagen klaar. Een grote upgrade met veel maatwerk kan enkele
+    weken duren. Na de inventarisatie krijg je een concrete planning.
+- vraag: Kunnen updates in een onderhoudscontract?
+  antwoord: >-
+    Ja. Veel klanten combineren updates, security patches en support in één vaste onderhoudsafspraak.
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+- hyva-vs-luma
+- de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices
+ctaTitel: Op welke versie draai jij?
+ctaLabel: Plan een updatecheck
+seoTitel: Magento 2 updaten en upgraden | Wedigify
+seoOmschrijving: 'Magento 2 updates en upgrades zonder verrassingen: Magento, PHP en extensies actueel, getest op een testomgeving en gecontroleerd live gezet.'
+visual: code
+visualBadge:
+  titel: Up to date
+  tekst: Nieuwste Magento en PHP versie.
+  icoon: herhaal
+watIs:
+  titel: Waarom Magento updates belangrijk zijn
+  tekst: >-
+    Elke Magento versie heeft een beperkte ondersteuningsperiode. Daarna krijg je geen security patches
+    meer en raken modules en PHP versies niet meer compatibel. Met tijdige updates en upgrades blijft
+    je webshop veilig, snel en klaar voor nieuwe functionaliteit.
+  punten:
+  - Upgrades naar de nieuwste Magento 2 versie
+  - PHP, database en server mee geüpdatet
+  - Modules gecontroleerd en bijgewerkt
+  - Uitgebreide tests voor de livegang
+  visual: checklist
+voordelen:
+- icoon: schild
+  titel: Veilig
+  tekst: Weer volledig ondersteund met security patches.
+- icoon: bliksem
+  titel: Sneller
+  tekst: Nieuwe versies brengen vaak performance winst.
+- icoon: sparkle
+  titel: Nieuwe functies
+  tekst: Profiteer van verbeteringen in Magento.
+- icoon: euro
+  titel: Lagere kosten
+  tekst: Kleine stappen zijn goedkoper dan een grote inhaalslag.
+waarom:
+  titel: Zonder verrassingen updaten
+  tekst: >-
+    Een upgrade die jaren is uitgesteld, wordt een groot en risicovol project. Daarom adviseren we om
+    in kleine, regelmatige stappen te updaten.
+
+
+    We werken met een vaste procedure: inventarisatie, update op een testomgeving, regressietests van
+    de belangrijkste flows en een gecontroleerde livegang. Zo weet je vooraf precies wat je kunt verwachten.
+onderdelenTitel: Wat we updaten
+onderdelen:
+- icoon: lagen
+  label: Magento versie
+- icoon: server
+  label: PHP en MySQL
+- icoon: module
+  label: Modules
+- icoon: pen
+  label: Thema
+- icoon: zoek
+  label: OpenSearch
+- icoon: stekker
+  label: Koppelingen
+wanneer:
+- Je Magento versie is (bijna) niet meer ondersteund
+- Je PHP versie loopt achter
+- Modules geven fouten of conflicten
+- Je wilt nieuwe Magento functionaliteit gebruiken
+- Je wilt een vaste updatecyclus
+stappen:
+- label: Week 1
+  titel: Inventarisatie
+  tekst: We bekijken versies, modules en maatwerk en maken een plan.
+- label: Staging
+  titel: Update en test
+  tekst: Upgrade op een testomgeving met regressietests.
+- label: Livegang
+  titel: Uitrollen
+  tekst: Gecontroleerde release met controle achteraf.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: schild
+  richting: op
+  titel: Veiligheid
+  tekst: Ondersteunde versie.
+- icoon: bliksem
+  richting: op
+  titel: Performance
+  tekst: Sneller door nieuwe techniek.
+- icoon: module
+  richting: op
+  titel: Compatibiliteit
+  tekst: Modules weer bijgewerkt.
+- icoon: waarschuwing
+  richting: neer
+  titel: Technische schuld
+  tekst: Achterstand ingelopen.
+- icoon: euro
+  richting: neer
+  titel: Kosten
+  tekst: Geen dure inhaalslag later.
+- icoon: sparkle
+  richting: op
+  titel: Mogelijkheden
+  tekst: Nieuwe functies beschikbaar.
+ctaIntro: Laat je versie, modules en PHP checken. Je krijgt een helder plan met planning en kosten.

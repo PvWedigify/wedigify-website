@@ -1,0 +1,170 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import Avatar from '@/components/Avatar.astro';
+import PixelCluster from '@/components/PixelCluster.astro';
+import LogoMarquee from '@/components/LogoMarquee.astro';
+import PartnerSectie from '@/components/PartnerSectie.astro';
+import Branches from '@/components/Branches.astro';
+import Zekerheid from '@/components/Zekerheid.astro';
+import WaaromWedigify from '@/components/WaaromWedigify.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import { getSite, getTeam, getDiensten, dienstUrl } from '@/lib/site';
+
+const site = await getSite();
+const team = await getTeam();
+const magento = await getDiensten('magento');
+const groei = await getDiensten('groei');
+const pijlers = [
+  { titel: 'Magento', href: '/magento/', icoon: 'code', tekst: 'We bouwen, beheren en ontwikkelen Magento en Hyvä webshops. Van een nieuwe webshop en migraties tot koppelingen, security en dagelijks onderhoud.', diensten: magento },
+  { titel: 'Groei', href: '/groei/', icoon: 'grafiek', tekst: 'Een specialist per discipline en een digitale strateeg die alles samenbrengt in één business case: SEO, SEA, social, e-mail, CRO, content en data.', diensten: groei },
+];
+const kernwaarden = [
+  { titel: 'Resultaatgericht', tekst: 'We worden afgerekend op omzet, niet op uren.' },
+  { titel: 'Betrokken', tekst: 'Jouw shop voelt als die van ons. We bellen zelf als er iets is.' },
+  { titel: 'Vastberaden', tekst: 'Afspraak is afspraak. We stoppen niet bij het eerste probleem.' },
+  { titel: 'Zij aan zij', tekst: 'Geen leverancier, maar een team dat met je meedenkt.' },
+];
+const routeUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${site.straat}, ${site.postcode} ${site.plaats}`)}`;
+---
+
+<Base paginaType="AboutPage" titel="Over Wedigify: Magento bureau uit Rotterdam" omschrijving="Wedigify is het Magento bureau uit Rotterdam van Marc van Willigen: een vast team van developers, marketeers en strategen aan de Posthoornstraat.">
+  <PageHero
+    eyebrow="Over Wedigify"
+    titel="Een Magento bureau uit Rotterdam"
+    accent={`met ${team.length} specialisten.`}
+    intro="Opgericht door Marc van Willigen, die sinds 2012 webshops bouwt. Inmiddels een team van Magento developers, marketeers en strategen aan de Posthoornstraat, met één doel: nuchtere, eerlijke oplossingen die werken."
+    indeling="zij"
+    kruimels={[{ label: 'Over ons' }]}
+  />
+
+  <section class="container-w sectie-s">
+    <h2 class="kop-2 mb-10">Waar we voor staan.</h2>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        kernwaarden.map((k, i) => (
+          <div class="border-t-[3px] border-paars pt-5" data-reveal style={`--vertraging:${i * 80}ms`}>
+            <h3 class="mb-2 text-[22px] font-semibold">{k.titel}</h3>
+            <p class="leading-[1.7] text-tekst">{k.tekst}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-4">Wat we doen</p>
+          <h2 class="kop-2 max-w-[700px]">Techniek en groei <span class="text-paars">onder één dak.</span></h2>
+        </div>
+        <p class="max-w-[460px] text-lg leading-relaxed text-tekst">Wedigify is een full service e-commerce bureau met Magento als fundament. Developers, marketeers en strategen werken samen vanuit één business case, zodat je webshop niet alleen goed werkt, maar ook groeit.</p>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        {
+          pijlers.map((p, i) => (
+            <div class="flex flex-col rounded-[14px] border border-lijn bg-white p-7 md:p-10" data-reveal style={`--vertraging:${i * 120}ms`}>
+              <span class="mb-6 inline-flex size-14 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam={p.icoon} size={26} /></span>
+              <h3 class="mb-3 text-[28px] tracking-kop">{p.titel}</h3>
+              <p class="mb-7 leading-relaxed text-tekst">{p.tekst}</p>
+              <ul class="mb-8 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+                {p.diensten.map((d) => (
+                  <li><a href={dienstUrl(d)} class="group flex items-center gap-2 font-medium hover:text-paars"><Icon name="check" size={16} class="text-paars" />{d.data.titel}</a></li>
+                ))}
+              </ul>
+              <a href={p.href} class="knop-rand mt-auto self-start">Alles over {p.titel} <Icon name="pijl" size={18} /></a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-navy text-white">
+    <Achtergrond variant="donker" />
+    <div class="container-w sectie-s relative">
+      <p class="eyebrow mb-4 text-paars-licht" data-reveal>Ons verhaal</p>
+      <h2 class="kop-2 mb-12 max-w-[760px] text-white" data-reveal>Van idee tot <span class="text-paars-licht">Hypernode Gold Partner.</span></h2>
+      <ol class="relative grid gap-6 md:grid-cols-4">
+        <span class="absolute top-[11px] right-0 left-0 hidden h-px bg-white/20 md:block" aria-hidden="true"></span>
+        {
+          [
+            { jaar: '2012', titel: 'WillowDesign', tekst: 'Marc start zijn eerste bedrijf en legt de basis voor Wedigify.' },
+            { jaar: '2013–2022', titel: 'E-commerce in de praktijk', tekst: 'Jaren als Magento specialist bij een e-commercebureau en als zelfstandige, van developer tot product owner.' },
+            { jaar: '2022', titel: 'Wedigify opgericht', tekst: 'Een nuchter bureau waar techniek, strategie en gezond verstand samenkomen.' },
+            { jaar: 'Nu', titel: `${team.length} specialisten`, tekst: 'Hypernode Gold Partner, Hyvä Partner en vermeld in de FONK150.' },
+          ].map((m, i) => (
+            <li class="relative" data-reveal style={`--vertraging:${i * 110}ms`}>
+              <span class="relative mb-5 block size-6 rounded-md border-4 border-navy bg-paars-licht" aria-hidden="true" />
+              <div class="text-sm font-semibold text-paars-licht">{m.jaar}</div>
+              <h3 class="mt-1 mb-2 text-xl font-semibold">{m.titel}</h3>
+              <p class="leading-relaxed text-navy-tekst">{m.tekst}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <a href="/kennis/van-idee-tot-gold-partner-het-verhaal-van-wedigify/" class="mt-10 inline-flex items-center gap-2 font-semibold text-paars-licht hover:text-white" data-reveal>Lees het hele verhaal <Icon name="pijl" size={18} /></a>
+    </div>
+  </section>
+
+  <section class="bg-grijs">
+    <div class="container-w sectie-s">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <h2 class="kop-2">Het team.</h2>
+        <a href="/over-ons/team/" class="link-onderstreept">Iedereen bekijken</a>
+      </div>
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        {
+          team.slice(0, 6).map((t, i) => (
+            <li class="flex flex-col gap-1.5" data-reveal style={`--vertraging:${i * 60}ms`}>
+              <Avatar naam={t.data.naam} foto={t.data.foto} formaat="portret" />
+              <span class="mt-2 font-semibold">{t.data.naam}</span>
+              <span class="text-sm text-tekst">{t.data.rol}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <WaaromWedigify intro="Een volwassen e-commerce partner, met de mentaliteit van Rotterdam: niet lullen, maar poetsen." />
+
+  <Branches />
+
+  {site.klanten.length > 0 && <LogoMarquee klanten={site.klanten} />}
+
+  <Zekerheid />
+
+  <PartnerSectie />
+
+  <section>
+    <div class="container-w sectie-s flex flex-wrap items-center gap-12">
+      <div class="min-w-0 flex-[1_1_420px]">
+        <h2 class="kop-2 mb-5">Kom langs <span class="text-paars">in Rotterdam.</span></h2>
+        <address class="mb-8 text-lg leading-relaxed text-tekst not-italic">{site.straat}<br />{site.postcode} {site.plaats}</address>
+        <div class="flex flex-wrap gap-3">
+          <a href="/contact/" class="knop-paars">Plan kennismaking <Icon name="pijl" size={18} /></a>
+          <a href={routeUrl} class="knop-rand" rel="noopener">Route plannen</a>
+        </div>
+      </div>
+      <!-- Vervang door een foto van het kantoor: <img src="/images/kantoor.jpg" ...> -->
+      <div class="relative flex aspect-[4/3] min-w-0 flex-[1_1_420px] flex-col justify-end overflow-hidden rounded-kaart bg-paars p-8">
+        <PixelCluster class="absolute top-8 right-8 opacity-60" />
+        <span class="text-[clamp(2.5rem,5vw,4rem)] leading-none font-bold tracking-strak">Rotterdam</span>
+        <span class="mt-2 text-paars-100">Posthoornstraat 23</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s flex flex-wrap items-end justify-between gap-8">
+    <div class="min-w-0">
+      <p class="eyebrow mb-4">Werken bij Wedigify</p>
+      <h2 class="kop-2 max-w-[760px]">Werken bij een groeiend <span class="text-paars">e-commercebureau?</span></h2>
+    </div>
+    <a href="/werken-bij/" class="knop-rand">Bekijk vacatures <Icon name="pijl" size={18} /></a>
+  </section>
+</Base>

@@ -1,0 +1,66 @@
+telefoon: 010 322 07 04
+telefoonLink: '+31103220704'
+email: info@wedigify.nl
+straat: Posthoornstraat 23
+postcode: 3011 WD
+plaats: Rotterdam
+linkedin: https://www.linkedin.com/company/wedigify/
+instagram: https://www.instagram.com/wedigify/
+contactpersoon: marc
+partners:
+  - naam: Hypernode
+    label: Gold Partner
+    logo: /images/partners/hypernode.png
+  - naam: Hyvä
+    label: Bronze Partner
+    logo: /images/partners/hyva-bronze.png
+  - naam: Google
+    label: Partner
+    logo: /images/partners/google-partner.png
+  - naam: FONK150
+    label: Best beoordeelde bureaus
+partnerBalk: /images/partners/partnerbalk.png
+klanten:
+  - naam: Budgetplan
+    logo: /images/klanten/budgetplan.png
+  - naam: Krale
+    logo: /images/klanten/krale.png
+  - naam: ZINZI
+    logo: /images/klanten/zinzi.webp
+  - naam: SHUZ
+    logo: /images/klanten/shuz.webp
+  - naam: Bommel Wonen
+    logo: /images/klanten/bommel-wonen.png
+  - naam: Greenfield
+    logo: /images/klanten/greenfield.webp
+  - naam: Dugros
+    logo: /images/klanten/dugros.webp
+  - naam: Rikkoert Juweliers
+    logo: /images/klanten/rikkoert.webp
+  - naam: Livingfurn
+    logo: /images/klanten/livingfurn.webp
+  - naam: Tacstack
+  - naam: UV-Fashions
+reviews:
+  - tekst: >-
+      Bij Van der Garde Tuinmeubelen zijn we enorm blij met de samenwerking met Wedigify, al vanaf het
+      allereerste begin. Hun pragmatische aanpak en de directe communicatielijnen voelen alsof we echt
+      samen aan hetzelfde doel werken. Een absolute aanbeveling!
+    naam: Gerhard Heierman
+    bedrijf: Van der Garde Tuinmeubelen
+    diensten: [webshop-laten-maken, support, overname, strategie-data]
+  - tekst: >-
+      Wedigify heeft onze webshop flink onder handen genomen en we zijn weer helemaal up-to-date met de
+      nieuwste Magento-versie en het alom geprezen Hyvä-template. Kennis van zaken; en zoals ze in
+      Rotterdam zeggen: niet lullen maar poetsen!
+    naam: Sjoerd Muijser
+    bedrijf: UV-Fashions
+    case: uv-fashions
+    diensten: [hyva, updates, security-patches, migraties, webshop-laten-maken]
+  - tekst: >-
+      Bij het opzetten van onze marketplace verkoop heeft Wedigify een belangrijk aandeel gehad. Het
+      werkt prettig dat ze kennis en ervaring van de verschillende systemen hebben. Ook na het opzetten
+      kan je prettig sparren over vragen en verbeteringen.
+    naam: Arnout van Nieuwaal
+    bedrijf: Dugros
+    diensten: [integraties, afas-koppeling, exact-online-koppeling, business-central-koppeling, b2b-webshop, strategie-data]

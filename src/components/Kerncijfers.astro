@@ -1,0 +1,43 @@
+---
+/** Kerncijfers met optellende tellers. Waarde = eindwaarde (ook zonder JS zichtbaar). */
+interface Cijfer {
+  waarde: number;
+  voor?: string;
+  na?: string;
+  label: string;
+  tellen?: boolean;
+}
+interface Props {
+  cijfers: Cijfer[];
+}
+const { cijfers } = Astro.props;
+const fmt = new Intl.NumberFormat('nl-NL');
+---
+
+<section class="border-b border-lijn bg-white">
+  <dl class="container-w grid grid-cols-2 lg:grid-cols-4">
+    {
+      cijfers.map((c, i) => (
+        <div
+          class:list={['flex flex-col-reverse gap-3 py-8 md:py-10', i % 2 === 1 && 'pl-6 lg:pl-0', i > 0 && 'lg:pl-10', i < cijfers.length - 1 && 'lg:border-r lg:border-lijn']}
+          data-reveal
+          style={`--vertraging:${i * 90}ms`}
+        >
+          <dt class="text-sm leading-snug text-tekst">{c.label}</dt>
+          <dd class="text-[clamp(2.1rem,3.6vw,3.25rem)] leading-none font-bold tracking-strak">
+            <span
+              class="relative inline-block after:absolute after:-bottom-1.5 after:left-0 after:h-1.5 after:w-10 after:rounded-full after:bg-paars"
+              data-telop={c.tellen === false ? undefined : c.waarde}
+              data-voor={c.voor}
+              data-na={c.na}
+            >
+              {c.voor}
+              {c.tellen === false ? c.waarde : fmt.format(c.waarde)}
+              {c.na}
+            </span>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

@@ -1,0 +1,191 @@
+titel: Hyvä
+pijler: magento
+volgorde: 3
+opHome: true
+kort: Snelle, moderne Magento frontend. Betere Core Web Vitals en conversie.
+eyebrow: Hyvä Bronze Partner
+heroTitel: Hyvä thema voor je Magento webshop,
+heroAccent: gebouwd door een Hyvä Partner.
+intro: >-
+  Hyvä vervangt de verouderde standaard-frontend van Magento door een lichte, moderne variant. Je webshop
+  laadt sneller, scoort beter in Google en is goedkoper om door te ontwikkelen.
+feiten:
+- label: Aanpak
+  waarde: Audit, design, bouw, live
+- label: Partnerstatus
+  waarde: Hyvä Partner
+- label: Bewezen
+  waarde: Tacstack live in 8 weken
+voorWie:
+- titel: Je Luma theme is traag
+  tekst: Slechte Core Web Vitals kosten ranking en conversie. Hyvä lost dat bij de bron op.
+- titel: Je wilt een redesign
+  tekst: Combineer een nieuw ontwerp met een nieuwe frontend. Eén project, één livegang.
+- titel: Je onderhoud is duur
+  tekst: Minder JavaScript betekent minder bugs en snellere doorontwikkeling.
+wat:
+- Audit van thema, extensies en maatwerk
+- Design op basis van data uit je huidige shop
+- Volledige Hyvä frontend voor je shop
+- SEO proof livegang met redirects en monitoring
+stappen:
+- label: Week 1
+  titel: Audit & extensiecheck
+  tekst: Welke modules zijn Hyvä compatible en wat moet herbouwd worden?
+- label: Week 2–3
+  titel: Design
+  tekst: Ontwerp op basis van data en gedrag in je huidige shop.
+- label: Week 3–7
+  titel: Bouw
+  tekst: Elke week een demo op een testomgeving.
+- label: Week 8
+  titel: Livegang & nazorg
+  tekst: Gefaseerd live, daarna monitoring en optimalisatie.
+case: tacstack
+specialist: pavel
+uitleg:
+- titel: Wat is Hyvä?
+  tekst: >-
+    Hyvä is een frontend-thema voor Magento 2 dat het standaard Luma thema vervangt. Het is gebouwd met
+    Tailwind CSS en Alpine.js en laadt een fractie van het JavaScript dat Luma nodig heeft. Het resultaat
+    is een webshop die merkbaar sneller is, vooral op mobiel.
+- titel: De voordelen van Hyvä voor je webshop
+  tekst: >-
+    Snellere laadtijden verbeteren je Core Web Vitals, wat helpt voor je posities in Google en voor je
+    conversie. UV-Fashions zag na de overstap 15% meer conversie. Daarnaast is Hyvä eenvoudiger te onderhouden,
+    waardoor nieuwe functionaliteit sneller en goedkoper live gaat.
+- titel: Hyvä Checkout
+  tekst: >-
+    Naast het thema biedt Hyvä een eigen checkout die sneller en gebruiksvriendelijker is dan de standaard
+    Magento checkout. We kijken per webshop of Hyvä Checkout de investering waard is, op basis van je
+    huidige afhaakpercentages.
+faq:
+- vraag: Werken mijn huidige extensies met Hyvä?
+  antwoord: >-
+    De meeste grote extensies hebben een Hyvä compatibiliteitsmodule. In de audit brengen we precies in
+    kaart wat er nodig is en wat we herbouwen.
+- vraag: Kan Hyvä ook met Adobe Commerce?
+  antwoord: Ja. Hyvä werkt op zowel Magento Open Source als Adobe Commerce.
+- vraag: Wat gebeurt er met mijn SEO bij de overstap?
+  antwoord: >-
+    URL structuur, metadata en structured data nemen we mee. We testen vooraf op staging en monitoren
+    na livegang.
+- vraag: Welke Hyvä licenties heb ik nodig?
+  antwoord: >-
+    Het Hyvä thema zelf is sinds november 2025 gratis en open source, onder dezelfde licenties als Magento
+    Open Source. Voor aanvullende onderdelen zoals Hyvä Checkout betaal je nog wel een licentie. In de
+    scan zetten we op een rij welke onderdelen zinvol zijn voor jouw webshop en wat dat kost.
+- vraag: Moet ik voor Hyvä mijn hele webshop opnieuw bouwen?
+  antwoord: >-
+    Nee. Alleen de frontend wordt vervangen. Je producten, klanten, orders en backend processen blijven
+    gewoon in Magento.
+artikelen:
+- hyva-vs-luma
+- conversie-optimalisatie-webshop
+ctaTitel: Wat levert Hyvä jouw shop op?
+ctaLabel: Vraag een Hyvä scan aan
+seoTitel: Hyvä Magento laten bouwen | Hyvä Partner Rotterdam | Wedigify
+seoOmschrijving: >-
+  Hyvä thema voor je Magento 2 webshop, gebouwd door Hyvä Partner Wedigify. Sneller, betere Core Web Vitals
+  en hogere conversie. Bekijk de Tacstack case.
+visual: lighthouse
+visualBadge:
+  titel: Hyvä Partner
+  tekst: Snellere shop, hogere conversie.
+  icoon: bliksem
+watIs:
+  titel: Wat is Hyvä?
+  tekst: >-
+    Hyvä is een moderne frontend voor Magento 2 die het verouderde standaardthema Luma vervangt. Met een
+    fractie van de JavaScript en CSS laadt je webshop veel sneller, scoort hij beter in Core Web Vitals
+    en is hij eenvoudiger te onderhouden. De backend en je data blijven gewoon Magento.
+  punten:
+  - Veel snellere laadtijden en betere Core Web Vitals
+  - Lagere ontwikkel en onderhoudskosten
+  - Moderne techniek met Tailwind CSS en Alpine.js
+  - Hyvä Checkout voor een snellere afrekenstap
+  visual: code
+voordelen:
+- icoon: bliksem
+  titel: Razendsnel
+  tekst: Minder code betekent snellere pagina’s, ook op mobiel.
+- icoon: doel
+  titel: Meer conversie
+  tekst: Snelheid en een strakke UX verlagen het aantal afhakers.
+- icoon: zoek
+  titel: Beter vindbaar
+  tekst: Goede Core Web Vitals helpen je posities in Google.
+- icoon: euro
+  titel: Lagere kosten
+  tekst: Sneller bouwen en eenvoudiger onderhouden.
+waarom:
+  titel: Waarom overstappen naar Hyvä?
+  tekst: >-
+    De standaard Luma frontend is zwaar en traag. Optimaliseren kost veel tijd en levert steeds minder
+    op. Hyvä begint opnieuw met een lichte basis, waardoor snelheid niet langer een project is maar de
+    standaard.
+
+
+    Als Hyvä Partner bouwen we Hyvä thema’s en maken we bestaande modules compatibel. Tacstack ging met
+    ons binnen 8 weken van design naar een live Hyvä shop, op tijd voor de IWA beurs.
+onderdelenTitel: Wat we met Hyvä voor je doen
+onderdelen:
+- icoon: pen
+  label: Hyvä thema op maat
+- icoon: betalen
+  label: Hyvä Checkout
+- icoon: module
+  label: Module compatibiliteit
+- icoon: herhaal
+  label: Migratie vanaf Luma
+- icoon: bliksem
+  label: Core Web Vitals
+- icoon: telefoon
+  label: Mobiel eerst
+wanneer:
+- Je webshop draait nog op Luma of een zwaar thema
+- Je Core Web Vitals zijn onvoldoende
+- Mobiele bezoekers converteren slecht
+- Je wilt toe aan een nieuw design
+- Onderhoud van je frontend kost te veel tijd
+waaromWedigify:
+- icoon: vink
+  titel: Hyvä Partner
+  tekst: Officieel partner met ervaring in tientallen Hyvä componenten.
+- icoon: code
+  titel: Eigen developers
+  tekst: Een vast Magento team, geen freelancers.
+- icoon: klok
+  titel: Strakke planning
+  tekst: 'Tacstack: van design tot livegang in 8 weken.'
+- icoon: doel
+  titel: Gericht op conversie
+  tekst: Onze CRO specialisten denken mee over de UX.
+resultaten:
+- icoon: bliksem
+  richting: op
+  titel: Laadsnelheid
+  tekst: Pagina’s die direct reageren.
+- icoon: snelheid
+  richting: op
+  titel: Core Web Vitals
+  tekst: Groen in Google Search Console.
+- icoon: doel
+  richting: op
+  titel: Conversie
+  tekst: Minder afhakers op mobiel.
+- icoon: zoek
+  richting: op
+  titel: Vindbaarheid
+  tekst: Betere technische SEO basis.
+- icoon: euro
+  richting: neer
+  titel: Onderhoud
+  tekst: Minder uren per aanpassing.
+- icoon: route
+  richting: neer
+  titel: Bounce
+  tekst: Minder bezoekers die direct vertrekken.
+ctaIntro: >-
+  Laat je shop scannen. Je krijgt inzicht in de snelheidswinst, de compatibiliteit van je modules en een
+  realistische planning.

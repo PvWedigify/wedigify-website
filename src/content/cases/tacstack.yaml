@@ -1,0 +1,40 @@
+klant: Tacstack
+titel: Hyvä launch, van design tot livegang
+titelAccent: in 8 weken.
+branche: Outdoor
+tags: [Hyvä, Development, Integraties]
+diensten: [hyva, webshop-laten-maken, integraties]
+hoofdcijfer: 8 weken
+hoofdcijferLabel: Van design tot live Hyvä shop, vóór de IWA beurs.
+kort: Een complete Magento webshop op Hyvä, live vóór de internationale vakbeurs IWA OutdoorClassics.
+resultaten:
+  - waarde: 8 weken
+    label: van design tot livegang
+  - waarde: Live
+    label: vóór de IWA beurs in Duitsland
+  - waarde: Hyvä
+    label: bliksemsnelle frontend
+uitdaging: >-
+  Tacstack startte zonder bestaande webshop of technische basis en had een
+  vaste deadline: live vóór de internationale vakbeurs IWA OutdoorClassics.
+  In acht weken moest er een volwassen platform staan dat professioneel oogt,
+  snel laadt, schaalbaar is en gekoppeld is aan de bestaande ERP-, PSP- en
+  verzendintegraties.
+aanpak: >-
+  We kozen voor Magento Open Source met Hyvä: flexibel in maatwerk en
+  integraties, zonder onnodige complexiteit. Het project liep in duidelijke
+  fases met wekelijkse afstemming en korte lijnen tussen beide teams.
+aanpakPunten:
+  - Magento Open Source als schaalbare basis
+  - Hyvä frontend voor performance en onderhoudsgemak
+  - Koppelingen met ERP, PSP en verzending
+  - Marketing- en SEO technisch correct ingericht vanaf dag één
+resultaat: >-
+  De shop ging live vóór de beurs, met een snelle Hyvä frontend en een
+  Magento basis die klaar is voor internationale uitbreiding.
+stack: [Magento Open Source, Hyvä, ERP koppeling]
+afbeelding: /images/cases/tacstack.jpg
+datum: 2026-02-23
+volgorde: 2
+seoTitel: 'Tacstack case: Hyvä webshop live in 8 weken'
+seoOmschrijving: 'Van design tot livegang in 8 weken: de Hyvä webshop van Tacstack, op tijd voor de IWA beurs. Met Magento development en koppelingen.'

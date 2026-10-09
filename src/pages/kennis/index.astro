@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import KennisKaart from '@/components/KennisKaart.astro';
+import { kennisCategorie } from '@/lib/site';
+
+const artikelen = (await getCollection('kennis')).sort((a, b) => b.data.datum.valueOf() - a.data.datum.valueOf());
+const filters = (Object.keys(kennisCategorie) as (keyof typeof kennisCategorie)[])
+  .map((c) => ({ c, label: kennisCategorie[c], aantal: artikelen.filter((a) => a.data.categorie === c).length }))
+  .filter((f) => f.aantal > 0);
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: artikelen.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/kennis/${a.id}/`, Astro.site).toString(), name: a.data.titel })),
+  },
+];
+---
+
+<Base paginaType="CollectionPage" titel="Kennisbank: Magento, Hyvä en e-commerce" omschrijving="Praktische artikelen over Magento, Hyvä, migraties, SEO, CRO en e-commerce strategie, geschreven door de specialisten van Wedigify." schema={schema}>
+  <PageHero eyebrow="Kennis" titel="Kennis over Magento" accent="en e-commerce." intro="Praktische artikelen over Magento, Hyvä, migraties, SEO, conversie optimalisatie en e-commercestrategie, geschreven door ons team." kruimels={[{ label: 'Kennis' }]} />
+  <section class="container-w sectie-s">
+    <div class="mb-10 flex flex-wrap items-center gap-2" role="group" aria-label="Filter op categorie" data-filters>
+      <button type="button" class="filterknop" aria-pressed="true" data-filter="alle">Alles <span>{artikelen.length}</span></button>
+      {filters.map((f) => (
+        <button type="button" class="filterknop" aria-pressed="false" data-filter={f.c}>{f.label} <span>{f.aantal}</span></button>
+      ))}
+    </div>
+    <ul class="grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-artikelen>
+      {
+        artikelen.map((a) => (
+          <li data-categorie={a.data.categorie} data-reveal>
+            <KennisKaart artikel={a} koptag="h2" />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .filterknop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1.5px solid var(--color-lijn);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-navy);
+    background: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .filterknop span {
+    font-size: 12px;
+    color: var(--color-paars);
+  }
+  .filterknop:hover {
+    border-color: var(--color-paars);
+  }
+  .filterknop[aria-pressed='true'] {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: #fff;
+  }
+  .filterknop[aria-pressed='true'] span {
+    color: var(--color-paars-200);
+  }
+</style>
+
+<script>
+  const knoppen = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const items = [...document.querySelectorAll<HTMLElement>('[data-artikelen] > li')];
+  const kies = (f: string, push = true) => {
+    knoppen.forEach((k) => k.setAttribute('aria-pressed', String(k.dataset.filter === f)));
+    items.forEach((i) => (i.hidden = f !== 'alle' && i.dataset.categorie !== f));
+    if (push) {
+      const url = new URL(location.href);
+      f === 'alle' ? url.searchParams.delete('categorie') : url.searchParams.set('categorie', f);
+      history.replaceState(null, '', url);
+    }
+  };
+  knoppen.forEach((k) => k.addEventListener('click', () => kies(k.dataset.filter!)));
+  const start = new URLSearchParams(location.search).get('categorie');
+  if (start && knoppen.some((k) => k.dataset.filter === start)) kies(start, false);
+</script>

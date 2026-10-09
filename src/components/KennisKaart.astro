@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { datumNL, bestaat, leestijd, kennisCategorie } from '@/lib/site';
+interface Props {
+  artikel: CollectionEntry<'kennis'>;
+  koptag?: 'h2' | 'h3';
+}
+const { artikel: a, koptag = 'h3' } = Astro.props;
+const Kop = koptag;
+const label = kennisCategorie[a.data.categorie];
+const minuten = leestijd(a.body);
+---
+
+<a
+  href={`/kennis/${a.id}/`}
+  class="group flex h-full flex-col overflow-hidden rounded-[14px] border border-lijn bg-white transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:text-navy hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)]"
+>
+  <div class="strepen relative aspect-[16/9] overflow-hidden">
+    {bestaat(a.data.afbeelding) && <img src={a.data.afbeelding} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />}
+  </div>
+  <div class="flex flex-1 flex-col gap-3 p-6">
+    <span class="text-[13px] font-medium text-paars">
+      {label} · <time datetime={a.data.datum.toISOString()}>{datumNL(a.data.datum)}</time> · {minuten} min
+    </span>
+    <Kop class="text-xl leading-snug font-semibold tracking-kop group-hover:text-paars">{a.data.titel}</Kop>
+    <p class="line-clamp-3 text-[15px] leading-relaxed text-tekst">{a.data.omschrijving}</p>
+  </div>
+</a>

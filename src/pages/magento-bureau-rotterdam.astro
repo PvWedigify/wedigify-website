@@ -1,0 +1,174 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import TeamCollage from '@/components/TeamCollage.astro';
+import DienstIndex from '@/components/DienstIndex.astro';
+import CaseKaart from '@/components/CaseKaart.astro';
+import KlantQuotes from '@/components/KlantQuotes.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getSite, getDiensten, getTeam } from '@/lib/site';
+
+const site = await getSite();
+const team = await getTeam();
+const magento = (await getDiensten('magento')).filter((d) => d.data.opHome);
+const cases = (await getEntries([{ collection: 'cases', id: 'budgetplan' }, { collection: 'cases', id: 'greenfield-fashion' }, { collection: 'cases', id: 'krale' }])).filter(Boolean);
+const adres = `${site.straat}, ${site.postcode} ${site.plaats}`;
+const kaartUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Wedigify ' + adres)}`;
+
+const redenen = [
+  { icoon: 'chat', titel: 'Kennismaken op kantoor', tekst: 'Kom langs aan de Posthoornstraat, midden in Rotterdam. Even sparren over je webshop werkt aan tafel nog altijd het best.' },
+  { icoon: 'team', titel: 'Vaste mensen, korte lijnen', tekst: 'Je werkt met een vast team van developers en specialisten. Geen callcenter, geen wisselende gezichten.' },
+  { icoon: 'code', titel: 'Alleen Magento', tekst: 'Onze developers doen elke dag niets anders dan Magento en Hyvä. Geen uitbesteding, geen junior die het uitzoekt.' },
+  { icoon: 'grafiek', titel: 'Techniek én groei', tekst: 'Naast development hebben we specialisten voor SEO, SEA, social, e-mail en CRO. Alles onder één dak.' },
+];
+
+const faq = [
+  { vraag: 'Werken jullie alleen voor webshops in Rotterdam?', antwoord: 'Nee. Ons kantoor staat in Rotterdam, maar we werken voor webshops in heel Nederland. Veel overleg doen we online, en voor een kennismaking of workshop ben je altijd welkom op kantoor.' },
+  { vraag: 'Kan ik langskomen voor een kennismaking?', antwoord: `Zeker. Plan een afspraak via de contactpagina of bel ${site.telefoon}. We ontvangen je graag aan de ${site.straat} in Rotterdam.` },
+  { vraag: 'Wat voor Magento werk doen jullie?', antwoord: 'Van nieuwe Magento webshops en Hyvä frontends tot migraties, koppelingen met je ERP, updates, security patches en support. Daarnaast helpen we met SEO, SEA, social, e-mail en conversie optimalisatie.' },
+  { vraag: 'Nemen jullie ook Magento webshops over van een ander bureau?', antwoord: 'Ja. We beginnen met een audit van je code, extensies en hosting en nemen daarna het onderhoud en de doorontwikkeling over. Bij Budgetplan draaiden we zo binnen zes weken een dalende omzet om.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Magento bureau in Rotterdam',
+    serviceType: 'Magento development, Hyvä en e-commerce',
+    provider: { '@id': `${Astro.site}#organisatie` },
+    areaServed: [
+      { '@type': 'City', name: 'Rotterdam' },
+      { '@type': 'Country', name: 'Nederland' },
+    ],
+    url: new URL(Astro.url.pathname, Astro.site).toString(),
+  },
+];
+---
+
+<Base titel="Magento bureau Rotterdam" omschrijving={`Wedigify is het Magento bureau uit Rotterdam. Magento webshops, Hyvä, migraties en koppelingen, met een vast team aan de ${site.straat}.`} schema={schema}>
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative pt-8 pb-20 md:pb-24">
+      <Breadcrumbs items={[{ label: 'Magento', href: '/magento/' }, { label: 'Magento bureau Rotterdam' }]} />
+      <div class="grid items-center gap-x-14 gap-y-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        <div class="min-w-0">
+          <p class="eyebrow mb-5">Magento bureau Rotterdam</p>
+          <h1 class="text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.06] tracking-strak">
+            Het Magento bureau
+            <span class="block text-paars">uit Rotterdam.</span>
+          </h1>
+          <p class="lead mt-6 max-w-[580px]">Vanuit ons kantoor in het centrum van Rotterdam bouwen, onderhouden en laten we Magento webshops groeien voor merken en groothandels in heel Nederland. Met een vast team, korte lijnen en de Rotterdamse mentaliteit: niet lullen, maar poetsen.</p>
+          <ul class="mt-7 flex flex-col gap-2.5">
+            {[`Kantoor aan de ${site.straat}, Rotterdam`, `${team.length} specialisten onder één dak`, 'Hyvä en Hypernode partner'].map((p) => (
+              <li class="flex items-center gap-3 font-medium text-navy"><span class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span>{p}</li>
+            ))}
+          </ul>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">Kom langs voor koffie <Icon name="pijl" size={18} /></a>
+            <a href={`tel:${site.telefoonLink}`} class="knop-rand bg-white/60"><Icon name="telefoon" size={18} /> {site.telefoon}</a>
+          </div>
+        </div>
+        <TeamCollage titel="Vast team in Rotterdam" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-w sectie">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <div>
+        <p class="eyebrow mb-4">Waarom Wedigify</p>
+        <h2 class="kop-2 max-w-[640px]">Een Magento partner <span class="text-paars">om de hoek.</span></h2>
+      </div>
+      <p class="max-w-[440px] text-lg leading-relaxed text-tekst">Je webshop is te belangrijk voor een bureau op afstand. Bij ons weet je wie er aan je webshop werkt, en zit je zo aan tafel.</p>
+    </div>
+    <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {redenen.map((r, i) => (
+        <li class="rounded-kaart border border-lijn bg-white p-7" data-reveal style={`--vertraging:${i * 70}ms`}>
+          <span class="inline-flex size-12 items-center justify-center rounded-knop bg-paars-50 text-paars"><LijnIcoon naam={r.icoon} /></span>
+          <h3 class="mt-5 text-xl font-semibold tracking-kop">{r.titel}</h3>
+          <p class="mt-2 leading-relaxed text-tekst">{r.tekst}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="bg-grijs">
+    <div class="container-w sectie">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-4">Magento diensten</p>
+          <h2 class="kop-2">Magento, van A tot <span class="text-paars">Hyvä.</span></h2>
+        </div>
+        <p class="max-w-[440px] text-lg leading-relaxed text-tekst">Alles wat je Magento webshop nodig heeft, van de eerste regel code tot support na de livegang.</p>
+      </div>
+      <DienstIndex diensten={magento} />
+      <a href="/magento/" class="knop-rand mt-10">Alle Magento diensten <Icon name="pijl" size={18} /></a>
+    </div>
+  </section>
+
+  {
+    cases.length > 0 && (
+      <section class="container-w sectie">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="eyebrow mb-4">Cases</p>
+            <h2 class="kop-2">Resultaten <span class="text-paars">die we samen boekten.</span></h2>
+          </div>
+          <a href="/cases/" class="link-onderstreept">Alle cases</a>
+        </div>
+        <ul class="grid gap-5 md:grid-cols-3">
+          {cases.map((c) => <li><CaseKaart item={c} toonKort /></li>)}
+        </ul>
+      </section>
+    )
+  }
+
+  <KlantQuotes achtergrond="lavendel" />
+
+  <!-- Bezoek -->
+  <section class="container-w sectie">
+    <div class="grid overflow-hidden rounded-[18px] bg-navy text-white lg:grid-cols-2">
+      <div class="p-8 md:p-12">
+        <p class="eyebrow mb-4 text-paars-200">Bezoek ons</p>
+        <h2 class="kop-2 text-white">Koffie staat klaar.</h2>
+        <address class="mt-6 text-lg leading-relaxed not-italic text-white/85">
+          Wedigify<br />{site.straat}<br />{site.postcode} {site.plaats}
+        </address>
+        <ul class="mt-6 space-y-2 text-white/85">
+          <li><a href={`tel:${site.telefoonLink}`} class="inline-flex items-center gap-3 text-white hover:text-paars-200"><Icon name="telefoon" size={18} /> {site.telefoon}</a></li>
+          <li><a href={`mailto:${site.email}`} class="inline-flex items-center gap-3 text-white hover:text-paars-200"><Icon name="mail" size={18} /> {site.email}</a></li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/contact/" class="knop-paars">Plan een afspraak <Icon name="pijl" size={18} /></a>
+          <a href={kaartUrl} target="_blank" rel="noopener" class="knop-rand-wit"><Icon name="locatie" size={18} /> Routebeschrijving</a>
+        </div>
+      </div>
+      <div class="relative min-h-[280px] overflow-hidden bg-navy-700">
+        <div class="raster-licht absolute inset-0 opacity-70" aria-hidden="true"></div>
+        <div class="gloed-donker absolute inset-0" aria-hidden="true"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="flex flex-col items-center gap-3 text-center">
+            <span class="relative inline-flex size-16 items-center justify-center rounded-full bg-paars text-white shadow-[0_0_0_12px_rgb(118_60_247/0.25),0_0_0_28px_rgb(118_60_247/0.12)]"><Icon name="locatie" size={28} /></span>
+            <span class="mt-4 text-xl font-semibold">Rotterdam centrum</span>
+            <span class="text-white/70">{site.straat}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-w pb-20 md:pb-28">
+    <div class="mb-10 max-w-[720px]">
+      <p class="eyebrow mb-4">Veelgestelde vragen</p>
+      <h2 class="kop-2">Vragen over ons Magento bureau</h2>
+    </div>
+    <Faq items={faq} kolommen={2} />
+  </section>
+
+  <CtaBand titel="Even sparren over je Magento webshop?" intro="Kom langs in Rotterdam of plan een online gesprek. Vrijblijvend, eerlijk en zonder verkooppraatje." label="Plan een kennismaking" />
+</Base>

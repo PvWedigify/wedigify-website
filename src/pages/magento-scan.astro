@@ -1,0 +1,172 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import DienstVisual from '@/components/DienstVisual.astro';
+import ContactKaart from '@/components/ContactKaart.astro';
+import Faq from '@/components/Faq.astro';
+import { getSite } from '@/lib/site';
+
+const site = await getSite();
+const persoon = site.contactpersoon ? await getEntry(site.contactpersoon) : null;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const veld = 'w-full rounded-knop border border-grijs-lijn bg-white px-4 py-3.5 text-base text-navy placeholder:text-stil focus:border-paars focus:outline-none focus:ring-2 focus:ring-paars-200';
+
+const checks = [
+  { icoon: 'bliksem', titel: 'Snelheid en Core Web Vitals', tekst: 'Laadtijden, frontend en hosting. Hoeveel winst is er te halen, bijvoorbeeld met Hyvä?' },
+  { icoon: 'schild', titel: 'Security en patchniveau', tekst: 'Je Magento en PHP versie, ontbrekende security patches en risico’s.' },
+  { icoon: 'module', titel: 'Modules en maatwerk', tekst: 'Verouderde of conflicterende extensies en technische schuld in je code.' },
+  { icoon: 'zoek', titel: 'Technische SEO', tekst: 'Indexatie, dubbele content door filters, structured data en URL structuur.' },
+  { icoon: 'doel', titel: 'Conversie en UX', tekst: 'De grootste drempels in je klantreis, van zoeken tot checkout.' },
+  { icoon: 'stekker', titel: 'Koppelingen en processen', tekst: 'Hoe je webshop samenwerkt met ERP, PIM en logistiek, en waar handwerk zit.' },
+];
+const opbrengst = [
+  'Een helder overzicht van risico’s en kansen, in gewone taal',
+  'Een prioriteitenlijst: wat eerst, wat later en wat het oplevert',
+  'Een gesprek met een senior Magento specialist over de uitkomsten',
+  'Geen verplichtingen: je bepaalt zelf wat je ermee doet',
+];
+const faq = [
+  { vraag: 'Wat heb je nodig om de scan uit te voeren?', antwoord: 'In de basis alleen de URL van je webshop. Voor een diepere technische scan vragen we leestoegang tot de Magento omgeving of de code. Dat stemmen we vooraf met je af.' },
+  { vraag: 'Is de scan vrijblijvend?', antwoord: 'Ja. Je zit nergens aan vast. Je krijgt de uitkomsten en bepaalt zelf of en met wie je ermee verdergaat.' },
+  { vraag: 'Hoe lang duurt het voordat ik de uitkomsten krijg?', antwoord: 'Na je aanvraag nemen we zo snel mogelijk contact op om de scan in te plannen. De uitkomsten bespreken we in een persoonlijk gesprek.' },
+  { vraag: 'Is de scan ook geschikt als mijn webshop door een ander bureau wordt beheerd?', antwoord: 'Zeker. Een onafhankelijke blik helpt je om de staat van je webshop goed te beoordelen, ongeacht wie hem beheert.' },
+];
+---
+
+<Base
+  titel="Magento scan: snelheid, security en groeikansen"
+  omschrijving="Vraag een vrijblijvende Magento scan aan: inzicht in snelheid, security, modules, technische SEO, conversie en koppelingen van je webshop."
+>
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative pt-8 pb-20 md:pb-24">
+      <Breadcrumbs items={[{ label: 'Magento', href: '/magento/' }, { label: 'Magento scan' }]} />
+      <div class="grid items-start gap-x-14 gap-y-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        <div class="min-w-0">
+          <p class="eyebrow mb-5">Magento scan</p>
+          <h1 class="text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.06] tracking-strak">
+            Hoe gezond is je Magento webshop?
+            <span class="block text-paars">Laat hem scannen.</span>
+          </h1>
+          <p class="lead mt-6 max-w-[580px]">Een onafhankelijke blik op snelheid, veiligheid, techniek en conversie van je webshop. Je krijgt een helder overzicht van de risico’s en de grootste kansen, besproken door een senior Magento specialist.</p>
+          <ul class="mt-8 flex flex-col gap-3">
+            {opbrengst.map((p) => (
+              <li class="flex gap-3"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span><span>{p}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="min-w-0 rounded-[14px] border border-lijn bg-white p-6 shadow-[0_30px_70px_-30px_rgb(10_13_49/0.35)] md:p-8">
+          <h2 class="mb-1 text-2xl tracking-kop">Vraag je scan aan</h2>
+          <p class="mb-6 text-[15px] text-tekst">Vrijblijvend. We nemen zo snel mogelijk contact met je op.</p>
+          <form action={endpoint || undefined} method="POST" class="grid gap-4" data-formulier novalidate>
+            <input type="hidden" name="onderwerp" value="scan" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+            <div>
+              <label for="webshop" class="mb-1.5 block text-sm font-semibold">URL van je webshop *</label>
+              <input id="webshop" name="webshop" type="url" placeholder="https://" required class={veld} />
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="naam" class="mb-1.5 block text-sm font-semibold">Naam *</label>
+                <input id="naam" name="naam" type="text" autocomplete="name" required class={veld} />
+              </div>
+              <div>
+                <label for="telefoon" class="mb-1.5 block text-sm font-semibold">Telefoon</label>
+                <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" class={veld} />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-sm font-semibold">Zakelijk e-mailadres *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required class={veld} />
+            </div>
+            <div>
+              <label for="bericht" class="mb-1.5 block text-sm font-semibold">Waar wil je vooral inzicht in?</label>
+              <textarea id="bericht" name="bericht" rows="3" class={veld}></textarea>
+            </div>
+            <div class="flex gap-3">
+              <input id="privacy" name="privacy" type="checkbox" required class="mt-1 size-5 shrink-0 accent-paars" />
+              <label for="privacy" class="text-sm text-tekst">Ik ga akkoord met de <a href="/privacy/" class="font-medium text-paars underline">privacyverklaring</a>. *</label>
+            </div>
+            <button type="submit" class="knop-paars justify-center" data-verstuur>Vraag de scan aan <Icon name="pijl" size={18} /></button>
+            <p class="text-sm text-tekst" role="status" aria-live="polite" data-status></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <div>
+        <p class="eyebrow mb-4">Wat we checken</p>
+        <h2 class="kop-2 max-w-[640px]">Zes onderdelen, <span class="text-paars">één helder beeld.</span></h2>
+      </div>
+      <p class="max-w-[440px] text-lg leading-relaxed text-tekst">We kijken naar je webshop zoals een nieuwe partner dat zou doen: kritisch, onafhankelijk en met oog voor wat het oplevert.</p>
+    </div>
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        checks.map((c, i) => (
+          <li class="flex flex-col gap-3 rounded-[14px] border border-lijn bg-white p-7" data-reveal style={`--vertraging:${(i % 3) * 80}ms`}>
+            <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam={c.icoon} /></span>
+            <h3 class="text-lg font-semibold">{c.titel}</h3>
+            <p class="leading-relaxed text-tekst">{c.tekst}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s grid items-center gap-x-16 gap-y-14 *:min-w-0 lg:grid-cols-2">
+      <div data-reveal><DienstVisual type="checklist" badge={{ titel: 'Onafhankelijk advies', tekst: 'Ook als een ander bureau je shop beheert.', icoon: 'oog' }} class="mx-auto max-w-[520px]" /></div>
+      <div data-reveal style="--vertraging:120ms">
+        <h2 class="kop-2 mb-6">Waarom een scan?</h2>
+        <p class="mb-4 text-[17px] leading-[1.75] text-tekst">Veel webshops draaien jarenlang zonder dat iemand kritisch naar de basis kijkt. Ondertussen lopen versies achter, worden modules verouderd en kost een trage of onduidelijke checkout elke dag omzet.</p>
+        <p class="text-[17px] leading-[1.75] text-tekst">Met de scan weet je waar je staat. Of je nu twijfelt aan je huidige partij, een migratie overweegt of gewoon wilt weten waar de groei zit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-8" data-reveal>
+      <h2 class="kop-2">Veelgestelde vragen</h2>
+      <ContactKaart persoon={persoon} />
+    </div>
+    <div data-reveal><Faq items={faq} kolommen={2} /></div>
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-formulier]');
+  const status = document.querySelector<HTMLElement>('[data-status]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const knop = form.querySelector<HTMLButtonElement>('[data-verstuur]');
+    if (!form.action || form.action === location.href) {
+      if (status) status.textContent = 'Formulier is nog niet gekoppeld (PUBLIC_FORM_ENDPOINT). Mail of bel ons gerust.';
+      return;
+    }
+    knop?.setAttribute('disabled', '');
+    if (status) status.textContent = 'Versturen...';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      if (status) status.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op om de scan in te plannen.';
+    } catch {
+      if (status) status.textContent = 'Er ging iets mis. Bel of mail ons gerust.';
+    } finally {
+      knop?.removeAttribute('disabled');
+    }
+  });
+</script>

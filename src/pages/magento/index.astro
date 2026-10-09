@@ -1,0 +1,37 @@
+---
+import Base from '@/layouts/Base.astro';
+import PijlerOverzicht from '@/components/PijlerOverzicht.astro';
+import MagentoVersiesBlok from '@/components/MagentoVersiesBlok.astro';
+import MagentoVersiesTegel from '@/components/MagentoVersiesTegel.astro';
+---
+
+<Base
+  titel="Magento bureau & Magento specialist in Rotterdam | Wedigify"
+  omschrijving="Wedigify is het Magento bureau uit Rotterdam: Magento webshop laten maken, Hyvä, Magento 2 migraties, koppelingen, support en security. Hypernode Gold Partner."
+>
+  <PijlerOverzicht
+    pijler="magento"
+    visual="code"
+    badge={{ titel: 'Hypernode Gold Partner', tekst: 'Hyvä Partner, eigen developers.', icoon: 'schild' }}
+    eyebrow="Magento bureau · Hyvä Partner · Hypernode Gold Partner"
+    titel="Magento specialist"
+    accent="voor elke fase van je webshop."
+    intro="Van een nieuwe Magento webshop tot een Hyvä frontend, een migratie naar Magento 2 of dagelijks onderhoud: onze senior developers werken elke dag met Magento. Geen uitbesteding, wel een vast team."
+    ctaTitel="Wat moet er gebeuren met jouw Magento webshop?"
+    uitleg={[
+      { titel: 'Wat doet een Magento bureau?', tekst: 'Een Magento bureau bouwt, beheert en ontwikkelt webshops op Magento door. Bij Wedigify gaat dat van een <a class="font-medium text-paars underline" href="/magento/webshop-laten-maken/">nieuwe webshop laten maken</a> en <a class="font-medium text-paars underline" href="/magento/hyva/">Hyvä</a> tot <a class="font-medium text-paars underline" href="/magento/migraties/">migraties</a>, <a class="font-medium text-paars underline" href="/magento/integraties/">koppelingen</a> en dagelijks onderhoud.' },
+      { titel: 'Magento Open Source of Adobe Commerce?', tekst: 'Magento Open Source is gratis en voor de meeste webshops ruim voldoende. Adobe Commerce voegt onder meer B2B functionaliteit en cloudhosting toe, tegen licentiekosten. We adviseren op basis van je business case; Krale bespaart na de overstap naar Open Source €90K per jaar.' },
+      { titel: 'Waarom Wedigify als Magento partner?', tekst: 'Onze developers werken elke dag met Magento en Hyvä, in eigen huis. We zijn Hypernode Gold Partner en Hyvä Partner, en combineren techniek met marketing en strategie, zodat je webshop niet alleen goed werkt, maar ook groeit.' },
+    ]}
+    faq={[
+      { vraag: 'Wat is Magento?', antwoord: 'Magento is een open source e-commerce platform voor middelgrote en grote webshops, sinds 2018 onderdeel van Adobe. Het is bekend om zijn flexibiliteit: B2B, meerdere winkels, talen en complexe koppelingen zijn standaard mogelijk.' },
+      { vraag: 'Is Magento geschikt voor mijn webshop?', antwoord: 'Magento past goed bij webshops met een groot assortiment, B2B klanten, meerdere winkels of landen, of veel koppelingen met andere systemen. Voor een kleine webshop met een standaard assortiment kan een SaaS platform voordeliger zijn. We denken eerlijk met je mee.' },
+      { vraag: 'Wat kost een Magento webshop?', antwoord: 'Dat hangt af van ontwerp, maatwerk, koppelingen en de keuze tussen Open Source en Adobe Commerce. Na een kennismaking krijg je een onderbouwde begroting.' },
+      { vraag: 'Werken jullie alleen met Magento?', antwoord: 'Magento is onze specialisatie. Daarnaast verzorgen we SEO, SEA, social, e-mail, CRO en data voor de webshops die we bouwen en beheren.' },
+    ]}
+    artikelSlugs={['magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf', 'magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes', 'de-ultieme-gids-voor-magento-2-migratie-voordelen-en-best-practices']}
+  >
+    <MagentoVersiesTegel slot="extra-tegel" />
+    <MagentoVersiesBlok slot="na-diensten" />
+  </PijlerOverzicht>
+</Base>

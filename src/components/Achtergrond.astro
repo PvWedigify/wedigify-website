@@ -1,0 +1,16 @@
+---
+/**
+ * Decoratieve achtergrondlagen: raster dat uitfadet + zachte paarse gloed.
+ * Plaats als eerste kind in een `relative overflow-hidden` sectie.
+ */
+interface Props {
+  variant?: 'licht' | 'donker' | 'paars';
+  gloed?: boolean;
+}
+const { variant = 'licht', gloed = true } = Astro.props;
+---
+
+<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-0">
+  {gloed && <div class:list={['absolute inset-0', variant === 'licht' ? 'gloed' : 'gloed-donker']} />}
+  <div class:list={['absolute inset-0', variant === 'licht' ? 'raster' : 'raster-licht']} />
+</div>

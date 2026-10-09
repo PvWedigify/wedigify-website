@@ -1,0 +1,235 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import WaaromWedigify from '@/components/WaaromWedigify.astro';
+import Faq from '@/components/Faq.astro';
+
+const faq = [
+  { vraag: 'Wat is een business case per kanaal?', antwoord: 'Een onderbouwde berekening per kanaal (zoals SEO, SEA, e-mail of de winkel) van de kansen, de benodigde investering en de verwachte opbrengst. Daarmee bepalen we samen waar je budget het meeste oplevert.' },
+  { vraag: 'Moet ik meteen voor een jaar tekenen?', antwoord: 'Nee. We starten met een kennismaking en business case. Daarna stellen we een roadmap voor; je ziet vooraf wat we gaan doen en wat het oplevert.' },
+  { vraag: 'Hoe vaak hebben we contact?', antwoord: 'Je hebt een vast aanspreekpunt en korte lijnen met je team. Maandelijks bespreken we de resultaten, elk kwartaal stellen we de roadmap bij.' },
+  { vraag: 'Kunnen jullie ook alleen development of alleen marketing doen?', antwoord: 'Ja. Veel klanten starten met één discipline. Het grootste resultaat zien we wel wanneer techniek en marketing vanuit één plan werken.' },
+  { vraag: 'Hoe meten jullie resultaat?', antwoord: 'Aan de targets uit de business case: omzet, marge, conversie en kosten per kanaal. Je hebt altijd toegang tot een dashboard met actuele cijfers.' },
+  { vraag: 'Werken jullie ook met offline kanalen?', antwoord: 'Ja. We kijken naar de hele klantreis, inclusief winkels, beurzen en sales, zodat online en offline elkaar versterken.' },
+];
+const stappen = [
+  {
+    titel: 'Groeisessie',
+    tekst: 'Een dagdeel met jullie team. We lichten shop, data, marge en markt door.',
+    krijgt: 'De drie grootste kansen op één A4',
+    tafel: 'Digitale strateeg en lead developer',
+  },
+  {
+    titel: 'Business case',
+    tekst: 'Per kanaal: waar staan we, aan welke knop draaien we en wat levert het op. Online én offline.',
+    krijgt: 'Een business case per kanaal met verwachte opbrengst',
+    tafel: 'Strateeg en een specialist per discipline',
+  },
+  {
+    titel: 'Roadmap',
+    tekst: 'De business case vertaald naar targets per kwartaal, met een eigenaar per discipline.',
+    krijgt: "Een jaarplan met KPI's per kwartaal",
+    tafel: 'Strateeg en jouw directie',
+  },
+  {
+    titel: 'Het hele jaar samen',
+    tekst: 'Uitvoeren, meten en elk kwartaal bijsturen. Geen losse klussen, maar één doorlopend plan.',
+    krijgt: 'Maanddashboard en kwartaalreview',
+    tafel: 'Het hele team, met een vaste contactpersoon',
+  },
+];
+
+const knoppen = [
+  { naam: 'Magento & tech', rol: 'Lead developer', href: '/magento/' },
+  { naam: 'SEO', rol: 'SEO specialist', href: '/groei/seo/' },
+  { naam: 'SEA', rol: 'SEA specialist', href: '/groei/sea/' },
+  { naam: 'Social ads', rol: 'Social specialist', href: '/groei/social-advertising/' },
+  { naam: 'E-mail & automation', rol: 'E-mailmarketeer', href: '/groei/e-mailmarketing/' },
+  { naam: 'CRO', rol: 'CRO specialist', href: '/groei/cro/' },
+  { naam: 'Content', rol: 'Contentspecialist', href: '/groei/content/' },
+  { naam: 'Data & BI', rol: 'Digitale strateeg', href: '/groei/strategie-data/' },
+  { naam: 'Offline & retail', rol: 'Digitale strateeg', href: '/groei/strategie-data/' },
+];
+
+type Blok = { tekst: string; kolom: number; span: number; sterk?: boolean; grijs?: boolean };
+const roadmap: { kanaal: string; blokken: Blok[] }[] = [
+  { kanaal: 'Magento', blokken: [{ tekst: 'Hyvä live', kolom: 1, span: 1, sterk: true }, { tekst: 'ERP koppeling', kolom: 3, span: 1 }] },
+  { kanaal: 'SEO', blokken: [{ tekst: 'Categorie clusters', kolom: 2, span: 2 }] },
+  { kanaal: 'SEA & social', blokken: [{ tekst: 'Doorlopend, gestuurd op ROAS target', kolom: 1, span: 4, grijs: true }] },
+  { kanaal: 'CRO', blokken: [{ tekst: 'Checkout tests', kolom: 2, span: 1 }, { tekst: 'Productpagina tests', kolom: 3, span: 2 }] },
+  { kanaal: 'Offline', blokken: [{ tekst: 'Click & collect', kolom: 4, span: 1 }] },
+];
+
+const ritme = [
+  { wanneer: 'Elke week', titel: 'Korte update', tekst: 'Wat is er gedaan en wat staat er klaar.' },
+  { wanneer: 'Elke maand', titel: 'Dashboard', tekst: "Omzet en KPI's per kanaal, in gewone taal." },
+  { wanneer: 'Elk kwartaal', titel: 'Review & bijsturen', tekst: 'Targets tegen het licht, roadmap bijgewerkt.' },
+];
+---
+
+<Base
+  titel="Onze werkwijze: van business case naar roadmap en resultaat"
+  omschrijving="Wedigify begint met een business case per kanaal, maakt daar een roadmap met targets van en werkt daar het hele jaar samen met je aan. Online en offline."
+>
+  <PageHero
+    eyebrow="Onze aanpak"
+    titel="Onze werkwijze:"
+    accent="van business case tot resultaat."
+    intro="Als full-service partner beginnen we niet met bouwen, maar met een business case. Per kanaal brengen we in kaart aan welke knoppen we moeten draaien en waar de grootste uitdagingen liggen, online én offline. Daar maken we een roadmap met targets van, waar we het hele jaar samen aan werken."
+    kruimels={[{ label: 'Aanpak' }]}
+  >
+    <Fragment slot="acties">
+      <a href="/contact/" class="knop-paars">Plan een groeisessie <Icon name="pijl" size={18} /></a>
+    </Fragment>
+  </PageHero>
+
+  <section class="container-w sectie-s">
+    <ol class="flex flex-col gap-5">
+      {
+        stappen.map((s, i) => (
+          <li
+            data-reveal
+            class:list={[
+              'flex flex-wrap gap-x-12 gap-y-6 rounded-kaart p-6 md:p-10',
+              i === stappen.length - 1 ? 'border-2 border-paars bg-lavendel' : 'border border-lijn',
+            ]}
+          >
+            <div class="flex flex-[1_1_320px] items-start gap-5">
+              <span class="inline-flex size-14 shrink-0 items-center justify-center rounded-kaart bg-paars text-[22px] font-bold text-white">{i + 1}</span>
+              <div>
+                <h2 class="mb-2 text-[28px] tracking-kop">{s.titel}</h2>
+                <p class="leading-[1.7] text-tekst">{s.tekst}</p>
+              </div>
+            </div>
+            <dl class="flex flex-[2_1_420px] flex-wrap gap-x-12 gap-y-4">
+              <div class="flex-[1_1_200px]">
+                <dt class="text-[13px] font-semibold text-paars">Je krijgt</dt>
+                <dd class="mt-1">{s.krijgt}</dd>
+              </div>
+              <div class="flex-[1_1_200px]">
+                <dt class="text-[13px] font-semibold text-paars">Aan tafel</dt>
+                <dd class="mt-1">{s.tafel}</dd>
+              </div>
+            </dl>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-grijs">
+    <div class="stippen-donker fade-onder pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s relative">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+        <h2 class="kop-2 max-w-[640px]">De knoppen waar we aan draaien.</h2>
+        <p class="lead max-w-[420px]">Voor elke discipline een eigen specialist. De strateeg bepaalt welke knop wanneer het hardst moet.</p>
+      </div>
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          knoppen.map((k, i) => (
+            <li data-reveal style={`--vertraging:${(i % 3) * 80}ms`}>
+              <a
+                href={k.href}
+                class:list={[
+                  'group flex h-full items-center justify-between gap-4 rounded-kaart p-6',
+                  i === 0 ? 'bg-paars text-white hover:text-white' : 'bg-white hover:text-navy',
+                ]}
+              >
+                <span class="flex flex-col gap-1">
+                  <span class="text-lg font-semibold">{k.naam}</span>
+                  <span class:list={['text-sm', i === 0 ? 'text-paars-100' : 'text-tekst']}>{k.rol}</span>
+                </span>
+                <Icon name="pijl" size={18} class:list={[i === 0 ? 'text-white' : 'text-paars', 'transition-transform group-hover:translate-x-1']} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s">
+    <p class="eyebrow mb-4">Voorbeeld roadmap</p>
+    <h2 class="kop-2 mb-10">Zo ziet een jaar eruit.</h2>
+    <div class="overflow-x-auto rounded-kaart border border-lijn" data-reveal role="region" aria-label="Voorbeeld roadmap per kwartaal" tabindex="0">
+      <table class="w-full min-w-[860px] table-fixed border-collapse text-sm">
+        <caption class="sr-only">Voorbeeld van een jaarroadmap per kanaal en kwartaal</caption>
+        <colgroup><col class="w-[180px]" /><col /><col /><col /><col /></colgroup>
+        <thead>
+          <tr class="bg-navy text-left text-white">
+            <th scope="col" class="px-4 py-3.5 font-semibold">Kanaal</th>
+            {['Q1', 'Q2', 'Q3', 'Q4'].map((q) => <th scope="col" class="px-4 py-3.5 font-semibold">{q}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            roadmap.map((r) => {
+              const cellen: (Blok | null | 'skip')[] = [null, null, null, null];
+              r.blokken.forEach((b) => {
+                cellen[b.kolom - 1] = b;
+                for (let k = 1; k < b.span; k++) cellen[b.kolom - 1 + k] = 'skip';
+              });
+              return (
+                <tr class="border-t border-lijn">
+                  <th scope="row" class="px-4 py-4 text-left font-semibold">{r.kanaal}</th>
+                  {cellen.map((c) =>
+                    c === 'skip' ? null : c ? (
+                      <td class="p-3" colspan={c.span}>
+                        <span
+                          class:list={[
+                            'block rounded-knop px-3 py-2',
+                            c.sterk ? 'bg-paars text-white' : c.grijs ? 'bg-grijs' : 'bg-paars-100',
+                          ]}
+                        >
+                          {c.tekst}
+                        </span>
+                      </td>
+                    ) : (
+                      <td class="p-3" />
+                    ),
+                  )}
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-[13px] text-tekst">Illustratief voorbeeld. Elke klant krijgt een eigen roadmap op basis van de business case.</p>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-paars text-white">
+    <Achtergrond variant="paars" />
+    <div class="container-w sectie-s relative">
+      <h2 class="kop-2 mb-10 text-white" data-reveal>Een vast ritme. Geen verrassingen.</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          ritme.map((r) => (
+            <div class="rounded-[14px] border border-white/10 bg-paars-donker/80 p-7" data-reveal>
+              <div class="text-[13px] font-semibold text-paars-100">{r.wanneer}</div>
+              <h3 class="my-2 text-[22px] font-semibold">{r.titel}</h3>
+              <p class="leading-relaxed text-paars-100">{r.tekst}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <WaaromWedigify intro="Eén business case, een vast team en een ritme waarin je precies weet waar je aan toe bent." />
+
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <div class="raster pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+    <div class="container-w sectie-s">
+      <h2 class="kop-2 mb-10" data-reveal>Veelgestelde vragen</h2>
+      <div data-reveal><Faq items={faq} kolommen={2} /></div>
+    </div>
+  </section>
+
+  <section class="container-w sectie-s flex flex-wrap items-end justify-between gap-8">
+    <h2 class="max-w-[820px] text-[clamp(2.1rem,4.2vw,3.75rem)] leading-[1.05] font-bold tracking-strak">Welke knop levert jou het meest op?</h2>
+    <a href="/contact/" class="knop-paars">Plan een groeisessie <Icon name="pijl" size={18} /></a>
+  </section>
+</Base>

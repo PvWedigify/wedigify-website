@@ -1,0 +1,162 @@
+titel: Strategie & data
+pijler: groei
+volgorde: 1
+kort: Business case per kanaal, roadmap met targets, dashboards die je begrijpt.
+eyebrow: Digitale strategie
+heroTitel: Digitale strategie en data
+heroAccent: voor e-commerce.
+intro: >-
+  Onze digitale strateeg brengt per kanaal in kaart aan welke knoppen we draaien, online en offline, en
+  zet dat om in een roadmap met harde targets.
+wat:
+- Business case per kanaal
+- Roadmap met targets per kwartaal
+- Dashboards en maandrapportage
+- Kwartaalreview met je directie
+case: shuz
+specialist: iris
+uitleg:
+- titel: Van business case naar roadmap
+  tekst: >-
+    We brengen per kanaal in kaart waar de grootste kansen liggen en wat ze opleveren, online én offline.
+    Dat vertalen we naar een roadmap met targets per kwartaal en een eigenaar per discipline.
+- titel: Data die je kunt vertrouwen
+  tekst: >-
+    Beslissingen zijn zo goed als de data eronder. We controleren je tracking in GA4, zetten waar nodig
+    server-side tagging op en bouwen dashboards die laten zien wat er echt gebeurt.
+artikelen:
+- het-belang-van-een-businesscase-en-kpis-voor-e-commerce-succes
+- magento-consultancy-door-wedigify-strategie-succes-voor-jouw-magento-webshop
+- google-analytics-4-alles-wat-je-moet-weten
+ctaTitel: Welke knop levert jou het meest op?
+ctaLabel: Plan een groeisessie
+seoTitel: Digitale strategie & e-commerce data | Wedigify
+seoOmschrijving: >-
+  Een business case per kanaal en een roadmap met targets. Digitale strategie en data voor e-commerce
+  door Wedigify.
+visual: dashboard
+visualBadge:
+  titel: Eén groeiplan
+  tekst: Per kanaal targets, online en offline.
+  icoon: doel
+watIs:
+  titel: Wat doet een digitale strateeg?
+  tekst: >-
+    Onze digitale strateeg brengt per kanaal in kaart waar de groei zit, online en offline. Op basis van
+    je marges, doelgroepen en data maken we een business case met concrete targets. Daarna vertalen we
+    die naar een roadmap waar techniek en marketing samen aan werken, het hele jaar door.
+  punten:
+  - Business case per kanaal met heldere targets
+  - Meetplan en betrouwbare data in GA4 en dashboards
+  - Roadmap met prioriteiten per kwartaal
+  - Maandelijkse sturing op resultaat
+  visual: ads
+voordelen:
+- icoon: doel
+  titel: Focus
+  tekst: Je investeert in de kanalen met het meeste rendement.
+- icoon: database
+  titel: Betrouwbare data
+  tekst: Eén versie van de waarheid in plaats van losse rapporten.
+- icoon: route
+  titel: Omnichannel
+  tekst: Online en offline in samenhang bekeken.
+- icoon: kalender
+  titel: Ritme
+  tekst: Elk kwartaal evalueren en bijsturen.
+waarom:
+  titel: Waarom eerst een strategie?
+  tekst: >-
+    Veel webshops besteden budget aan losse acties: een campagne hier, een nieuwe module daar. Zonder
+    plan is niet duidelijk wat werkt en waarom. Een business case dwingt keuzes af en maakt resultaat
+    meetbaar.
+
+
+    Shuz werkte met ons vanuit één groeiplan voor webshop, marketing en data, en verbeterde het netto
+    resultaat met 283%.
+onderdelenTitel: Waar we je mee helpen
+onderdelen:
+- icoon: doel
+  label: Business case
+- icoon: route
+  label: Roadmap
+- icoon: grafiek
+  label: GA4 en tracking
+- icoon: staaf
+  label: Dashboards
+- icoon: gebruiker
+  label: Doelgroepanalyse
+- icoon: winkel
+  label: Omnichannel
+wanneer:
+- Je weet niet goed welk kanaal wat oplevert
+- Je data is versnipperd of onbetrouwbaar
+- Je wilt online en offline beter laten samenwerken
+- Je zoekt één partner voor techniek en marketing
+- Je wilt sturen op marge in plaats van omzet
+stappen:
+- label: Week 1 tot 4
+  titel: Analyse en business case
+  tekst: Data, marges en kanalen in kaart, vertaald naar targets.
+- label: Per kwartaal
+  titel: Roadmap
+  tekst: Prioriteiten voor techniek en marketing in één plan.
+- label: Maandelijks
+  titel: Sturen op resultaat
+  tekst: Dashboard, evaluatie en bijsturen waar nodig.
+waaromWedigify:
+- icoon: doel
+  titel: Eén business case
+  tekst: Elk kanaal krijgt targets die bijdragen aan je totale groeiplan.
+- icoon: team
+  titel: Specialist per discipline
+  tekst: Geen generalisten, maar experts per kanaal onder één dak.
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: Technische verbeteringen voeren we zelf door, zonder overdracht.
+- icoon: staaf
+  titel: Transparant
+  tekst: Je ziet elke maand wat we deden en wat het opleverde.
+resultaten:
+- icoon: euro
+  richting: op
+  titel: Netto resultaat
+  tekst: 'Shuz: +283%.'
+- icoon: doel
+  richting: op
+  titel: Focus
+  tekst: Budget waar het rendeert.
+- icoon: database
+  richting: op
+  titel: Datakwaliteit
+  tekst: Betrouwbare rapportages.
+- icoon: klok
+  richting: neer
+  titel: Discussie
+  tekst: Beslissen op feiten.
+- icoon: route
+  richting: op
+  titel: Samenhang
+  tekst: Kanalen die elkaar versterken.
+- icoon: grafiek
+  richting: op
+  titel: Voorspelbaarheid
+  tekst: Groei die je kunt plannen.
+faq:
+- vraag: Wat levert een business case op?
+  antwoord: >-
+    Een overzicht per kanaal van de kansen, de benodigde investering en de verwachte opbrengst. Daarmee
+    maak je onderbouwde keuzes in budget en prioriteiten.
+- vraag: Werken jullie ook met offline kanalen?
+  antwoord: >-
+    Ja. We kijken naar de hele klantreis, inclusief winkels, beurzen en sales. Juist daar liggen vaak
+    kansen voor omnichannel groei.
+- vraag: Kunnen jullie onze GA4 inrichting controleren?
+  antwoord: >-
+    Zeker. Een betrouwbare meting is de basis voor elke strategie. We controleren tracking, conversies
+    en e-commerce events en lossen fouten op.
+- vraag: Hoe vaak evalueren we?
+  antwoord: >-
+    Maandelijks bespreken we de resultaten, en elk kwartaal stellen we samen de roadmap en targets bij.
+ctaIntro: >-
+  Plan een groeisessie. We kijken samen naar je cijfers en laten zien waar de grootste kansen liggen.

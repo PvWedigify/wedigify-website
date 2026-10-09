@@ -1,0 +1,51 @@
+---
+import Icon from './Icon.astro';
+import Achtergrond from './Achtergrond.astro';
+interface Props {
+  titel: string;
+  intro?: string | null;
+  link?: boolean;
+}
+const { titel, intro, link = true } = Astro.props;
+const stappen = [
+  { titel: 'Groeisessie', tekst: 'Shop, data en markt doorgelicht.' },
+  { titel: 'Business case', tekst: 'Knoppen en kansen per kanaal.' },
+  { titel: 'Roadmap', tekst: 'Targets en eigenaren per kwartaal.' },
+  { titel: 'Uitvoeren', tekst: 'Meten en bijsturen, elk kwartaal.' },
+];
+---
+
+<section class="relative isolate overflow-hidden bg-paars text-white">
+  <Achtergrond variant="paars" />
+  <div class="container-w sectie relative">
+    <div data-reveal>
+      <h2 class="kop-2 max-w-[900px] text-white">{titel}</h2>
+      {intro && <p class="mt-4 max-w-[640px] text-lg leading-relaxed text-paars-100">{intro}</p>}
+    </div>
+    <ol class="relative mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <span class="absolute top-[47px] right-[12%] left-[12%] hidden h-px border-t border-dashed border-white/40 lg:block" aria-hidden="true"></span>
+      {
+        stappen.map((s, i) => (
+          <li
+            class="group relative rounded-[14px] border border-white/10 bg-paars-donker/80 p-7 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
+            data-reveal
+            style={`--vertraging:${i * 120}ms`}
+          >
+            <span class="relative inline-flex size-10 items-center justify-center rounded-knop bg-white font-bold text-paars ring-8 ring-paars-donker/80 transition-transform group-hover:scale-110">
+              {i + 1}
+            </span>
+            <h3 class="mt-5 mb-1.5 text-xl font-semibold">{s.titel}</h3>
+            <p class="leading-relaxed text-paars-100">{s.tekst}</p>
+          </li>
+        ))
+      }
+    </ol>
+    {
+      link && (
+        <a href="/aanpak/" class="knop-wit mt-10" data-reveal>
+          Zo werkt onze aanpak <Icon name="pijl" size={18} />
+        </a>
+      )
+    }
+  </div>
+</section>

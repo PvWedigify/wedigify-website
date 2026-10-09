@@ -1,0 +1,178 @@
+titel: Integraties
+pijler: magento
+volgorde: 5
+opHome: true
+kort: Magento koppelen aan je ERP, PIM, WMS en kassa. Betrouwbaar en bewaakt.
+eyebrow: Magento integraties
+heroTitel: Magento koppelingen
+heroAccent: met je ERP, PIM en WMS.
+intro: >-
+  Voorraad, prijzen, orders en klantdata horen automatisch te kloppen. Wij koppelen Magento aan je ERP,
+  PIM, WMS, kassasysteem en marketingtools.
+wat:
+- Koppelingen met ERP, PIM, WMS en PSP
+- Monitoring en foutafhandeling
+- Automatisering van handmatige processen
+case: tacstack
+specialist: dmytro
+uitleg:
+- titel: Veelvoorkomende Magento koppelingen
+  tekst: >-
+    Denk aan ERP systemen zoals AFAS, Exact Online en Microsoft Dynamics 365 Business Central, PIM systemen
+    voor productinformatie, WMS- en verzendsoftware, betaalproviders en marketingtools. Via API's laten
+    we deze systemen automatisch gegevens uitwisselen met Magento.
+- titel: Bestaande connector of maatwerk?
+  tekst: >-
+    Voor veel systemen bestaat al een koppeling of extensie. Soms is dat de snelste route, soms past maatwerk
+    beter bij je processen. We adviseren op basis van betrouwbaarheid, onderhoudskosten en wat je over
+    een paar jaar nodig hebt.
+faq:
+- vraag: Kan Magento gekoppeld worden met AFAS?
+  antwoord: >-
+    Ja. Via de API's van AFAS en Magento kunnen voorraad, prijzen, orders en klantgegevens automatisch
+    worden uitgewisseld, met een bestaande connector of een maatwerkkoppeling.
+- vraag: Kan Magento gekoppeld worden met Exact Online of Business Central?
+  antwoord: >-
+    Ja, beide systemen hebben API's waarmee orders, voorraad en financiële gegevens met Magento worden
+    gesynchroniseerd. We kijken welke oplossing het beste past bij jouw situatie.
+- vraag: Wat als een koppeling faalt?
+  antwoord: >-
+    We bouwen monitoring en foutafhandeling in, zodat een probleem wordt gesignaleerd voordat het orders
+    of voorraad raakt.
+- vraag: Werken jullie met standaard connectors of maatwerk?
+  antwoord: >-
+    Allebei. Als er een goede standaard connector bestaat, gebruiken we die. Waar dat niet kan of niet
+    goed genoeg is, bouwen we een maatwerk koppeling via de API.
+- vraag: Wat gebeurt er als een koppeling faalt?
+  antwoord: >-
+    We bouwen logging, herhaalpogingen en meldingen in. Zo zie je direct als er iets misgaat en raken
+    er geen orders kwijt.
+artikelen:
+- over-optimalisatie-van-processen-in-softwareontwikkeling
+ctaTitel: Welk systeem moet er gekoppeld worden?
+ctaLabel: Plan een gesprek
+seoTitel: Magento koppelingen met ERP, PIM en WMS | Wedigify
+seoOmschrijving: >-
+  Magento koppelen aan AFAS, Exact Online, Business Central, PIM of WMS? Wedigify bouwt betrouwbare Magento
+  koppelingen met monitoring.
+visual: koppeling
+visualBadge:
+  titel: Alles gekoppeld
+  tekst: Minder handwerk, minder fouten.
+  icoon: stekker
+watIs:
+  titel: Wat is een Magento koppeling?
+  tekst: >-
+    Een koppeling verbindt je Magento webshop met de systemen waarin je bedrijf draait: je ERP, PIM, WMS,
+    boekhouding, marketplaces en betaalproviders. Voorraad, prijzen, orders en klantgegevens lopen dan
+    automatisch heen en weer, zonder handmatig overtypen.
+  punten:
+  - Automatische synchronisatie van voorraad en prijzen
+  - Orders direct door naar ERP en magazijn
+  - Productdata centraal beheerd in je PIM
+  - Monitoring en foutafhandeling ingebouwd
+  visual: dashboard
+voordelen:
+- icoon: klok
+  titel: Minder handwerk
+  tekst: Geen orders of voorraad meer handmatig overzetten.
+- icoon: vink
+  titel: Minder fouten
+  tekst: Eén bron van waarheid voor je data.
+- icoon: bliksem
+  titel: Realtime
+  tekst: Actuele voorraad en prijzen in je webshop.
+- icoon: lagen
+  titel: Schaalbaar
+  tekst: Groei in orders zonder extra personeel.
+waarom:
+  titel: Waarom goede koppelingen het verschil maken
+  tekst: >-
+    Naarmate je groeit, wordt handmatig werk de rem op je webshop. Een koppeling die niet goed werkt is
+    bijna erger dan geen koppeling: verkeerde voorraad, gemiste orders en uren uitzoekwerk.
+
+
+    Wij bouwen koppelingen die robuust zijn, fouten melden en makkelijk te onderhouden zijn. Of het nu
+    gaat om een standaard connector of een maatwerk API koppeling.
+onderdelenTitel: Wat we koppelen
+onderdelen:
+- icoon: database
+  label: ERP systemen
+- icoon: raster
+  label: PIM systemen
+- icoon: lagen
+  label: WMS en logistiek
+- icoon: document
+  label: Boekhouding
+- icoon: betalen
+  label: Betaalproviders
+- icoon: winkel
+  label: Kassasystemen
+- icoon: wereld
+  label: Marketplaces
+- icoon: mail
+  label: E-mailmarketing
+- icoon: gebruiker
+  label: CRM
+- icoon: grafiek
+  label: Analytics
+- icoon: hart
+  label: Reviews
+- icoon: code
+  label: Maatwerk API’s
+wanneer:
+- Je zet orders of voorraad nog handmatig over
+- Je voorraad in de webshop klopt niet altijd
+- Je wilt productdata centraal beheren
+- Je wilt verkopen via marketplaces
+- Je huidige koppeling is instabiel
+stappen:
+- label: Week 1 tot 2
+  titel: Datastromen in kaart
+  tekst: Welke data, welke richting, hoe vaak en wat is leidend.
+- label: Bouw
+  titel: Koppeling ontwikkelen
+  tekst: Standaard connector of maatwerk, met logging en foutmeldingen.
+- label: Live
+  titel: Testen en monitoren
+  tekst: Uitgebreid testen met echte data en monitoring na livegang.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Handwerk
+  tekst: Uren per week bespaard.
+- icoon: vink
+  richting: op
+  titel: Datakwaliteit
+  tekst: Juiste voorraad en prijzen.
+- icoon: waarschuwing
+  richting: neer
+  titel: Fouten
+  tekst: Minder verkeerde orders.
+- icoon: bliksem
+  richting: op
+  titel: Levertijd
+  tekst: Orders sneller verwerkt.
+- icoon: lagen
+  richting: op
+  titel: Schaal
+  tekst: Meer orders, zelfde team.
+- icoon: wereld
+  richting: op
+  titel: Kanalen
+  tekst: Nieuwe verkoopkanalen erbij.
+ctaIntro: >-
+  Vertel welke systemen je gebruikt. We brengen de datastromen in kaart en adviseren over de beste koppeling.

@@ -1,0 +1,26 @@
+---
+import { initialen, bestaat } from '@/lib/site';
+interface Props {
+  naam: string;
+  foto?: string | null;
+  class?: string;
+  /** 'vierkant' (team-grid) of 'klein' */
+  formaat?: 'vierkant' | 'portret' | 'klein';
+}
+const { naam, foto, class: className = '', formaat = 'klein' } = Astro.props;
+const basis = {
+  vierkant: 'aspect-square w-full rounded-kaart text-3xl',
+  portret: 'aspect-[4/5] w-full rounded-kaart text-4xl',
+  klein: 'size-16 shrink-0 rounded-kaart text-lg',
+}[formaat];
+---
+
+{
+  bestaat(foto) ? (
+    <img src={foto} alt={naam} loading="lazy" decoding="async" width="300" height="300" class:list={[basis, 'bg-paars-100 object-cover', className]} />
+  ) : (
+    <div class:list={[basis, 'flex items-center justify-center bg-paars-100 font-bold text-paars', className]} aria-hidden="true">
+      {initialen(naam)}
+    </div>
+  )
+}

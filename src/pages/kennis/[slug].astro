@@ -1,0 +1,158 @@
+---
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Avatar from '@/components/Avatar.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import Icon from '@/components/Icon.astro';
+import KennisKaart from '@/components/KennisKaart.astro';
+import { datumNL, bestaat, getDiensten, dienstUrl, leestijd } from '@/lib/site';
+
+export async function getStaticPaths() {
+  const artikelen = await getCollection('kennis');
+  return artikelen.map((a) => ({ params: { slug: a.id }, props: { artikel: a } }));
+}
+interface Props {
+  artikel: CollectionEntry<'kennis'>;
+}
+const { artikel } = Astro.props;
+const { Content, headings } = await render(artikel);
+const inhoud = headings.filter((h) => h.depth <= 2);
+const toonInhoud = inhoud.length >= 4;
+const minuten = leestijd(artikel.body);
+const a = artikel.data;
+const beeld = bestaat(a.afbeelding) ? a.afbeelding : null;
+const auteur = a.auteur ? await getEntry(a.auteur) : null;
+// Diensten die naar dit artikel verwijzen: interne link van kennis naar dienst
+const gerelateerd = (await getDiensten(undefined, true)).filter((d) => d.data.artikelen.some((r) => r.id === artikel.id)).slice(0, 2);
+// Gerelateerde artikelen: eerst dezelfde categorie, dan de rest, nieuwste eerst
+const alle = (await getCollection('kennis')).filter((x) => x.id !== artikel.id).sort((x, y) => y.data.datum.valueOf() - x.data.datum.valueOf());
+const meerLezen = [...alle.filter((x) => x.data.categorie === a.categorie), ...alle.filter((x) => x.data.categorie !== a.categorie)].slice(0, 3);
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: a.titel,
+    description: a.omschrijving,
+    datePublished: a.datum.toISOString(),
+    dateModified: (a.bijgewerkt ?? a.datum).toISOString(),
+    inLanguage: 'nl-NL',
+    timeRequired: `PT${minuten}M`,
+    wordCount: (artikel.body ?? '').split(/\s+/).filter(Boolean).length,
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+    isPartOf: { '@id': `${Astro.site}#website` },
+    author: auteur ? { '@type': 'Person', name: auteur.data.naam, jobTitle: auteur.data.rol, url: new URL(`/over-ons/team/#${auteur.id}`, Astro.site).toString(), worksFor: { '@id': `${Astro.site}#organisatie` } } : { '@id': `${Astro.site}#organisatie` },
+    publisher: { '@id': `${Astro.site}#organisatie` },
+    ...(a.afbeelding ? { image: new URL(a.afbeelding, Astro.site).toString() } : {}),
+  },
+];
+---
+
+<Base titel={a.seoTitel ?? a.titel} omschrijving={a.omschrijving} type="article" afbeelding={a.afbeelding ?? undefined} schema={schema}>
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative pt-8 pb-12 md:pb-16">
+      <Breadcrumbs items={[{ label: 'Kennis', href: '/kennis/' }, { label: a.titel }]} />
+      <h1 class="max-w-[960px] text-[clamp(2.1rem,4vw,3.5rem)] leading-[1.08] tracking-strak">{a.titel}</h1>
+      <div class="mt-8 flex items-center gap-4">
+        {auteur && <Avatar naam={auteur.data.naam} foto={auteur.data.foto} class="size-12!" />}
+        <div class="text-sm">
+          {auteur && <div class="font-semibold">{auteur.data.naam}, {auteur.data.rol}</div>}
+          <span class="text-tekst"><time datetime={a.datum.toISOString()}>{datumNL(a.datum)}</time>{a.bijgewerkt && a.bijgewerkt > a.datum && <> · bijgewerkt op <time datetime={a.bijgewerkt.toISOString()}>{datumNL(a.bijgewerkt)}</time></>} · {minuten} min leestijd</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  {
+    beeld && (
+      <div class="container-w pt-10">
+        <img src={beeld} alt={a.titel} fetchpriority="high" class="mx-auto aspect-[16/9] w-full max-w-[960px] rounded-kaart object-cover" />
+      </div>
+    )
+  }
+  <article class="container-w sectie-s">
+    <div class:list={['mx-auto', toonInhoud ? 'max-w-[1040px] lg:grid lg:grid-cols-[minmax(0,720px)_260px] lg:justify-between lg:gap-14' : 'max-w-[720px]']}>
+      {
+        toonInhoud && (
+          <nav aria-label="Inhoudsopgave" class="mb-10 lg:order-2 lg:mb-0">
+            <details class="group rounded-[14px] border border-lijn bg-lavendel p-5 lg:sticky lg:top-28 lg:bg-white" data-inhoud>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-navy [&::-webkit-details-marker]:hidden">
+                In dit artikel
+                <Icon name="chevron" size={16} class="transition-transform group-open:rotate-180 lg:hidden" />
+              </summary>
+              <ol class="mt-4 space-y-2.5 border-l border-lijn text-[14px] leading-snug">
+                {inhoud.map((h) => (
+                  <li>
+                    <a href={`#${h.slug}`} class="-ml-px block border-l-2 border-transparent pl-4 text-tekst hover:border-paars hover:text-paars" data-inhoud-link>{h.text.replace(/^\d+\.\s*/, '')}</a>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          </nav>
+        )
+      }
+      <div class="min-w-0">
+    <div class="prose-w"><Content /></div>
+    {
+      gerelateerd.length > 0 && (
+        <aside class="mt-14 rounded-[14px] border border-lijn bg-lavendel p-6 md:p-8" aria-label="Gerelateerde diensten">
+          <p class="eyebrow mb-3">Hulp nodig?</p>
+          <p class="mb-5 text-xl font-semibold tracking-kop">Wij helpen je hier graag mee.</p>
+          <ul class="flex flex-col gap-3">
+            {gerelateerd.map((d) => (
+              <li>
+                <a href={dienstUrl(d)} class="group flex items-center justify-between gap-4 rounded-[10px] border border-lijn bg-white p-4 hover:border-paars hover:text-navy">
+                  <span>
+                    <span class="block font-semibold">{d.data.seoTitel?.split('|')[0].trim() ?? d.data.titel}</span>
+                    <span class="mt-0.5 block text-[14px] text-tekst">{d.data.kort}</span>
+                  </span>
+                  <Icon name="pijl" class="shrink-0 text-paars transition-transform group-hover:translate-x-1" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+      </div>
+    </div>
+  </article>
+  <section class="border-t border-lijn bg-grijs">
+    <div class="container-w sectie-s">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <h2 class="kop-2">Lees ook</h2>
+        <a href="/kennis/" class="link-onderstreept">Alle artikelen</a>
+      </div>
+      <ul class="grid gap-5 md:grid-cols-3">
+        {meerLezen.map((x) => <li><KennisKaart artikel={x} /></li>)}
+      </ul>
+    </div>
+  </section>
+  <CtaBand titel="Benieuwd wat dit voor jouw shop betekent?" label="Plan een gesprek" />
+</Base>
+
+<script>
+  // Inhoudsopgave: op mobiel standaard ingeklapt, op desktop markeert de actieve sectie
+  const inhoud = document.querySelector<HTMLDetailsElement>('[data-inhoud]');
+  if (inhoud) {
+    if (matchMedia('(min-width: 1024px)').matches) inhoud.open = true;
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-inhoud-link]')];
+    const koppen = links.map((l) => document.getElementById(decodeURIComponent(l.hash.slice(1)))).filter(Boolean) as HTMLElement[];
+    const io = new IntersectionObserver(
+      (items) => {
+        items.forEach((i) => {
+          if (!i.isIntersecting) return;
+          links.forEach((l) => {
+            const actief = l.hash.slice(1) === i.target.id;
+            l.classList.toggle('!border-paars', actief);
+            l.classList.toggle('!text-navy', actief);
+            l.classList.toggle('font-semibold', actief);
+          });
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' },
+    );
+    koppen.forEach((k) => io.observe(k));
+  }
+</script>

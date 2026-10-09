@@ -1,0 +1,140 @@
+titel: AFAS koppeling
+pijler: magento
+volgorde: 1
+ouder: integraties
+kort: AFAS Profit en Magento automatisch in sync.
+eyebrow: Magento integraties
+heroTitel: AFAS Profit koppeling
+heroAccent: met je Magento webshop.
+intro: >-
+  Koppel je Magento webshop aan AFAS Profit. Artikelen, voorraad, prijzen, klanten en orders lopen automatisch
+  heen en weer, zodat je administratie en webshop altijd kloppen.
+visual: koppeling
+visualBadge:
+  titel: Magento en AFAS in sync
+  tekst: Voorraad, prijzen en orders automatisch.
+  icoon: stekker
+watIs:
+  titel: Wat doet een AFAS koppeling?
+  tekst: >-
+    Met een AFAS koppeling praat je Magento webshop direct met AFAS Profit. Orders uit de webshop komen
+    automatisch als verkooporder in AFAS terecht, en artikelen, voorraad en prijzen uit AFAS verschijnen
+    zonder handwerk in Magento. De koppeling gebruikt de AFAS Profit connectoren (GetConnectors en UpdateConnectors).
+  punten:
+  - Orders automatisch als verkooporder in AFAS Profit
+  - Artikelen, voorraad en prijzen vanuit AFAS in Magento
+  - Debiteuren en klantspecifieke prijsafspraken voor B2B
+  - Monitoring en foutafhandeling ingebouwd
+  visual: dashboard
+voordelen:
+- icoon: klok
+  titel: Geen dubbel werk
+  tekst: Orders en klanten niet meer handmatig overzetten naar AFAS.
+- icoon: vink
+  titel: Eén bron van waarheid
+  tekst: AFAS blijft leidend voor voorraad, prijzen en debiteuren.
+- icoon: bliksem
+  titel: Actuele webshop
+  tekst: Voorraad en prijzen in Magento zijn altijd actueel.
+- icoon: oog
+  titel: Bewaakt
+  tekst: Logging en meldingen, zodat geen order ongemerkt blijft hangen.
+onderdelenTitel: Welke data we synchroniseren
+onderdelen:
+- icoon: label
+  label: Artikelen
+- icoon: lagen
+  label: Voorraad
+- icoon: euro
+  label: Prijzen en staffels
+- icoon: gebruiker
+  label: Debiteuren
+- icoon: winkelwagen
+  label: Verkooporders
+- icoon: document
+  label: Facturen
+wanneer:
+- Je werkt met AFAS en een Magento webshop
+- Orders of voorraad worden nog handmatig overgezet
+- Je huidige koppeling is instabiel of verouderd
+- Je verkoopt B2B met klantspecifieke prijzen
+- Je groeit en wilt meer orders verwerken met hetzelfde team
+stappen:
+- label: Week 1 tot 2
+  titel: Datastromen in kaart
+  tekst: Welke gegevens, welke richting, hoe vaak en wat in AFAS leidend is.
+- label: Bouw
+  titel: Koppeling ontwikkelen
+  tekst: Standaard connector waar het kan, maatwerk via de API waar het moet.
+- label: Live
+  titel: Testen en monitoren
+  tekst: Testen met echte data, gecontroleerd live en daarna bewaakt.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Handwerk
+  tekst: Uren per week bespaard.
+- icoon: vink
+  richting: op
+  titel: Datakwaliteit
+  tekst: Juiste voorraad en prijzen.
+- icoon: waarschuwing
+  richting: neer
+  titel: Fouten
+  tekst: Minder verkeerde orders.
+- icoon: bliksem
+  richting: op
+  titel: Doorlooptijd
+  tekst: Orders sneller verwerkt.
+- icoon: lagen
+  richting: op
+  titel: Schaal
+  tekst: Meer orders, zelfde team.
+- icoon: grafiek
+  richting: op
+  titel: Inzicht
+  tekst: Webshopdata direct in je administratie.
+faq:
+- vraag: Kan AFAS gekoppeld worden aan Magento 2?
+  antwoord: >-
+    Ja. AFAS en Magento 2 zijn goed te koppelen. Afhankelijk van je processen kiezen we voor een bestaande
+    connector of een maatwerk koppeling via de API.
+- vraag: Welke gegevens worden uitgewisseld tussen Magento en AFAS?
+  antwoord: >-
+    Meestal artikelen, voorraad, prijzen, klanten en orders, en vaak ook facturen en track and trace.
+    In de eerste fase bepalen we samen welke data in welke richting gaat.
+- vraag: Hoe vaak wordt de data gesynchroniseerd?
+  antwoord: >-
+    Dat stemmen we af op je processen. Orders gaan vaak direct of binnen enkele minuten door; voorraad
+    en prijzen kunnen periodiek of bij elke wijziging worden bijgewerkt.
+- vraag: Wat gebeurt er als de koppeling een fout geeft?
+  antwoord: >-
+    We bouwen logging, herhaalpogingen en meldingen in. Zo zie je direct als er iets misgaat en raken
+    er geen orders kwijt.
+- vraag: Werkt de koppeling met AFAS Profit in de cloud?
+  antwoord: >-
+    Ja. De koppeling communiceert via de connectoren van AFAS Profit, die in de AFAS Online omgeving beschikbaar
+    zijn.
+case: tacstack
+specialist: dmytro
+ctaTitel: Magento koppelen met AFAS?
+ctaIntro: >-
+  Vertel ons hoe je nu met AFAS werkt. We brengen de datastromen in kaart en adviseren over de beste koppeling.
+ctaLabel: Plan een gesprek
+seoTitel: AFAS koppeling met Magento 2 | Wedigify
+seoOmschrijving: >-
+  Koppel AFAS Profit aan je Magento webshop: artikelen, voorraad, prijzen, debiteuren en orders automatisch
+  gesynchroniseerd. Robuust en bewaakt.

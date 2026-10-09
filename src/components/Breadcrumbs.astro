@@ -1,0 +1,35 @@
+---
+interface Props {
+  items: { label: string; href?: string }[];
+}
+const { items } = Astro.props;
+const lijst = [{ label: 'Home', href: '/' }, ...items];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: lijst.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.label,
+    ...(it.href ? { item: new URL(it.href, Astro.site).toString() } : {}),
+  })),
+};
+---
+
+<nav aria-label="Kruimelpad" class="mb-10 text-[13px] text-tekst md:mb-12">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {
+      lijst.map((it, i) => (
+        <li class="flex items-center gap-2">
+          {i > 0 && <span aria-hidden="true">/</span>}
+          {it.href && i < lijst.length - 1 ? (
+            <a href={it.href} class="hover:text-paars">{it.label}</a>
+          ) : (
+            <span class="font-medium text-navy" aria-current="page">{it.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

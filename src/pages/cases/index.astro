@@ -1,0 +1,89 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import CaseKaart from '@/components/CaseKaart.astro';
+import CaseFeature from '@/components/CaseFeature.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import Kerncijfers from '@/components/Kerncijfers.astro';
+import Werkwijze from '@/components/Werkwijze.astro';
+import KlantQuotes from '@/components/KlantQuotes.astro';
+import { getCases, getDiensten } from '@/lib/site';
+
+const cases = await getCases();
+const [eerste, ...rest] = cases;
+const gebruikt = new Set(cases.flatMap((c) => c.data.diensten.map((d) => d.id)));
+const filters = (await getDiensten()).filter((d) => gebruikt.has(d.id));
+const caseDiensten = await Promise.all(cases.map(async (c) => ({ id: c.id, diensten: (await getEntries(c.data.diensten)).map((d) => d.id) })));
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Magento cases van Wedigify',
+    itemListElement: cases.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/cases/${c.id}/`, Astro.site).toString(), name: `${c.data.klant}: ${c.data.hoofdcijfer} ${c.data.hoofdcijferLabel}` })),
+  },
+];
+const dienstenVan = (id: string) => caseDiensten.find((c) => c.id === id)?.diensten.join(' ') ?? '';
+---
+
+<Base paginaType="CollectionPage" schema={schema} titel="Magento cases en klantresultaten" omschrijving="Cases van Wedigify: Hyvä launches, migraties naar Magento Open Source, overnames en groei met SEO en CRO. Met resultaten in cijfers.">
+  <PageHero eyebrow="Cases" titel="Magento cases" accent="met meetbare resultaten." intro="Van Hyvä launches en migraties naar Magento Open Source tot groei met SEO en CRO. Elke case met het resultaat dat ertoe deed." kruimels={[{ label: 'Cases' }]} />
+
+  <Kerncijfers
+    cijfers={[
+      { waarde: 90, voor: '€', na: 'K', label: 'per jaar bespaard voor Krale' },
+      { waarde: 250, voor: '+', na: '%', label: 'organische omzet Greenfield Fashion' },
+      { waarde: 283, voor: '+', na: '%', label: 'netto resultaat SHUZ' },
+      { waarde: 8, na: ' weken', label: 'van design tot live voor Tacstack' },
+    ]}
+  />
+
+  <section class="container-w sectie-s">
+    <div class="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filter cases op dienst" data-filters>
+      <button type="button" class="rounded-knop bg-navy px-4 py-2.5 text-sm font-medium text-white" aria-pressed="true" data-filter="alle">Alle cases</button>
+      {
+        filters.map((f) => (
+          <button type="button" class="rounded-knop bg-grijs px-4 py-2.5 text-sm font-medium hover:bg-paars-100" aria-pressed="false" data-filter={f.id}>
+            {f.data.titel}
+          </button>
+        ))
+      }
+    </div>
+
+    {eerste && <div data-case data-diensten={dienstenVan(eerste.id)} class="mb-5"><CaseFeature item={eerste} koptag="h2" /></div>}
+    <ul class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {rest.map((c) => <li data-case data-diensten={dienstenVan(c.id)}><CaseKaart item={c} toonKort /></li>)}
+    </ul>
+    <p class="mt-8 hidden text-tekst" data-leeg>Geen cases voor deze dienst. <button type="button" class="font-semibold text-paars underline" data-filter-reset>Toon alles</button></p>
+  </section>
+
+  <KlantQuotes />
+
+  <Werkwijze titel="Zo boeken we resultaat." achtergrond="lavendel" />
+
+  <CtaBand titel="Wordt jouw shop de volgende case?" intro="Plan een vrijblijvende groeisessie. We kijken naar je webshop en cijfers en laten zien waar de grootste kansen liggen." punten={['Vrijblijvend', 'Persoonlijk advies', 'Geen verplichtingen']} />
+</Base>
+
+<script>
+  const knoppen = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const items = document.querySelectorAll<HTMLElement>('[data-case]');
+  const leeg = document.querySelector<HTMLElement>('[data-leeg]');
+  function kies(id: string) {
+    let zichtbaar = 0;
+    items.forEach((el) => {
+      const toon = id === 'alle' || (el.dataset.diensten ?? '').split(' ').includes(id);
+      el.hidden = !toon;
+      if (toon) zichtbaar++;
+    });
+    knoppen.forEach((k) => {
+      const actief = k.dataset.filter === id;
+      k.setAttribute('aria-pressed', String(actief));
+      k.classList.toggle('bg-navy', actief);
+      k.classList.toggle('text-white', actief);
+      k.classList.toggle('bg-grijs', !actief);
+    });
+    leeg?.classList.toggle('hidden', zichtbaar > 0);
+  }
+  knoppen.forEach((k) => k.addEventListener('click', () => kies(k.dataset.filter ?? 'alle')));
+  document.querySelector('[data-filter-reset]')?.addEventListener('click', () => kies('alle'));
+</script>

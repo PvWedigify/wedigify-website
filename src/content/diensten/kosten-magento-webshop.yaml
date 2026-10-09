@@ -1,0 +1,153 @@
+titel: Kosten
+pijler: magento
+volgorde: 1
+ouder: webshop-laten-maken
+kort: Waar de kosten van een Magento webshop van afhangen, en hoe we een begroting maken.
+eyebrow: Kosten Magento webshop
+heroTitel: Wat kost een Magento webshop?
+heroAccent: Een eerlijk en compleet antwoord.
+intro: >-
+  De kosten van een Magento webshop hangen af van je ambities, je assortiment en je processen. Op deze
+  pagina zie je waar het budget naartoe gaat, welke kosten eenmalig zijn en welke terugkeren, en hoe wij
+  tot een onderbouwde begroting komen.
+visual: checklist
+visualBadge:
+  titel: Onderbouwde begroting
+  tekst: Per onderdeel, zonder verrassingen.
+  icoon: euro
+watIs:
+  titel: Waar hangen de kosten van af?
+  tekst: >-
+    Geen twee Magento webshops zijn hetzelfde. Een merk met een overzichtelijk assortiment heeft andere
+    wensen dan een groothandel met klantprijzen en een ERP koppeling. De belangrijkste kostenfactoren
+    zijn de hoeveelheid maatwerk, het design, het aantal koppelingen, het aantal winkels en talen, en
+    de keuze tussen Magento Open Source en Adobe Commerce.
+  punten:
+  - 'Ontwerp en UX: standaard thema of volledig eigen design'
+  - 'Functionaliteit: standaard Magento, extensies of maatwerk'
+  - Koppelingen met ERP, PIM, WMS en marketplaces
+  - Data migratie vanaf je huidige platform
+  - Aantal storeviews, talen en landen
+  visual: migratie
+voordelen:
+- icoon: document
+  titel: Per onderdeel begroot
+  tekst: Je ziet precies waar elke euro naartoe gaat.
+- icoon: doel
+  titel: Vanuit de business case
+  tekst: We investeren eerst in wat het meeste oplevert.
+- icoon: route
+  titel: Gefaseerd mogelijk
+  tekst: Live met de basis, daarna stap voor stap uitbreiden.
+- icoon: kalender
+  titel: Voorspelbaar
+  tekst: Vaste afspraken over beheer en doorontwikkeling.
+waarom:
+  titel: Eenmalige en terugkerende kosten
+  tekst: >-
+    Eenmalig betaal je voor ontwerp, development, koppelingen, migratie en de livegang. Dat is de investering
+    om je webshop neer te zetten.
+
+
+    Daarna zijn er terugkerende kosten: hosting, licenties van extensies, security patches en updates,
+    support en doorontwikkeling. Kies je voor Adobe Commerce, dan komt daar een jaarlijkse licentie bij
+    die afhangt van je omzet. Met Magento Open Source betaal je geen licentiekosten voor het platform
+    zelf. Daarom kijken we altijd naar de totale kosten over meerdere jaren, niet alleen naar de bouw.
+onderdelenTitel: Waaruit een begroting bestaat
+onderdelen:
+- icoon: pen
+  label: Ontwerp en UX
+- icoon: code
+  label: Development
+- icoon: module
+  label: Extensies
+- icoon: stekker
+  label: Koppelingen
+- icoon: database
+  label: Data migratie
+- icoon: zoek
+  label: SEO en redirects
+- icoon: vink
+  label: Testen en livegang
+- icoon: server
+  label: Hosting
+- icoon: euro
+  label: Licenties
+- icoon: schild
+  label: Onderhoud en security
+- icoon: team
+  label: Support
+- icoon: grafiek
+  label: Doorontwikkeling
+wanneer:
+- Je wilt weten wat een nieuwe Magento webshop kost
+- Je vergelijkt Magento met een ander platform
+- Je twijfelt tussen Open Source en Adobe Commerce
+- Je wilt de totale kosten over meerdere jaren inzichtelijk
+- Je hebt een offerte en wilt een second opinion
+stappen:
+- label: Stap 1
+  titel: Kennismaking
+  tekst: We bespreken je doelen, assortiment, processen en systemen.
+- label: Stap 2
+  titel: Business case en scope
+  tekst: We bepalen wat nodig is voor de livegang en wat later kan.
+- label: Stap 3
+  titel: Begroting per onderdeel
+  tekst: Je krijgt een onderbouwde begroting met planning en terugkerende kosten.
+waaromWedigify:
+- icoon: staaf
+  titel: Transparant
+  tekst: Begroting per onderdeel, geen verborgen posten.
+- icoon: euro
+  titel: Kosten over jaren
+  tekst: We kijken naar de totale kosten, niet alleen de bouw.
+- icoon: code
+  titel: Eigen developers
+  tekst: Geen opslag voor uitbesteding aan derden.
+- icoon: doel
+  titel: Gericht op rendement
+  tekst: Investeren waar het meeste oplevert.
+resultaten: []
+faq:
+- vraag: Wat kost een Magento webshop?
+  antwoord: >-
+    Dat hangt af van ontwerp, maatwerk, koppelingen, migratie en de keuze tussen Open Source en Adobe
+    Commerce. Na een kennismaking maken we een onderbouwde begroting per onderdeel, zodat je precies weet
+    waar je aan toe bent.
+- vraag: Is Magento Open Source gratis?
+  antwoord: >-
+    Ja, voor de software zelf betaal je geen licentie. Je betaalt wel voor de bouw, hosting, extensies
+    en onderhoud. Adobe Commerce kent daarnaast een jaarlijkse licentie die afhangt van je omzet.
+- vraag: Waarom is Magento duurder dan bijvoorbeeld WooCommerce?
+  antwoord: >-
+    Magento is gebouwd voor grotere en complexere webshops: grote catalogi, B2B, meerdere winkels en koppelingen.
+    Dat vraagt meer van de techniek en de developers, maar levert ook veel meer mogelijkheden en schaalbaarheid
+    op.
+- vraag: Wat zijn de maandelijkse kosten van een Magento webshop?
+  antwoord: >-
+    Denk aan hosting, licenties van extensies, security patches en updates, support en doorontwikkeling.
+    In onze begroting nemen we deze terugkerende kosten altijd mee.
+- vraag: Kan ik de kosten spreiden?
+  antwoord: >-
+    Ja. Door gefaseerd te werken ga je eerst live met de basis en breid je daarna stap voor stap uit.
+    Zo spreid je de investering en verdien je deze sneller terug.
+- vraag: Krijg ik een vaste prijs?
+  antwoord: >-
+    Voor een helder afgebakende scope kunnen we een vaste prijs afspreken. Voor doorontwikkeling werken
+    we meestal met sprints of een vast maandbudget.
+case: zinzi
+specialist: marc
+artikelen:
+- magento-vs-woocommerce
+- magento-webshop-laten-maken-een-slimme-investering-voor-jouw-e-commerce-succes
+- magento-vs-shopify-welk-platform-past-het-beste-bij-jouw-bedrijf
+ctaTitel: Benieuwd wat jouw Magento webshop kost?
+ctaIntro: >-
+  Plan een vrijblijvende kennismaking. Je krijgt een onderbouwde begroting per onderdeel, inclusief de
+  terugkerende kosten.
+ctaLabel: Vraag een begroting aan
+seoTitel: Wat kost een Magento webshop? Kosten en begroting | Wedigify
+seoOmschrijving: >-
+  Wat kost een Magento webshop laten maken? Lees welke factoren de kosten bepalen, welke kosten eenmalig
+  en terugkerend zijn, en hoe wij een begroting maken.

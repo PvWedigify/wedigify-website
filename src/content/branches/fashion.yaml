@@ -1,0 +1,109 @@
+naam: Fashion en lifestyle
+kort: >-
+  Mode, schoenen en sieraden. Webshops met veel varianten, snelle collectiewissels en klanten die
+  vooral mobiel shoppen.
+icoon: label
+heroTitel: Magento voor fashion
+heroAccent: en lifestyle webshops.
+intro: >-
+  Collecties die elk seizoen wisselen, duizenden maten en kleuren, klanten die op hun telefoon
+  shoppen en retouren die je marge opeten. We bouwen en laten Magento webshops groeien voor
+  fashion, schoenen en sieraden, van eerste klik tot herhaalaankoop.
+heroPunten:
+  - Ervaring met mode, schoenen en sieraden
+  - Snelle Hyvä webshops die mobiel converteren
+  - Techniek en marketing in één team
+uitdagingenIntro: >-
+  Fashion is een van de meest competitieve categorieën online. Dit zijn de uitdagingen die we bij
+  vrijwel elke modewebshop tegenkomen.
+uitdagingen:
+  - icoon: raster
+    titel: Veel varianten en snelle collecties
+    tekst: >-
+      Elk product in meerdere maten en kleuren, en elk seizoen een nieuwe collectie. Productdata,
+      voorraad en beeld moeten kloppen, zonder eindeloos handwerk.
+  - icoon: telefoon
+    titel: Mobiel is leidend
+    tekst: >-
+      Het overgrote deel van je bezoekers shopt op de telefoon, vaak via social. Een trage of
+      onhandige mobiele webshop kost direct omzet.
+  - icoon: herhaal
+    titel: Retouren drukken op de marge
+    tekst: >-
+      Verkeerde maten en tegenvallende verwachtingen leiden tot retouren. Goede maatinformatie,
+      beeld en reviews maken het verschil.
+  - icoon: winkel
+    titel: Online en fysieke winkels
+    tekst: >-
+      Klanten bekijken online en kopen in de winkel, of andersom. Voorraad, klantdata en acties
+      moeten over alle kanalen kloppen.
+oplossingen:
+  - icoon: bliksem
+    titel: Snelle Hyvä frontend
+    tekst: >-
+      Een lichte frontend die op mobiel groen scoort op de Core Web Vitals. Sneller laden betekent
+      minder afhakers en meer omzet.
+  - icoon: filters
+    titel: Filters en zoeken die werken
+    tekst: >-
+      Filteren op maat, kleur, pasvorm en stijl, en een zoekfunctie die snapt wat je klant bedoelt.
+      Zo vindt iedereen snel het juiste product.
+  - icoon: stekker
+    titel: Koppelingen met kassa, ERP en PIM
+    tekst: >-
+      Voorraad en productdata automatisch uit je ERP of PIM, en je winkels gekoppeld aan je
+      webshop. Eén bron van waarheid.
+  - icoon: wereld
+    titel: Internationaal verkopen
+    tekst: >-
+      Meerdere landen, talen en valuta vanuit één Magento omgeving, met de juiste SEO per land.
+  - icoon: zoek
+    titel: SEO en content die verkopen
+    tekst: >-
+      Categoriepagina's die scoren op zoektermen met koopintentie, en content die je merk laat zien.
+  - icoon: mail
+    titel: E-mail en herhaalaankopen
+    tekst: >-
+      Welkomstflows, verlaten winkelwagen en nieuwe collecties: automatische e-mails die doorverkopen.
+cases:
+  - greenfield-fashion
+  - shuz
+  - uv-fashions
+  - zinzi
+diensten:
+  - hyva
+  - webshop-laten-maken
+  - seo
+  - cro
+  - e-mailmarketing
+  - social-advertising
+reviewBedrijven:
+  - UV-Fashions
+artikelen:
+  - hyva-vs-luma
+  - conversie-optimalisatie-webshop
+  - hyperpersonalisatie-in-e-commerce-voorbij-de-voornaam-in-je-nieuwsbrief
+faq:
+  - vraag: Is Magento geschikt voor een fashion webshop?
+    antwoord: >-
+      Ja. Magento is sterk in producten met veel varianten, grote catalogi, meerdere landen en
+      koppelingen met kassa en ERP. Met een Hyvä frontend is de webshop bovendien snel op mobiel,
+      waar de meeste modeklanten shoppen.
+  - vraag: Kunnen jullie mijn fysieke winkels koppelen aan de webshop?
+    antwoord: >-
+      Ja. We koppelen Magento aan je kassasysteem en ERP, zodat voorraad, klantdata en orders over
+      alle kanalen kloppen. Denk ook aan reserveren in de winkel of retourneren in de winkel.
+  - vraag: Hoe verlagen we het aantal retouren?
+    antwoord: >-
+      Met duidelijke maatinformatie, goede productfoto's en video, reviews met pasvorminformatie en
+      data over welke producten vaak terugkomen. In een CRO traject onderzoeken we waar het misgaat.
+  - vraag: Kunnen jullie ook de marketing doen?
+    antwoord: >-
+      Ja. Naast development hebben we specialisten voor SEO, SEA, social advertising, e-mail en CRO.
+      Een digitale strateeg brengt alles samen in één plan.
+ctaTitel: Laat je modewebshop sneller groeien.
+volgorde: 1
+seoTitel: Magento voor fashion en lifestyle webshops
+seoOmschrijving: >-
+  Magento bureau voor fashion, schoenen en sieraden. Snelle Hyvä webshops, koppelingen met kassa en
+  ERP, en marketing die verkoopt. Bekijk onze cases.

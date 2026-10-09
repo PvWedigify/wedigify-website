@@ -1,0 +1,45 @@
+klant: Budgetplan
+titel: Van −55% omzet naar structurele groei
+titelAccent: in 6 weken.
+branche: Keukens & keukenapparatuur
+plaats: Ridderkerk
+tags: [Overname, Development, CRO, SEO, Advertising]
+diensten: [overname, cro, strategie-data]
+hoofdcijfer: 6 weken
+hoofdcijferLabel: Van omzetverliezen tot −55% naar een trendbreuk.
+kort: Na 11 jaar bij een ander bureau liep de omzet maand op maand terug. Binnen 6 weken was de daling omgedraaid.
+resultaten:
+  - waarde: −55%
+    label: omzet op het dieptepunt
+  - waarde: 6 weken
+    label: tot de trendbreuk
+  - waarde: +35–40%
+    label: groei t.o.v. eerdere topjaren
+uitdaging: >-
+  Na een samenwerking van ruim 11 jaar met hun vorige e-commercepartij liep de
+  performance van Budgetplan zichtbaar terug, zonder duidelijke oorzaak. In 9
+  maanden daalde de omzet maand op maand, met uitschieters tot −55%. Conversie
+  en campagnes presteerden flink onder verwachting en de oorzaak werd steeds
+  bij de markt gezocht. Wat er speelde: dalende conversie, technische bugs in
+  de funnel, strategische keuzes die niet goed uitpakten en versnipperde kennis
+  door meerdere overdrachten.
+aanpak: >-
+  We zijn niet begonnen met optimaliseren, maar met zeker weten wat er speelt.
+  Eerst een reconstructie van de situatie, daarna een analyse van alles wat
+  omzet echt beïnvloedt, en vervolgens één geïntegreerd plan in plaats van
+  losse optimalisaties.
+aanpakPunten:
+  - Technische audit van platform, kritische flows en releases
+  - Reconstructie van de funnel en de verliespunten
+  - Checkout, betaalflow, laadtijden en datakwaliteit doorgelicht
+  - Development & QA, CRO, SEO en advertising in één plan
+resultaat: >-
+  Binnen 6 weken was de dalende lijn omgebogen. Conversie, performance en
+  rendement zijn hersteld en Budgetplan groeit inmiddels 35 tot 40% ten
+  opzichte van eerdere topjaren.
+stack: [Magento 2]
+afbeelding: /images/cases/budgetplan.webp
+datum: 2026-03-03
+volgorde: 1
+seoTitel: 'Budgetplan case: van verlies naar groei in 6 weken'
+seoOmschrijving: Hoe Budgetplan na de overstap naar Wedigify binnen 6 weken van een omzetdaling van 55% naar een trendbreuk ging. Met overname, development en CRO.

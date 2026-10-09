@@ -1,0 +1,99 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { getSite, getDiensten, dienstUrl } from '@/lib/site';
+
+const site = await getSite();
+const magento = (await getDiensten('magento')).slice(0, 6);
+const groei = (await getDiensten('groei')).slice(0, 6);
+const jaar = new Date().getFullYear();
+const kolommen = [
+  { titel: 'Magento', href: '/magento/', label: 'Magento diensten', links: magento.map((d) => ({ label: d.data.titel, href: dienstUrl(d) })) },
+  { titel: 'Groei', href: '/groei/', label: 'Groeidiensten', links: groei.map((d) => ({ label: d.data.titel, href: dienstUrl(d) })) },
+  {
+    titel: 'Wedigify',
+    label: 'Over Wedigify',
+    links: [
+      { label: 'Magento scan', href: '/magento-scan/' },
+      { label: 'Magento versies', href: '/magento/versies/' },
+      { label: 'Branches', href: '/branches/' },
+      { label: 'Aanpak', href: '/aanpak/' },
+      { label: 'Cases', href: '/cases/' },
+      { label: 'Team', href: '/over-ons/team/' },
+      { label: 'Werken bij', href: '/werken-bij/' },
+      { label: 'Kennis', href: '/kennis/' },
+      { label: 'Contact', href: '/contact/' },
+      { label: 'Magento bureau Rotterdam', href: '/magento-bureau-rotterdam/' },
+    ],
+  },
+];
+---
+
+<footer class="relative isolate overflow-hidden bg-navy text-navy-tekst">
+  <div class="stippen fade-onder pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
+  <div class="container-w relative border-b border-navy-600 pt-16 pb-12 md:pt-20" aria-hidden="true">
+    <p class="text-[clamp(2rem,4.2vw,3.5rem)] leading-[1.02] font-bold tracking-strak text-white">
+      Niet lullen,<br /><span class="text-paars-licht">maar poetsen.</span>
+    </p>
+  </div>
+  <div class="container-w relative grid gap-x-10 gap-y-0 pt-12 pb-10 sm:py-16 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="flex flex-col gap-4 pb-10 sm:pb-0">
+      <a href="/" class="text-white hover:text-white" aria-label="Wedigify, naar de homepage"><Logo class="h-7 w-auto" /></a>
+      <address class="not-italic leading-relaxed">
+        {site.straat}<br />{site.postcode} {site.plaats}
+      </address>
+      <div class="flex flex-col gap-1">
+        {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="hover:text-white">{site.telefoon}</a>}
+        {site.email && <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>}
+      </div>
+      <div class="flex gap-3">
+        {
+          site.linkedin && (
+            <a href={site.linkedin} class="inline-flex size-11 items-center justify-center rounded-knop border border-navy-600 hover:border-paars-licht hover:text-white" aria-label="Wedigify op LinkedIn">
+              <Icon name="linkedin" />
+            </a>
+          )
+        }
+        {
+          site.instagram && (
+            <a href={site.instagram} class="inline-flex size-11 items-center justify-center rounded-knop border border-navy-600 hover:border-paars-licht hover:text-white" aria-label="Wedigify op Instagram">
+              <Icon name="instagram" />
+            </a>
+          )
+        }
+      </div>
+    </div>
+    {
+      kolommen.map((k) => (
+        <nav aria-label={k.label} class="border-b border-navy-600 first-of-type:border-t sm:border-0 sm:first-of-type:border-t-0">
+          <details class="group" open data-footer-kolom>
+            <summary class="flex cursor-pointer list-none items-center justify-between py-4 text-base font-semibold text-white sm:pointer-events-none sm:mb-4 sm:py-0 [&::-webkit-details-marker]:hidden">
+              <h2>{k.href ? <><span class="sm:hidden">{k.titel}</span><a href={k.href} class="pointer-events-auto hidden hover:text-paars-licht sm:inline">{k.titel}</a></> : k.titel}</h2>
+              <Icon name="chevron" size={20} class="text-paars-licht transition-transform duration-300 group-open:rotate-180 sm:hidden" />
+            </summary>
+            <ul class="flex flex-col gap-2.5 pb-5 sm:pb-0">
+              {k.href && <li class="sm:hidden"><a href={k.href} class="font-medium text-paars-licht hover:text-white">Alles over {k.titel}</a></li>}
+              {k.links.map((l) => <li><a href={l.href} class="hover:text-white">{l.label}</a></li>)}
+            </ul>
+          </details>
+        </nav>
+      ))
+    }
+  </div>
+  <div class="container-w relative flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-navy-600 py-6 text-[13px] text-navy-stil">
+    <span>© {jaar} Wedigify{site.kvk && ` · KvK ${site.kvk}`}</span>
+    <span class="flex flex-wrap gap-x-5 gap-y-1">
+      <a href="/privacy/" class="hover:text-white">Privacy</a>
+      <a href="/algemene-voorwaarden/" class="hover:text-white">Algemene voorwaarden</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Mobiel: footerkolommen ingeklapt; vanaf 640px altijd open.
+  const mq = window.matchMedia('(min-width: 640px)');
+  const kolommen = document.querySelectorAll<HTMLDetailsElement>('[data-footer-kolom]');
+  const zet = () => kolommen.forEach((d) => (d.open = mq.matches));
+  zet();
+  mq.addEventListener('change', zet);
+</script>

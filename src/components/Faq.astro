@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  items: { vraag: string; antwoord: string }[];
+  kolommen?: 1 | 2;
+}
+const { items, kolommen = 1 } = Astro.props;
+const helft = Math.ceil(items.length / 2);
+const groepen = kolommen === 2 ? [items.slice(0, helft), items.slice(helft)] : [items];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({
+    '@type': 'Question',
+    name: i.vraag,
+    acceptedAnswer: { '@type': 'Answer', text: i.antwoord },
+  })),
+};
+---
+
+<div class:list={[kolommen === 2 && 'grid gap-x-8 md:grid-cols-2']}>
+  {
+    groepen.map((groep, g) => (
+      <div class:list={['border-t-2 border-navy', g > 0 && 'max-md:border-t-0']}>
+        {groep.map((it, i) => (
+          <details class="group border-b border-grijs-lijn py-5" open={g === 0 && i === 0}>
+            <summary class="flex cursor-pointer list-none items-start justify-between gap-6 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+              {it.vraag}
+              <Icon name="chevron" class="mt-1 shrink-0 text-paars transition-transform duration-300 group-open:rotate-180" />
+            </summary>
+            <p class="mt-3 max-w-[680px] leading-relaxed text-tekst">{it.antwoord}</p>
+          </details>
+        ))}
+      </div>
+    ))
+  }
+</div>
+{items.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

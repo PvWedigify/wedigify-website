@@ -1,0 +1,219 @@
+---
+import '@fontsource/poppins/latin-400.css';
+import '@fontsource/poppins/latin-500.css';
+import '@fontsource/poppins/latin-600.css';
+import '@fontsource/poppins/latin-700.css';
+import '@fontsource/caveat/latin-600.css';
+import '@/styles/global.css';
+import poppins400 from '@fontsource/poppins/files/poppins-latin-400-normal.woff2?url';
+import poppins700 from '@fontsource/poppins/files/poppins-latin-700-normal.woff2?url';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Icon from '@/components/Icon.astro';
+import { getSite, getTeam, getDiensten, dienstUrl, pijlerLabel } from '@/lib/site';
+
+interface Props {
+  titel: string;
+  omschrijving: string;
+  afbeelding?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  /** Extra JSON-LD-objecten voor deze pagina */
+  schema?: Record<string, unknown>[];
+  /** schema.org type van de pagina (WebPage, AboutPage, ContactPage, CollectionPage ...) */
+  paginaType?: string;
+}
+
+const { titel, omschrijving, afbeelding = '/og-wedigify.png', type = 'website', noindex = false, schema = [], paginaType = 'WebPage' } = Astro.props;
+const site = await getSite();
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(afbeelding, Astro.site);
+// Merknaam alleen toevoegen als de titel daarmee binnen ~62 tekens blijft (anders kapt Google af)
+const volledigeTitel = titel.includes('Wedigify') || titel.length > 50 ? titel : `${titel} | Wedigify`;
+
+const team = await getTeam();
+const diensten = await getDiensten(undefined, true);
+const oprichter = team.find((t) => t.id === 'marc');
+const abs = (pad: string) => new URL(pad, Astro.site).toString();
+const isHome = Astro.url.pathname === '/';
+
+const organisatie = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${Astro.site}#organisatie`,
+  name: 'Wedigify',
+  legalName: 'Wedigify',
+  url: Astro.site?.toString(),
+  logo: { '@type': 'ImageObject', url: abs('/wedigify-navy.svg') },
+  image: abs('/og-wedigify.png'),
+  description: 'Magento bureau uit Rotterdam. Wedigify bouwt, beheert en optimaliseert Magento en Hyvä webshops, met een vast team van developers, marketeers en een digitale strateeg.',
+  slogan: 'Niet lullen, maar poetsen.',
+  telephone: site.telefoonLink,
+  email: site.email,
+  foundingDate: '2022',
+  ...(oprichter ? { founder: { '@type': 'Person', name: oprichter.data.naam === 'Marc' ? 'Marc van Willigen' : oprichter.data.naam, jobTitle: oprichter.data.rol } } : {}),
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: team.length },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.straat,
+    postalCode: site.postcode,
+    addressLocality: site.plaats,
+    addressRegion: 'Zuid-Holland',
+    addressCountry: 'NL',
+  },
+  areaServed: [{ '@type': 'Country', name: 'Nederland' }, { '@type': 'Country', name: 'België' }],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: site.telefoonLink,
+      email: site.email,
+      areaServed: 'NL',
+      availableLanguage: ['Dutch', 'English'],
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'technical support',
+      telephone: site.telefoonLink,
+      email: site.email,
+      areaServed: 'NL',
+      availableLanguage: ['Dutch', 'English'],
+    },
+  ],
+  sameAs: [site.linkedin, site.instagram].filter(Boolean),
+  knowsAbout: ['Magento', 'Magento 2', 'Adobe Commerce', 'Magento Open Source', 'Hyvä', 'E-commerce', 'B2B e-commerce', 'Webshop migratie', 'ERP koppelingen', 'SEO', 'SEA', 'Conversie optimalisatie', 'E-mailmarketing', 'Marketing automation'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Diensten van Wedigify',
+    itemListElement: (['magento', 'groei'] as const).map((pijler) => ({
+      '@type': 'OfferCatalog',
+      name: pijlerLabel[pijler],
+      itemListElement: diensten
+        .filter((d) => d.data.pijler === pijler)
+        .map((d) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: d.data.seoTitel?.split('|')[0].trim() ?? d.data.titel, url: abs(dienstUrl(d)) } })),
+    })),
+  },
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${Astro.site}#website`,
+  name: 'Wedigify',
+  url: Astro.site?.toString(),
+  inLanguage: 'nl-NL',
+  publisher: { '@id': `${Astro.site}#organisatie` },
+};
+
+const webpagina = {
+  '@context': 'https://schema.org',
+  '@type': paginaType,
+  '@id': `${canonical}#webpagina`,
+  url: canonical.toString(),
+  name: volledigeTitel,
+  description: omschrijving,
+  inLanguage: 'nl-NL',
+  isPartOf: { '@id': `${Astro.site}#website` },
+  about: { '@id': `${Astro.site}#organisatie` },
+  primaryImageOfPage: { '@type': 'ImageObject', url: ogImage.toString() },
+};
+const ldJson = [organisatie, ...(isHome ? [website] : []), webpagina, ...schema];
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <title>{volledigeTitel}</title>
+    <meta name="description" content={omschrijving} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href={poppins400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={poppins700} as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#FBF8FF" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Wedigify" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:title" content={volledigeTitel} />
+    <meta property="og:description" content={omschrijving} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+  </head>
+  <body>
+    <a href="#inhoud" class="sr-only z-50 rounded-knop bg-paars px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+      Naar de inhoud
+    </a>
+    <Header />
+    <main id="inhoud">
+      <slot />
+    </main>
+    <div class="fixed inset-x-0 bottom-0 z-30 translate-y-full border-t border-lijn bg-white/95 p-3 backdrop-blur transition-transform duration-300 sm:hidden" data-actiebalk aria-hidden="true">
+      <div class="flex gap-2">
+        {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="knop-rand knop-klein flex-1 justify-center" tabindex="-1"><Icon name="telefoon" size={16} /> Bellen</a>}
+        <a href="/contact/" class="knop-paars knop-klein flex-[1.4] justify-center" tabindex="-1">Plan een gesprek</a>
+      </div>
+    </div>
+    <Footer />
+    <script>
+      // Scroll reveals: elementen met [data-reveal] faden in zodra ze in beeld komen.
+      const reveal = new IntersectionObserver(
+        (items) =>
+          items.forEach((item) => {
+            if (!item.isIntersecting) return;
+            item.target.classList.add('zichtbaar');
+            reveal.unobserve(item.target);
+          }),
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => reveal.observe(el));
+
+      // Mobiele actiebalk: tonen na de hero, verbergen zodra de footer in beeld is.
+      const balk = document.querySelector<HTMLElement>('[data-actiebalk]');
+      const voet = document.querySelector('footer');
+      if (balk && !/^\/(contact|magento-scan)\//.test(location.pathname)) {
+        let footerZichtbaar = false;
+        const zet = () => {
+          const toon = window.scrollY > 700 && !footerZichtbaar;
+          balk.classList.toggle('translate-y-full', !toon);
+          balk.setAttribute('aria-hidden', String(!toon));
+          balk.querySelectorAll('a').forEach((a) => (a.tabIndex = toon ? 0 : -1));
+        };
+        if (voet) new IntersectionObserver(([e]) => ((footerZichtbaar = e.isIntersecting), zet())).observe(voet);
+        addEventListener('scroll', zet, { passive: true });
+      }
+
+      // Tellers: <span data-telop="250" data-voor="+" data-na="%">
+      const beweging = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const formaat = new Intl.NumberFormat('nl-NL');
+      const tel = new IntersectionObserver(
+        (items) =>
+          items.forEach((item) => {
+            if (!item.isIntersecting) return;
+            const el = item.target as HTMLElement;
+            tel.unobserve(el);
+            const doel = Number(el.dataset.telop);
+            const zet = (n: number) => (el.textContent = `${el.dataset.voor ?? ''}${formaat.format(n)}${el.dataset.na ?? ''}`);
+            if (!beweging) return zet(doel);
+            const start = performance.now();
+            const duur = 1400;
+            const stap = (t: number) => {
+              const p = Math.min((t - start) / duur, 1);
+              zet(Math.round(doel * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(stap);
+            };
+            requestAnimationFrame(stap);
+          }),
+        { threshold: 0.6 },
+      );
+      document.querySelectorAll<HTMLElement>('[data-telop]').forEach((el) => tel.observe(el));
+    </script>
+  </body>
+</html>

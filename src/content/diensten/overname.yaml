@@ -1,0 +1,177 @@
+titel: Overname
+pijler: magento
+volgorde: 6
+opHome: true
+kort: Wisselen van bureau? Wij nemen je Magento shop over, met een audit op dag één.
+eyebrow: Magento shop overnemen
+heroTitel: Overstappen naar een ander Magento bureau,
+heroAccent: zonder gedoe.
+intro: >-
+  Een overstap voelt spannend, zeker als de kennis bij je oude partij zit. Wij starten met een technische
+  audit, zodat we vanaf dag één weten waar we staan.
+feiten:
+- label: Start
+  waarde: Technische audit
+- label: Budgetplan
+  waarde: trendbreuk in 6 weken
+voorWie:
+- titel: Je bureau reageert traag
+  tekst: Tickets blijven liggen en je weet niet waar je aan toe bent.
+- titel: Je omzet daalt zonder verklaring
+  tekst: Niemand weet of het aan de shop, de data of de markt ligt.
+- titel: Kennis is versnipperd
+  tekst: Meerdere overdrachten en wisselingen; niemand overziet het geheel.
+wat:
+- Technische audit van code, extensies en hosting
+- Overdracht van toegang, repositories en documentatie
+- Lijst met bugs, risico's en quick wins
+- Vast team en vaste contactpersoon
+stappen:
+- label: Week 1
+  titel: Overdracht
+  tekst: Toegang, code en kennis veilig overgenomen.
+- label: Week 1–2
+  titel: Audit
+  tekst: Wat staat er, wat werkt niet, wat kost omzet?
+- label: Week 2–4
+  titel: Stabiliseren
+  tekst: Kritische bugs eerst, daarna de quick wins.
+- label: Daarna
+  titel: Doorontwikkelen
+  tekst: Op basis van een roadmap met targets.
+case: budgetplan
+specialist: ievgenii
+uitleg:
+- titel: Zo verloopt een overstap
+  tekst: >-
+    We starten met een zorgvuldige overdracht van code, toegang en documentatie. Daarna volgt een technische
+    audit, zodat we binnen twee weken een helder beeld hebben van de staat van je webshop en de grootste
+    risico's en kansen.
+faq:
+- vraag: Moet ik eerst opzeggen bij mijn huidige bureau?
+  antwoord: Nee. We helpen je met een zorgvuldige overdracht, zodat er niets tussen wal en schip valt.
+- vraag: Wat als mijn webshop technisch in slechte staat is?
+  antwoord: >-
+    Dan zie je dat terug in de audit, met een geprioriteerde lijst: eerst stabiliseren, dan verbeteren.
+    Zo ging het ook bij Budgetplan, waar de omzetdaling binnen zes weken was omgebogen.
+- vraag: Merkt mijn klant iets van de overstap?
+  antwoord: >-
+    Nee. De overdracht gebeurt op de achtergrond. Je webshop blijft online en we plannen eventuele hostingwijzigingen
+    buiten piekmomenten.
+- vraag: Wat als mijn huidige bureau niet meewerkt?
+  antwoord: >-
+    Jij bent eigenaar van je webshop en je code. We helpen je met een lijst van wat je moet opvragen,
+    en hebben ervaring met lastige overdrachten.
+- vraag: Hoe lang duurt een overname?
+  antwoord: >-
+    Meestal is de technische overdracht binnen twee tot vier weken rond, inclusief audit en roadmap.
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+- magento-consultancy-door-wedigify-strategie-succes-voor-jouw-magento-webshop
+ctaTitel: Klaar met wachten op je bureau?
+ctaLabel: Plan een overstapgesprek
+seoTitel: Overstappen naar een ander Magento bureau | Wedigify
+seoOmschrijving: >-
+  Ontevreden over je Magento bureau? Wedigify neemt je webshop zorgvuldig over, met een technische audit
+  op dag één en een vast team.
+visual: checklist
+visualBadge:
+  titel: Soepele overdracht
+  tekst: Je webshop blijft gewoon draaien.
+  icoon: herhaal
+watIs:
+  titel: Hoe werkt een overstap naar Wedigify?
+  tekst: >-
+    Je wilt van bureau wisselen, maar je webshop moet blijven draaien. Wij nemen de technische overdracht
+    van je huidige partij over: toegang, code, hosting en documentatie. Met een technische audit weten
+    we binnen enkele weken precies hoe je shop in elkaar zit en wat de prioriteiten zijn.
+  punten:
+  - Technische audit van code, modules en hosting
+  - Overdracht van toegang en repositories
+  - Eerlijk advies over wat goed is en wat beter kan
+  - Een concrete roadmap voor de komende maanden
+  visual: code
+voordelen:
+- icoon: oog
+  titel: Helder inzicht
+  tekst: Je weet precies hoe je webshop technisch in elkaar zit.
+- icoon: team
+  titel: Vaste gezichten
+  tekst: Een vast team dat je shop leert kennen.
+- icoon: klok
+  titel: Snel geschakeld
+  tekst: Korte lijnen en een vaste developer voor je shop.
+- icoon: doel
+  titel: Weer vooruit
+  tekst: Van brandjes blussen naar werken aan groei.
+waarom:
+  titel: Waarom overstappen?
+  tekst: >-
+    Trage reacties, onduidelijke facturen of een webshop die niet vooruitkomt: veel webshops blijven te
+    lang bij een bureau dat niet meer past. Overstappen voelt spannend, maar met een goede overdracht
+    merk je er als klant nauwelijks iets van.
+
+
+    Budgetplan stapte naar ons over in een moeilijke periode. Binnen 6 weken ging de omzet van een verlies
+    van 55% naar een trendbreuk.
+onderdelenTitel: Wat we overnemen
+onderdelen:
+- icoon: code
+  label: Code en repositories
+- icoon: server
+  label: Hosting en servers
+- icoon: module
+  label: Modules en licenties
+- icoon: sleutel
+  label: Toegang en accounts
+- icoon: document
+  label: Documentatie
+- icoon: grafiek
+  label: Tracking en data
+wanneer:
+- Je bent ontevreden over je huidige bureau
+- Aanpassingen duren te lang of zijn te duur
+- Niemand weet nog precies hoe je shop in elkaar zit
+- Je wilt naast techniek ook hulp bij groei
+- Je huidige partij stopt met Magento
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Doorlooptijd
+  tekst: Sneller van vraag naar oplossing.
+- icoon: oog
+  richting: op
+  titel: Inzicht
+  tekst: Duidelijke rapportage en planning.
+- icoon: schild
+  richting: op
+  titel: Stabiliteit
+  tekst: Minder storingen en fouten.
+- icoon: euro
+  richting: op
+  titel: Omzet
+  tekst: 'Budgetplan: trendbreuk in 6 weken.'
+- icoon: waarschuwing
+  richting: neer
+  titel: Risico
+  tekst: Achterstallig onderhoud opgelost.
+- icoon: team
+  richting: op
+  titel: Samenwerking
+  tekst: Vaste contactpersonen.
+ctaIntro: >-
+  Vertel ons waar je tegenaan loopt. We geven eerlijk advies, ook als blijven bij je huidige bureau de
+  beste optie is.

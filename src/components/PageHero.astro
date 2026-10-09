@@ -1,0 +1,45 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import Achtergrond from './Achtergrond.astro';
+
+interface Props {
+  eyebrow?: string | null;
+  titel: string;
+  accent?: string | null;
+  intro?: string | null;
+  kruimels?: { label: string; href?: string }[];
+  /** 'zij' = intro rechts naast de kop, 'onder' = intro onder de kop */
+  indeling?: 'zij' | 'onder';
+}
+const { eyebrow, titel, accent, intro, kruimels, indeling = 'onder' } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-lavendel">
+  <Achtergrond />
+  <div class:list={['container-w relative pb-14 md:pb-20 lg:pb-24', kruimels ? 'pt-8' : 'pt-14 md:pt-24 lg:pt-28']}>
+    {kruimels && <Breadcrumbs items={kruimels} />}
+    <div class:list={[indeling === 'zij' && 'flex flex-wrap items-end justify-between gap-x-16 gap-y-8']}>
+      <div class:list={['min-w-0', indeling === 'zij' && 'flex-[1_1_640px]']}>
+        {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}
+        <h1 class="kop-1 max-w-[1100px]">
+          {titel}
+          {accent && <span class="text-paars"> {accent}</span>}
+        </h1>
+        {intro && indeling === 'onder' && <p class="lead mt-7 max-w-[620px]">{intro}</p>}
+      </div>
+      {indeling === 'zij' && (intro || Astro.slots.has('acties')) && (
+        <div class="flex flex-[0_1_380px] flex-col gap-6">
+          {intro && <p class="lead">{intro}</p>}
+        </div>
+      )}
+    </div>
+    {
+      Astro.slots.has('acties') && (
+        <div class="mt-9 flex flex-wrap gap-3">
+          <slot name="acties" />
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+import Achtergrond from './Achtergrond.astro';
+import { getSite, bestaat } from '@/lib/site';
+
+const site = await getSite();
+---
+
+<section class="relative isolate overflow-hidden bg-navy text-white">
+  <Achtergrond variant="donker" />
+  <div class="container-w sectie-s relative">
+    <div class="flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <div class="min-w-0">
+        <p class="eyebrow mb-4 text-paars-licht">Partners & erkenning</p>
+        <h2 class="kop-2 max-w-[720px] text-white">Gecertificeerd. <span class="text-paars-licht">Bewezen.</span></h2>
+      </div>
+      <p class="max-w-[420px] text-lg leading-relaxed text-navy-tekst">
+        Hypernode Gold Partner, Hyvä Partner en gecertificeerde Magento developers. Geen stickers op de website, maar kennis in het team.
+      </p>
+    </div>
+    <ul class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {
+        site.partners.map((p, i) => (
+          <li
+            class="group flex flex-col items-center justify-center gap-4 rounded-kaart border border-white/10 bg-white/[0.04] p-6 text-center transition-colors hover:border-paars-licht/50 hover:bg-white/[0.07]"
+            data-reveal
+            style={`--vertraging:${i * 80}ms`}
+          >
+            {bestaat(p.logo) ? (
+              <img src={p.logo} alt={`${p.naam} ${p.label}`} loading="lazy" class="h-24 w-auto rounded-md object-contain transition-transform duration-300 group-hover:scale-105 md:h-28" />
+            ) : (
+              <span class="flex h-24 items-center text-3xl font-bold tracking-strak md:h-28">{p.naam}</span>
+            )}
+            <span class="text-sm text-navy-tekst">
+              <b class="font-semibold text-white">{p.naam}</b> · {p.label}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+    {
+      bestaat(site.partnerBalk) && (
+        <div class="mt-10 overflow-hidden rounded-kaart bg-white py-6 shadow-[0_24px_60px_-30px_rgb(0_0_0/0.6)] md:px-10 md:py-8" data-reveal>
+          <img src={site.partnerBalk} alt="Partners en certificeringen: Channable, Adobe Commerce, Magento, Hypernode, Spotler, FONK150 en Hyvä" loading="lazy" width="1227" height="108" class="mx-auto h-auto max-h-24 w-full object-contain max-md:hidden" />
+          <div class="marquee rand-fade-x md:hidden" aria-hidden="true">
+            <div class="marquee-spoor gap-10" style="--duur:24s">
+              <img src={site.partnerBalk} alt="" loading="lazy" width="1227" height="108" class="h-14 w-auto max-w-none" />
+              <img src={site.partnerBalk} alt="" loading="lazy" width="1227" height="108" class="h-14 w-auto max-w-none" />
+            </div>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

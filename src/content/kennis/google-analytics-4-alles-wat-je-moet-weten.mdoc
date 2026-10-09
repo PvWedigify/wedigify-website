@@ -1,0 +1,64 @@
+---
+titel: "Google Analytics 4 voor webshops: zo meet je wat écht telt"
+omschrijving: "Google Analytics 4 goed inrichten voor je webshop: e-commerce events, sleutelgebeurtenissen, Consent Mode v2 en de valkuilen die we het vaakst zien."
+datum: 2025-07-29
+bijgewerkt: 2026-10-08
+categorie: groei
+afbeelding: /images/kennis/google-analytics-4-alles-wat-je-moet-weten/cover.jpg
+seoTitel: "Google Analytics 4 voor webshops: alles wat je moet weten"
+---
+Google Analytics 4 (GA4) is al een aantal jaar de standaard. Universal Analytics is in juli 2023 gestopt met het verwerken van data en de oude rapporten zijn inmiddels niet meer beschikbaar. Toch zien we bij veel webshops dat GA4 wel draait, maar niet goed is ingericht. Het gevolg: cijfers die niet kloppen met de omzet in Magento, ontbrekende e-commerce data en campagnes die op verkeerde data worden gestuurd.
+
+In dit artikel lees je hoe GA4 werkt, wat je als webshop minimaal moet meten en waar het in de praktijk het vaakst misgaat.
+
+## Hoe werkt Google Analytics 4?
+
+GA4 meet alles als **gebeurtenissen** (events). Een paginaweergave, een klik op een knop, een product in de winkelwagen of een aankoop: het zijn allemaal events, met extra informatie in de vorm van parameters. Dat maakt GA4 flexibel, maar betekent ook dat je zelf moet bepalen welke events belangrijk zijn.
+
+De belangrijkste begrippen:
+
+- **Gebeurtenissen (events):** elke interactie die je meet, zoals `page_view`, `add_to_cart` of `purchase`.
+- **Sleutelgebeurtenissen (key events):** de events die voor jouw bedrijf het meest waardevol zijn, zoals een aankoop of een offerteaanvraag. Google noemde dit eerder "conversies".
+- **Betrokkenheidspercentage:** het aandeel sessies waarin een bezoeker echt iets doet. Het bouncepercentage bestaat nog steeds, maar is in GA4 het omgekeerde hiervan.
+- **Verbeterde meting:** automatische meting van onder andere scrolls, uitgaande klikken, zoekopdrachten op je site en downloads.
+
+## Welke e-commerce events moet je webshop meten?
+
+Voor een webshop is de standaard e-commerce meting van GA4 onmisbaar. Daarmee zie je per stap in de klantreis hoeveel bezoekers doorgaan en waar ze afhaken. Meet minimaal:
+
+- `view_item_list` en `select_item`: productoverzichten en klikken op producten
+- `view_item`: bekeken productpagina's
+- `add_to_cart` en `remove_from_cart`
+- `begin_checkout`, `add_shipping_info` en `add_payment_info`
+- `purchase`: inclusief transactie ID, omzet, belasting, verzendkosten en producten
+
+Met deze data kun je in GA4 een trechteranalyse maken van productpagina tot aankoop. Dat is de basis voor elke vorm van [conversie optimalisatie](/groei/cro/).
+
+## Consent Mode v2: verplicht voor adverteerders
+
+Sinds maart 2024 vraagt Google van adverteerders in de Europese Economische Ruimte dat ze **Consent Mode v2** gebruiken. Daarmee geeft je cookiebanner aan Google door of een bezoeker toestemming heeft gegeven voor analytische en advertentiecookies. Zonder correcte implementatie loop je data mis in GA4 en verliezen je Google Ads campagnes waardevolle signalen voor remarketing en conversiemeting.
+
+Controleer daarom of je cookiebanner Consent Mode v2 ondersteunt en of de juiste signalen (`ad_storage`, `analytics_storage`, `ad_user_data` en `ad_personalization`) goed worden doorgegeven.
+
+## GA4 inrichten voor Magento
+
+Bij een Magento webshop kun je GA4 op verschillende manieren koppelen: via een extensie, via Google Tag Manager met een datalaag, of server side. Onze ervaring:
+
+- **Gebruik een datalaag.** Laat Magento de e-commerce data in een gestructureerde datalaag zetten en verstuur de events via Google Tag Manager. Dat is betrouwbaar en goed te onderhouden.
+- **Meet aankopen op de juiste plek.** Een aankoop meet je op de bedankpagina na een geslaagde betaling, en voorkom dubbele metingen als iemand die pagina opnieuw laadt.
+- **Overweeg server side tagging.** Door adblockers en browserbeperkingen mis je een deel van de metingen in de browser. Met server side tagging wordt je data vollediger en heb je meer controle over wat je deelt.
+- **Controleer je Hyvä frontend.** Bij een overstap naar [Hyvä](/magento/hyva/) moet de tracking opnieuw goed worden ingericht, omdat de frontend volledig anders is opgebouwd.
+
+## Valkuilen die we vaak zien
+
+- **Omzet in GA4 wijkt sterk af van Magento.** Een verschil van enkele procenten is normaal door cookieweigeringen en adblockers. Bij grote verschillen klopt de implementatie meestal niet.
+- **Interne en testverkeer wordt meegeteld.** Filter verkeer van je eigen kantoor en testomgevingen.
+- **Te korte bewaartermijn.** Standaard bewaart GA4 gedetailleerde data twee maanden. Zet dit in de instellingen op 14 maanden, zodat je jaar op jaar kunt vergelijken in verkenningen.
+- **Geen koppelingen.** Koppel GA4 aan Google Ads, Search Console en Merchant Center. Voor uitgebreide analyses kun je de data gratis exporteren naar BigQuery.
+- **Te veel losse events zonder plan.** Begin met een meetplan: welke vragen wil je beantwoorden en welke events heb je daarvoor nodig?
+
+## Ons advies
+
+Een goed ingerichte GA4 omgeving is de basis voor elke groeistrategie. Zonder betrouwbare data stuur je op gevoel. Begin met de standaard e-commerce events, regel Consent Mode v2 en controleer regelmatig of de omzet in GA4 aansluit op je Magento omzet.
+
+Twijfel je of jouw meting klopt? Bij [strategie en data](/groei/strategie-data/) controleren we je GA4 inrichting en zorgen we dat je weer kunt sturen op cijfers die kloppen.

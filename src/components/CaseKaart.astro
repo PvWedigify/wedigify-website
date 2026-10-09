@@ -1,0 +1,30 @@
+---
+import { caseUrl, bestaat, type Case, srcset } from '@/lib/site';
+interface Props {
+  item: Case;
+  toonKort?: boolean;
+}
+const { item, toonKort = false } = Astro.props;
+const d = item.data;
+const beeld = bestaat(d.afbeelding) ? d.afbeelding : null;
+---
+
+<a
+  href={caseUrl(item)}
+  class="group flex h-full flex-col overflow-hidden rounded-[14px] border border-lijn bg-white transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:text-navy hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)]"
+>
+  <div class="strepen relative aspect-[16/10] overflow-hidden">
+    {beeld && <img src={beeld} srcset={srcset(beeld)} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />}
+    <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold backdrop-blur">{d.klant}</span>
+  </div>
+  <div class="flex flex-1 flex-col gap-2 p-6 md:p-7">
+    <span class="text-[13px] text-tekst">{d.tags.slice(0, 2).join(' · ')}</span>
+    <span class="text-[clamp(2.4rem,3.6vw,3rem)] leading-tight font-bold tracking-strak text-paars">{d.hoofdcijfer}</span>
+    <h3 class="text-lg leading-snug font-medium">{d.hoofdcijferLabel}</h3>
+    {toonKort && <p class="text-[15px] leading-relaxed text-tekst">{d.kort}</p>}
+    <span class="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-semibold text-paars">
+      Lees de case
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </span>
+  </div>
+</a>

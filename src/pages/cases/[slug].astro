@@ -1,0 +1,185 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Avatar from '@/components/Avatar.astro';
+import Icon from '@/components/Icon.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getCases, caseUrl, dienstUrl, bestaat, type Case, srcset } from '@/lib/site';
+import Achtergrond from '@/components/Achtergrond.astro';
+
+export async function getStaticPaths() {
+  const cases = await getCases();
+  return cases.map((c, i) => ({
+    params: { slug: c.id },
+    props: { item: c, volgende: cases[(i + 1) % cases.length] },
+  }));
+}
+
+interface Props {
+  item: Case;
+  volgende: Case;
+}
+const { item, volgende } = Astro.props;
+const d = item.data;
+const beeld = bestaat(d.afbeelding) ? d.afbeelding : null;
+const team = await getEntries(d.team);
+const diensten = await getEntries(d.diensten);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${d.titel} ${d.titelAccent ?? ''}`.trim(),
+    description: d.seoOmschrijving ?? d.kort,
+    datePublished: d.datum.toISOString(),
+    author: { '@id': `${Astro.site}#organisatie` },
+    publisher: { '@id': `${Astro.site}#organisatie` },
+    about: { '@type': 'Organization', name: d.klant },
+    inLanguage: 'nl-NL',
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+    keywords: [...d.tags, d.branche].join(', '),
+    ...(beeld ? { image: new URL(beeld, Astro.site).toString() } : {}),
+  },
+];
+const blokken = [
+  { nr: '01', titel: 'De uitdaging', tekst: d.uitdaging },
+  { nr: '02', titel: 'Onze aanpak', tekst: d.aanpak, punten: d.aanpakPunten },
+  { nr: '03', titel: 'Het resultaat', tekst: d.resultaat },
+];
+---
+
+<Base titel={d.seoTitel ?? `${d.klant} case: ${d.hoofdcijfer} ${d.hoofdcijferLabel.replace(/\.$/, '').replace(/^./, (c) => c.toLowerCase())}`} omschrijving={d.seoOmschrijving ?? d.kort} type="article" afbeelding={beeld ?? undefined} schema={schema}>
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative pt-8 pb-12 md:pb-20">
+      <Breadcrumbs items={[{ label: 'Cases', href: '/cases/' }, { label: d.klant }]} />
+      <ul class="mb-6 flex flex-wrap gap-2" aria-label="Kenmerken">
+        <li class="rounded-knop border border-lijn-sterk bg-white px-3 py-1.5 text-[13px] font-medium">{d.branche}</li>
+        {d.plaats && <li class="rounded-knop border border-lijn-sterk bg-white px-3 py-1.5 text-[13px] font-medium">{d.plaats}</li>}
+        {d.tags.map((t) => <li class="rounded-knop border border-lijn-sterk bg-white px-3 py-1.5 text-[13px] font-medium">{t}</li>)}
+      </ul>
+      <h1 class="max-w-[1100px] text-[clamp(2.3rem,4.6vw,4.25rem)] leading-[1.05] tracking-strak">
+        <span class="sr-only">Case {d.klant}: </span>{d.titel} {d.titelAccent && <span class="text-paars">{d.titelAccent}</span>}
+      </h1>
+    </div>
+  </section>
+
+  {
+    d.resultaten.length > 0 && (
+      <section class="relative isolate overflow-hidden bg-paars text-white">
+        <Achtergrond variant="paars" gloed={false} />
+        <dl class="container-w relative grid grid-cols-2 lg:grid-cols-4">
+          {d.resultaten.map((r) => (
+            <div class="flex min-w-0 flex-col-reverse py-8 pr-4">
+              <dt class="mt-2 text-paars-100">{r.label}</dt>
+              <dd class="text-[clamp(1.75rem,4.5vw,3.5rem)] leading-none font-bold tracking-strak break-words">{r.waarde}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
+  {
+    beeld && (
+      <div class="container-w pt-16" data-reveal>
+        <img src={beeld} srcset={srcset(beeld)} sizes="100vw" fetchpriority="high" alt={`${d.klant}`} class="aspect-[21/9] w-full rounded-[14px] object-cover" />
+      </div>
+    )
+  }
+
+  <section class="container-w sectie-s flex flex-col gap-14">
+    {
+      blokken.map((b) => (
+        <div class="flex flex-wrap gap-x-16 gap-y-4" data-reveal>
+          <div class="flex-[1_1_260px]">
+            <p class="eyebrow">{b.nr}</p>
+            <h2 class="mt-2 text-[32px] tracking-kop md:text-4xl">{b.titel}</h2>
+          </div>
+          <div class="flex-[2_1_520px]">
+            <p class="text-lg leading-[1.75] text-tekst">{b.tekst}</p>
+            {b.punten && b.punten.length > 0 && (
+              <ul class="mt-6 flex flex-col gap-3">
+                {b.punten.map((p) => (
+                  <li class="flex gap-3">
+                    <span class="mt-2 size-2.5 shrink-0 rounded-[2px] bg-paars" aria-hidden="true" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  {
+    d.quoteTekst && (
+      <section class="bg-lavendel">
+        <figure class="container-w sectie-s">
+          <span class="block text-8xl leading-[0.6] font-bold text-paars" aria-hidden="true">“</span>
+          <blockquote class="mt-4 max-w-[1000px] text-[clamp(1.6rem,3.2vw,2.75rem)] leading-snug font-semibold tracking-tight">{d.quoteTekst}</blockquote>
+          <figcaption class="mt-8">
+            <span class="font-semibold">{d.quoteNaam}</span>
+            <span class="text-tekst">{d.quoteFunctie ? `, ${d.quoteFunctie}` : ''}, {d.klant}</span>
+          </figcaption>
+        </figure>
+      </section>
+    )
+  }
+
+  <section class:list={['container-w sectie-s grid gap-12', team.length > 0 && 'md:grid-cols-2']}>
+    {
+      team.length > 0 && (
+        <div>
+          <h2 class="eyebrow mb-5">Het team op deze case</h2>
+          <ul class="flex flex-col gap-3">
+            {team.map((t) => (
+              <li class="flex items-center gap-3">
+                <Avatar naam={t.data.naam} foto={t.data.foto} class="size-11!" />
+                <span><b class="font-semibold">{t.data.naam}</b> · {t.data.rol}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+    <div class:list={['flex gap-8', team.length > 0 ? 'flex-col' : 'flex-wrap gap-x-20']}>
+      {
+        diensten.length > 0 && (
+          <div>
+            <h2 class="eyebrow mb-5">Diensten</h2>
+            <ul class="flex flex-wrap gap-2">
+              {diensten.map((s) => (
+                <li><a href={dienstUrl(s)} class="inline-flex rounded-knop bg-paars-100 px-3.5 py-2 text-sm font-medium hover:bg-paars hover:text-white">{s.data.titel}</a></li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      {
+        d.stack.length > 0 && (
+          <div>
+            <h2 class="eyebrow mb-5">Stack</h2>
+            <ul class="flex flex-wrap gap-2">
+              {d.stack.map((s) => <li class="rounded-knop bg-grijs px-3.5 py-2 text-sm font-medium">{s}</li>)}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <a href={caseUrl(volgende)} class="group block border-t border-lijn hover:text-navy">
+    <div class="container-w flex flex-wrap items-center justify-between gap-4 py-10">
+      <span class="text-sm text-tekst">Volgende case</span>
+      <span class="inline-flex items-center gap-4 text-[clamp(1.8rem,3.4vw,3rem)] font-bold tracking-strak group-hover:text-paars">
+        {volgende.data.klant} <Icon name="pijl" size={40} class="text-paars" />
+      </span>
+    </div>
+  </a>
+
+  <CtaBand titel="Ook zo'n resultaat voor jouw shop?" />
+</Base>

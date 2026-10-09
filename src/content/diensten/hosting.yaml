@@ -1,0 +1,170 @@
+titel: Hosting
+pijler: magento
+volgorde: 8
+kort: Managed Magento hosting via Hypernode, door ons geregeld en beheerd.
+eyebrow: Magento hosting · Hypernode Gold Partner
+heroTitel: Managed Magento hosting
+heroAccent: geregeld en beheerd door ons.
+intro: >-
+  Snelle, veilige en stabiele hosting is de basis van elke Magento webshop. Als Hypernode Gold Partner
+  regelen we je hosting, richten we de omgeving in en beheren we hem. Eén partij voor je webshop én je
+  server.
+visual: schild
+visualBadge:
+  titel: Hypernode Gold Partner
+  tekst: Hosting gespecialiseerd in Magento.
+  icoon: server
+watIs:
+  titel: Wat is managed Magento hosting?
+  tekst: >-
+    Magento stelt hoge eisen aan je server: genoeg rekenkracht, de juiste PHP versie, caching met Varnish
+    en Redis, en een zoekmachine als OpenSearch. Bij managed Magento hosting hoef jij daar niet over na
+    te denken. Wij sluiten de hosting bij Hypernode voor je af, richten de omgeving optimaal in voor jouw
+    webshop en houden hem in de gaten.
+  punten:
+  - Hosting bij Hypernode, gespecialiseerd in Magento
+  - Inrichting en tuning voor jouw webshop en verkeer
+  - Monitoring, updates en beheer door ons team
+  - Eén aanspreekpunt voor webshop en server
+  visual: dashboard
+voordelen:
+- icoon: bliksem
+  titel: Snel
+  tekst: Een omgeving die is ingericht op Magento, met caching en de juiste configuratie.
+- icoon: schild
+  titel: Veilig
+  tekst: Actuele software, back-ups en monitoring als basis.
+- icoon: lagen
+  titel: Schaalbaar
+  tekst: Meegroeien met je verkeer, ook tijdens piekmomenten en acties.
+- icoon: team
+  titel: Eén partij
+  tekst: 'Geen discussie tussen bureau en hoster: wij regelen het.'
+waarom:
+  titel: Waarom hosting en beheer bij één partij?
+  tekst: >-
+    Bij problemen met een webshop wijzen bureau en hoster vaak naar elkaar. Ondertussen staat je shop
+    stil of is hij traag. Door hosting en webshopbeheer bij ons onder te brengen, heb je één aanspreekpunt
+    dat de hele keten kent.
+
+
+    We werken al jaren met Hypernode en zijn Gold Partner. Dat betekent korte lijnen, kennis van het platform
+    en snel schakelen als het nodig is. Krale stapte met ons over van Adobe Commerce Cloud naar Magento
+    Open Source en bespaart daarmee €90K per jaar.
+onderdelenTitel: Wat we voor je regelen
+onderdelen:
+- icoon: server
+  label: Hostingplan op maat
+- icoon: herhaal
+  label: Verhuizing zonder downtime
+- icoon: bliksem
+  label: Varnish en Redis
+- icoon: zoek
+  label: OpenSearch
+- icoon: code
+  label: Staging omgeving
+- icoon: database
+  label: Back-ups
+- icoon: oog
+  label: Monitoring
+- icoon: slot
+  label: SSL en beveiliging
+- icoon: lagen
+  label: Schalen bij pieken
+- icoon: thermometer
+  label: Performance tuning
+- icoon: sleutel
+  label: Toegang en accounts
+- icoon: document
+  label: Facturatie en beheer
+wanneer:
+- Je webshop is traag of valt soms om
+- Je hostingpartij kent Magento niet goed
+- Bureau en hoster wijzen naar elkaar bij problemen
+- Je verwacht groei of piekmomenten zoals Black Friday
+- Je wilt overstappen van Adobe Commerce Cloud
+stappen:
+- label: Week 1
+  titel: Advies
+  tekst: We bekijken je webshop, verkeer en wensen en adviseren het juiste plan.
+- label: Week 2 tot 3
+  titel: Inrichten en verhuizen
+  tekst: We richten de omgeving in, testen en verhuizen je webshop gecontroleerd.
+- label: Doorlopend
+  titel: Beheren en bewaken
+  tekst: Monitoring, updates en tuning, met korte lijnen naar Hypernode.
+waaromWedigify:
+- icoon: schild
+  titel: Hypernode Gold Partner
+  tekst: Ervaring met het platform en korte lijnen met hun team.
+- icoon: code
+  titel: Magento in eigen huis
+  tekst: Onze developers kennen zowel de webshop als de server.
+- icoon: team
+  titel: Eén aanspreekpunt
+  tekst: Voor hosting, webshop en doorontwikkeling.
+- icoon: kalender
+  titel: Heldere afspraken
+  tekst: Duidelijke afspraken over beheer en reactietijden.
+resultaten:
+- icoon: bliksem
+  richting: op
+  titel: Snelheid
+  tekst: Snellere laadtijden.
+- icoon: schild
+  richting: op
+  titel: Uptime
+  tekst: Een stabiele webshop.
+- icoon: waarschuwing
+  richting: neer
+  titel: Storingen
+  tekst: Problemen eerder gezien.
+- icoon: euro
+  richting: neer
+  titel: Kosten
+  tekst: 'Krale: €90K per jaar bespaard.'
+- icoon: klok
+  richting: neer
+  titel: Doorlooptijd
+  tekst: Sneller opgelost, één partij.
+- icoon: lagen
+  richting: op
+  titel: Schaal
+  tekst: Klaar voor piekmomenten.
+faq:
+- vraag: Wat is de beste hosting voor Magento?
+  antwoord: >-
+    Hosting die gespecialiseerd is in Magento, met de juiste serverconfiguratie, caching en ondersteuning.
+    Wij werken daarom met Hypernode, waar we Gold Partner van zijn.
+- vraag: Wat kost Magento hosting?
+  antwoord: >-
+    Dat hangt af van het verkeer, de omvang van je catalogus en de omgevingen die je nodig hebt, zoals
+    een staging omgeving. Na een korte analyse adviseren we het passende plan en krijg je een helder voorstel.
+- vraag: Kunnen jullie mijn webshop verhuizen zonder downtime?
+  antwoord: >-
+    We bereiden de verhuizing voor op de nieuwe omgeving, testen alles en plannen de overstap op een rustig
+    moment. Zo blijft de impact voor je klanten minimaal.
+- vraag: Wat is het verschil met gewone webhosting?
+  antwoord: >-
+    Gewone webhosting is gemaakt voor eenvoudige websites. Magento heeft meer rekenkracht, specifieke
+    software en caching nodig. Managed Magento hosting is daar volledig op ingericht en wordt actief beheerd.
+- vraag: Kan ik overstappen van Adobe Commerce Cloud?
+  antwoord: >-
+    Ja. Veel webshops stappen over naar Magento Open Source op Hypernode en besparen zo flink op licentie
+    en hostingkosten. Krale bespaart daarmee €90K per jaar.
+- vraag: Blijf ik eigenaar van mijn data?
+  antwoord: >-
+    Ja. Je webshop, data en code blijven altijd van jou. Wij regelen en beheren de hosting voor je.
+case: krale
+specialist: mike
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+ctaTitel: Je Magento hosting goed geregeld?
+ctaIntro: >-
+  Plan een gesprek. We kijken naar je huidige hosting en performance en adviseren over de beste omgeving
+  voor je webshop.
+ctaLabel: Plan een gesprek
+seoTitel: 'Magento hosting Nederland: managed via Hypernode | Wedigify'
+seoOmschrijving: >-
+  Managed Magento hosting via Hypernode: wij regelen, richten in en beheren je hosting. Snel, veilig en
+  schaalbaar, met één aanspreekpunt. Hypernode Gold Partner.

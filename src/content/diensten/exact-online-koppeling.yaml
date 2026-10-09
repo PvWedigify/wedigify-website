@@ -1,0 +1,141 @@
+titel: Exact Online koppeling
+pijler: magento
+volgorde: 2
+ouder: integraties
+kort: Exact Online en Magento automatisch in sync.
+eyebrow: Magento integraties
+heroTitel: Exact Online koppeling
+heroAccent: met je Magento webshop.
+intro: >-
+  Koppel je Magento webshop aan Exact Online. Orders, klanten, artikelen en voorraad worden automatisch
+  uitgewisseld, zodat je boekhouding en webshop altijd op elkaar aansluiten.
+visual: koppeling
+visualBadge:
+  titel: Magento en Exact Online in sync
+  tekst: Voorraad, prijzen en orders automatisch.
+  icoon: stekker
+watIs:
+  titel: Wat doet een Exact Online koppeling?
+  tekst: >-
+    Met een Exact Online koppeling verbind je Magento met je boekhouding en logistiek in Exact Online.
+    Webshoporders komen automatisch als verkooporder of factuur in Exact, en artikelen, prijzen en voorraad
+    uit Exact worden bijgewerkt in Magento. We maken gebruik van de REST API en webhooks van Exact Online.
+  punten:
+  - Orders automatisch als verkooporder of factuur in Exact Online
+  - Artikelen, prijzen en voorraad vanuit Exact in Magento
+  - Klanten en relaties automatisch aangemaakt
+  - Monitoring en foutafhandeling ingebouwd
+  visual: dashboard
+voordelen:
+- icoon: klok
+  titel: Geen dubbel werk
+  tekst: Orders en klanten niet meer handmatig overzetten naar Exact Online.
+- icoon: vink
+  titel: Eén bron van waarheid
+  tekst: Exact Online blijft leidend voor voorraad, prijzen en debiteuren.
+- icoon: bliksem
+  titel: Actuele webshop
+  tekst: Voorraad en prijzen in Magento zijn altijd actueel.
+- icoon: oog
+  titel: Bewaakt
+  tekst: Logging en meldingen, zodat geen order ongemerkt blijft hangen.
+onderdelenTitel: Welke data we synchroniseren
+onderdelen:
+- icoon: label
+  label: Artikelen
+- icoon: lagen
+  label: Voorraad
+- icoon: euro
+  label: Prijzen
+- icoon: gebruiker
+  label: Relaties
+- icoon: winkelwagen
+  label: Verkooporders
+- icoon: document
+  label: Facturen
+wanneer:
+- Je werkt met Exact Online en een Magento webshop
+- Orders of voorraad worden nog handmatig overgezet
+- Je huidige koppeling is instabiel of verouderd
+- Je verkoopt B2B met klantspecifieke prijzen
+- Je groeit en wilt meer orders verwerken met hetzelfde team
+stappen:
+- label: Week 1 tot 2
+  titel: Datastromen in kaart
+  tekst: Welke gegevens, welke richting, hoe vaak en wat in Exact Online leidend is.
+- label: Bouw
+  titel: Koppeling ontwikkelen
+  tekst: Standaard connector waar het kan, maatwerk via de API waar het moet.
+- label: Live
+  titel: Testen en monitoren
+  tekst: Testen met echte data, gecontroleerd live en daarna bewaakt.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Handwerk
+  tekst: Uren per week bespaard.
+- icoon: vink
+  richting: op
+  titel: Datakwaliteit
+  tekst: Juiste voorraad en prijzen.
+- icoon: waarschuwing
+  richting: neer
+  titel: Fouten
+  tekst: Minder verkeerde orders.
+- icoon: bliksem
+  richting: op
+  titel: Doorlooptijd
+  tekst: Orders sneller verwerkt.
+- icoon: lagen
+  richting: op
+  titel: Schaal
+  tekst: Meer orders, zelfde team.
+- icoon: grafiek
+  richting: op
+  titel: Inzicht
+  tekst: Webshopdata direct in je administratie.
+faq:
+- vraag: Kan Exact Online gekoppeld worden aan Magento 2?
+  antwoord: >-
+    Ja. Exact Online en Magento 2 zijn goed te koppelen. Afhankelijk van je processen kiezen we voor een
+    bestaande connector of een maatwerk koppeling via de API.
+- vraag: Welke gegevens worden uitgewisseld tussen Magento en Exact Online?
+  antwoord: >-
+    Meestal artikelen, voorraad, prijzen, klanten en orders, en vaak ook facturen en track and trace.
+    In de eerste fase bepalen we samen welke data in welke richting gaat.
+- vraag: Hoe vaak wordt de data gesynchroniseerd?
+  antwoord: >-
+    Dat stemmen we af op je processen. Orders gaan vaak direct of binnen enkele minuten door; voorraad
+    en prijzen kunnen periodiek of bij elke wijziging worden bijgewerkt.
+- vraag: Wat gebeurt er als de koppeling een fout geeft?
+  antwoord: >-
+    We bouwen logging, herhaalpogingen en meldingen in. Zo zie je direct als er iets misgaat en raken
+    er geen orders kwijt.
+- vraag: Werkt de koppeling met meerdere Exact Online administraties?
+  antwoord: >-
+    Ja, dat is mogelijk. Bijvoorbeeld als je meerdere storeviews of landen hebt met een eigen administratie.
+    Dat nemen we mee in de eerste fase.
+case: tacstack
+specialist: dmytro
+ctaTitel: Magento koppelen met Exact Online?
+ctaIntro: >-
+  Vertel ons hoe je nu met Exact Online werkt. We brengen de datastromen in kaart en adviseren over de
+  beste koppeling.
+ctaLabel: Plan een gesprek
+seoTitel: Magento koppeling met Exact Online | Wedigify
+seoOmschrijving: >-
+  Koppel Exact Online aan je Magento webshop: orders, relaties, artikelen en voorraad automatisch gesynchroniseerd
+  via de Exact Online API.

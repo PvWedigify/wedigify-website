@@ -1,0 +1,39 @@
+heroEyebrow: Magento agency uit Rotterdam · Hypernode Gold Partner
+heroTitel: Het Magento bureau
+heroAccent: voor webshops die willen groeien.
+heroIntro: >-
+  Wedigify is dé agency die Magento en Hyvä webshops bouwt, beheert en optimaliseert. Met een
+  vast team van developers, marketeers en een digitale strateeg werken we vanuit
+  één business case aan meetbare groei.
+manifest:
+  - titel: We bellen voordat jij het merkt.
+    tekst: Monitoring, patches en een vaste developer. Problemen lossen we op voordat ze omzet kosten.
+  - titel: Afspraak is afspraak.
+    tekst: Targets per kwartaal, op papier. Halen we ze niet, dan weet je waarom en wat we eraan doen.
+  - titel: Niet lullen, maar poetsen.
+    tekst: Geen rapporten om de rapporten. Elke maand zie je wat er gebouwd, getest en verdiend is.
+magentoTitel: Magento, van A tot
+magentoAccent: Hyvä
+magentoIntro: >-
+  Onze developers doen elke dag niets anders dan Magento. Geen uitbesteding,
+  geen junior die het uitzoekt.
+aanpakTitel: Eén business case. Eén roadmap. Een jaar lang samen.
+aanpakIntro: >-
+  Onze digitale strateeg brengt per kanaal in kaart aan welke knoppen we
+  draaien, online en offline. Daarna zet een specialist per discipline de
+  targets om in resultaat.
+teamTitel: Een vast team van specialisten in Rotterdam.
+teamIntro: >-
+  Developers, marketeers en strategen onder één dak aan de Posthoornstraat.
+  Je werkt met vaste gezichten die je webshop kennen.
+ctaTitel: Klaar voor de volgende stap?
+ctaAccent: Laten we kennismaken.
+uitgelichteCases:
+  - budgetplan
+  - tacstack
+  - krale
+  - greenfield-fashion
+heroCases:
+  - krale
+  - greenfield-fashion
+  - tacstack

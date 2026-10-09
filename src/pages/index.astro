@@ -1,0 +1,287 @@
+---
+import { getEntries, getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Icon from '@/components/Icon.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import HeroResultaten from '@/components/HeroResultaten.astro';
+import WaaromWedigify from '@/components/WaaromWedigify.astro';
+import Zekerheid from '@/components/Zekerheid.astro';
+import VoorWie from '@/components/VoorWie.astro';
+import KlantQuotes from '@/components/KlantQuotes.astro';
+import Kerncijfers from '@/components/Kerncijfers.astro';
+import LogoMarquee from '@/components/LogoMarquee.astro';
+import DienstIndex from '@/components/DienstIndex.astro';
+import CaseFeature from '@/components/CaseFeature.astro';
+import CaseKaart from '@/components/CaseKaart.astro';
+import AanpakBand from '@/components/AanpakBand.astro';
+import PartnerSectie from '@/components/PartnerSectie.astro';
+import Avatar from '@/components/Avatar.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import ContactKaart from '@/components/ContactKaart.astro';
+import KennisKaart from '@/components/KennisKaart.astro';
+import { getHome, getSite, getDiensten, getTeam, bestaat } from '@/lib/site';
+
+const home = await getHome();
+const site = await getSite();
+const magento = (await getDiensten('magento')).filter((d) => d.data.opHome);
+const groei = await getDiensten('groei');
+const groeiIcoon: Record<string, string> = {
+  'strategie-data': 'grafiek', seo: 'zoek', sea: 'doel', 'social-advertising': 'megafoon',
+  'e-mailmarketing': 'mail', cro: 'op', content: 'pen', ai: 'sparkle',
+};
+const partnerLogos = site.partners.filter((p) => bestaat(p.logo));
+const cases = await getEntries(home.uitgelichteCases);
+const heroCases = await getEntries(home.heroCases);
+const [uitgelicht, ...overige] = cases;
+const alleTeam = await getTeam();
+const team = [...alleTeam.filter((t) => t.data.foto), ...alleTeam.filter((t) => !t.data.foto)].slice(0, 7);
+const contactpersoon = site.contactpersoon ? (await getEntries([site.contactpersoon]))[0] : null;
+const kennis = (await getCollection('kennis')).sort((x, y) => y.data.datum.valueOf() - x.data.datum.valueOf()).slice(0, 3);
+const disciplines = ['Magento', 'Hyvä', 'Adobe Commerce', 'SEO', 'SEA', 'Social', 'E-mail', 'CRO', 'Data', 'Offline'];
+
+---
+
+<Base
+  titel="Wedigify | Magento Agency | Magento E-commerce Specialisten"
+  omschrijving="Wij zijn Wedigify, een technisch en datagedreven Magento agency uit Rotterdam. Magento e-commerce specialisten in Hyvä, migraties en groei."
+>
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative grid items-center gap-x-12 gap-y-14 pt-12 pb-16 md:pt-20 md:pb-24 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:pt-24">
+      <div>
+        <p class="inline-flex items-center gap-2.5 rounded-full border border-lijn-sterk bg-white/80 py-1.5 pr-4 pl-2 text-[13px] font-medium text-tekst backdrop-blur">
+          <span class="puls-stip size-2 rounded-full bg-paars" aria-hidden="true"></span>
+          {home.heroEyebrow}
+        </p>
+        <h1 class="mt-7 text-[clamp(2.5rem,4.3vw,3.8rem)] leading-[1.04] tracking-strak">
+          <span class="block">{home.heroTitel}</span>
+          <span class="block text-balance text-paars">{home.heroAccent}</span>
+        </h1>
+        <p class="lead mt-8 max-w-[540px] md:text-xl">{home.heroIntro}</p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">Plan een groeisessie <Icon name="pijl" size={18} /></a>
+          <a href="/magento-scan/" class="knop-rand bg-white/60">Laat je shop scannen</a>
+        </div>
+        {
+          partnerLogos.length > 0 && (
+            <div class="mt-12 border-t border-lijn-sterk pt-6">
+              <p class="mb-4 text-[13px] font-medium text-stil">Gecertificeerd partner van</p>
+              <ul class="flex flex-wrap items-center gap-x-8 gap-y-4">
+                {partnerLogos.map((p) => (
+                  <li><img src={p.logo} alt={`${p.naam} ${p.label}`} class="h-10 w-auto max-w-[150px] object-contain opacity-90 transition hover:opacity-100" loading="lazy" /></li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+      {heroCases.length > 0 && <HeroResultaten cases={heroCases} />}
+    </div>
+  </section>
+
+  <!-- Disciplines (doorlopende band) -->
+  <div class="relative overflow-hidden bg-paars text-white">
+    <div class="marquee rand-fade-x overflow-hidden py-4" aria-label="Disciplines">
+      <ul class="marquee-spoor items-center gap-8 pr-8 text-[15px] font-medium" style="--duur:30s">
+        {
+          [...disciplines, ...disciplines].map((d, i) => (
+            <li class="flex items-center gap-8 whitespace-nowrap" aria-hidden={i >= disciplines.length ? 'true' : undefined}>
+              {d}
+              <span class="size-2 rounded-[2px] bg-white/45" aria-hidden="true" />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <Kerncijfers
+    cijfers={[
+      { waarde: alleTeam.length, label: 'specialisten onder één dak' },
+      { waarde: 2012, label: 'Magento ervaring sinds', tellen: false },
+      { waarde: 90, voor: '€', na: 'K', label: 'per jaar bespaard voor Krale' },
+      { waarde: 250, voor: '+', na: '%', label: 'organische omzet Greenfield' },
+    ]}
+  />
+
+  {site.klanten.length > 0 && <LogoMarquee klanten={site.klanten} />}
+
+  <!-- Manifest -->
+  <section class="container-w sectie">
+    <p class="eyebrow mb-8" data-reveal>Rotterdamse mentaliteit, uitgelegd</p>
+    <div class="grid gap-5 md:grid-cols-3">
+      {
+        home.manifest.map((m, i) => (
+          <div
+            class="group relative flex flex-col gap-3 overflow-hidden rounded-kaart border border-lijn bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:shadow-[0_24px_50px_-28px_rgb(118_60_247/0.45)] md:p-8"
+            data-reveal
+            style={`--vertraging:${i * 100}ms`}
+          >
+            <span class="text-[64px] leading-none font-bold tracking-strak text-paars-100 transition-colors group-hover:text-paars-200" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h2 class="text-[26px] leading-tight tracking-kop md:text-[28px]">{m.titel}</h2>
+            <p class="leading-[1.7] text-tekst">{m.tekst}</p>
+            <span class="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-paars transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Pijler 1: Magento -->
+  <section class="relative isolate overflow-hidden bg-grijs">
+    <div class="stippen-donker fade-onder pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="container-w sectie relative">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-4">Pijler 1 · Magento development</p>
+          <h2 class="kop-2">
+            {home.magentoTitel} <span class="text-paars">{home.magentoAccent}</span>.
+          </h2>
+        </div>
+        <p class="lead max-w-[420px]">{home.magentoIntro}</p>
+      </div>
+      <DienstIndex diensten={magento} />
+      <a href="/magento/" class="knop-rand mt-10">Alle Magento diensten <Icon name="pijl" size={18} /></a>
+    </div>
+  </section>
+
+  <!-- Pijler 2: Groei -->
+  <section class="relative isolate overflow-hidden bg-navy text-white">
+    <div class="gloed-donker pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="raster-licht pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+    <div class="container-w sectie relative grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+      <div class="lg:sticky lg:top-28 lg:self-start" data-reveal>
+        <p class="eyebrow mb-4 text-paars-200">Pijler 2 · Online groei</p>
+        <h2 class="kop-2 text-white">Groei, met een <span class="text-paars-200">specialist per kanaal</span>.</h2>
+        <p class="lead mt-6 max-w-[460px] text-white/75">Een webshop bouwen is stap één. Daarna gaat het om bezoekers, conversie en omzet. Een digitale strateeg brengt SEO, SEA, social, e-mail, CRO en content samen in één business case, online en offline.</p>
+        <ul class="mt-8 space-y-3 text-white/85">
+          {['Eén strateeg als vast aanspreekpunt', 'Een eigen specialist per kanaal', 'Sturen op omzet en marge, niet op klikken'].map((p) => (
+            <li class="flex items-start gap-3"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span>{p}</li>
+          ))}
+        </ul>
+        <a href="/groei/" class="knop-paars mt-10">Alle groeidiensten <Icon name="pijl" size={18} /></a>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {
+          groei.map((d, i) => {
+            const sp = d.data.specialist ? alleTeam.find((t) => t.id === d.data.specialist?.id) : undefined;
+            return (
+              <li data-reveal style={`--vertraging:${(i % 2) * 80}ms`}>
+                <a href={`/groei/${d.id}/`} class="group flex h-full flex-col rounded-kaart border border-white/10 bg-white/[0.04] p-6 text-white transition-all duration-300 hover:-translate-y-1 hover:border-paars hover:bg-white/[0.08] hover:text-white">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex size-11 items-center justify-center rounded-knop bg-paars/20 text-paars-200 transition-colors group-hover:bg-paars group-hover:text-white">
+                      <LijnIcoon naam={groeiIcoon[d.id] ?? 'grafiek'} size={22} />
+                    </span>
+                    <span class="text-[13px] font-semibold text-white/40">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <h3 class="mt-5 text-xl font-semibold tracking-kop text-white">{d.data.titel}</h3>
+                  <p class="mt-2 flex-1 text-[15px] leading-relaxed text-white/70">{d.data.kort}</p>
+                  {sp && (
+                    <div class="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
+                      {sp.data.foto ? <img src={sp.data.foto} alt="" width="32" height="32" loading="lazy" decoding="async" class="size-8 rounded-full object-cover" /> : <span class="inline-flex size-8 items-center justify-center rounded-full bg-paars text-xs font-bold">{sp.data.naam.charAt(0)}</span>}
+                      <span class="text-[13px] leading-tight text-white/60"><span class="font-semibold text-white/90">{sp.data.naam}</span><br />{sp.data.rol}</span>
+                    </div>
+                  )}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+
+  <VoorWie />
+
+  <!-- Cases -->
+  <section class="container-w sectie">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+      <h2 class="kop-2">Resultaten <span class="text-paars">die we samen boekten.</span></h2>
+      <a href="/cases/" class="link-onderstreept">Alle cases</a>
+    </div>
+    {uitgelicht && <div data-reveal><CaseFeature item={uitgelicht} /></div>}
+    <div class="mt-5 grid gap-5 md:grid-cols-3">
+      {overige.map((c, i) => <div data-reveal style={`--vertraging:${i * 100}ms`}><CaseKaart item={c} /></div>)}
+    </div>
+  </section>
+
+  <KlantQuotes achtergrond="lavendel" />
+
+  <AanpakBand titel={home.aanpakTitel ?? ''} intro={home.aanpakIntro} />
+
+  <WaaromWedigify />
+
+  <Zekerheid />
+
+  <!-- Team -->
+  <section class="container-w sectie flex flex-wrap items-center gap-12">
+    <div class="min-w-0 flex-[1_1_380px]" data-reveal>
+      <p class="eyebrow mb-5">Wie we zijn</p>
+      <h2 class="kop-2 mb-5">{home.teamTitel}</h2>
+      <p class="lead mb-8">{home.teamIntro}</p>
+      <a href="/over-ons/team/" class="knop-rand">Ontmoet het team <Icon name="pijl" size={18} /></a>
+    </div>
+    <div class="grid min-w-0 flex-[1_1_520px] grid-cols-4 gap-2.5">
+      {
+        team.map((t, i) => (
+          <div class="group relative" data-reveal style={`--vertraging:${i * 60}ms`}>
+            <Avatar naam={t.data.naam} foto={t.data.foto} formaat="vierkant" class="grayscale-[35%] transition duration-500 group-hover:grayscale-0" />
+            <span class="pointer-events-none absolute inset-x-1.5 bottom-1.5 translate-y-1 rounded-md bg-white/95 px-2 py-1 text-[11px] leading-tight font-medium opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <b class="block font-semibold">{t.data.naam}</b>
+              {t.data.rol}
+            </span>
+          </div>
+        ))
+      }
+      <a href="/over-ons/team/" class="flex aspect-square items-center justify-center rounded-kaart bg-paars text-2xl font-bold text-white transition-colors hover:bg-paars-donker hover:text-white" data-reveal style="--vertraging:420ms">
+        +{Math.max(alleTeam.length - 7, 0)}
+      </a>
+    </div>
+  </section>
+
+  <PartnerSectie />
+
+  {
+    kennis.length > 0 && (
+      <section class="container-w sectie">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="eyebrow mb-4">Kennis</p>
+            <h2 class="kop-2">Inzichten over Magento <span class="text-paars">en e-commerce.</span></h2>
+          </div>
+          <a href="/kennis/" class="link-onderstreept">Alle artikelen</a>
+        </div>
+        <ul class="grid gap-5 md:grid-cols-3">
+          {kennis.map((a, i) => (
+            <li data-reveal style={`--vertraging:${i * 90}ms`}><KennisKaart artikel={a} /></li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <!-- Slot -->
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w sectie relative flex flex-wrap items-end justify-between gap-10">
+      <div class="min-w-0 flex-[1_1_560px]" data-reveal>
+        <h2 class="mb-8 max-w-[900px] text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[1.04] font-bold tracking-strak">
+          {home.ctaTitel}<br /><span class="text-paars">{home.ctaAccent}</span>
+        </h2>
+        <div class="inline-flex flex-wrap gap-3">
+          <a href="/contact/" class="knop-paars">Plan een groeisessie <Icon name="pijl" size={18} /></a>
+          {site.telefoon && <a href={`tel:${site.telefoonLink}`} class="knop-rand bg-white/60"><Icon name="telefoon" size={18} /> {site.telefoon}</a>}
+        </div>
+        <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-tekst">
+          {['Vrijblijvend gesprek', 'Direct een specialist aan tafel', 'Geen verplichtingen'].map((p) => (
+            <li class="flex items-center gap-2"><span class="inline-flex size-5 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={12} /></span>{p}</li>
+          ))}
+        </ul>
+      </div>
+      <div data-reveal style="--vertraging:150ms"><ContactKaart persoon={contactpersoon} /></div>
+    </div>
+  </section>
+</Base>

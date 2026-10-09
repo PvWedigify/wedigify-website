@@ -1,0 +1,40 @@
+---
+/** Ervaring per branche, gevoed door de cases. */
+import { getCases, caseUrl, bestaat, srcset } from '@/lib/site';
+import Icon from './Icon.astro';
+interface Props {
+  titel?: string;
+}
+const { titel = 'Ervaring in jouw branche.' } = Astro.props;
+const cases = (await getCases()).filter((c) => bestaat(c.data.afbeelding));
+---
+
+<section class="container-w sectie-s">
+  <div class="mb-10 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+    <div>
+      <p class="eyebrow mb-4">Ervaring per branche</p>
+      <h2 class="kop-2 max-w-[640px]">{titel}</h2>
+    </div>
+    <div class="max-w-[440px]">
+      <p class="text-lg leading-relaxed text-tekst">Van mode en sieraden tot keukens, wonen en outdoor. We werken voor ambitieuze merken en retailers, B2C en B2B, online en met eigen winkels.</p>
+      <a href="/branches/" class="link-onderstreept mt-4 inline-block">Bekijk per branche</a>
+    </div>
+  </div>
+  <ul class="grid grid-cols-2 gap-3 md:grid-cols-4">
+    {
+      cases.map((c, i) => (
+        <li data-reveal style={`--vertraging:${(i % 4) * 70}ms`}>
+          <a href={caseUrl(c)} class="group relative block aspect-[4/5] overflow-hidden rounded-[14px] bg-navy hover:text-white">
+            <img src={c.data.afbeelding} srcset={srcset(c.data.afbeelding)} sizes="(min-width: 768px) 25vw, 50vw" alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60" />
+            <span class="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" aria-hidden="true" />
+            <span class="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4 text-white md:p-5">
+              <span class="text-[12px] font-semibold tracking-wide text-paars-licht uppercase">{c.data.branche}</span>
+              <span class="text-lg leading-tight font-semibold">{c.data.klant}</span>
+              <span class="flex items-center gap-1.5 text-[13px] text-white/80">{c.data.hoofdcijfer} · bekijk de case <Icon name="pijl" size={14} class="transition-transform group-hover:translate-x-1" /></span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

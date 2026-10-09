@@ -1,0 +1,22 @@
+---
+/** Tegel in het dienstenoverzicht die doorlinkt naar /magento/versies/. */
+import Icon from './Icon.astro';
+import LijnIcoon from './LijnIcoon.astro';
+import { magentoVersies } from '@/data/magentoVersies';
+const nieuwste = magentoVersies[0];
+---
+
+<li data-reveal style="--vertraging:180ms">
+  <a href="/magento/versies/" class="group relative flex h-full flex-col gap-3 overflow-hidden rounded-[14px] border border-paars-200 bg-lavendel p-7 transition-all duration-300 hover:-translate-y-1 hover:border-paars hover:text-navy hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)] md:p-8">
+    <span class="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-paars transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true"></span>
+    <span class="flex items-center justify-between">
+      <span class="inline-flex size-10 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam="klok" size={20} /></span>
+      <span class="rounded-full bg-white px-3 py-1 text-[12px] font-semibold text-paars">Nieuwste: {nieuwste.versie}</span>
+    </span>
+    <h2 class="text-2xl font-semibold tracking-kop group-hover:text-paars">Magento versies</h2>
+    <p class="leading-relaxed text-tekst">Wordt jouw versie nog ondersteund? Check de supportdata per versie.</p>
+    <span class="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-paars">
+      Check jouw versie <Icon name="pijl" size={16} />
+    </span>
+  </a>
+</li>

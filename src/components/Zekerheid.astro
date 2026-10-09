@@ -1,0 +1,40 @@
+---
+/** Zekerheid en governance: waarom een groter MKB-bedrijf zijn webshop veilig bij ons onderbrengt. */
+import LijnIcoon from './LijnIcoon.astro';
+import Icon from './Icon.astro';
+interface Props {
+  titel?: string;
+  accent?: string;
+}
+const { titel = 'Je webshop in', accent = 'vertrouwde handen.' } = Astro.props;
+const punten = [
+  { icoon: 'team', titel: 'Continuïteit', tekst: 'Een vast team met vaste vervanging en gedocumenteerde kennis. Je bent nooit afhankelijk van één persoon.' },
+  { icoon: 'sleutel', titel: 'Eigendom bij jou', tekst: 'Code, data, accounts en licenties staan op jouw naam. Je zit nergens aan vast.' },
+  { icoon: 'code', titel: 'Kwaliteitsborging', tekst: 'Versiebeheer, code reviews, een testomgeving en een vaste releaseprocedure voor elke wijziging.' },
+  { icoon: 'schild', titel: 'Veiligheid en AVG', tekst: 'Security patches, monitoring en back-ups. Afspraken over gegevensverwerking leggen we vast in een verwerkersovereenkomst.' },
+  { icoon: 'kalender', titel: 'Heldere afspraken', tekst: 'Een supportovereenkomst met duidelijke reactietijden, prioriteiten en een vast aanspreekpunt.' },
+  { icoon: 'staaf', titel: 'Grip op budget', tekst: 'Vooraf een onderbouwde begroting, maandelijks inzicht in uren, voortgang en resultaat.' },
+];
+---
+
+<section class="relative isolate overflow-hidden border-y border-lijn bg-white">
+  <div class="container-w sectie-s grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)]">
+    <div class="lg:sticky lg:top-32 lg:self-start" data-reveal>
+      <p class="eyebrow mb-4">Zekerheid</p>
+      <h2 class="kop-2 mb-6">{titel} <span class="text-paars">{accent}</span></h2>
+      <p class="mb-8 text-[17px] leading-[1.75] text-tekst">Je webshop is een van de belangrijkste systemen van je organisatie. Daarom werken we met de processen en afspraken die je van een volwassen partner mag verwachten, zonder de logge structuur van een groot bureau.</p>
+      <a href="/aanpak/" class="link-onderstreept inline-flex items-center gap-2">Zo werken we samen <Icon name="pijl" size={16} /></a>
+    </div>
+    <ul class="grid gap-px overflow-hidden rounded-[14px] border border-lijn bg-lijn sm:grid-cols-2">
+      {
+        punten.map((p, i) => (
+          <li class="flex flex-col gap-3 bg-white p-7 md:p-8" data-reveal style={`--vertraging:${(i % 2) * 90}ms`}>
+            <span class="inline-flex size-11 items-center justify-center rounded-[10px] bg-paars-50 text-paars"><LijnIcoon naam={p.icoon} size={22} /></span>
+            <h3 class="text-lg font-semibold">{p.titel}</h3>
+            <p class="text-[15px] leading-relaxed text-tekst">{p.tekst}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

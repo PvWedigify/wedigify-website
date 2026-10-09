@@ -1,0 +1,210 @@
+---
+import { getCollection, getEntries, type CollectionEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Achtergrond from '@/components/Achtergrond.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Icon from '@/components/Icon.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import DienstVisual from '@/components/DienstVisual.astro';
+import DienstIndex from '@/components/DienstIndex.astro';
+import CaseKaart from '@/components/CaseKaart.astro';
+import KennisKaart from '@/components/KennisKaart.astro';
+import KlantQuotes from '@/components/KlantQuotes.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { bestaat, srcset } from '@/lib/site';
+
+export async function getStaticPaths() {
+  const branches = await getCollection('branches');
+  return branches.map((b) => ({ params: { slug: b.id }, props: { branche: b } }));
+}
+interface Props {
+  branche: CollectionEntry<'branches'>;
+}
+const { branche } = Astro.props;
+const b = branche.data;
+const cases = (await getEntries(b.cases)).filter(Boolean);
+const diensten = (await getEntries(b.diensten)).filter(Boolean);
+const artikelen = (await getEntries(b.artikelen)).filter(Boolean).slice(0, 3);
+const beelden = cases.filter((c) => bestaat(c.data.afbeelding)).slice(0, 4);
+const andere = (await getCollection('branches')).filter((x) => x.id !== branche.id).sort((x, y) => x.data.volgorde - y.data.volgorde);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Magento webshop voor ${b.naam.toLowerCase()}`,
+    serviceType: 'Magento development en e-commerce',
+    description: b.seoOmschrijving ?? b.intro,
+    provider: { '@id': `${Astro.site}#organisatie` },
+    areaServed: 'NL',
+    audience: { '@type': 'BusinessAudience', name: b.naam },
+    url: new URL(Astro.url.pathname, Astro.site).toString(),
+  },
+];
+---
+
+<Base titel={b.seoTitel ?? `Magento voor ${b.naam.toLowerCase()}`} omschrijving={b.seoOmschrijving ?? b.intro} schema={schema}>
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden bg-lavendel">
+    <Achtergrond />
+    <div class="container-w relative pt-8 pb-20 md:pb-24">
+      <Breadcrumbs items={[{ label: 'Branches', href: '/branches/' }, { label: b.naam }]} />
+      <div class="grid items-center gap-x-14 gap-y-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        <div class="min-w-0">
+          <p class="eyebrow mb-5">{b.naam}</p>
+          <h1 class="text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.06] tracking-strak">
+            {b.heroTitel}
+            {b.heroAccent && <span class="block text-paars">{b.heroAccent}</span>}
+          </h1>
+          <p class="lead mt-6 max-w-[580px]">{b.intro}</p>
+          {b.heroPunten.length > 0 && (
+            <ul class="mt-7 flex flex-col gap-2.5">
+              {b.heroPunten.map((p) => (
+                <li class="flex items-center gap-3 font-medium text-navy"><span class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span>{p}</li>
+              ))}
+            </ul>
+          )}
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">Plan een kennismaking <Icon name="pijl" size={18} /></a>
+            {cases.length > 0 ? <a href="#cases" class="knop-rand bg-white/60">Bekijk de cases</a> : <a href="/magento-scan/" class="knop-rand bg-white/60">Vraag een Magento scan aan</a>}
+          </div>
+        </div>
+        {
+          beelden.length >= 2 ? (
+            <div class="grid grid-cols-2 gap-3">
+              {beelden.map((c, i) => (
+                <a href={`/cases/${c.id}/`} class:list={['group relative block overflow-hidden rounded-[14px] bg-navy hover:text-white', i % 2 === 1 ? 'mt-8 aspect-[4/5]' : 'aspect-[4/5]']}>
+                  <img src={c.data.afbeelding} srcset={srcset(c.data.afbeelding)} sizes="(min-width: 1024px) 22vw, 45vw" alt="" loading={i < 2 ? 'eager' : 'lazy'} decoding="async" class="absolute inset-0 size-full object-cover opacity-85 transition duration-700 group-hover:scale-105" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/10 to-transparent" aria-hidden="true" />
+                  <span class="absolute inset-x-0 bottom-0 p-4 text-white">
+                    <span class="block text-[12px] font-semibold tracking-wide text-paars-licht uppercase">{c.data.branche}</span>
+                    <span class="block text-lg leading-tight font-semibold">{c.data.klant}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <DienstVisual type="koppeling" badge={{ titel: 'ERP gekoppeld', tekst: 'Prijzen, voorraad en orders altijd actueel', icoon: 'stekker' }} />
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Uitdagingen -->
+  <section class="container-w sectie">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+      <div>
+        <p class="eyebrow mb-4">De uitdaging</p>
+        <h2 class="kop-2 max-w-[640px]">Wat speelt er in {b.naam.toLowerCase()}?</h2>
+      </div>
+      {b.uitdagingenIntro && <p class="max-w-[440px] text-lg leading-relaxed text-tekst">{b.uitdagingenIntro}</p>}
+    </div>
+    <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {b.uitdagingen.map((u, i) => (
+        <li class="rounded-kaart border border-lijn bg-white p-7" data-reveal style={`--vertraging:${i * 70}ms`}>
+          <span class="inline-flex size-12 items-center justify-center rounded-knop bg-paars-50 text-paars"><LijnIcoon naam={u.icoon} /></span>
+          <h3 class="mt-5 text-xl font-semibold tracking-kop">{u.titel}</h3>
+          <p class="mt-2 leading-relaxed text-tekst">{u.tekst}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Oplossingen -->
+  <section class="relative isolate overflow-hidden bg-navy text-white">
+    <div class="gloed-donker pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="container-w sectie relative">
+      <div class="mb-12 max-w-[720px]" data-reveal>
+        <p class="eyebrow mb-4 text-paars-200">Onze aanpak</p>
+        <h2 class="kop-2 text-white">Zo lossen we het op, <span class="text-paars-200">met Magento.</span></h2>
+      </div>
+      <ul class="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        {b.oplossingen.map((o, i) => (
+          <li class="flex gap-5" data-reveal style={`--vertraging:${(i % 3) * 80}ms`}>
+            <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-knop bg-paars/25 text-paars-200"><LijnIcoon naam={o.icoon} /></span>
+            <div>
+              <h3 class="text-lg font-semibold tracking-kop text-white">{o.titel}</h3>
+              <p class="mt-2 leading-relaxed text-white/70">{o.tekst}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {
+    cases.length > 0 && (
+      <section id="cases" class="container-w sectie scroll-mt-28">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="eyebrow mb-4">Uit de praktijk</p>
+            <h2 class="kop-2">Resultaten in <span class="text-paars">{b.naam.toLowerCase()}.</span></h2>
+          </div>
+          <a href="/cases/" class="link-onderstreept">Alle cases</a>
+        </div>
+        <ul class:list={['grid gap-5 md:grid-cols-2', cases.length === 3 && 'lg:grid-cols-3']}>
+          {cases.map((c) => <li><CaseKaart item={c} toonKort /></li>)}
+        </ul>
+      </section>
+    )
+  }
+
+  {b.reviewBedrijven.length > 0 && <KlantQuotes bedrijven={b.reviewBedrijven} achtergrond="lavendel" titel="Wat klanten zeggen." />}
+
+  <!-- Diensten -->
+  <section class="bg-grijs">
+    <div class="container-w sectie">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-4">Diensten</p>
+          <h2 class="kop-2">Waar we je mee helpen.</h2>
+        </div>
+        <p class="max-w-[440px] text-lg leading-relaxed text-tekst">Van een nieuwe webshop tot de marketing die hem laat groeien. Alles onder één dak, met één aanspreekpunt.</p>
+      </div>
+      <DienstIndex diensten={diensten} />
+    </div>
+  </section>
+
+  {
+    artikelen.length > 0 && (
+      <section class="container-w sectie">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <h2 class="kop-2">Verder lezen</h2>
+          <a href="/kennis/" class="link-onderstreept">Alle artikelen</a>
+        </div>
+        <ul class="grid gap-5 md:grid-cols-3">
+          {artikelen.map((a) => <li><KennisKaart artikel={a} /></li>)}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    b.faq.length > 0 && (
+      <section class:list={['container-w', artikelen.length > 0 ? 'pb-20 md:pb-28' : 'sectie']}>
+        <div class="mb-10 max-w-[720px]">
+          <p class="eyebrow mb-4">Veelgestelde vragen</p>
+          <h2 class="kop-2">Vragen over Magento voor {b.naam.toLowerCase()}</h2>
+        </div>
+        <Faq items={b.faq} kolommen={2} />
+      </section>
+    )
+  }
+
+  <!-- Andere branches -->
+  <section class="border-t border-lijn">
+    <div class="container-w sectie-s flex flex-wrap items-center justify-between gap-6">
+      <p class="text-lg font-semibold text-navy">Ook ervaring in:</p>
+      <ul class="flex flex-wrap gap-3">
+        {andere.map((x) => (
+          <li><a href={`/branches/${x.id}/`} class="inline-flex items-center gap-2 rounded-full border border-lijn px-4 py-2.5 font-semibold hover:border-paars hover:text-paars"><LijnIcoon naam={x.data.icoon} size={18} class="text-paars" />{x.data.naam}</a></li>
+        ))}
+        <li><a href="/branches/" class="inline-flex items-center gap-2 rounded-full bg-lavendel px-4 py-2.5 font-semibold hover:text-paars">Alle branches <Icon name="pijl" size={16} /></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand titel={b.ctaTitel ?? 'Benieuwd wat we voor jouw webshop kunnen doen?'} label="Plan een kennismaking" />
+</Base>

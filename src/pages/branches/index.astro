@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import LijnIcoon from '@/components/LijnIcoon.astro';
+import Icon from '@/components/Icon.astro';
+import Branches from '@/components/Branches.astro';
+import CtaBand from '@/components/CtaBand.astro';
+
+const branches = (await getCollection('branches')).sort((a, b) => a.data.volgorde - b.data.volgorde);
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: branches.map((b, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/branches/${b.id}/`, Astro.site).toString(), name: b.data.naam })),
+  },
+];
+---
+
+<Base paginaType="CollectionPage" titel="Magento bureau per branche" omschrijving="Wedigify bouwt Magento webshops voor fashion, wonen, groothandel en industrie. Bekijk wat we per branche doen en welke resultaten we boekten." schema={schema}>
+  <PageHero eyebrow="Branches" titel="Magento kennis" accent="voor jouw branche." intro="Elke branche heeft zijn eigen uitdagingen. Of je nu mode verkoopt, meubels of technische onderdelen aan zakelijke klanten: we kennen de vraagstukken en weten wat werkt." kruimels={[{ label: 'Branches' }]} />
+  <section class="container-w sectie-s">
+    <ul class="grid gap-5 md:grid-cols-3">
+      {branches.map((b, i) => (
+        <li data-reveal style={`--vertraging:${i * 80}ms`}>
+          <a href={`/branches/${b.id}/`} class="group flex h-full flex-col rounded-kaart border border-lijn bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:text-navy hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)]">
+            <span class="inline-flex size-14 items-center justify-center rounded-knop bg-paars-50 text-paars transition-colors group-hover:bg-paars group-hover:text-white"><LijnIcoon naam={b.data.icoon} size={26} /></span>
+            <h2 class="mt-6 text-2xl font-semibold tracking-kop group-hover:text-paars">{b.data.naam}</h2>
+            <p class="mt-3 flex-1 leading-relaxed text-tekst">{b.data.kort}</p>
+            <span class="mt-6 inline-flex items-center gap-2 font-semibold text-paars">Bekijk {b.data.naam.toLowerCase()} <Icon name="pijl" size={16} class="transition-transform group-hover:translate-x-1" /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <Branches titel="Resultaten bij merken in verschillende branches." />
+  <CtaBand titel="Staat jouw branche er niet tussen?" intro="Geen probleem. We werken voor uiteenlopende webshops, B2C en B2B. Vertel ons over jouw situatie, dan denken we vrijblijvend mee." label="Plan een kennismaking" />
+</Base>

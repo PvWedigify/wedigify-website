@@ -1,0 +1,205 @@
+titel: CRO
+pijler: groei
+volgorde: 6
+kort: Meer omzet uit hetzelfde verkeer, onderbouwd met tests.
+eyebrow: Conversie optimalisatie
+heroTitel: Conversie optimalisatie (CRO)
+heroAccent: Meer omzet uit bestaand verkeer.
+intro: >-
+  Meer verkeer is mooi, maar wat gebeurt er daarna? Wij helpen webshops om meer uit hun bestaande bezoekers
+  te halen. Op basis van data en gebruikersgedrag verbeteren we je webshop, zodat bezoekers sneller converteren
+  en jij meer omzet realiseert zonder extra advertentiebudget.
+feiten:
+- label: Greenfield Fashion
+  waarde: +172% conversieratio
+wat:
+- Funnel- en gedragsanalyse
+- A/B tests
+- UX verbeteringen in checkout en productpagina
+- Personalisatie
+case: greenfield-fashion
+specialist: loyd
+artikelen:
+- conversie-optimalisatie-webshop
+- hyperpersonalisatie-in-e-commerce-voorbij-de-voornaam-in-je-nieuwsbrief
+ctaTitel: Benieuwd hoeveel potentie jouw webshop nog heeft?
+ctaLabel: Plan een vrijblijvend gesprek
+seoTitel: Conversie optimalisatie (CRO) voor webshops | Wedigify
+seoOmschrijving: >-
+  Conversie optimalisatie voor Magento webshops: meer omzet uit bestaand verkeer met data, UX onderzoek
+  en A/B tests. Greenfield Fashion: +172% conversieratio.
+heroPunten:
+- Vrijblijvend gesprek
+- Persoonlijk advies
+- Geen verplichtingen
+visual: dashboard
+visualBadge:
+  titel: Meer resultaat uit bestaand verkeer
+  tekst: Slimmer optimaliseren, hogere conversie.
+  icoon: grafiek
+watIs:
+  titel: Wat is CRO?
+  tekst: >-
+    CRO staat voor conversie optimalisatie. Het is het proces waarin je je webshop stap voor stap verbetert,
+    zodat meer bezoekers klant worden. Niet door meer verkeer in te kopen, maar door slimmer om te gaan
+    met het verkeer dat je al hebt. Elke verbetering is gebaseerd op onderzoek en wordt waar mogelijk
+    getest voordat we hem uitrollen.
+  punten:
+  - Optimaliseren op basis van data, niet op gevoel
+  - Gebruikersgedrag analyseren en begrijpen
+  - Frictie wegnemen in de customer journey
+  - Een betere gebruikerservaring en een hogere conversie
+  visual: heatmap
+voordelen:
+- icoon: database
+  titel: Datagedreven
+  tekst: Beslissingen op basis van data en feiten, niet op onderbuikgevoel.
+- icoon: grafiek
+  titel: Meer rendement
+  tekst: Haal meer omzet uit je bestaande verkeer, zonder extra advertentiebudget.
+- icoon: herhaal
+  titel: Continu verbeteren
+  tekst: CRO is geen eenmalig project, maar een doorlopend proces van testen en leren.
+- icoon: gebruiker
+  titel: Gebruiksvriendelijk
+  tekst: Een betere ervaring voor je bezoekers leidt tot blije klanten en meer conversie.
+waarom:
+  titel: Waarom CRO?
+  tekst: >-
+    Veel webshops investeren flink in SEO, SEA en e-mailmarketing om meer bezoekers binnen te halen. Maar
+    de webshop zelf blijft vaak onaangeroerd. Zonde, want daar ligt meestal de grootste winst: elke procent
+    extra conversie werkt door op al je kanalen tegelijk.
+
+
+    Door te optimaliseren op gedrag, data en gebruiksvriendelijkheid halen we meer uit elke sessie. Meer
+    conversie, een hogere orderwaarde en een lagere acquisitieprijs per klant. Zo groeit je omzet, terwijl
+    je marketingbudget gelijk blijft.
+onderdelenTitel: Wat kunnen we optimaliseren?
+onderdelen:
+- icoon: huis
+  label: Homepage
+- icoon: menu
+  label: Navigatie
+- icoon: zoek
+  label: Zoekfunctie
+- icoon: filters
+  label: Filters
+- icoon: raster
+  label: Categoriepagina’s
+- icoon: label
+  label: Productpagina’s
+- icoon: winkelwagen
+  label: Winkelwagen
+- icoon: betalen
+  label: Checkout
+- icoon: gebruiker
+  label: Personalisatie
+- icoon: document
+  label: Landingspagina’s
+- icoon: route
+  label: Customer journey
+- icoon: mail
+  label: E-mailmarketing
+wanneer:
+- Je webshop heeft voldoende bezoekers
+- Je wilt meer omzet uit je bestaande verkeer
+- Je ziet bezoekers afhaken in de webshop of checkout
+- Je wilt datagedreven beslissingen nemen
+- Je wilt structureel blijven verbeteren
+stappen:
+- label: Week 1 tot 3
+  titel: Inzicht verzamelen
+  tekst: >-
+    We analyseren data en gebruikersgedrag met analytics, heatmaps en sessie opnames om de grootste kansen
+    te vinden.
+- label: Doorlopend
+  titel: Optimaliseren
+  tekst: >-
+    We bedenken, bouwen en testen verbeteringen in Magento. Alleen wat aantoonbaar werkt, rollen we uit.
+- label: Elk kwartaal
+  titel: Continu verbeteren
+  tekst: >-
+    We blijven testen en optimaliseren, en koppelen de resultaten aan de targets uit je groeiplan.
+waaromWedigify:
+- icoon: staaf
+  titel: Data
+  tekst: We baseren alles op data en feiten.
+- icoon: gebruiker
+  titel: UX
+  tekst: We ontwerpen voor een optimale gebruikerservaring.
+- icoon: code
+  titel: Development
+  tekst: Onze eigen Magento developers bouwen elke test snel en stabiel.
+- icoon: megafoon
+  titel: Marketing
+  tekst: We koppelen CRO aan je SEO, SEA en e-mail voor één groeistrategie.
+resultaten:
+- icoon: doel
+  richting: op
+  titel: Conversie
+  tekst: Meer bezoekers die de overgang maken naar klant.
+- icoon: euro
+  richting: op
+  titel: Omzet
+  tekst: Meer opbrengst uit hetzelfde verkeer.
+- icoon: winkelwagen
+  richting: op
+  titel: Add to cart
+  tekst: Meer producten in de winkelwagen.
+- icoon: hart
+  richting: op
+  titel: Gebruiksgemak
+  tekst: Blije bezoekers en tevreden klanten.
+- icoon: route
+  richting: neer
+  titel: Uitval
+  tekst: Minder afhakers in de customer journey.
+- icoon: grafiek
+  richting: op
+  titel: Rendement
+  tekst: Een hogere ROI op al je marketing.
+uitleg:
+- titel: CRO voor Magento webshops
+  tekst: >-
+    Magento biedt veel vrijheid, maar elke aanpassing aan checkout, zoekfunctie of productpagina moet
+    technisch goed gebouwd worden. Omdat onze CRO specialisten en Magento developers in één team werken,
+    gaat een idee zonder overdracht van analyse naar test naar livegang. Dat scheelt weken doorlooptijd
+    per experiment.
+- titel: A/B testen of direct doorvoeren?
+  tekst: >-
+    Niet elke verbetering hoeft getest te worden. Duidelijke usability fouten lossen we direct op. Grotere
+    veranderingen, zoals een nieuwe productpagina of checkout stap, testen we met een A/B test zodra er
+    genoeg verkeer is. Zo bouw je snel resultaat op zonder risico.
+- titel: Welke tools gebruiken we?
+  tekst: >-
+    We werken met Google Analytics 4, heatmaps en sessie opnames, gebruikersonderzoek en A/B testtools
+    die passen bij je verkeer en budget. Belangrijker dan de tool is de hypothese: elke test start bij
+    een onderbouwd probleem uit de data.
+faq:
+- vraag: Wat is CRO precies?
+  antwoord: >-
+    CRO (conversie optimalisatie) is het structureel verbeteren van je webshop zodat meer bezoekers een
+    aankoop doen. We combineren data analyse, gebruikersonderzoek en tests om te bepalen wat werkt.
+- vraag: Is CRO geschikt voor iedere webshop?
+  antwoord: >-
+    CRO levert het meeste op als je webshop al een redelijke hoeveelheid bezoekers heeft. Bij weinig verkeer
+    richten we ons eerst op de grootste knelpunten en best practices, en starten we met testen zodra er
+    genoeg data is.
+- vraag: Hoe lang duurt een CRO traject?
+  antwoord: >-
+    Na een analyse van twee tot drie weken heb je een concrete lijst met verbeteringen. Daarna werken
+    we doorlopend aan tests en optimalisaties, meestal per kwartaal gekoppeld aan je groeiplan.
+- vraag: Wanneer zie ik resultaat?
+  antwoord: >-
+    Snelle verbeteringen, zoals het oplossen van fouten in de checkout, zie je vaak binnen enkele weken
+    terug. Een A/B test loopt meestal twee tot vier weken om een betrouwbare uitkomst te krijgen.
+- vraag: Is CRO een eenmalig project?
+  antwoord: >-
+    Nee. Bezoekersgedrag, je assortiment en de concurrentie veranderen continu. Daarom werken we met een
+    doorlopende testroadmap waarin we steeds de volgende kans oppakken.
+- vraag: Wat hebben jullie van ons nodig om te starten?
+  antwoord: >-
+    Toegang tot je analytics en je Magento omgeving, en inzicht in je doelen en marges. Wij doen de rest:
+    van analyse en ontwerp tot development en rapportage.
+ctaIntro: >-
+  Plan een vrijblijvend gesprek en ontdek waar de grootste optimalisatiekansen in jouw webshop liggen.

@@ -1,0 +1,157 @@
+titel: Recovery
+pijler: magento
+volgorde: 11
+opHome: true
+kort: Shop plat of gehackt? We zitten er direct op.
+eyebrow: Magento recovery
+heroTitel: Magento webshop down of gehackt?
+heroAccent: Wij herstellen hem.
+intro: >-
+  Een shop die niet werkt kost elke minuut omzet. Onze developers stabiliseren, herstellen en sluiten
+  het lek, en zorgen dat het niet nog eens gebeurt.
+voorWie:
+- titel: Je shop ligt eruit
+  tekst: Foutmeldingen, een witte pagina of een checkout die niet werkt.
+- titel: Je bent gehackt
+  tekst: 'Malware, vreemde scripts of een datalek: we isoleren en herstellen.'
+- titel: Een update ging mis
+  tekst: We rollen terug of repareren, en vinden de oorzaak.
+wat:
+- Directe analyse en stabilisatie
+- Herstel van code, data en configuratie
+- Security scan en dichten van lekken
+- Rapport met oorzaak en preventie
+specialist: mike
+faq:
+- vraag: Hoe snel kunnen jullie helpen?
+  antwoord: >-
+    Bel ons direct, dan kijken we meteen mee. Bij bestaande supportklanten gelden de afgesproken reactietijden.
+- vraag: Hoe voorkom ik dat mijn webshop opnieuw wordt gehackt?
+  antwoord: >-
+    Door security patches tijdig te installeren, extensies actueel te houden en toegang goed te beheren.
+    Na herstel krijg je een rapport met de oorzaak en concrete maatregelen.
+- vraag: Helpen jullie ook als we geen klant zijn?
+  antwoord: >-
+    Ja. Ook als je webshop door een andere partij wordt beheerd, kunnen we bij een storing of hack direct
+    helpen.
+- vraag: Wat hebben jullie nodig om te starten?
+  antwoord: >-
+    Toegang tot de server of hosting, de Magento admin en bij voorkeur de code repository. Weet je niet
+    waar je dat vindt, dan helpen we je.
+artikelen:
+- het-belang-van-magento-support-voor-jouw-e-commerce-succes
+ctaTitel: Webshop down of gehackt?
+ctaLabel: Bel ons direct
+seoTitel: Magento webshop gehackt of offline? Direct hulp | Wedigify
+seoOmschrijving: >-
+  Magento shop plat of gehackt? Wedigify stabiliseert, herstelt en beveiligt je webshop. Bel direct.
+visual: schild
+visualBadge:
+  titel: Direct actie
+  tekst: Bel ons en we kijken meteen mee.
+  icoon: telefoon
+watIs:
+  titel: Wat doen we als je webshop down is?
+  tekst: >-
+    Elke minuut dat je webshop offline is of niet goed werkt, kost omzet. Bij een storing, hack of mislukte
+    update analyseren we direct de oorzaak, brengen we je shop terug online en sluiten we het lek. Daarna
+    zorgen we dat het niet opnieuw gebeurt.
+  punten:
+  - Snelle analyse van storing of hack
+  - Herstel vanuit back-up of door de fout op te lossen
+  - Malware verwijderen en lekken dichten
+  - Rapportage en maatregelen om herhaling te voorkomen
+  visual: code
+voordelen:
+- icoon: bliksem
+  titel: Snel geschakeld
+  tekst: Ervaren Magento developers die direct kunnen inspringen.
+- icoon: schild
+  titel: Veilig hersteld
+  tekst: We verwijderen malware en dichten het lek.
+- icoon: oog
+  titel: Oorzaak gevonden
+  tekst: Je weet wat er misging en waarom.
+- icoon: slot
+  titel: Beter beveiligd
+  tekst: Maatregelen zodat het niet opnieuw gebeurt.
+waarom:
+  titel: Waarom snel handelen belangrijk is
+  tekst: >-
+    Een gehackte webshop kan klantgegevens lekken, betalingen omleiden of door Google als onveilig worden
+    gemarkeerd. Hoe langer het duurt, hoe groter de schade voor je omzet en je reputatie.
+
+
+    Onze developers kennen Magento tot in de kern. We vinden de oorzaak, herstellen je shop en adviseren
+    over structureel onderhoud zodat je niet opnieuw in deze situatie belandt.
+onderdelenTitel: Waarmee we je helpen
+onderdelen:
+- icoon: waarschuwing
+  label: Shop offline
+- icoon: slot
+  label: Hack of malware
+- icoon: betalen
+  label: Checkout werkt niet
+- icoon: herhaal
+  label: Mislukte update
+- icoon: bliksem
+  label: Extreem traag
+- icoon: database
+  label: Herstel uit back-up
+wanneer:
+- Je webshop is offline of geeft foutmeldingen
+- Je vermoedt een hack of ziet vreemde betalingen
+- Een update of deployment is misgegaan
+- Je checkout of betalingen werken niet
+- Google waarschuwt bezoekers voor je site
+stappen:
+- label: Direct
+  titel: Analyse
+  tekst: We krijgen toegang, bekijken logs en bepalen de oorzaak.
+- label: Zo snel mogelijk
+  titel: Herstel
+  tekst: We brengen je shop terug online en verwijderen kwaadaardige code.
+- label: Daarna
+  titel: Voorkomen
+  tekst: Patches, monitoring en een plan om herhaling te voorkomen.
+waaromWedigify:
+- icoon: code
+  titel: Eigen Magento developers
+  tekst: 'Geen uitbesteding: ons vaste team werkt elke dag met Magento en Hyvä.'
+- icoon: server
+  titel: Hypernode Gold Partner
+  tekst: Korte lijnen met de hosting voor snelheid en stabiliteit.
+- icoon: schild
+  titel: Kwaliteit geborgd
+  tekst: Code reviews, testomgevingen en vaste releaseprocedures.
+- icoon: megafoon
+  titel: Techniek en groei samen
+  tekst: Developers en marketeers werken vanuit één business case.
+resultaten:
+- icoon: klok
+  richting: neer
+  titel: Downtime
+  tekst: Zo snel mogelijk weer online.
+- icoon: schild
+  richting: op
+  titel: Veiligheid
+  tekst: Lekken gedicht en gepatcht.
+- icoon: euro
+  richting: neer
+  titel: Omzetverlies
+  tekst: Schade zo klein mogelijk.
+- icoon: oog
+  richting: op
+  titel: Inzicht
+  tekst: Rapport van oorzaak en oplossing.
+- icoon: hart
+  richting: op
+  titel: Vertrouwen
+  tekst: Klanten kunnen weer veilig bestellen.
+- icoon: waarschuwing
+  richting: neer
+  titel: Risico
+  tekst: Minder kans op herhaling.
+ctaIntro: >-
+  Bel ons direct. We kijken meteen mee en vertellen je wat er nodig is om je shop weer veilig online te
+  krijgen.
