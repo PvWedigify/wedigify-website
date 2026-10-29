@@ -39,6 +39,10 @@ klanten:
     logo: /images/klanten/rikkoert.webp
   - naam: Livingfurn
     logo: /images/klanten/livingfurn.webp
+  - naam: Venvo
+    logo: /images/klanten/venvo.webp
+  - naam: Zonnerij.nl
+    logo: /images/klanten/zonnerij.webp
   - naam: Tacstack
   - naam: UV-Fashions
 reviews:
