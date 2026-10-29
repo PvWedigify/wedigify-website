@@ -19,7 +19,7 @@ const beeld = bestaat(d.afbeelding) ? d.afbeelding : null;
   </div>
   <div class="flex flex-1 flex-col gap-2 p-6 md:p-7">
     <span class="text-[13px] text-tekst">{d.tags.slice(0, 2).join(' · ')}</span>
-    <span class="text-[clamp(2.4rem,3.6vw,3rem)] leading-tight font-bold tracking-strak text-paars">{d.hoofdcijfer}</span>
+    <span class="text-[clamp(1.9rem,2.6vw,2.4rem)] leading-tight font-bold tracking-strak whitespace-nowrap text-paars">{d.hoofdcijfer}</span>
     <h3 class="text-lg leading-snug font-medium">{d.hoofdcijferLabel}</h3>
     {toonKort && <p class="text-[15px] leading-relaxed text-tekst">{d.kort}</p>}
     <span class="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-semibold text-paars">

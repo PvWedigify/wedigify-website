@@ -32,7 +32,7 @@ const meerLezen = [...alle.filter((x) => x.data.categorie === a.categorie), ...a
 const schema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': a.categorie === 'nieuws' ? 'NewsArticle' : 'BlogPosting',
     headline: a.titel,
     description: a.omschrijving,
     datePublished: a.datum.toISOString(),

@@ -40,7 +40,9 @@ const schema = [
     inLanguage: 'nl-NL',
     mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
     keywords: [...d.tags, d.branche].join(', '),
-    ...(beeld ? { image: new URL(beeld, Astro.site).toString() } : {}),
+    ...(beeld || d.beelden.length ? { image: [beeld, ...d.beelden.map((b) => b.afbeelding)].filter((x): x is string => bestaat(x)).map((x) => new URL(x, Astro.site).toString()) } : {}),
+    dateModified: d.datum.toISOString(),
+    ...(diensten.length ? { mentions: diensten.map((s) => ({ '@type': 'Service', name: s.data.titel, url: new URL(dienstUrl(s), Astro.site).toString() })) } : {}),
   },
 ];
 const desktopBeelden = d.beelden.filter((b) => b.apparaat === 'desktop' && bestaat(b.afbeelding));

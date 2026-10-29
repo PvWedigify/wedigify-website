@@ -28,7 +28,7 @@ const beeld = bestaat(d.afbeelding) ? d.afbeelding : null;
   <div class="relative flex flex-[1_1_400px] flex-col justify-center gap-4 overflow-hidden p-7 md:p-14">
     <div class="gloed-donker pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
     <span class="relative text-sm text-navy-tekst">{d.klant} · {d.branche}</span>
-    <span class="relative text-[clamp(2.75rem,5.2vw,4.75rem)] leading-[1] font-bold tracking-strak text-paars-licht">{d.hoofdcijfer}</span>
+    <span class:list={['relative leading-[1] font-bold tracking-strak whitespace-nowrap text-paars-licht', d.hoofdcijfer.length > 7 ? 'text-[clamp(2.25rem,3.6vw,3.5rem)]' : 'text-[clamp(2.75rem,5.2vw,4.75rem)]']}>{d.hoofdcijfer}</span>
     <Kop class="relative text-xl leading-snug font-medium md:text-[21px]">{d.hoofdcijferLabel}</Kop>
     <span class="relative inline-flex items-center gap-2 font-semibold text-paars-licht">
       Lees de case
