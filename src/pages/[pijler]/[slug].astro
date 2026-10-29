@@ -30,7 +30,7 @@ const specialist = d.specialist ? await getEntry(d.specialist) : null;
 const extra = (await getEntries(d.teamleden)).filter(Boolean);
 const mensen = [specialist, ...extra].filter((m, i, a): m is NonNullable<typeof m> => !!m && a.findIndex((x) => x?.id === m.id) === i);
 const namen = mensen.map((m) => m.data.naam);
-const namenTekst = namen.length > 1 ? `${namen.slice(0, -1).join(', ')} en ${namen.at(-1)}` : (namen[0] ?? '');
+const namenTekst = namen.length > 2 ? `${namen[0]}, ${namen[1]} en het dev team` : namen.length === 2 ? `${namen[0]} en ${namen[1]}` : (namen[0] ?? '');
 const werk = d.werk.filter((w) => bestaat(w.afbeelding));
 const alleInPijler = await getDiensten(d.pijler, true);
 const ouder = d.ouder ? alleInPijler.find((x) => x.id === d.ouder) : undefined;
@@ -87,8 +87,8 @@ const schema = [
           {
             mensen.length > 0 && (
               <a href="#samen" class="group mt-9 inline-flex items-center gap-4 rounded-full border border-lijn-sterk bg-white/80 py-2 pr-5 pl-2 backdrop-blur transition-colors hover:border-paars hover:text-navy">
-                <span class="flex -space-x-3">
-                  {mensen.map((m) => (bestaat(m.data.foto) ? <img src={m.data.foto} alt="" width="48" height="48" class="size-12 rounded-full object-cover ring-[3px] ring-white" /> : <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-sm font-bold text-white ring-[3px] ring-white">{m.data.naam.charAt(0)}</span>))}
+                <span class="flex shrink-0 -space-x-3">
+                  {mensen.filter((m) => bestaat(m.data.foto)).map((m, i) => <img src={m.data.foto} alt="" width="48" height="48" class:list={['size-12 rounded-full object-cover ring-[3px] ring-white', i > 2 && 'max-sm:hidden']} />)}
                 </span>
                 <span class="text-left text-[14px] leading-snug">
                   <span class="block text-tekst">Je werkt samen met</span>

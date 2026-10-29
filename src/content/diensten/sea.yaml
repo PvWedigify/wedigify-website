@@ -15,8 +15,7 @@ wat:
 - Server side tracking
 case: budgetplan
 specialist: michelle
-teamleden:
-- iris
+teamleden: []
 ctaTitel: Haal jij genoeg uit je advertentiebudget?
 ctaLabel: Laat je account doorlichten
 seoTitel: SEA & Google Ads voor webshops | Wedigify
