@@ -152,7 +152,8 @@ export default config({
           { label: 'Werkwijze', itemLabel: (p) => p.fields.titel.value },
         ),
         case: fields.relationship({ label: 'Uitgelichte case', collection: 'cases' }),
-        specialist: fields.relationship({ label: 'Specialist (vragen-blok)', collection: 'team' }),
+        specialist: fields.relationship({ label: 'Specialist (hoofdcontact, hero en vragen)', collection: 'team' }),
+        teamleden: fields.array(fields.relationship({ label: 'Teamlid', collection: 'team' }), { label: 'Werkt samen met (extra teamleden in hero en samenwerking)', itemLabel: (p) => p.value ?? '' }),
         heroPunten: fields.array(fields.text({ label: 'Punt' }), { label: 'Hero: vinkjes onder de knop', itemLabel: (p) => p.value }),
         visual: fields.select({ label: 'Hero: illustratie', options: visualOpties, defaultValue: 'dashboard' }),
         visualBadge: fields.object(
@@ -171,6 +172,16 @@ export default config({
         voordelen: fields.array(icoonTitelTekst, { label: 'Voordelen (4 kaarten)', itemLabel: (p) => p.fields.titel.value }),
         waarom: fields.object({ titel: fields.text({ label: 'Titel' }), tekst: fields.text({ label: 'Tekst (lege regel = nieuwe alinea)', multiline: true }) }, { label: 'Waarom ...?' }),
         onderdelenTitel: fields.text({ label: 'Onderdelen: kop (bv. Wat kunnen we optimaliseren?)' }),
+        onderdelenNoot: fields.text({ label: 'Onderdelen: toelichting onder de lijst (optioneel)', multiline: true }),
+        werkTitel: fields.text({ label: 'Uit ons werk: kop (optioneel)' }),
+        werk: fields.array(
+          fields.object({
+            afbeelding: fields.image({ label: 'Afbeelding (banner, carrousel, video still, scherm)', directory: 'public/images/werk', publicPath: '/images/werk/' }),
+            titel: fields.text({ label: 'Titel of klant' }),
+            type: fields.text({ label: 'Type (bv. Carrousel, Video, Banner)' }),
+          }),
+          { label: 'Uit ons werk (galerij, verschijnt zodra er beelden zijn)', itemLabel: (p) => p.fields.titel.value || 'Beeld' },
+        ),
         onderdelen: fields.array(fields.object({ icoon: fields.select({ label: 'Icoon', options: icoonOpties, defaultValue: 'vink' }), label: fields.text({ label: 'Label' }) }), {
           label: 'Onderdelen (iconen-raster)',
           itemLabel: (p) => p.fields.label.value,

@@ -1,0 +1,42 @@
+---
+/** Mozaïek met sfeerfoto's van het team. Verschijnt pas als de foto's in /public staan. */
+import { bestaat } from '@/lib/site';
+import { sfeerFotos } from '@/data/sfeer';
+import Icon from './Icon.astro';
+
+interface Props {
+  titel?: string;
+  accent?: string;
+  intro?: string;
+  link?: { label: string; href: string } | null;
+  achtergrond?: 'wit' | 'grijs';
+}
+const { titel = 'Hard werken,', accent = 'samen vieren.', intro = 'Een team dat elkaar kent, werkt beter samen. Dus vieren we successen, gaan we op pad en proosten we op vrijdag.', link = null, achtergrond = 'wit' } = Astro.props;
+const fotos = sfeerFotos.filter((f) => bestaat(f.src)).slice(0, 7);
+// Vaste indeling voor een rustig mozaïek: grote foto's links en rechts, kleinere ertussen
+const vorm = ['md:col-span-2 md:row-span-2', '', '', 'md:row-span-2', '', 'md:col-span-2', ''];
+---
+
+{
+  fotos.length >= 4 && (
+    <section class:list={[achtergrond === 'grijs' && 'bg-grijs']}>
+      <div class="container-w sectie-s">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-x-16 gap-y-6" data-reveal>
+          <h2 class="kop-2 max-w-[640px]">{titel} <span class="text-paars">{accent}</span></h2>
+          <div class="max-w-[440px]">
+            <p class="text-lg leading-relaxed text-tekst">{intro}</p>
+            {link && <a href={link.href} class="mt-4 inline-flex items-center gap-2 font-semibold text-paars">{link.label} <Icon name="pijl" size={16} /></a>}
+          </div>
+        </div>
+        <ul class="grid auto-rows-[170px] grid-cols-2 gap-3 md:auto-rows-[200px] md:grid-cols-4">
+          {fotos.map((f, i) => (
+            <li class:list={['group relative overflow-hidden rounded-kaart bg-paars-50', vorm[i] ?? '', i === 0 && 'col-span-2 row-span-2']} data-reveal style={`--vertraging:${(i % 4) * 70}ms`}>
+              <img src={f.src} alt={f.alt} loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <span class="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[12px] font-semibold text-navy opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">{f.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

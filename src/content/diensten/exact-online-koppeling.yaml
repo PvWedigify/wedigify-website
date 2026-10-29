@@ -130,6 +130,8 @@ faq:
     Dat nemen we mee in de eerste fase.
 case: tacstack
 specialist: dmytro
+teamleden:
+- ievgenii
 ctaTitel: Magento koppelen met Exact Online?
 ctaIntro: >-
   Vertel ons hoe je nu met Exact Online werkt. We brengen de datastromen in kaart en adviseren over de

@@ -6,7 +6,7 @@
  *   npm run import:wp -- --dry                       # alleen tonen wat er zou gebeuren
  *   npm run import:wp -- --alleen=team,afbeeldingen  # alleen bepaalde stappen
  *
- * Stappen: kennis, juridisch, team, afbeeldingen, documenten
+ * Stappen: kennis, juridisch, team, afbeeldingen, documenten, sfeer
  *
  * Bestaande artikelen, pagina's en teamfoto's worden NIET overschreven (die zijn inmiddels
  * bewerkt). Gebruik --forceer om ze toch opnieuw te importeren.
@@ -32,6 +32,20 @@ const FORCEER = process.argv.includes('--forceer');
 const bestaatAl = async (p) => access(p).then(() => true, () => false);
 const DOCUMENTEN = {
   '/wp-content/uploads/2026/06/Wedigify-B.V.-Algemene-Voorwaarden-NL-2026.pdf': 'documenten/wedigify-algemene-voorwaarden-2026.pdf',
+};
+/** Sfeerfoto's van /werken-bij/ voor over ons, werken bij en de homepage. */
+const SFEER = {
+  '/wp-content/uploads/2025/07/cubus_wedigify_banner.jpg': 'rotterdam-kubuswoningen.jpg',
+  '/wp-content/uploads/2025/06/wedigify_uitje2.jpg': 'team-borrel.jpg',
+  '/wp-content/uploads/2025/06/wedigify_skiuitjje.jpg': 'team-skireis.jpg',
+  '/wp-content/uploads/2025/06/wedigify_wwvd-1.jpg': 'team-webwinkel-vakdagen.jpg',
+  '/wp-content/uploads/2025/06/wedigify_teambuilding.jpg': 'team-teambuilding.jpg',
+  '/wp-content/uploads/2025/06/amsterdam_wedigify.jpg': 'team-darts.jpg',
+  '/wp-content/uploads/2025/06/wedigify_oranje.jpg': 'team-oranje.jpg',
+  '/wp-content/uploads/2025/06/etentje_wedigify_2025-1.jpg': 'team-etentje.jpg',
+  '/wp-content/uploads/2025/06/wedigify_uitje4.jpg': 'team-uitje.jpg',
+  '/wp-content/uploads/2025/06/wedigify_frankborrel.jpg': 'team-rondvaart.jpg',
+  '/wp-content/uploads/2023/03/wedigify_markthal-1.jpg': 'rotterdam-markthal.jpg',
 };
 const ALLEEN = (process.argv.find((a) => a.startsWith('--alleen='))?.split('=')[1] ?? '').split(',').filter(Boolean);
 const doen = (stap) => ALLEEN.length === 0 || ALLEEN.includes(stap);
@@ -244,6 +258,15 @@ async function importeerDocumenten() {
   }
 }
 
+async function importeerSfeer() {
+  for (const [bron, naam] of Object.entries(SFEER)) {
+    const pad = path.join(ROOT, 'public', 'images', 'sfeer', naam);
+    if (!FORCEER && (await bestaatAl(pad))) continue;
+    log('Sfeerfoto:', naam);
+    if (!DRY) await download(`${BRON}${bron}`, pad);
+  }
+}
+
 async function importeerTeamfotos() {
   for (const [slug, pad] of Object.entries(TEAM_FOTOS)) {
     const yamlCheck = path.join(ROOT, 'src/content/team', `${slug}.yaml`);
@@ -303,6 +326,7 @@ const stappen = [
   ['juridisch', importeerJuridisch],
   ['team', importeerTeamfotos],
   ['documenten', importeerDocumenten],
+  ['sfeer', importeerSfeer],
   ['afbeeldingen', importeerAfbeeldingen],
 ];
 let fouten = 0;

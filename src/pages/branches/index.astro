@@ -6,6 +6,7 @@ import LijnIcoon from '@/components/LijnIcoon.astro';
 import Icon from '@/components/Icon.astro';
 import Branches from '@/components/Branches.astro';
 import CtaBand from '@/components/CtaBand.astro';
+import VoorWie from '@/components/VoorWie.astro';
 
 const branches = (await getCollection('branches')).sort((a, b) => a.data.volgorde - b.data.volgorde);
 const schema = [
@@ -33,6 +34,7 @@ const schema = [
       ))}
     </ul>
   </section>
+  <VoorWie />
   <Branches titel="Resultaten bij merken in verschillende branches." />
   <CtaBand titel="Staat jouw branche er niet tussen?" intro="Geen probleem. We werken voor uiteenlopende webshops, B2C en B2B. Vertel ons over jouw situatie, dan denken we vrijblijvend mee." label="Plan een kennismaking" />
 </Base>

@@ -1,0 +1,63 @@
+---
+/** Wie er aan de dienst werkt (portretten) naast de stappen van de samenwerking. */
+import Icon from './Icon.astro';
+import { initialen, bestaat, type Teamlid } from '@/lib/site';
+
+interface Props {
+  mensen: Teamlid[];
+  stappen: { label?: string | null; titel: string; tekst: string }[];
+  dienstNaam: string;
+}
+const { mensen, stappen, dienstNaam } = Astro.props;
+const eerste = mensen[0];
+const namen = mensen.map((m) => m.data.naam);
+const namenTekst = namen.length > 1 ? `${namen.slice(0, -1).join(', ')} en ${namen.at(-1)}` : namen[0];
+---
+
+<section class="container-w sectie-s">
+  <div class="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+    <div data-reveal>
+      <p class="eyebrow mb-4">Samen aan de slag</p>
+      <h2 class="kop-2">Zo pakken we het <span class="text-paars">samen aan.</span></h2>
+      {mensen.length > 0 && <p class="lead mt-5 max-w-[520px]">Je werkt met vaste gezichten. {namenTekst} {mensen.length > 1 ? 'zijn' : 'is'} je aanspreekpunt voor {dienstNaam.toLowerCase()}, en weten precies wat er speelt.</p>}
+      {
+        mensen.length > 0 && (
+          <ul class:list={['mt-8 grid gap-4', mensen.length > 1 ? 'grid-cols-2' : 'max-w-[300px]']}>
+            {mensen.map((m) => (
+              <li>
+                <figure class="h-full overflow-hidden rounded-kaart border border-lijn bg-white">
+                  {bestaat(m.data.foto) ? (
+                    <img src={m.data.foto} alt={`${m.data.naam}, ${m.data.rol}`} loading="lazy" decoding="async" width="400" height="500" class="aspect-[4/5] w-full object-cover" />
+                  ) : (
+                    <div class="flex aspect-[4/5] w-full items-center justify-center bg-paars-100 text-4xl font-bold text-paars">{initialen(m.data.naam)}</div>
+                  )}
+                  <figcaption class="p-4">
+                    <span class="block font-semibold text-navy">{m.data.naam}</span>
+                    <span class="block text-[14px] leading-snug text-tekst">{m.data.rol}</span>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      {eerste && <a href="/contact/" class="knop-paars mt-8">Plan een gesprek met {eerste.data.naam} <Icon name="pijl" size={18} /></a>}
+    </div>
+    {
+      stappen.length > 0 && (
+        <ol class="relative flex flex-col gap-4 self-center" data-reveal style="--vertraging:120ms">
+          {stappen.map((s, i) => (
+            <li class="relative flex gap-5 rounded-kaart border border-lijn bg-white p-6 md:p-7">
+              <span class="text-[clamp(2rem,3vw,2.75rem)] leading-none font-bold tracking-strak text-paars-200">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                {s.label && !/^stap/i.test(s.label) && <div class="text-[13px] font-semibold text-paars">{s.label}</div>}
+                <h3 class="text-xl font-semibold tracking-kop">{s.titel}</h3>
+                <p class="mt-1.5 leading-relaxed text-tekst">{s.tekst}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </div>
+</section>

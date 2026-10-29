@@ -6,13 +6,13 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import Icon from '@/components/Icon.astro';
 import LijnIcoon from '@/components/LijnIcoon.astro';
 import DienstVisual from '@/components/DienstVisual.astro';
-import TeamCollage from '@/components/TeamCollage.astro';
 import CaseKaart from '@/components/CaseKaart.astro';
 import ContactKaart from '@/components/ContactKaart.astro';
 import Faq from '@/components/Faq.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import KennisKaart from '@/components/KennisKaart.astro';
 import KlantQuotes from '@/components/KlantQuotes.astro';
+import DienstTeam from '@/components/DienstTeam.astro';
 import { getDiensten, getCases, dienstUrl, caseUrl, pijlerLabel, bestaat, type Dienst, srcset } from '@/lib/site';
 
 export async function getStaticPaths() {
@@ -27,6 +27,11 @@ const { dienst } = Astro.props;
 const d = dienst.data;
 const caseItem = d.case ? await getEntry(d.case) : null;
 const specialist = d.specialist ? await getEntry(d.specialist) : null;
+const extra = (await getEntries(d.teamleden)).filter(Boolean);
+const mensen = [specialist, ...extra].filter((m, i, a): m is NonNullable<typeof m> => !!m && a.findIndex((x) => x?.id === m.id) === i);
+const namen = mensen.map((m) => m.data.naam);
+const namenTekst = namen.length > 1 ? `${namen.slice(0, -1).join(', ')} en ${namen.at(-1)}` : (namen[0] ?? '');
+const werk = d.werk.filter((w) => bestaat(w.afbeelding));
 const alleInPijler = await getDiensten(d.pijler, true);
 const ouder = d.ouder ? alleInPijler.find((x) => x.id === d.ouder) : undefined;
 const kinderen = alleInPijler.filter((x) => x.data.ouder === dienst.id);
@@ -35,6 +40,7 @@ const verwant = ouder
   : (await getDiensten(d.pijler)).filter((x) => x.id !== dienst.id);
 const artikelen = (await getEntries(d.artikelen)).filter(Boolean).slice(0, 3);
 const alleCases = await getCases();
+const casesDirect = !!caseItem || alleCases.some((c) => c.data.diensten.some((x) => x.id === dienst.id));
 const cases = [
   ...(caseItem ? [caseItem] : []),
   ...alleCases.filter((c) => c.id !== caseItem?.id && c.data.diensten.some((x) => x.id === dienst.id)),
@@ -78,11 +84,19 @@ const schema = [
             <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">{d.ctaLabel ?? 'Plan een gesprek'} <Icon name="pijl" size={18} /></a>
             {caseItem && <a href="#praktijk" class="knop-rand bg-white/60">Bekijk de {caseItem.data.klant} case</a>}
           </div>
-          <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-tekst">
-            {heroPunten.map((p) => (
-              <li class="flex items-center gap-2"><span class="inline-flex size-5 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={12} /></span>{p}</li>
-            ))}
-          </ul>
+          {
+            mensen.length > 0 && (
+              <a href="#samen" class="group mt-9 inline-flex items-center gap-4 rounded-full border border-lijn-sterk bg-white/80 py-2 pr-5 pl-2 backdrop-blur transition-colors hover:border-paars hover:text-navy">
+                <span class="flex -space-x-3">
+                  {mensen.map((m) => (bestaat(m.data.foto) ? <img src={m.data.foto} alt="" width="48" height="48" class="size-12 rounded-full object-cover ring-[3px] ring-white" /> : <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-sm font-bold text-white ring-[3px] ring-white">{m.data.naam.charAt(0)}</span>))}
+                </span>
+                <span class="text-left text-[14px] leading-snug">
+                  <span class="block text-tekst">Je werkt samen met</span>
+                  <span class="block font-semibold text-navy group-hover:text-paars">{namenTekst}</span>
+                </span>
+              </a>
+            )
+          }
         </div>
         <div class="min-w-0">
           <DienstVisual type={d.visual} badge={d.visualBadge} class="mx-auto max-w-[560px] lg:mr-0" />
@@ -106,41 +120,100 @@ const schema = [
     )
   }
 
-  <!-- Wat is ...? -->
+  <!-- Resultaat + praktijk -->
   {
-    d.watIs && (
-      <section class="container-w sectie-s">
-        <div class="grid grid-cols-1 items-center gap-x-16 gap-y-14 *:min-w-0 lg:grid-cols-2">
-          <div data-reveal>
-            <p class="eyebrow mb-4">Uitleg</p>
-            <h2 class="kop-2 mb-6">{d.watIs.titel}</h2>
-            <p class="text-[17px] leading-[1.75] text-tekst">{d.watIs.tekst}</p>
-            {d.watIs.punten.length > 0 && (
-              <ul class="mt-7 flex flex-col gap-3">
-                {d.watIs.punten.map((p) => (
-                  <li class="flex gap-3"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span><span>{p}</span></li>
+    (d.resultaten.length > 0 || cases.length > 0) && (
+      <section id="praktijk" class="relative isolate scroll-mt-24 overflow-hidden bg-grijs">
+        <div class="stippen-donker fade-onder pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" />
+        <div class="container-w sectie-s relative grid gap-x-12 gap-y-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:grid-rows-[auto_1fr]">
+          {d.resultaten.length > 0 && (
+            <div class="flex flex-col lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0" data-reveal>
+              <div class="mb-8">
+                <p class="eyebrow mb-4">Resultaat</p>
+                <h2 class="kop-2">Wat het je oplevert</h2>
+              </div>
+              <ul class="grid h-full auto-rows-fr grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
+                {d.resultaten.map((r) => (
+                  <li class="flex min-h-[150px] flex-col rounded-[12px] border border-lijn bg-white p-5 transition-colors hover:border-paars-200">
+                    <span class="inline-flex size-8 items-center justify-center rounded-full bg-[#e7f7ee] text-[#137a43]" role="img" aria-label={r.richting === 'op' ? 'Stijgt' : 'Daalt'}><LijnIcoon naam={r.richting} size={16} /></span>
+                    <div class="mt-auto pt-5">
+                      <h3 class="text-[15px] leading-snug font-semibold sm:text-base">{r.titel}</h3>
+                      <p class="mt-1.5 text-[14px] leading-snug text-tekst">{r.tekst}</p>
+                    </div>
+                  </li>
                 ))}
               </ul>
-            )}
-          </div>
-          <div data-reveal style="--vertraging:120ms">
-            <DienstVisual type={d.watIs.visual ?? 'dashboard'} class="mx-auto max-w-[540px]" />
-          </div>
+            </div>
+          )}
+          {cases.length > 0 && (
+            <div class:list={['flex flex-col', d.resultaten.length > 0 && 'lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0']} data-reveal style="--vertraging:120ms">
+              <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <p class="eyebrow mb-4">Uit de praktijk</p>
+                  <h2 class="kop-2">{casesDirect ? `${korteNaam} in de praktijk` : 'Uit de praktijk'}</h2>
+                </div>
+                <a href="/cases/" class="link-onderstreept">Alle cases</a>
+              </div>
+              <ul class:list={['grid gap-4', cases.length > 1 && 'sm:grid-cols-2', d.resultaten.length === 0 && 'lg:grid-cols-3']}>
+                {cases.map((c) => <li><CaseKaart item={c} /></li>)}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
     )
   }
 
-  <!-- Voordelen -->
+  <div id="samen" class="scroll-mt-24"><DienstTeam mensen={mensen} stappen={d.stappen} dienstNaam={d.titel} /></div>
+
+  <!-- Wat we doen -->
   {
-    d.voordelen.length > 0 && (
-      <section class:list={['container-w', d.watIs ? 'pb-16 md:pb-24' : 'sectie-s']}>
-        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {d.voordelen.map((v, i) => (
-            <li class="group flex flex-col items-center rounded-[14px] border border-lijn bg-white p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-paars-200 hover:shadow-[0_28px_60px_-30px_rgb(118_60_247/0.45)]" data-reveal style={`--vertraging:${i * 80}ms`}>
-              <span class="mb-5 inline-flex size-14 items-center justify-center rounded-full bg-paars text-white transition-transform duration-300 group-hover:scale-110"><LijnIcoon naam={v.icoon} size={26} /></span>
-              <h3 class="mb-2 text-lg font-semibold">{v.titel}</h3>
-              <p class="text-[15px] leading-relaxed text-tekst">{v.tekst}</p>
+    (d.watIs || d.onderdelen.length > 0 || d.wat.length > 0) && (
+      <section class="bg-grijs">
+        <div class="container-w sectie-s grid gap-x-16 gap-y-10 lg:grid-cols-2">
+          {d.watIs && (
+            <div data-reveal>
+              <p class="eyebrow mb-4">Wat we doen</p>
+              <h2 class="kop-2 mb-6">{d.watIs.titel}</h2>
+              <p class="text-[17px] leading-[1.75] text-tekst">{d.watIs.tekst}</p>
+            </div>
+          )}
+          {(d.onderdelen.length > 0 || d.wat.length > 0 || (d.watIs?.punten.length ?? 0) > 0) && (
+            <div class="self-center rounded-kaart border border-lijn bg-white p-7 md:p-9" data-reveal style="--vertraging:120ms">
+              <h3 class="mb-5 text-[22px] font-semibold tracking-kop">{d.onderdelenTitel ?? 'Wat je van ons krijgt'}</h3>
+              <ul class="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                {(d.onderdelen.length > 0 ? d.onderdelen.map((o) => o.label) : d.wat.length > 0 ? d.wat : d.watIs?.punten ?? []).map((o) => (
+                  <li class="flex gap-3 leading-snug"><span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={12} /></span><span>{o}</span></li>
+                ))}
+              </ul>
+              {d.onderdelenNoot && <p class="mt-6 border-t border-lijn pt-5 text-[15px] leading-relaxed text-tekst">{d.onderdelenNoot}</p>}
+            </div>
+          )}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Werk (creatives, schermen) -->
+  {
+    werk.length > 0 && (
+      <section class="container-w sectie-s">
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="eyebrow mb-4">Uit ons werk</p>
+            <h2 class="kop-2">{d.werkTitel ?? 'Een kijkje in ons werk'}</h2>
+          </div>
+        </div>
+        <ul class="columns-2 gap-4 md:columns-3 [&>li]:mb-4">
+          {werk.map((w) => (
+            <li class="break-inside-avoid overflow-hidden rounded-kaart border border-lijn bg-white">
+              <img src={w.afbeelding} alt={w.titel ?? ''} loading="lazy" decoding="async" class="w-full" />
+              {(w.titel || w.type) && (
+                <div class="flex items-center justify-between gap-3 p-4 text-[14px]">
+                  {w.titel && <span class="font-semibold">{w.titel}</span>}
+                  {w.type && <span class="rounded-full bg-paars-50 px-2.5 py-0.5 text-[12px] font-semibold text-paars">{w.type}</span>}
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -167,9 +240,16 @@ const schema = [
                   <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="pijl" size={18} /></span>
                 </div>
               </a>
-            ) : (
-              <TeamCollage tekst="Developers, marketeers en strategen onder één dak." />
-            )}
+            ) : d.wanneer.length > 0 ? (
+              <div class="rounded-kaart bg-navy p-7 text-white md:p-10">
+                <h3 class="mb-6 text-[clamp(1.4rem,2.2vw,1.9rem)] tracking-kop text-white">Herken je dit?</h3>
+                <ul class="flex flex-col gap-4">
+                  {d.wanneer.map((w) => (
+                    <li class="flex gap-3 leading-snug text-white/85"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span><span>{w}</span></li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
           <div class="order-1 lg:order-2" data-reveal style="--vertraging:120ms">
             <h2 class="kop-2 mb-6">{d.waarom.titel}</h2>
@@ -181,42 +261,10 @@ const schema = [
     )
   }
 
-  <!-- Onderdelen -->
-  {
-    d.onderdelen.length > 0 ? (
-      <section class="container-w sectie-s">
-        <div class="mb-10 flex flex-wrap items-end justify-between gap-6" data-reveal>
-          <h2 class="kop-2 max-w-[720px]">{d.onderdelenTitel ?? 'Wat we voor je doen'}</h2>
-        </div>
-        <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {d.onderdelen.map((o, i) => (
-            <li class="group flex flex-col items-center justify-center gap-3 rounded-[12px] border border-lijn bg-white px-3 py-6 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-paars hover:bg-paars-50" data-reveal style={`--vertraging:${(i % 6) * 50}ms`}>
-              <LijnIcoon naam={o.icoon} size={28} class="text-paars" />
-              <span class="text-[14px] leading-snug font-medium">{o.label}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    ) : (
-      d.wat.length > 0 && (
-        <section class="container-w sectie-s">
-          <div class="relative isolate flex flex-wrap gap-x-16 gap-y-8 overflow-hidden rounded-[14px] border border-lijn bg-lavendel p-7 md:p-12" data-reveal>
-            <h2 class="flex-[1_1_260px] text-[clamp(1.75rem,3vw,2.5rem)] leading-tight tracking-strak">Wat je van ons krijgt</h2>
-            <ul class="grid flex-[2_1_480px] gap-x-8 gap-y-4 sm:grid-cols-2">
-              {d.wat.map((w) => (
-                <li class="flex gap-3"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-knop bg-paars text-white"><Icon name="check" size={14} /></span><span>{w}</span></li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )
-    )
-  }
-
   <!-- Subpagina's -->
   {
     kinderen.length > 0 && (
-      <section class:list={['container-w', d.onderdelen.length > 0 || d.wat.length > 0 ? 'pb-16 md:pb-24' : 'sectie-s']}>
+      <section class:list={['container-w', 'pb-16 md:pb-24']}>
         <div class="rounded-[14px] bg-navy p-7 text-white md:p-10" data-reveal>
           <h2 class="mb-2 text-[clamp(1.5rem,2.4vw,2rem)] tracking-kop text-white">Verder lezen over {d.titel.toLowerCase()}</h2>
           <p class="mb-8 max-w-[640px] text-navy-tekst">Specifieke vraag of systeem? Op deze pagina’s gaan we dieper in.</p>
@@ -238,55 +286,17 @@ const schema = [
     )
   }
 
-  <!-- Wanneer / werkwijze / waarom Wedigify -->
+  <!-- Herken je dit? -->
   {
-    (d.wanneer.length > 0 || d.stappen.length > 0 || d.waaromWedigify.length > 0) && (
-      <section class:list={['container-w', d.onderdelen.length > 0 || d.wat.length > 0 ? 'pb-16 md:pb-24' : 'sectie-s']}>
-        <div class="grid gap-4 lg:grid-cols-3">
-          {d.wanneer.length > 0 && (
-            <div class="rounded-[14px] border border-lijn bg-lavendel p-7 md:p-8" data-reveal>
-              <h2 class="mb-6 text-[22px] tracking-kop">Wanneer is dit interessant?</h2>
-              <ul class="flex flex-col gap-4">
-                {d.wanneer.map((w) => (
-                  <li class="flex gap-3 leading-snug"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span><span>{w}</span></li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {d.stappen.length > 0 && (
-            <div class="rounded-[14px] border border-lijn bg-white p-7 md:p-8" data-reveal style="--vertraging:100ms">
-              <h2 class="mb-6 text-[22px] tracking-kop">Onze werkwijze</h2>
-              <ol class="relative flex flex-col gap-6">
-                <span class="absolute top-4 bottom-4 left-[15px] w-px bg-paars-200" aria-hidden="true" />
-                {d.stappen.map((s, i) => (
-                  <li class="relative flex gap-4">
-                    <span class="relative z-10 inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-paars text-sm font-bold text-white ring-4 ring-white">{i + 1}</span>
-                    <div>
-                      <div class="text-[12px] font-semibold text-paars">{s.label}</div>
-                      <h3 class="text-[17px] font-semibold">{s.titel}</h3>
-                      <p class="mt-1 text-[15px] leading-relaxed text-tekst">{s.tekst}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-          {d.waaromWedigify.length > 0 && (
-            <div class="rounded-[14px] bg-navy p-7 text-white md:p-8" data-reveal style="--vertraging:200ms">
-              <h2 class="mb-6 text-[22px] tracking-kop text-white">Waarom Wedigify?</h2>
-              <ul class="flex flex-col gap-5">
-                {d.waaromWedigify.map((w) => (
-                  <li class="flex gap-4">
-                    <LijnIcoon naam={w.icoon} size={26} class="shrink-0 text-paars-licht" />
-                    <div>
-                      <h3 class="text-[16px] font-semibold text-white">{w.titel}</h3>
-                      <p class="mt-0.5 text-[14px] leading-relaxed text-navy-tekst">{w.tekst}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+    d.wanneer.length > 0 && (caseBeeld || !d.waarom) && (
+      <section class="container-w pb-16 md:pb-24">
+        <div class="rounded-kaart bg-navy p-7 text-white md:p-12" data-reveal>
+          <h2 class="mb-8 text-[clamp(1.6rem,2.6vw,2.25rem)] tracking-kop text-white">Herken je dit?</h2>
+          <ul class="grid gap-x-10 gap-y-4 md:grid-cols-2">
+            {d.wanneer.map((w) => (
+              <li class="flex gap-3 leading-snug text-white/85"><span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-paars text-white"><Icon name="check" size={14} /></span><span>{w}</span></li>
+            ))}
+          </ul>
         </div>
       </section>
     )
@@ -304,53 +314,6 @@ const schema = [
               <p class="leading-[1.7] text-tekst">{v.tekst}</p>
             </div>
           ))}
-        </div>
-      </section>
-    )
-  }
-
-  <!-- Resultaat + praktijk -->
-  {
-    (d.resultaten.length > 0 || cases.length > 0) && (
-      <section id="praktijk" class="relative isolate scroll-mt-24 overflow-hidden bg-grijs">
-        <div class="stippen-donker fade-onder pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" />
-        <div class="container-w sectie-s relative grid gap-x-12 gap-y-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:grid-rows-[auto_1fr]">
-          {d.resultaten.length > 0 && (
-            <div class="flex flex-col lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0" data-reveal>
-              <div class="mb-8">
-                <p class="eyebrow mb-4">Resultaat</p>
-                <h2 class="kop-2">Wat levert het op?</h2>
-              </div>
-              <ul class="grid h-full auto-rows-fr grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
-                {d.resultaten.map((r) => (
-                  <li class="flex min-h-[170px] flex-col rounded-[12px] border border-lijn bg-white p-5 transition-colors hover:border-paars-200">
-                    <div class="flex items-start justify-between gap-2">
-                      <span class="inline-flex size-11 items-center justify-center rounded-full bg-paars-50 text-paars"><LijnIcoon naam={r.icoon} size={22} /></span>
-                      <span class="inline-flex size-7 items-center justify-center rounded-full bg-[#e7f7ee] text-[#137a43]" aria-label={r.richting === 'op' ? 'Stijgt' : 'Daalt'}><LijnIcoon naam={r.richting} size={15} /></span>
-                    </div>
-                    <div class="mt-auto pt-5">
-                      <h3 class="text-[15px] leading-snug font-semibold sm:text-base">{r.titel}</h3>
-                      <p class="mt-1.5 text-[14px] leading-snug text-tekst">{r.tekst}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {cases.length > 0 && (
-            <div class:list={['flex flex-col', d.resultaten.length > 0 && 'lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0']} data-reveal style="--vertraging:120ms">
-              <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <p class="eyebrow mb-4">Uit de praktijk</p>
-                  <h2 class="kop-2">{korteNaam} in de praktijk</h2>
-                </div>
-                <a href="/cases/" class="link-onderstreept">Alle cases</a>
-              </div>
-              <ul class:list={['grid gap-4', cases.length > 1 && 'sm:grid-cols-2', d.resultaten.length === 0 && 'lg:grid-cols-3']}>
-                {cases.map((c) => <li><CaseKaart item={c} /></li>)}
-              </ul>
-            </div>
-          )}
         </div>
       </section>
     )

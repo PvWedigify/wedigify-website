@@ -13,6 +13,8 @@ wat:
 - Catalogus en retargetingcampagnes
 - Rapportage op omzet
 specialist: giulia
+teamleden:
+- iris
 artikelen:
 - maar-hoe-zet-je-social-media-succesvol-in-voor-jouw-bedrijf-wij-helpen-je-op-weg
 ctaTitel: Verkopen je social ads genoeg?
@@ -79,16 +81,20 @@ wanneer:
 - Je wilt bezoekers terughalen met retargeting
 - Je huidige social campagnes leveren te weinig op
 - Je wilt nieuwe doelgroepen bereiken
+werkTitel: Banners, carrousels en video's die verkopen
 stappen:
-- label: Week 1 tot 2
-  titel: Strategie
-  tekst: Doelgroepen, funnel en tracking in kaart.
-- label: Week 3
-  titel: Creatives en livegang
-  tekst: Advertenties maken en campagnes opzetten.
-- label: Doorlopend
-  titel: Testen en opschalen
-  tekst: Creatives testen, winnaars opschalen.
+- label: Stap 1
+  titel: Scan van campagnes en tracking
+  tekst: We lopen je huidige campagnes, account en tracking door en zien direct waar het lekt.
+- label: Stap 2
+  titel: Account op orde en quick wins
+  tekst: We ruimen het account op, herstellen de meting en voeren de snelle verbeteringen meteen door.
+- label: Stap 3
+  titel: Strategie, campagnes en creatives
+  tekst: We scherpen de strategie aan en ontwikkelen nieuwe campagnes, banners, carrousels en video's.
+- label: Stap 4
+  titel: Testen, optimaliseren en opschalen
+  tekst: We blijven testen en optimaliseren, en schalen op wat werkt zodra de cijfers dat toelaten.
 waaromWedigify:
 - icoon: doel
   titel: Eén business case
