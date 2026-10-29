@@ -29,6 +29,26 @@ const iconVoor: Record<string, string> = {
   updates: 'lagen', integraties: 'stekker', support: 'team', 'strategie-data': 'doel', seo: 'zoek', sea: 'euro',
   'social-advertising': 'megafoon', 'e-mailmarketing': 'mail', cro: 'grafiek', content: 'pen', ai: 'sparkle',
 };
+// Compacte menu's: gegroepeerd, alleen titels. Nieuwe diensten komen in de laatste groep.
+const groeperen = (href: string, indeling: { kop: string; ids: string[] }[]) => {
+  const alle = mega[href].diensten;
+  const gebruikt = new Set(indeling.flatMap((g) => g.ids));
+  const groepen = indeling.map((g) => ({ kop: g.kop, diensten: g.ids.map((id) => alle.find((d) => d.id === id)).filter((d): d is NonNullable<typeof d> => !!d) }));
+  groepen[groepen.length - 1].diensten.push(...alle.filter((d) => !gebruikt.has(d.id)));
+  return groepen;
+};
+const menuGroepen: Record<string, ReturnType<typeof groeperen>> = {
+  '/magento/': groeperen('/magento/', [
+    { kop: 'Bouwen', ids: ['webshop-laten-maken', 'b2b-webshop', 'hyva', 'integraties'] },
+    { kop: 'Overstappen', ids: ['migraties', 'overname'] },
+    { kop: 'Beheer en support', ids: ['support', 'hosting', 'updates', 'security-patches', 'recovery'] },
+  ]),
+  '/groei/': groeperen('/groei/', [
+    { kop: 'Strategie', ids: ['strategie-data', 'ai'] },
+    { kop: 'Gevonden worden', ids: ['seo', 'sea', 'social-advertising'] },
+    { kop: 'Converteren en binden', ids: ['cro', 'e-mailmarketing', 'content'] },
+  ]),
+};
 const partners = site.partners.map((p) => `${p.naam} ${p.label}`.trim());
 ---
 
@@ -79,22 +99,38 @@ const partners = site.partners.map((p) => `${p.naam} ${p.label}`.trim());
                     class="invisible absolute inset-x-0 top-full border-b border-lijn bg-white opacity-0 shadow-[0_30px_60px_-30px_rgb(10_13_49/0.3)] transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-[.open]/mega:visible group-[.open]/mega:opacity-100"
                     data-mega-paneel
                   >
-                    <div class="container-w grid grid-cols-[minmax(0,0.75fr)_minmax(0,2.6fr)_minmax(0,0.85fr)] gap-10 py-10">
+                    <div class:list={['container-w grid grid-cols-[minmax(0,0.75fr)_minmax(0,2.6fr)_minmax(0,0.85fr)] gap-10', 'py-8']}>
                       <div>
                         <p class="eyebrow mb-3">{m.titel}</p>
                         <p class="mb-6 text-[15px] leading-relaxed font-normal text-tekst">{m.intro}</p>
                         <a href={item.href} class="knop-rand knop-klein">Alles over {m.titel} <Icon name="pijl" size={16} /></a>
                         {item.href === '/magento/' && (
-                          <a href="/magento-scan/" class="mt-6 flex items-center gap-3 rounded-[10px] bg-lavendel p-4 text-[14px] hover:text-navy">
-                            <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-paars text-white"><LijnIcoon naam="oog" size={18} /></span>
-                            <span><span class="block font-semibold">Magento scan</span><span class="font-normal text-tekst">Vrijblijvend inzicht in je webshop</span></span>
-                          </a>
-                          <a href="/magento/versies/" class="mt-3 flex items-center gap-3 rounded-[10px] border border-lijn p-4 text-[14px] hover:border-paars hover:text-navy">
-                            <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-paars-50 text-paars"><LijnIcoon naam="klok" size={18} /></span>
-                            <span><span class="block font-semibold">Magento versies</span><span class="font-normal text-tekst">Wordt jouw versie nog ondersteund?</span></span>
-                          </a>
+                          <ul class="mt-6 flex flex-col gap-2 border-t border-lijn pt-5 text-[14px]">
+                            <li><a href="/magento-scan/" class="inline-flex items-center gap-2 font-semibold hover:text-paars"><LijnIcoon naam="oog" size={16} class="text-paars" />Gratis Magento scan</a></li>
+                            <li><a href="/magento/versies/" class="inline-flex items-center gap-2 font-semibold hover:text-paars"><LijnIcoon naam="klok" size={16} class="text-paars" />Magento versies</a></li>
+                            <li><a href="/branches/" class="inline-flex items-center gap-2 font-semibold hover:text-paars"><LijnIcoon naam="winkel" size={16} class="text-paars" />Per branche</a></li>
+                          </ul>
                         )}
                       </div>
+                      {menuGroepen[item.href] ? (
+                        <div class="grid grid-cols-3 gap-x-8">
+                          {menuGroepen[item.href].map((g) => (
+                            <div>
+                              <p class="mb-2 px-3 text-[12px] font-semibold tracking-wide text-stil uppercase">{g.kop}</p>
+                              <ul class="flex flex-col">
+                                {g.diensten.map((d) => (
+                                  <li>
+                                    <a href={dienstUrl(d)} class="group/item flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-[15px] font-semibold transition-colors hover:bg-lavendel hover:text-paars">
+                                      <LijnIcoon naam={iconVoor[d.id] ?? 'vink'} size={17} class="shrink-0 text-paars" />
+                                      {d.data.titel}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
                       <ul class="grid grid-cols-2 gap-x-6 gap-y-1 xl:grid-cols-3">
                         {m.diensten.map((d) => (
                           <li>
@@ -108,8 +144,9 @@ const partners = site.partners.map((p) => `${p.naam} ${p.label}`.trim());
                           </li>
                         ))}
                       </ul>
+                      )}
                       {m.uitgelicht && (
-                        <a href={caseUrl(m.uitgelicht)} class="group/case relative flex min-h-[260px] flex-col justify-end overflow-hidden rounded-[12px] bg-navy p-5 text-white hover:text-white">
+                        <a href={caseUrl(m.uitgelicht)} class:list={['group/case relative flex flex-col justify-end overflow-hidden rounded-[12px] bg-navy p-5 text-white hover:text-white', 'min-h-[230px]']}>
                           <img src={m.uitgelicht.data.afbeelding} srcset={srcset(m.uitgelicht.data.afbeelding)} sizes="320px" alt="" loading="lazy" class="absolute inset-0 size-full object-cover opacity-60 transition-transform duration-700 group-hover/case:scale-105" />
                           <span class="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
                           <span class="relative text-[12px] font-semibold text-paars-licht uppercase">Uitgelichte case · {m.uitgelicht.data.klant}</span>

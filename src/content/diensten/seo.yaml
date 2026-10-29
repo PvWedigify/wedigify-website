@@ -1,13 +1,13 @@
-titel: SEO
+titel: SEO / GEO
 pijler: groei
 volgorde: 2
-kort: Technische SEO en content op zoekintentie.
-eyebrow: SEO
+kort: Gevonden worden in Google én in AI zoekmachines als ChatGPT.
+eyebrow: SEO en GEO
 heroTitel: SEO voor Magento webshops,
 heroAccent: gericht op omzet.
 intro: >-
-  Technische SEO die Magento écht snapt, gecombineerd met content op zoekintentie. Gericht op omzet, niet
-  alleen op posities.
+  Technische SEO die Magento écht snapt, content op zoekintentie en GEO: zichtbaar in Google én in AI
+  antwoorden van ChatGPT, Perplexity en Google AI Overviews. Gericht op omzet, niet alleen op posities.
 feiten:
 - label: Greenfield Fashion
   waarde: +250% organische omzet
@@ -16,10 +16,18 @@ wat:
 - Keywordonderzoek en contentplan
 - Categorie- en productpagina-optimalisatie
 - Linkbuilding en autoriteit
+- 'GEO, zichtbaarheid in AI zoekmachines'
 case: greenfield-fashion
 specialist: patrick
 teamleden: []
 uitleg:
+- titel: GEO, gevonden worden in AI zoekmachines
+  tekst: >-
+    Steeds meer klanten stellen hun vraag aan ChatGPT, Perplexity of Gemini, of lezen het AI overzicht
+    bovenaan Google. GEO (Generative Engine Optimization) zorgt dat jouw merk en producten daar genoemd
+    worden. Dat doen we met heldere, feitelijke content die direct antwoord geeft, complete structured data
+    en productfeeds, vermeldingen op betrouwbare bronnen en een technisch toegankelijke webshop. We meten
+    hoe vaak je merk in AI antwoorden terugkomt en hoeveel verkeer daaruit komt.
 - titel: Technische SEO voor Magento
   tekst: >-
     Magento genereert snel dubbele content via filters, sorteringen en storeviews. We richten canonicals,
@@ -30,6 +38,15 @@ uitleg:
     Categorieën en producten krijgen teksten die aansluiten op wat je klanten zoeken. Zo trek je bezoekers
     die willen kopen, niet alleen bezoekers die rondkijken.
 faq:
+- vraag: Wat is GEO?
+  antwoord: >-
+    GEO staat voor Generative Engine Optimization: je webshop zo inrichten dat AI zoekmachines als ChatGPT,
+    Perplexity en Google AI Overviews jouw merk en producten noemen en ernaar linken. Het bouwt voort op
+    goede SEO, met extra aandacht voor duidelijke antwoorden, structured data en autoriteit.
+- vraag: Vervangt GEO gewone SEO?
+  antwoord: >-
+    Nee. AI zoekmachines halen hun informatie grotendeels uit dezelfde bronnen als Google. Een technisch
+    sterke webshop met goede content is de basis voor allebei. Daarom combineren we SEO en GEO in één aanpak.
 - vraag: Hoe lang duurt het voordat SEO resultaat oplevert?
   antwoord: >-
     De eerste technische verbeteringen zijn vaak binnen enkele weken zichtbaar. Structurele groei bouw
@@ -47,10 +64,10 @@ artikelen:
 - zo-zet-je-google-search-console-in-om-seo-te-verbeteren
 ctaTitel: Hoeveel omzet laat jij liggen in Google?
 ctaLabel: Vraag een SEO scan aan
-seoTitel: SEO voor Magento webshops | Magento SEO bureau | Wedigify
+seoTitel: SEO en GEO voor Magento webshops | Wedigify
 seoOmschrijving: >-
-  SEO voor e-commerce en Magento: technisch, content en autoriteit. Greenfield Fashion groeide +250% in
-  organische omzet.
+  SEO en GEO voor Magento webshops: gevonden worden in Google én in ChatGPT en AI Overviews. Greenfield
+  Fashion groeide +250% in organische omzet.
 visual: zoek
 visualBadge:
   titel: Hoger in Google
@@ -67,6 +84,7 @@ watIs:
   - Zoekwoordonderzoek gericht op omzet
   - Optimalisatie van categorie en productpagina’s
   - Content en linkbuilding voor autoriteit
+  - Zichtbaar in AI antwoorden (GEO)
   visual: dashboard
 voordelen:
 - icoon: euro
@@ -111,6 +129,8 @@ onderdelen:
   label: Linkbuilding
 - icoon: document
   label: Structured data
+- icoon: sparkle
+  label: GEO en AI zichtbaarheid
 - icoon: wereld
   label: Internationale SEO
 - icoon: route
@@ -123,13 +143,14 @@ wanneer:
 - Je bent afhankelijk van betaalde advertenties
 - Je plant een migratie of nieuwe webshop
 - Je wilt groeien in nieuwe landen
+- Je wilt zichtbaar zijn in ChatGPT en AI Overviews
 stappen:
 - label: Week 1 tot 4
   titel: SEO audit
   tekst: Techniek, content en autoriteit doorgelicht, met een prioriteitenlijst.
 - label: Doorlopend
   titel: Optimaliseren
-  tekst: Technische fixes, pagina’s optimaliseren en content maken.
+  tekst: Technische fixes, pagina’s optimaliseren, content maken en zichtbaar worden in AI antwoorden.
 - label: Maandelijks
   titel: Rapporteren
   tekst: Posities, verkeer en omzet, en de volgende stappen.
@@ -169,8 +190,8 @@ resultaten:
   tekst: Minder afhankelijk van ads.
 - icoon: lagen
   richting: op
-  titel: Autoriteit
-  tekst: Sterker merk in Google.
+  titel: Zichtbaarheid in AI
+  tekst: Genoemd in ChatGPT en AI Overviews.
 ctaIntro: >-
   Laat je webshop scannen. We laten zien waar de technische knelpunten en de grootste zoekwoordkansen
   liggen.

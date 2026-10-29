@@ -1,0 +1,93 @@
+klant: Rikkoert Juweliers
+titel: Een Hyvä webshop die klanten
+titelAccent: naar de winkel brengt.
+branche: Juwelier
+plaats: Schoonhoven & Lekkerkerk
+tags: [Hyvä, Omnichannel, Maatwerk]
+diensten: [hyva, webshop-laten-maken]
+hoofdcijfer: Omnichannel
+hoofdcijferLabel: Online oriënteren, in de winkel beslissen.
+kort: Voor een verlovingsring van ruim duizend euro wil je eerst in de winkel kijken. De nieuwe Hyvä webshop van Rikkoert is daarom net zo goed een afsprakenplanner als een kassa.
+resultaten:
+  - waarde: '2'
+    label: winkels met live voorraad op elke productpagina
+  - waarde: '1'
+    label: afspraak voor al je favoriete stukken tegelijk
+  - waarde: '3'
+    label: soorten gravure, van laser tot handwerk
+  - waarde: '150'
+    label: jaar vakmanschap, sinds 1876
+uitdaging: >-
+  Rikkoert Juweliers bestaat 150 jaar en heeft winkels in Schoonhoven en
+  Lekkerkerk. Het assortiment is enorm: verlovingsringen, trouwringen,
+  horloges, sieraden en vintage stukken. Bij aankopen van honderden tot
+  duizenden euro's wil een klant het sieraad eerst passen, voelen en advies
+  krijgen. Een webshop die alles naar de online checkout duwt, mist die klant.
+  De vraag was dus niet alleen meer online verkopen, maar vooral: hoe zorgt de
+  webshop ervoor dat meer mensen met een concreet plan de winkel binnenlopen?
+aanpak: >-
+  We bouwden een nieuwe webshop op Magento met Hyvä, ontworpen rond de
+  klantreis die online begint en in de winkel eindigt. Elke productpagina geeft
+  twee volwaardige keuzes: direct bestellen of vrijblijvend reserveren. De
+  maatwerk functionaliteit hebben we volledig zelf ontwikkeld en geïntegreerd
+  in Magento.
+aanpakPunten:
+  - Winkelafspraak en reservering, met een eigen reserveerlijst waarin klanten meerdere stukken verzamelen voor één afspraak
+  - Winkelvoorraad per vestiging op elke productpagina en in de afspraakmodule, zodat de klant meteen de juiste winkel kiest
+  - Gravure als service, machinaal, met de laser of ambachtelijk met de hand, met heldere levertijden
+  - Live openingstijden van beide winkels in de header
+  - Inspiratieblokken in categorieën als verlovingsringen die uitnodigen tot een afspraak
+  - Een snelle Hyvä frontend, belangrijk omdat het grootste deel van de oriëntatie op mobiel gebeurt
+resultaat: >-
+  De nieuwe webshop is deze week live gegaan. Rikkoert heeft nu een webshop
+  die online verkoopt én de winkels vult met voorbereide klanten. We meten
+  vanaf de livegang afspraken, reserveringen en online omzet per categorie. Zodra
+  de eerste cijfers binnen zijn, delen we ze hier.
+functiesTitel: Maatwerk dat online en winkel verbindt.
+functies:
+  - icoon: kalender
+    titel: Winkelafspraak plannen
+    tekst: Klanten kiezen een winkel, datum en tijd en krijgen een bevestiging per mail. Kosteloos en vrijblijvend, zonder telefoontje.
+  - icoon: vink
+    titel: Reserveerlijst
+    tekst: Net als een winkelmand, maar dan voor in de winkel. Verzamel meerdere ringen of horloges en bekijk ze tijdens één afspraak.
+  - icoon: winkel
+    titel: Voorraad per winkel
+    tekst: Op elke productpagina en in de afspraakmodule zie je direct of een stuk in Schoonhoven of Lekkerkerk ligt.
+  - icoon: pen
+    titel: Gravure naar keuze
+    tekst: Machinaal, met de laser of met de hand gegraveerd. Machinale gravures gaan vaak dezelfde dag nog de deur uit.
+  - icoon: klok
+    titel: Live openingstijden
+    tekst: In de header staat per winkel of hij open is en wanneer hij weer opengaat. Klein detail, groot verschil in vertrouwen.
+  - icoon: snelheid
+    titel: Hyvä frontend
+    tekst: Een lichte en snelle frontend op Magento, zodat de duizenden producten ook op mobiel vlot laden.
+beelden:
+  - afbeelding: /images/cases/rikkoert-desktop-home.webp
+    apparaat: desktop
+    onderschrift: De homepage met live openingstijden van beide winkels
+  - afbeelding: /images/cases/rikkoert-desktop-product.webp
+    apparaat: desktop
+    onderschrift: Productpagina met reserveren en winkelvoorraad per vestiging
+  - afbeelding: /images/cases/rikkoert-desktop-winkelafspraak.webp
+    apparaat: desktop
+    onderschrift: De winkelafspraak met meerdere producten in één afspraak
+  - afbeelding: /images/cases/rikkoert-desktop-verlovingsringen.webp
+    apparaat: desktop
+    onderschrift: Verlovingsringen, met een uitnodiging om vrijblijvend langs te komen
+  - afbeelding: /images/cases/rikkoert-mobiel-home.webp
+    apparaat: mobiel
+    onderschrift: Homepage op mobiel
+  - afbeelding: /images/cases/rikkoert-mobiel-product.webp
+    apparaat: mobiel
+    onderschrift: Bestellen of reserveren
+  - afbeelding: /images/cases/rikkoert-mobiel-winkelafspraak.webp
+    apparaat: mobiel
+    onderschrift: Winkelafspraak op mobiel
+stack: [Magento Open Source, Hyvä Themes]
+afbeelding: /images/cases/rikkoert.webp
+datum: 2026-10-27
+volgorde: 1
+seoTitel: 'Rikkoert Juweliers case: omnichannel Hyvä webshop'
+seoOmschrijving: Hoe Wedigify voor Rikkoert Juweliers een Hyvä webshop bouwde met winkelafspraken, reservering, voorraad per winkel en gravure, zodat online oriëntatie leidt tot winkelbezoek.

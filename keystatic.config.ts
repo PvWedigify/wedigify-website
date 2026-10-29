@@ -241,6 +241,23 @@ export default config({
         aanpak: fields.text({ label: 'Onze aanpak', multiline: true }),
         aanpakPunten: fields.array(fields.text({ label: 'Punt' }), { label: 'Aanpak in punten', itemLabel: (p) => p.value }),
         resultaat: fields.text({ label: 'Het resultaat', multiline: true }),
+        functiesTitel: fields.text({ label: 'Titel maatwerk blok (optioneel)' }),
+        functies: fields.array(
+          fields.object({
+            icoon: fields.text({ label: 'Icoon (bv. winkel, pen, kalender)' }),
+            titel: fields.text({ label: 'Titel' }),
+            tekst: fields.text({ label: 'Tekst', multiline: true }),
+          }),
+          { label: 'Uitgelichte functionaliteiten', itemLabel: (p) => p.fields.titel.value },
+        ),
+        beelden: fields.array(
+          fields.object({
+            afbeelding: fields.image({ label: 'Beeld', directory: 'public/images/cases', publicPath: '/images/cases/' }),
+            apparaat: fields.select({ label: 'Apparaat', options: [{ label: 'Desktop', value: 'desktop' }, { label: 'Mobiel', value: 'mobiel' }], defaultValue: 'desktop' }),
+            onderschrift: fields.text({ label: 'Onderschrift' }),
+          }),
+          { label: 'Beelden (desktop en mobiel)', itemLabel: (p) => p.fields.onderschrift.value || p.fields.apparaat.value },
+        ),
         quoteTekst: fields.text({ label: 'Klantquote (leeg = niet tonen)', multiline: true }),
         quoteNaam: fields.text({ label: 'Quote — naam' }),
         quoteFunctie: fields.text({ label: 'Quote — functie' }),

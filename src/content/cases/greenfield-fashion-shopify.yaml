@@ -1,0 +1,85 @@
+klant: Greenfield Fashion
+titel: Van Lightspeed naar Shopify,
+titelAccent: zonder verlies van vindbaarheid.
+branche: Fashion
+plaats: Waddinxveen & Gouda
+tags: [Migratie, Shopify, SEO]
+diensten: [migraties, seo]
+hoofdcijfer: SEO behouden
+hoofdcijferLabel: Overstap naar Shopify met behoud van organische vindbaarheid.
+kort: Greenfield Fashion stapte over van Lightspeed naar Shopify. Klanten, orders en producten gingen mee, en de rankings die we samen hadden opgebouwd bleven staan.
+resultaten:
+  - waarde: '301'
+    label: redirect voor elke oude URL
+  - waarde: 60+
+    label: merken met varianten overgezet
+  - waarde: Klanten
+    label: en orderhistorie mee naar Shopify
+  - waarde: 3 maanden
+    label: live, met stabiele vindbaarheid
+uitdaging: >-
+  Greenfield Fashion heeft winkels in Waddinxveen en Gouda en verkoopt meer dan
+  60 merken. Samen met hen bouwden we de organische omzet flink uit met SEO en
+  CRO. Lightspeed werd voor hun ambities te beperkend, dus de keuze viel op
+  Shopify. Het risico van zo'n overstap is groot: een platformmigratie is een
+  van de snelste manieren om je rankings kwijt te raken. Daarnaast moesten
+  vaste klanten hun account en bestelgeschiedenis behouden, en moest de
+  productdata met alle maten en kleuren foutloos mee.
+aanpak: >-
+  We behandelden de migratie als een SEO project met een technische kern.
+  Eerst brachten we alle URL's, rankings en verkeer in kaart, daarna
+  migreerden we de data in testrondes, en pas toen alles klopte gingen we live.
+aanpakPunten:
+  - Volledige URL inventarisatie van producten, collecties, merken en content, met een 301 redirect voor elke oude URL
+  - Meta titels, omschrijvingen, canonicals en structured data overgezet en gecontroleerd
+  - Productdata met varianten in maat en kleur, merken, afbeeldingen en voorraad gemigreerd en gevalideerd
+  - Klantaccounts en orderhistorie overgezet, zodat vaste klanten gewoon verder kunnen
+  - Shopify thema ingericht met shop the look, merkpagina's en een winkelpagina voor beide winkels
+  - Na livegang dagelijks Search Console, 404 meldingen en indexatie gemonitord
+resultaat: >-
+  Greenfield draait nu drie maanden op Shopify. De organische vindbaarheid is
+  behouden, vaste klanten hebben hun gegevens en bestellingen meegenomen en het
+  team werkt in een platform dat makkelijker te beheren is. Daarmee ligt er een
+  stevig fundament om verder te groeien met SEO en CRO.
+functiesTitel: Zo bleef de vindbaarheid overeind.
+functies:
+  - icoon: route
+    titel: Redirect plan
+    tekst: Elke oude Lightspeed URL kreeg een vaste plek in de nieuwe structuur, getest voordat we live gingen.
+  - icoon: zoek
+    titel: SEO data mee
+    tekst: Titels, omschrijvingen, canonicals en structured data gingen één op één mee en werden waar nodig verbeterd.
+  - icoon: database
+    titel: Productdata
+    tekst: Producten met al hun maten, kleuren, merken en afbeeldingen, gevalideerd in meerdere testrondes.
+  - icoon: gebruiker
+    titel: Klanten en orders
+    tekst: Klantaccounts en bestelgeschiedenis overgezet, zodat niemand opnieuw hoefde te beginnen.
+  - icoon: grafiek
+    titel: Monitoring na livegang
+    tekst: Search Console, crawls en 404 meldingen dagelijks bekeken in de eerste weken na de overstap.
+  - icoon: winkel
+    titel: Online en winkel
+    tekst: Shop the look, merkpagina's en een winkelpagina voor Waddinxveen en Gouda.
+beelden:
+  - afbeelding: /images/cases/greenfield-shopify-desktop-home.webp
+    apparaat: desktop
+    onderschrift: De nieuwe Shopify webshop
+  - afbeelding: /images/cases/greenfield-shopify-desktop-collectie.webp
+    apparaat: desktop
+    onderschrift: Collectiepagina met filters op merk, maat en kleur
+  - afbeelding: /images/cases/greenfield-shopify-desktop-product.webp
+    apparaat: desktop
+    onderschrift: Productpagina met varianten en reviews
+  - afbeelding: /images/cases/greenfield-shopify-mobiel-home.webp
+    apparaat: mobiel
+    onderschrift: Homepage op mobiel
+  - afbeelding: /images/cases/greenfield-shopify-mobiel-product.webp
+    apparaat: mobiel
+    onderschrift: Productpagina op mobiel
+stack: [Shopify, Lightspeed (oud)]
+afbeelding: /images/cases/greenfield-shopify.webp
+datum: 2026-07-29
+volgorde: 3
+seoTitel: 'Greenfield Fashion case: Lightspeed naar Shopify'
+seoOmschrijving: Hoe Wedigify Greenfield Fashion van Lightspeed naar Shopify migreerde met behoud van SEO, klantaccounts, orderhistorie en productdata.

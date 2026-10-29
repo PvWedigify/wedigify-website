@@ -5,6 +5,10 @@ import Icon from '@/components/Icon.astro';
 import Achtergrond from '@/components/Achtergrond.astro';
 import WaaromWedigify from '@/components/WaaromWedigify.astro';
 import Faq from '@/components/Faq.astro';
+import { getEntry } from 'astro:content';
+import { bestaat } from '@/lib/site';
+
+const iris = await getEntry('team', 'iris');
 
 const faq = [
   { vraag: 'Wat is een business case per kanaal?', antwoord: 'Een onderbouwde berekening per kanaal (zoals SEO, SEA, e-mail of de winkel) van de kansen, de benodigde investering en de verwachte opbrengst. Daarmee bepalen we samen waar je budget het meeste oplevert.' },
@@ -82,6 +86,17 @@ const ritme = [
   >
     <Fragment slot="acties">
       <a href="/contact/" class="knop-paars">Plan een groeisessie <Icon name="pijl" size={18} /></a>
+      {
+        iris && bestaat(iris.data.foto) && (
+          <a href="/contact/" class="group inline-flex items-center gap-4 rounded-full border border-lijn-sterk bg-white/80 py-2 pr-5 pl-2 backdrop-blur transition-colors hover:border-paars hover:text-navy">
+            <img src={iris.data.foto} alt="" width="48" height="48" class="size-12 shrink-0 rounded-full object-cover ring-[3px] ring-white" />
+            <span class="text-left text-[14px] leading-snug">
+              <span class="block text-tekst">Je business case maak je met</span>
+              <span class="block font-semibold text-navy group-hover:text-paars">{iris.data.naam}, {iris.data.rol.toLowerCase()}</span>
+            </span>
+          </a>
+        )
+      }
     </Fragment>
   </PageHero>
 

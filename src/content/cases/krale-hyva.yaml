@@ -1,0 +1,83 @@
+klant: Krale
+titel: Een nieuwe Hyvä webshop
+titelAccent: voor schietsport, jacht en airsoft.
+branche: Airsoft, schietsport & jacht
+plaats: Staphorst
+tags: [Hyvä, Meertalig, UX]
+diensten: [hyva, webshop-laten-maken]
+hoofdcijfer: 3 werelden
+hoofdcijferLabel: Schietsport, jacht en airsoft, elk met een eigen ingang.
+kort: Na de overstap naar Magento Open Source kreeg Krale een volledig nieuwe Hyvä frontend. Snel, meertalig en gebouwd voor drie heel verschillende doelgroepen.
+resultaten:
+  - waarde: Hyvä
+    label: lichte en snelle frontend
+  - waarde: '3'
+    label: werelden met eigen navigatie
+  - waarde: '1901'
+    label: familiebedrijf sinds
+  - waarde: 1.400 m²
+    label: winkel in Staphorst, online verbonden
+uitdaging: >-
+  Krale is sinds 1901 een begrip in schietsport, jacht en airsoft, met een winkel
+  van 1.400 m² in Staphorst. Nadat we Krale eerder van Adobe Commerce naar
+  Magento Open Source hadden gebracht, was de frontend aan de beurt. Het
+  assortiment is groot en technisch, de drie doelgroepen zoeken heel anders en
+  voor een deel van de producten gelden wettelijke restricties. Klanten moeten
+  dat vooraf weten, zonder dat het de aankoop in de weg zit.
+aanpak: >-
+  We hebben de webshop opnieuw ontworpen en gebouwd op Hyvä. De structuur
+  vertrekt vanuit de drie werelden van Krale, met per wereld een eigen kleur,
+  navigatie en snelle routes naar de belangrijkste categorieën.
+aanpakPunten:
+  - Homepage en navigatie opgedeeld in schietsport, jacht en airsoft, elk met een eigen kleur en categorie ingang
+  - Productrestricties duidelijk zichtbaar op de productpagina, zodat de klant vooraf weet wat er geldt
+  - Snel zoeken en filteren in een groot, technisch assortiment
+  - Meertalige winkel met taal en valuta keuze voor klanten buiten Nederland
+  - Gespreid betalen via in3 direct bij de prijs, prettig bij grotere aankopen
+  - De fysieke winkel en afhalen prominent in de USP's, naast voor 23:59 besteld, morgen in huis
+  - Hyvä voor een snelle frontend, ook op mobiel
+resultaat: >-
+  Krale heeft een snelle, overzichtelijke webshop die past bij een
+  specialist met meer dan 100 jaar ervaring. De volgende stap zetten we nu
+  samen: met Spotler Activate en Spotler Mail+ bouwen we een klantdataplatform
+  voor zowel de consumentenshop als Krale Wholesale. De groeicijfers van de
+  nieuwe webshop delen we hier zodra de eerste periode is afgerond.
+functiesTitel: Gebouwd voor een specialistisch assortiment.
+functies:
+  - icoon: raster
+    titel: Drie werelden
+    tekst: Schietsport, jacht en airsoft hebben elk een eigen kleur en ingang, zodat iedere doelgroep direct op de juiste plek landt.
+  - icoon: schild
+    titel: Productrestricties
+    tekst: Bij producten met wettelijke regels ziet de klant direct dat er een restrictie geldt, met uitleg over wat dat betekent.
+  - icoon: wereld
+    titel: Meertalig
+    tekst: Taal en valuta per land, zodat ook klanten buiten Nederland gewoon kunnen bestellen.
+  - icoon: filters
+    titel: Zoeken en filteren
+    tekst: Snel door luchtbuksen, optiek en munitie op merk, kaliber en specificaties.
+  - icoon: winkel
+    titel: Online en winkel
+    tekst: De winkel in Staphorst en afhalen staan prominent in de webshop, voor klanten die eerst willen kijken.
+  - icoon: snelheid
+    titel: Hyvä frontend
+    tekst: Een lichte frontend die op mobiel net zo snel aanvoelt als op desktop.
+beelden:
+  - afbeelding: /images/cases/krale-hyva-desktop-home.webp
+    apparaat: desktop
+    onderschrift: De homepage met de drie werelden van Krale
+  - afbeelding: /images/cases/krale-hyva-desktop-product.webp
+    apparaat: desktop
+    onderschrift: Productpagina met restrictie melding en gespreid betalen
+  - afbeelding: /images/cases/krale-hyva-mobiel-home.webp
+    apparaat: mobiel
+    onderschrift: Kies je interesse op mobiel
+  - afbeelding: /images/cases/krale-hyva-mobiel-product.webp
+    apparaat: mobiel
+    onderschrift: Productpagina op mobiel
+stack: [Magento Open Source, Hyvä Themes, Hypernode]
+afbeelding: /images/cases/krale-hyva.webp
+datum: 2026-08-01
+volgorde: 2
+seoTitel: 'Krale case: nieuwe Hyvä webshop voor schietsport'
+seoOmschrijving: Wedigify bouwde voor Krale een snelle, meertalige Hyvä webshop voor schietsport, jacht en airsoft, met duidelijke productrestricties en drie eigen werelden.

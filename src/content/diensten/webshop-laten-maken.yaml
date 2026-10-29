@@ -147,8 +147,8 @@ wanneer:
 - Je wilt eigenaar zijn van je platform en data
 stappen:
 - label: Week 1 tot 3
-  titel: Business case en ontwerp
-  tekst: We vertalen je doelen naar functionaliteit, UX en een technische architectuur.
+  titel: Analyse en ontwerp
+  tekst: We brengen je wensen, processen en koppelingen in kaart en vertalen die naar een functioneel ontwerp, UX en technische architectuur.
 - label: Sprints
   titel: Bouwen en testen
   tekst: In sprints van twee weken bouwen we zichtbaar door, met een eigen testomgeving.

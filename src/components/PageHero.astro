@@ -35,7 +35,7 @@ const { eyebrow, titel, accent, intro, kruimels, indeling = 'onder' } = Astro.pr
     </div>
     {
       Astro.slots.has('acties') && (
-        <div class="mt-9 flex flex-wrap gap-3">
+        <div class="mt-9 flex flex-wrap items-center gap-3">
           <slot name="acties" />
         </div>
       )

@@ -18,7 +18,7 @@ const eerste = mensen[0];
       <p class="eyebrow mb-4">Samen aan de slag</p>
       <h2 class="kop-2">Zo pakken we het <span class="text-paars">samen aan.</span></h2>
       {eerste && <p class="lead mt-5 max-w-[520px]">Je werkt met vaste gezichten die je webshop kennen. {eerste.data.naam} is je aanspreekpunt voor {dienstNaam.toLowerCase()}.</p>}
-      {eerste && <a href="/contact/" class="knop-paars mt-8">Plan een gesprek met {eerste.data.naam} <Icon name="pijl" size={18} /></a>}
+      <a href="/contact/" class="knop-paars mt-8">Plan een vrijblijvend gesprek <Icon name="pijl" size={18} /></a>
     </div>
     {
       stappen.length > 0 && (
