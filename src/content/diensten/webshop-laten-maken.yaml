@@ -146,7 +146,7 @@ wanneer:
 - Je wilt koppelen met ERP, PIM of WMS
 - Je wilt eigenaar zijn van je platform en data
 stappen:
-- label: Week 1 tot 3
+- label: ''
   titel: Analyse en ontwerp
   tekst: We brengen je wensen, processen en koppelingen in kaart en vertalen die naar een functioneel ontwerp, UX en technische architectuur.
 - label: Sprints

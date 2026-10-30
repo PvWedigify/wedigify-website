@@ -29,16 +29,16 @@ wat:
 - Volledige Hyvä frontend voor je shop
 - SEO proof livegang met redirects en monitoring
 stappen:
-- label: Week 1
+- label: ''
   titel: Audit & extensiecheck
   tekst: Welke modules zijn Hyvä compatible en wat moet herbouwd worden?
-- label: Week 2–3
+- label: ''
   titel: Design
   tekst: Ontwerp op basis van data en gedrag in je huidige shop.
-- label: Week 3–7
+- label: ''
   titel: Bouw
   tekst: Elke week een demo op een testomgeving.
-- label: Week 8
+- label: ''
   titel: Livegang & nazorg
   tekst: Gefaseerd live, daarna monitoring en optimalisatie.
 case: tacstack

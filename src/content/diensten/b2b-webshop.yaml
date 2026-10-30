@@ -83,7 +83,7 @@ wanneer:
 - Je werkt met een ERP zoals AFAS, Exact of Business Central
 - Je huidige B2B portal is verouderd of wordt slecht gebruikt
 stappen:
-- label: Week 1 tot 4
+- label: ''
   titel: Processen en business case
   tekst: We brengen je klanten, prijsstructuren en ERP processen in kaart.
 - label: Sprints

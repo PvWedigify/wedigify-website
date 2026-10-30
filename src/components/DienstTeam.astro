@@ -10,6 +10,7 @@ interface Props {
 }
 const { mensen, stappen, dienstNaam } = Astro.props;
 const eerste = mensen[0];
+const naamInZin = /^(Hyvä|Magento|AFAS|Exact|Business|SEO|SEA|CRO|AI|B2B)/.test(dienstNaam) ? dienstNaam : dienstNaam.charAt(0).toLowerCase() + dienstNaam.slice(1);
 ---
 
 <section class="container-w sectie-s">
@@ -17,7 +18,7 @@ const eerste = mensen[0];
     <div data-reveal>
       <p class="eyebrow mb-4">Samen aan de slag</p>
       <h2 class="kop-2">Zo pakken we het <span class="text-paars">samen aan.</span></h2>
-      {eerste && <p class="lead mt-5 max-w-[520px]">Je werkt met vaste gezichten die je webshop kennen. {eerste.data.naam} is je aanspreekpunt voor {dienstNaam.toLowerCase()}.</p>}
+      {eerste && <p class="lead mt-5 max-w-[520px]">Je werkt met vaste gezichten die je webshop kennen. {eerste.data.naam} is je aanspreekpunt voor {naamInZin}.</p>}
       <a href="/contact/" class="knop-paars mt-8">Plan een vrijblijvend gesprek <Icon name="pijl" size={18} /></a>
     </div>
     {

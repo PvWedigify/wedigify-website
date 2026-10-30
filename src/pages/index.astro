@@ -51,16 +51,16 @@ const kennis = (await getCollection('kennis')).sort((x, y) => y.data.datum.value
           <span class="block text-balance text-paars">{home.heroAccent}</span>
         </h1>
         <p class="lead mt-8 max-w-[540px] md:text-xl">{home.heroIntro}</p>
-        <div class="mt-10 flex flex-wrap gap-3">
-          <a href="/contact/" class="knop-paars shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)]">Plan een groeisessie <Icon name="pijl" size={18} /></a>
-          <a href="/magento-scan/" class="knop-rand bg-white/60">Laat je shop scannen</a>
+        <div class="mt-10 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:gap-3">
+          <a href="/contact/" class="knop-paars justify-center text-center leading-tight shadow-[0_10px_30px_-10px_rgb(118_60_247/0.7)] max-sm:px-3 max-sm:py-3.5 max-sm:text-[14px]">Plan een groeisessie <Icon name="pijl" size={18} class="max-sm:hidden" /></a>
+          <a href="/magento-scan/" class="knop-rand justify-center text-center leading-tight bg-white/60 max-sm:px-3 max-sm:py-3 max-sm:text-[14px]">Laat je shop scannen</a>
         </div>
         <a href="/over-ons/team/" class="group mt-12 flex items-center gap-4 border-t border-lijn-sterk pt-6 hover:text-navy">
-          <span class="flex -space-x-3">
-            {gezichten.map((t) => <img src={t.data.foto} alt="" width="48" height="48" class="size-12 rounded-full object-cover ring-[3px] ring-lavendel" />)}
-            <span class="inline-flex size-12 items-center justify-center rounded-full bg-paars text-sm font-bold text-white ring-[3px] ring-lavendel">+{Math.max(alleTeam.length - gezichten.length, 0)}</span>
+          <span class="flex shrink-0 -space-x-3">
+            {gezichten.map((t, i) => <img src={t.data.foto} alt="" width="48" height="48" class:list={['size-10 rounded-full object-cover ring-[3px] ring-lavendel sm:size-12', i > 2 && 'max-sm:hidden']} />)}
+            <span class="inline-flex size-10 items-center justify-center rounded-full bg-paars text-[13px] font-bold text-white ring-[3px] ring-lavendel sm:size-12 sm:text-sm"><span class="sm:hidden">+{Math.max(alleTeam.length - Math.min(gezichten.length, 3), 0)}</span><span class="max-sm:hidden">+{Math.max(alleTeam.length - gezichten.length, 0)}</span></span>
           </span>
-          <span class="text-[15px] leading-snug">
+          <span class="min-w-0 text-[14px] leading-snug sm:text-[15px]">
             <span class="block font-semibold text-navy group-hover:text-paars">Een vast team van {alleTeam.length} specialisten</span>
             <span class="block text-tekst">Developers, marketeers en strategen in Rotterdam</span>
           </span>

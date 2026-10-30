@@ -27,13 +27,13 @@ wat:
 - Lijst met bugs, risico's en quick wins
 - Vast team en vaste contactpersoon
 stappen:
-- label: Week 1
+- label: ''
   titel: Overdracht
   tekst: Toegang, code en kennis veilig overgenomen.
-- label: Week 1–2
+- label: ''
   titel: Audit
   tekst: Wat staat er, wat werkt niet, wat kost omzet?
-- label: Week 2–4
+- label: ''
   titel: Stabiliseren
   tekst: Kritische bugs eerst, daarna de quick wins.
 - label: Daarna

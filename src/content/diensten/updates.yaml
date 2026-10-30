@@ -106,7 +106,7 @@ wanneer:
 - Je wilt nieuwe Magento functionaliteit gebruiken
 - Je wilt een vaste updatecyclus
 stappen:
-- label: Week 1
+- label: ''
   titel: Inventarisatie
   tekst: We bekijken versies, modules en maatwerk en maken een plan.
 - label: Staging

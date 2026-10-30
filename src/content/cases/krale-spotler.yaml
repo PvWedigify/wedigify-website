@@ -1,0 +1,71 @@
+klant: Krale
+titel: Eén klantbeeld voor B2C en B2B
+titelAccent: met Spotler Activate en Mail+.
+branche: Airsoft, schietsport & jacht
+plaats: Staphorst
+tags: [CDP, E-mailmarketing, B2C en B2B]
+diensten: [e-mailmarketing, strategie-data]
+hoofdcijfer: 1 klantbeeld
+hoofdcijferLabel: Consumenten en dealers samen in één profiel.
+kort: Na de nieuwe Hyvä webshop zetten we met Krale de volgende stap. Via Spotler Connect komen de meertalige consumentenshop en Krale Wholesale samen in Spotler Activate, en Spotler Mail+ zorgt voor de juiste communicatie.
+resultaten:
+  - waarde: B2C + B2B
+    label: via Spotler Connect in één klantprofiel
+  - waarde: '3'
+    label: werelden met eigen segmenten
+  - waarde: Meertalig
+    label: communicatie in de taal van de klant
+  - waarde: '2027'
+    label: eerste resultaten volgen
+uitdaging: >-
+  Krale verkoopt online via de meertalige consumentenshop krale.shop en aan
+  dealers via Krale Wholesale. Die klantdata stond los van elkaar. Een jager kreeg
+  dezelfde nieuwsbrief als een airsofter die net zijn eerste bestelling deed,
+  buitenlandse klanten kregen niet altijd communicatie in hun eigen taal, en
+  dealers misten een vast ritme in communicatie. Krale wilde meer
+  herhaalaankopen, hogere klantwaarde en relevante communicatie per doelgroep,
+  zonder de wettelijke regels rond producten met restricties uit het oog te
+  verliezen.
+aanpak: >-
+  We maakten een framework voor een succesvolle implementatie van Spotler. Spotler
+  Connect koppelt de Magento data van B2C en B2B aan Spotler Activate, het
+  klantdataplatform. Spotler Mail+ verstuurt de flows en campagnes. Eerst de
+  data en consent op orde, dan de basisflows, daarna B2B.
+aanpakPunten:
+  - Spotler Connect koppelt krale.shop (B2C, meertalig) en Krale Wholesale (B2B) aan Spotler Activate
+  - Eén datamodel met per profiel het type klant, de taal, de wereld (schietsport, jacht of airsoft) en de klantwaarde
+  - Segmenten per wereld, taal en levensfase, apart voor consumenten en dealers
+  - Basisflows in Mail+ voor welkom, verlaten winkelmand en na aankoop, later aanvullen en reactivatie
+  - B2B flows voor dealer onboarding en een vast bestelritme
+  - Consent per doel en duidelijke afspraken over producten met restricties
+resultaat: >-
+  Het framework staat en de implementatie loopt in fasen. Elke fase start pas
+  als de vorige staat. Samen met Krale leggen we nu de nulmeting en doelen per
+  KPI vast. Zodra de eerste flows draaien, delen we hier de resultaten. Een
+  logische volgende stap is het koppelen van de winkelaankopen in Staphorst.
+functiesTitel: Zo bouwen we het klantbeeld op.
+functies:
+  - icoon: database
+    titel: Eén klantprofiel
+    tekst: Via Spotler Connect komen bestellingen en klantdata van B2C en B2B samen per klant in Spotler Activate.
+  - icoon: wereld
+    titel: Meertalig en per wereld
+    tekst: Communicatie in de taal van de klant, met eigen segmenten en content voor schietsport, jacht en airsoft.
+  - icoon: mail
+    titel: Flows in Mail+
+    tekst: Welkom, verlaten winkelmand, na aankoop en aanvullen van verbruiksartikelen, automatisch en op het juiste moment.
+  - icoon: koffer
+    titel: B2B dealers
+    tekst: Onboarding voor nieuwe dealers en een seintje aan de accountmanager als het bestelritme terugvalt.
+  - icoon: schild
+    titel: Consent en regels
+    tekst: Toestemming per doel en communicatie die rekening houdt met producten met restricties.
+  - icoon: grafiek
+    titel: Meetbaar vanaf dag één
+    tekst: Elke flow heeft een doel en een KPI, met een maandelijks dashboard en een review per kwartaal.
+stack: [Spotler Connect, Spotler Activate, Spotler Mail+, Magento Open Source]
+afbeelding: /images/cases/krale-spotler.webp
+datum: 2026-10-28
+volgorde: 3
+seoTitel: 'Krale case: Spotler Activate en Mail+ voor B2C en B2B'
+seoOmschrijving: Hoe Wedigify voor Krale een klantdataplatform opzet met Spotler Connect, Spotler Activate en Spotler Mail+, voor de meertalige consumentenshop en Krale Wholesale.

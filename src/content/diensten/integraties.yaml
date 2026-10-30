@@ -133,7 +133,7 @@ wanneer:
 - Je wilt verkopen via marketplaces
 - Je huidige koppeling is instabiel
 stappen:
-- label: Week 1 tot 2
+- label: ''
   titel: Datastromen in kaart
   tekst: Welke data, welke richting, hoe vaak en wat is leidend.
 - label: Bouw
